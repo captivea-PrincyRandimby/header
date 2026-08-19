@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Options panel for the Captivea Blog Posts snippet: Blog + Tag filters
+         on top of the standard dynamic-snippet options. -->
+    <t t-name="cap_web_captivea_theme.CapBlogPostsOption" t-inherit="website.DynamicSnippetOption">
+        <xpath expr="//BuilderRow[*[@id=&quot;'filter_opt'&quot;]]" position="after">
+            <BuilderRow label.translate="Blog" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByBlogId'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="'0'">All blogs</BuilderSelectItem>
+                    <t t-foreach="blogState.blogs" t-as="blog" t-key="blog.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${blog.id}`" t-out="blog.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Tag" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByTagIds'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="''">All tags</BuilderSelectItem>
+                    <t t-foreach="blogState.tags" t-as="tag" t-key="tag.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${tag.id}`" t-out="tag.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+        </xpath>
+    </t>
+
+</templates>

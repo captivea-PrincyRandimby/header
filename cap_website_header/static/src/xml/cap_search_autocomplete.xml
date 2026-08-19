@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<!--
+    Suggestion panel of the header search bar.
+
+    `search_bar.js` looks for `website.s_searchbar.autocomplete.<searchType>`
+    and falls back to the generic template when it does not exist. Defining the
+    `.all` variant is therefore the native extension point - no patching, no
+    monkey-patch of the interaction.
+
+    It is inherited in `primary` mode rather than rewritten, so the result loop,
+    the fuzzy-search notice and the "All results" entry keep following whatever
+    Odoo does with them; only the framing is ours.
+
+    Scope worth knowing: this applies to *every* search bar whose scope is
+    "All", not only the header one. That is the granularity Odoo offers - the
+    template is picked by search type, and nothing else. So the panel is written
+    as a plain dropdown card, and `cap_search_modal.js` is what turns it into
+    the centered modal of the mock-up, for the Captivea header only.
+-->
+<!--
+    Root is a `<div>`, not a `<t>`, and that matters: `templates.js` rebuilds the
+    root from scratch when the child's tag differs from the parent's, which would
+    throw away the root added below.
+-->
+<div t-name="website.s_searchbar.autocomplete.all"
+     t-inherit="website.s_searchbar.autocomplete"
+     t-inherit-mode="primary">
+
+    <!--
+        The native root becomes the scrollable body: the dropdown classes move
+        up to the new root, which is the box `website.search_bar_results` sizes
+        and positions, and the one `search_bar.js` shows and removes.
+    -->
+    <xpath expr="." position="attributes">
+        <attribute name="class">cap_search_body</attribute>
+    </xpath>
+
+    <xpath expr="//t[@t-if='fuzzySearch and results.length']" position="before">
+        <div t-if="results.length" class="cap_search_section_title">Recommended results</div>
+    </xpath>
+
+    <xpath expr="//a[@t-foreach='results']" position="attributes">
+        <attribute name="class" add="cap_search_result" separator=" "/>
+    </xpath>
+
+    <!--
+        Title bar, echo of the query and actions are siblings of the body, not
+        children of it: they stay put while the results scroll between them, and
+        `cap_website_header.search_loading` below can swap the body alone.
+
+        Two wrappers, and both are needed. `website.search_bar_results` forces
+        `position: absolute !important` on the root through an inline style, so
+        the root can never be the full screen overlay: `.cap_search_overlay` is.
+        `.cap_search_dialog` is the white card inside it. Outside of a modal
+        both are `display: contents`, i.e. the panel is the flat dropdown Odoo
+        renders everywhere else.
+
+        `$0` is the native root, cloned in place - the QWeb inheritance way of
+        wrapping a node instead of rewriting it.
+    -->
+    <xpath expr="." position="replace">
+        <div class="o_dropdown_menu show position-absolute w-100 cap_search_panel">
+            <div class="cap_search_overlay">
+                <div class="cap_search_dialog">
+                    <div class="cap_search_dialog_head">
+                        <i class="fa fa-magic cap_search_dialog_icon" aria-hidden="true"/>
+                        <!-- <span class="cap_search_dialog_title">AI Analysis</span> -->
+                        <span class="cap_search_dialog_title">Search result</span>
+                        <span class="cap_search_dialog_badge">Beta</span>
+                        <!--
+                            `type="button"`: until `cap_search_modal.js` moves
+                            the panel out, it is still inside the search
+                            `<form>`, where a button submits by default.
+                        -->
+                        <button type="button" class="btn cap_search_dialog_close"
+                                aria-label="Close" title="Close">
+                            <i class="oi oi-close" aria-hidden="true"/>
+                        </button>
+                    </div>
+                    <div class="cap_search_head">
+                        <span class="cap_search_head_label">Your search</span>
+                        <p class="cap_search_query" t-out="search"/>
+                    </div>
+                    <t>$0</t>
+                    <div class="cap_search_actions">
+                        <a href="/contactus" class="btn btn-primary rounded-pill">
+                            <i class="fa fa-comments me-2" aria-hidden="true"/>Talk to an expert
+                        </a>
+                        <a href="/contactus" class="btn btn-outline-secondary rounded-pill">Book a demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</div>
+
+<!--
+    Same panel, waiting for its results.
+
+    Inherited from the one above so that the frame - title bar, echo of the
+    query, actions - is written once and cannot drift; only the body, i.e. what
+    the search has to fill in, is swapped for the spinner. `cap_search_bar.js`
+    renders it the moment the search is submitted.
+-->
+<div t-name="cap_website_header.search_loading"
+     t-inherit="website.s_searchbar.autocomplete.all"
+     t-inherit-mode="primary">
+    <xpath expr="//div[hasclass('cap_search_body')]" position="replace">
+        <div class="cap_search_body cap_search_loading">
+            <span class="spinner-border cap_search_spinner" role="status" aria-hidden="true"/>
+            <p class="cap_search_loading_text">Analysing your request</p>
+        </div>
+    </xpath>
+</div>
+
+</templates>

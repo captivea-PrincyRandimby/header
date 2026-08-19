@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Captivea Blog Posts dynamic snippet (independent from Odoo's native
+         s_blog_posts): same behaviour, but with editor-driven Blog + Tag
+         filters and a Captivea card design (cover, category badge, title,
+         date, teaser, auto-linked tag badges, author). -->
+
+    <!-- Snippet wrapper (mirrors website_blog.s_blog_posts) -->
+    <template id="s_cap_blog_posts" name="Captivea Blog Posts">
+        <t t-call="website.s_dynamic_snippet_template">
+            <t t-set="snippet_name" t-value="'s_cap_blog_posts'"/>
+            <t t-set="main_page_url" t-value="'/blog'"/>
+            <t t-set="snippet_classes" t-value="'s_cap_blog_posts %s' % snippet_extra_classes"/>
+            <t t-out="0"/>
+        </t>
+    </template>
+
+    <!-- Record render template. The '_blog_post_' token in the id is required by
+         website.snippet.filter model-template matching. One top-level card per
+         record (no outer .row / .col): the JS grid wraps each fragment in a
+         column using the columnClasses forced in cap_blog_posts.js. -->
+    <template id="dynamic_filter_template_blog_post_cap_card" name="Captivea Blog Posts - Cards">
+        <t t-foreach="records" t-as="data">
+            <t t-set="record" t-value="data['_record']"/>
+            <div class="card h-100 s_cap_blogcard">
+                <a class="text-decoration-none text-reset" t-att-href="record.website_url" t-attf-title="Read #{record.name}">
+                    <div class="s_cap_blogcard_cover card-img-top ratio ratio-16x9 position-relative overflow-hidden">
+                        <t t-call="website.record_cover">
+                            <t t-set="_record" t-value="record"/>
+                            <t t-set="additionnal_classes" t-value="'position-absolute w-100 h-100 bg-600 o_snippet_not_selectable'"/>
+                        </t>
+                        <span t-if="record.blog_id" class="s_cap_blogcard_cat badge rounded-pill position-absolute top-0 start-0 m-3" t-out="record.blog_id.name"/>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title s_cap_blogcard_title h5" t-out="record.name"/>
+                        <p t-if="record.teaser" class="s_cap_blogcard_teaser card-text mt-2" t-out="record.teaser"/>
+                    </div>
+                </a>
+                <div class="card-footer d-flex flex-column gap-2 mt-auto border-0 p-3 pt-0 bg-transparent">
+                    <div t-if="record.tag_ids" class="s_cap_blogcard_tags d-flex flex-wrap gap-1">
+                        <a t-foreach="record.tag_ids" t-as="tag" t-key="tag.id"
+                           t-attf-href="/blog/tag/#{slug(tag)}"
+                           class="badge rounded-pill text-bg-light border text-decoration-none" t-out="tag.name"/>
+                    </div>
+                    <hr/>
+                    <div t-if="record.author_id" class="s_cap_blogcard_author d-inline-flex align-items-center small">
+                        <img t-if="record.author_avatar" class="o_avatar me-2 rounded-pill" t-attf-src="data:image/png;base64,#{record.author_avatar}" alt=""/>
+                        <span t-out="record.author_id.name"/>
+                        <span class="s_cap_blogcard_date text-muted small ms-2" t-field="record.post_date" t-options='{"format": "MMM d, yyyy"}'/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Register the snippet in the builder panel, in the Captivea — Dynamic group
+         (the group itself is declared in customer_references_templates.xml). -->
+    <template id="cap_blog_posts_snippet" inherit_id="website.snippets" name="Captivea: Blog Posts snippet">
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="cap_web_captivea_theme.s_cap_blog_posts" group="captivea_dynamic"
+               t-thumbnail="/website_blog/static/src/img/snippets_thumbs/s_blog_posts.svg"/>
+        </xpath>
+    </template>
+
+</odoo>

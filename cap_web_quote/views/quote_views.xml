@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===== Quote / Testimonial ===== -->
+    <record id="view_quote_testimonial_list" model="ir.ui.view">
+        <field name="name">quote.testimonial.list</field>
+        <field name="model">quote.testimonial</field>
+        <field name="arch" type="xml">
+            <list string="Testimonials">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="author"/>
+                <field name="role_id"/>
+                <field name="company_name"/>
+                <field name="tag_ids" widget="many2many_tags" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="website_id" groups="website.group_multi_website" optional="hide"/>
+                <field name="is_published" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quote_testimonial_form" model="ir.ui.view">
+        <field name="name">quote.testimonial.form</field>
+        <field name="model">quote.testimonial</field>
+        <field name="arch" type="xml">
+            <form string="Testimonial">
+                <!-- No "Go to Website" button: testimonials are shown only through the
+                     dynamic snippet and have no dedicated public page. -->
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="author"/>
+                            <field name="role_id" options="{'no_quick_create': True}"/>
+                            <field name="company_name"/>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
+                            <field name="is_published"/>
+                        </group>
+                    </group>
+                    <group string="Quote">
+                        <field name="quote" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_quote_testimonial" model="ir.actions.act_window">
+        <field name="name">Testimonials</field>
+        <field name="res_model">quote.testimonial</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_quote_testimonial"
+              parent="website.menu_content"
+              sequence="25"
+              name="Testimonials"
+              action="action_quote_testimonial"/>
+
+    <!-- ===== Roles (dedicated table) ===== -->
+    <record id="view_quote_role_list" model="ir.ui.view">
+        <field name="name">quote.role.list</field>
+        <field name="model">quote.role</field>
+        <field name="arch" type="xml">
+            <list string="Testimonial Roles" editable="bottom">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_quote_role" model="ir.actions.act_window">
+        <field name="name">Testimonial Roles</field>
+        <field name="res_model">quote.role</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <!-- ===== Tags ===== -->
+    <record id="view_quote_tag_list" model="ir.ui.view">
+        <field name="name">quote.tag.list</field>
+        <field name="model">quote.tag</field>
+        <field name="arch" type="xml">
+            <list string="Testimonial Tags" editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_quote_tag" model="ir.actions.act_window">
+        <field name="name">Testimonial Tags</field>
+        <field name="res_model">quote.tag</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem id="menu_quote_role"
+              parent="website.menu_website_global_configuration"
+              sequence="80"
+              name="Testimonial Roles"
+              action="action_quote_role"
+              groups="website.group_website_designer"/>
+    <menuitem id="menu_quote_tag"
+              parent="website.menu_website_global_configuration"
+              sequence="81"
+              name="Testimonial Tags"
+              action="action_quote_tag"
+              groups="website.group_website_designer"/>
+
+</odoo>

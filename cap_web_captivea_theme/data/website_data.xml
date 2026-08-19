@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Fallback logo (brand). Reapplied on update so the header shows the
+         Captivea logo even if the per-language logo swap has no match. -->
+    <data noupdate="0">
+        <record id="website.default_website" model="website">
+            <field name="logo" type="base64" file="cap_web_captivea_theme/static/src/img/logo.svg"/>
+        </record>
+    </data>
+
+    <!-- Favicon: reapplied on every update so the brand favicon stays in place. -->
+    <data noupdate="0">
+        <record id="website.default_website" model="website">
+            <field name="favicon" type="base64" file="cap_web_captivea_theme/static/src/img/favicon.png"/>
+        </record>
+    </data>
+
+</odoo>

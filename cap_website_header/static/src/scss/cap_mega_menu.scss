@@ -1,0 +1,515 @@
+///
+/// Captivea mega menu panels (Mega1..4 and the About one, Line1Template2).
+///
+/// Scoped on `.cap_mm` (the root <section> of the five snippets) rather than on
+/// the header, so a panel keeps its look whatever header template it is used in
+/// and inside the builder iframe.
+///
+/// Every value below is taken from the four reference mock-ups (`Mega1.png` ..
+/// `Mega4.png`) at the root of the module: the colours are sampled pixels, the
+/// sizes are derived from the ink boxes of the text runs and from the borders.
+/// Keep them in sync with the images.
+///
+
+// Sampled on the mock-ups.
+$cap-red:        #c3222a;
+$cap-red-dark:   #a41a21;
+$cap-navy:       #223843;  // titles, and titles only
+$cap-grey:       #6a7782;  // lead, card subtitles, links, tags, badge labels
+$cap-line:       #e7e9ec;  // card borders *and* the rules inside a card
+$cap-pink:       #fbecec;  // Mega4: background of the shortcut column
+$cap-pill:       #eff1f2;  // Mega3/4: background of the pills
+
+// `lg`: above it the panel is the desktop dropdown, below it the offcanvas
+// sheet of the mobile header.
+$cap-mm-desktop-up:   992px;
+$cap-mm-desktop-down: 991.98px;
+
+.cap_mm {
+    padding: 1.5rem 0;
+
+    // A mega menu left in "Mega Menu > Size: Default" is not laid out inside a
+    // `.container`: such a panel carries its own padding instead. Its *width*
+    // is not set here but on the `.o_mega_menu` that holds it, in
+    // `cap_header.scss`: a `min-width` on this section cannot widen an
+    // absolutely positioned dropdown that has already been shrunk to fit.
+    &.cap_mm_panel {
+        padding: .875rem 0;
+    }
+
+    // 13px between the cards on the mock-ups; `g-3` alone would give 16px.
+    .cap_mm_row {
+        --bs-gutter-x: .8125rem;
+        --bs-gutter-y: .8125rem;
+
+        // A flex item defaults to `min-width: auto`, i.e. its min-content
+        // width: a single long word is enough to push a column past the width
+        // the grid gave it, and the row then wraps. The cards are meant to fit
+        // on one line (Mega1, Mega3), so the floor is lifted and the labels are
+        // allowed to break instead.
+        > [class*="col"] {
+            min-width: 0;
+        }
+    }
+
+    // Counterpart of the `min-width: 0` above: nothing may push a card past the
+    // share of the row the grid gave it, so every label is allowed to wrap -
+    // `anywhere` included, since these are free texts edited in the builder and
+    // a column can be as narrow as a fifth of the panel.
+    //
+    // `hyphens: auto` deliberately relies on the `lang` of the page, set by Odoo
+    // on `<html>`: the panel content is a translatable field, so hard coding a
+    // language on the snippet would be wrong on a second language.
+    .cap_mm_title,
+    .cap_mm_lead,
+    .cap_mm_card_title,
+    .cap_mm_card_text,
+    .cap_mm_links .nav-link,
+    .cap_mm_shortcut_title,
+    .cap_mm_entry_title,
+    .cap_mm_entry_text,
+    .cap_mm_office_country {
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    // ------------------------------------------------------------- Heading
+    .cap_mm_head {
+        margin-bottom: 1rem;
+    }
+
+    .cap_mm_title {
+        margin: 0 0 .25rem;
+        color: $cap-navy;
+        font-size: 1.25rem; // 20px
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .cap_mm_lead {
+        margin: 0;
+        color: $cap-grey;
+        font-size: 1rem; // 16px
+        line-height: 1.45;
+    }
+
+    // --------------------------------------------------------------- Cards
+    // No padding on the card itself: on the mock-ups the rules between the
+    // head, the tag row and the link list run from one border to the other, so
+    // each of those blocks carries its own padding instead.
+    .cap_mm_card {
+        display: block;
+        padding: 0;
+        border: 1px solid $cap-line;
+        border-radius: .625rem;
+        background-color: #fff;
+        // Keeps a wrapped label inside the rounded border rather than letting it
+        // bleed over the card edge.
+        overflow: hidden;
+    }
+
+    .cap_mm_card_head {
+        display: flex;
+        align-items: flex-start;
+        gap: .5rem;
+        padding: .875rem;
+    }
+
+    .cap_mm_icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 2.75rem; // 44px
+        height: 2.75rem;
+        border-radius: 50%;
+        background-color: $cap-red;
+        color: #fff;
+        font-size: 1.125rem;
+    }
+
+    // `min-width: 0` so that a long word wraps instead of squeezing the icon.
+    .cap_mm_card_titles {
+        min-width: 0;
+    }
+
+    .cap_mm_card_title {
+        display: block;
+        margin: 0;
+        color: $cap-navy;
+        font-size: 1rem; // 16px
+        font-weight: 700;
+        line-height: 1.45; // 23px, the spacing of the wrapped titles of Mega1/2
+    }
+
+    .cap_mm_card_text {
+        display: block;
+        margin: 0;
+        color: $cap-grey;
+        font-size: .8125rem; // 13px
+        line-height: 1.7; // 22px
+    }
+
+    // ------------------------------------------------------- Links (lists)
+    .cap_mm_links {
+        padding: .375rem .875rem .875rem;
+        border-top: 1px solid $cap-line;
+
+        .nav-link {
+            position: relative;
+            padding: .21875rem 0 .21875rem .625rem; // 28px from a link to the next
+            color: $cap-grey;
+            font-size: .875rem; // 14px
+            line-height: 1.35; // tightened: most links wrap onto two lines
+
+            // Small red chevron, vertically centred on the whole link - so on a
+            // link that wraps it sits between the two lines, as on the
+            // mock-ups. A pseudo-element, so that a link added from the builder
+            // gets it for free.
+            &::before {
+                content: "\f105"; // fa-angle-right
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                color: $cap-red;
+                font-family: "FontAwesome";
+                font-size: .6875rem;
+            }
+
+            &:hover,
+            &:focus-visible {
+                color: $cap-red;
+            }
+        }
+    }
+
+    // ---------------------------------------------------- Calls to action
+    .cap_mm_actions {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid $cap-line;
+
+        .btn {
+            padding: .625rem 1.5rem;
+            font-size: .875rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            border-color: $cap-red;
+            background-color: $cap-red;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+                border-color: $cap-red-dark;
+                background-color: $cap-red-dark;
+            }
+        }
+
+        .btn-outline-secondary {
+            border-color: $cap-line;
+            color: $cap-navy;
+
+            &:hover,
+            &:focus {
+                border-color: $cap-red;
+                background-color: transparent;
+                color: $cap-red;
+            }
+        }
+    }
+}
+
+// ------------------------------------------------------- 1. Services
+.s_mega_menu_cap_services {
+    // The five cards sit on a single row (Mega1). The template says so with
+    // `row-cols-lg-5`; this rule states it again on the columns themselves so
+    // that the panels saved with the previous markup (`col-12 col-lg`, whose
+    // `flex: 1 0 0%` could wrap the last cards onto a second line) are caught
+    // too. Restricted to the desktop range: below `lg` the mobile rule at the
+    // bottom of this file puts them back on one column.
+    @media (min-width: $cap-mm-desktop-up) {
+        .cap_mm_row > [class*="col"] {
+            flex: 0 0 auto;
+            width: 20%;
+            max-width: 20%;
+        }
+    }
+}
+
+// ---------------------------------------------------- 2. User journeys
+.s_mega_menu_cap_journeys {
+    // Two rows of five tiles: they need a bit more air between them than the
+    // 13px separating two tiles side by side, otherwise the four card borders
+    // read as a single grid. 20px, slightly above the ~16px of Mega2.
+    .cap_mm_row_tiles {
+        --bs-gutter-y: 1.25rem;
+    }
+
+    // The whole tile is the link, so it plays the role of `.cap_mm_card_head`
+    // and carries its padding.
+    .cap_mm_tile {
+        display: flex;
+        align-items: flex-start;
+        gap: .5rem;
+        padding: .875rem;
+        text-decoration: none;
+
+        &:hover {
+            border-color: rgba($cap-red, .45);
+        }
+    }
+}
+
+// ----------------------------------------------------- 3. Industries
+.s_mega_menu_cap_industries {
+    // Between two full width rules, as on Mega3.
+    .cap_mm_tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: .4375rem .875rem;
+        border-top: 1px solid $cap-line;
+        border-bottom: 1px solid $cap-line;
+    }
+
+    .cap_mm_tag {
+        color: $cap-grey;
+        font-size: .75rem; // 12px
+        font-weight: 600;
+        letter-spacing: .03em;
+        line-height: 1.4;
+
+        &:not(:last-child)::after {
+            content: "•";
+            margin: 0 .35rem;
+            color: $cap-red;
+            font-weight: 400;
+        }
+    }
+
+    // The tag row already draws the rule above the links.
+    .cap_mm_links {
+        border-top: 0;
+    }
+}
+
+// ------------------------------------------------------ 4. Solutions
+.s_mega_menu_cap_solutions {
+    // On Mega4 the shortcut column is much taller than the three link cards,
+    // which keep their own height: the outer row must not stretch its columns.
+    // Direct child, so that the nested row holding the three cards - which does
+    // have to equalise them - is not impacted.
+    > .container > .cap_mm_row {
+        align-items: flex-start;
+    }
+
+    .cap_mm_shortcuts {
+        gap: .3125rem; // 5px
+        padding: .625rem;
+        border-radius: .625rem;
+        background-color: $cap-pink;
+    }
+
+    // No border on the mock-up: white on the pink of the column.
+    .cap_mm_shortcut {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: .625rem .875rem;
+        border: 0;
+        border-radius: .5rem;
+        background-color: #fff;
+
+        &.active {
+            background-color: $cap-red;
+
+            .cap_mm_shortcut_title {
+                color: #fff;
+            }
+
+            .cap_mm_shortcut_badge {
+                background-color: rgba(#fff, .2);
+                color: #fff;
+            }
+
+            &::after {
+                content: "\f105"; // fa-angle-right
+                position: absolute;
+                top: .625rem;
+                right: .875rem;
+                color: #fff;
+                font-family: "FontAwesome";
+            }
+        }
+
+        // A ring rather than a border: no 1px layout shift on hover.
+        &:not(.active):hover {
+            box-shadow: inset 0 0 0 1px rgba($cap-red, .45);
+        }
+    }
+
+    .cap_mm_shortcut_title {
+        color: $cap-navy;
+        font-size: .9375rem; // 15px
+        font-weight: 700;
+        line-height: 1.25;
+    }
+
+    .cap_mm_shortcut_badge {
+        padding: .1875rem .5rem;
+        border-radius: 50rem;
+        background-color: $cap-pill;
+        color: $cap-grey;
+        font-size: .75rem; // 12px
+        line-height: 1.35;
+    }
+
+    // The badge is the head of the card, hence the margin standing in for the
+    // padding `.cap_mm_card_head` would have brought.
+    .cap_mm_badge {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        margin: .875rem .875rem 0;
+        padding: .3rem .7rem;
+        border-radius: 50rem;
+        background-color: $cap-pill;
+        color: $cap-grey;
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+
+        .fa {
+            color: $cap-red;
+        }
+    }
+
+    // No rule under the badge on Mega4.
+    .cap_mm_links {
+        padding-top: .625rem;
+        border-top: 0;
+    }
+}
+
+// ------------------------------------------- 5. About (top bar panel)
+.s_mega_menu_cap_about {
+    $cap-about-pad: 1.125rem;
+
+    .cap_mm_entries {
+        padding: 0 .375rem;
+    }
+
+    // Same two line entry as the plain row 1 dropdowns (`.cap_top_dropdown` in
+    // `cap_header.scss`), but written in the snippet instead of derived from a
+    // menu record: here the panel is free content.
+    .cap_mm_entry {
+        padding: .5rem ($cap-about-pad - .375rem);
+        border-radius: .5rem;
+
+        &:hover,
+        &:focus-visible {
+            background-color: rgba($cap-red, .06);
+
+            .cap_mm_entry_title {
+                color: $cap-red;
+            }
+        }
+    }
+
+    .cap_mm_entry_title {
+        display: block;
+        color: $cap-navy;
+        font-size: .9375rem; // 15px
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .cap_mm_entry_text {
+        display: block;
+        color: $cap-grey;
+        font-size: .8125rem; // 13px
+        line-height: 1.35;
+    }
+
+    .cap_mm_section {
+        margin-top: .625rem;
+        padding: .875rem $cap-about-pad 0;
+        border-top: 1px solid $cap-line;
+    }
+
+    .cap_mm_section_title {
+        margin: 0 0 .875rem;
+        color: $cap-red;
+        font-size: .75rem; // 12px
+        font-weight: 700;
+        letter-spacing: .06em;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    // The countries breathe more than the cards of the wide panels.
+    .cap_mm_row {
+        --bs-gutter-y: 1.125rem;
+    }
+
+    .cap_mm_office_country {
+        display: block;
+        margin-bottom: .4375rem;
+        color: $cap-navy;
+        font-size: .9375rem; // 15px
+        line-height: 1.3;
+    }
+
+    .cap_mm_office_cities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .3125rem;
+    }
+
+    // Pink pill, red label: the office chips of the mock-up. An `<a>`, so a
+    // city added from the builder is a link like the others.
+    .cap_mm_city {
+        padding: .1875rem .5625rem;
+        border-radius: 50rem;
+        background-color: $cap-pink;
+        color: $cap-red;
+        font-size: .75rem; // 12px
+        line-height: 1.4;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            background-color: $cap-red;
+            color: #fff;
+        }
+    }
+}
+
+// --------------------------------------------------------------- Mobile
+// Below `lg` the panel is the offcanvas sheet of the mobile header, about 400px
+// wide: one column, always, and every label allowed to wrap. The `[class*=col]`
+// selector also covers the panels saved before this rule, whose columns still
+// carry a `col-md-*`.
+@media (max-width: $cap-mm-desktop-down) {
+    .cap_mm {
+        padding: 1rem 0;
+
+        .cap_mm_row > [class*="col"] {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        // Three buttons side by side do not fit: let them share the width.
+        .cap_mm_actions .btn {
+            flex: 1 1 auto;
+        }
+    }
+}

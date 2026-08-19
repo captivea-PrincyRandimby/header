@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.cap.header</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='website_info_settings']" position="inside">
+                <setting id="cap_website_header_setting"
+                         string="Captivea Header"
+                         help="Use the three-row Captivea header on this website"
+                         invisible="not website_id">
+                    <field name="cap_header_enabled"/>
+                    <div class="mt8" invisible="not cap_header_enabled">
+                        <button type="object"
+                                name="action_cap_provision_header_menus"
+                                string="Create the Captivea menus"
+                                title="Adds the missing top bar menus and mega menus to this website, and translates them into every installed language. Existing menus are left untouched, and so are the labels already translated by hand. Run it again after installing a language."
+                                icon="oi-arrow-right"
+                                class="btn-link"/>
+                    </div>
+                    <div invisible="not cap_header_enabled">
+                        <button type="object"
+                                name="action_cap_reset_mega_menu_panels"
+                                string="Reset the mega menu panels"
+                                title="Puts the reference designs back on the Captivea panels, including the About one in the top bar, in every installed language. This is also how a panel gets translated: its content has to be rewritten for that."
+                                confirm="This overwrites the content of the Captivea mega menu panels with the reference designs. Any change made on them in the website builder will be lost. The submenus of the About menu are deleted as well: Odoo does not allow a mega menu to have submenus, and the panel leads to the same pages. Continue?"
+                                icon="oi-arrow-right"
+                                class="btn-link"/>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

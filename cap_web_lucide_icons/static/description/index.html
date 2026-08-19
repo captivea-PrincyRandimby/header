@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lucide Icons</title>
+<style>
+  :root{--red:#BA131A;--red2:#E3575D;--ink:#212529;--muted:#6A7782;--soft:#F5F4F4;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Nunito",-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6}
+  .hero{background:linear-gradient(45deg,var(--red),var(--red2));color:#fff;padding:56px 40px;border-radius:0 0 32px 32px}
+  .hero h1{margin:0 0 8px;font-size:2.2rem;font-weight:800}
+  .hero p{margin:0;font-size:1.1rem;opacity:.95;max-width:820px}
+  .badge{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.5);color:#fff;padding:.3rem .9rem;border-radius:50rem;font-weight:700;font-size:.85rem;letter-spacing:.05em;margin-bottom:18px}
+  .wrap{max-width:900px;margin:0 auto;padding:40px}
+  h2{font-size:1.4rem;font-weight:800;margin:36px 0 12px;color:var(--red)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card{background:var(--soft);border-radius:20px;padding:20px 22px;border:1px solid #eee}
+  .card h3{margin:0 0 6px;font-size:1.05rem}
+  .card p{margin:0;color:var(--muted);font-size:.95rem}
+  ul.deps{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+  ul.deps li{background:#fff;border:1px solid #e3e3e3;border-radius:50rem;padding:.35rem .9rem;font-size:.9rem;font-weight:600}
+  table.ver{width:100%;border-collapse:collapse;margin-top:8px}
+  table.ver th,table.ver td{text-align:left;padding:10px 12px;border-bottom:1px solid #eee;font-size:.95rem}
+  table.ver th{color:var(--muted);font-weight:700}
+  .pill{display:inline-block;background:var(--red);color:#fff;border-radius:50rem;padding:.15rem .7rem;font-weight:700;font-size:.85rem}
+  footer{color:var(--muted);font-size:.85rem;padding:24px 40px;text-align:center}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <span class="badge">Version 19.0.1.0.0 · Odoo 19</span>
+    <h1>Lucide Icons</h1>
+    <p>A Lucide icon picker inside the Odoo website editor, backed by an extensible inline-SVG sprite.</p>
+  </div>
+  <div class="wrap">
+    <h2>Overview</h2>
+    <p>Odoo's editor ships Font Awesome icons only. This module brings the modern <strong>Lucide</strong> icon set into the website builder: pick an icon from a dedicated tab in the media dialog, and it is inserted as a clean inline SVG (<code>.o_lucide_icon</code>) that inherits colour and size from your theme.</p>
+
+    <h2>Key features</h2>
+    <div class="grid">
+      <div class="card"><h3>Editor picker tab</h3><p>A new “Lucide” tab in the media dialog to browse and insert icons, integrated with the website builder.</p></div>
+      <div class="card"><h3>Inline SVG sprite</h3><p>Icons are served from a curated, extensible SVG sprite — no external requests, fully themeable via <code>currentColor</code>.</p></div>
+      <div class="card"><h3>Double-click to replace</h3><p>Double-click any inline Lucide icon on the page to reopen the picker and swap it.</p></div>
+      <div class="card"><h3>Theme-friendly</h3><p>Works with the Captivea icon-ring treatment and button resets out of the box.</p></div>
+    </div>
+
+    <h2>Dependencies</h2>
+    <ul class="deps"><li>website</li></ul>
+
+    <h2>Version history</h2>
+    <table class="ver">
+      <tr><th>Version</th><th>Date</th><th>Notes</th></tr>
+      <tr><td><span class="pill">19.0.1.0.0</span></td><td>2026</td><td>Initial release — Lucide picker tab, inline-SVG sprite, double-click replace.</td></tr>
+    </table>
+  </div>
+  <footer>© Captivea — Odoo Gold Partner · LGPL-3</footer>
+</body>
+</html>

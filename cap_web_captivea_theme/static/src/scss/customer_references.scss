@@ -1,0 +1,15 @@
+// Customer references snippet cards
+.s_customer_references {
+    .s_customer_reference_logo {
+        max-height: 120px;
+        max-width: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+    .s_customer_reference_card {
+        transition: transform .3s ease, box-shadow .3s ease;
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+}

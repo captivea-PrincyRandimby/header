@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inject the per-page JSON-LD (schema.org) into <head> when set. -->
+    <template id="seo_json_ld" inherit_id="website.layout" name="SEO JSON-LD">
+        <xpath expr="//meta[@name='generator']" position="after">
+            <t t-set="seo_object" t-value="seo_object or main_object"/>
+            <!-- Site-wide JSON-LD (global, from Website settings) -->
+            <script t-if="website and website.sudo().website_global_json_ld_markup"
+                    type="application/ld+json"
+                    t-out="website.sudo().website_global_json_ld_markup"/>
+            <!-- Per-page JSON-LD (from the Optimize SEO dialog) -->
+            <script t-if="seo_object and 'website_meta_json_ld' in seo_object and seo_object.sudo().website_meta_json_ld"
+                    type="application/ld+json"
+                    t-out="seo_object.sudo().website_meta_json_ld_markup"/>
+        </xpath>
+    </template>
+
+</odoo>

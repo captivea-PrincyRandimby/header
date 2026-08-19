@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cap_submenu" inherit_id="website.submenu" primary="True" name="Captivea Submenu">
+        <!--
+            Row 3: the small uppercase line under a mega menu label.
+
+            `t-field` and not `t-out`, exactly like the `submenu.name` next to
+            it: only `t-field` marks up the value with `data-oe-model` /
+            `data-oe-field` when the page is rendered in translation mode, and
+            that markup is what makes the line editable in the website
+            translation editor. `t-out` would print the same characters and
+            leave them out of the translation pass.
+        -->
+        <xpath expr="//a[@data-bs-toggle='dropdown']/span" position="after">
+            <span t-if="submenu.cap_mega_subtitle"
+                  class="cap_mega_subtitle"
+                  t-field="submenu.cap_mega_subtitle"/>
+        </xpath>
+
+        <!--
+            Row 1: the grey line under a dropdown entry (Line1Template1 and
+            Line1Template3). This is the leaf `<a>` of `website.submenu`, the
+            only one carrying a `t-att-href`.
+        -->
+        <xpath expr="//a[@t-att-href]/span" position="after">
+            <span t-if="submenu.cap_menu_description"
+                  class="cap_menu_description"
+                  t-field="submenu.cap_menu_description"/>
+        </xpath>
+
+        <!--
+            `website.submenu` recurses on *itself*, so the entries of a dropdown
+            would fall back to the native template and lose the description
+            above. Only the dropdown branch is redirected: the accordion one
+            (`is_vertical_nav`) belongs to the mobile offcanvas, which is
+            rendered by the native `website.template_header_mobile` anyway.
+
+            `//ul[@t-else]` is what tells the two apart: the accordion list has
+            no `t-else`.
+        -->
+        <xpath expr="//ul[@t-else]/t/t" position="attributes">
+            <attribute name="t-call">cap_website_header.cap_submenu</attribute>
+        </xpath>
+    </template>
+
+    <!--
+        Same as `website.website_search_box_input` (so the `.o_searchbar_form`
+        interaction and its autocomplete keep working), with the magic wand on
+        the left and an arrow instead of the magnifier in the submit button.
+    -->
+    <template id="cap_header_search_box_input" inherit_id="website.website_search_box_input"
+              primary="True" name="Captivea Header Search Box">
+        <xpath expr="//input[@name='search']" position="before">
+            <span class="input-group-text cap_search_icon" aria-hidden="true">
+                <i class="fa fa-magic"/>
+            </span>
+        </xpath>
+        <xpath expr="//button[@type='submit']/i" position="replace">
+            <i class="oi oi-arrow-right"/>
+        </xpath>
+        <!--
+            `website.website_search_box` renders "(N found)" *inside* the submit
+            button as soon as a search is active. The Captivea button is a 36px
+            red circle, so the counter overflows it and breaks the round shape.
+            The count is already carried by the "All results" entry at the
+            bottom of the suggestion panel.
+        -->
+        <xpath expr="//span[hasclass('oe_search_found')]" position="replace"/>
+    </template>
+
+    <!-- ==================================================================
+         The header itself
+         ================================================================== -->
+
+    <!--
+        `website.layout` inherits `portal.frontend_layout`, which replaces the
+        `//header/img` of `web.frontend_layout` by a `<nav>`. Every Odoo 19
+        header template therefore hooks on `//header//nav` - see
+        `website.template_header_default` and friends.
+
+        Inactive by default: it is enabled per website (copy-on-write on
+        `ir.ui.view`) from the website settings or the builder.
+    -->
+    <template id="template_header_captivea" inherit_id="website.layout"
+              name="Template Header Captivea" active="False">
+        <!--
+            Opening on hover, on top of the click every
+            `[data-bs-toggle="dropdown"]` already gets from Bootstrap.
+
+            `o_hoverable_dropdown` is the class the `website.hoverable_dropdown`
+            interaction selects on. It is set here rather than through the native
+            optional view `website.header_hoverable_dropdown` so that the
+            Captivea header always opens its menus both ways, whatever the
+            builder's Header > Navigation "Click / Hover" option says.
+
+            It also enables the `Dropdown.prototype._getOffset` patch of
+            `website/static/src/libs/bootstrap/bootstrap.js`, which removes the
+            2px gap that would otherwise close a row 1 dropdown as soon as the
+            pointer moves from the toggle to the menu.
+
+            `static/src/js/cap_header_dropdown.js` reconciles the two.
+        -->
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="o_hoverable_dropdown" separator=" "/>
+        </xpath>
+
+        <xpath expr="//header//nav" position="replace">
+            <!--
+                The row a menu is displayed in is an explicit choice,
+                `website.menu.cap_header_row`, and not `is_mega_menu`: a top bar
+                menu may perfectly well carry a mega menu panel - that is how
+                "About" gets the free content of Line1Template2 while staying in
+                row 1. `cap_header_row` defaults to `is_mega_menu` on creation,
+                so a mega menu added from the builder still lands in row 3.
+            -->
+            <t t-set="cap_menus" t-value="website.menu_id.child_id"/>
+            <t t-set="cap_mega_menus" t-value="cap_menus.filtered(lambda m: m.cap_header_row == 'mega')"/>
+            <t t-set="cap_top_menus" t-value="cap_menus - cap_mega_menus"/>
+
+            <t t-call="website.navbar">
+                <t t-set="_navbar_classes" t-valuef="cap_header d-none d-lg-block p-0 shadow-sm"/>
+
+                <!-- ================= Row 1 : top bar ================= -->
+                <div class="cap_header_top" t-if="cap_top_menus or len(frontend_languages or []) &gt; 1">
+                    <div t-attf-class="#{header_content_width} d-flex justify-content-end">
+                        <ul class="nav navbar-nav cap_header_top_nav flex-row align-items-center" role="menu">
+                            <!--
+                                `cap_submenu` and not `website.submenu`: row 1
+                                needs the `cap_menu_description` line under each
+                                dropdown entry.
+
+                                `_extra_megamenu_classes` is what a top bar mega
+                                menu ("About") gets in place of the native
+                                `border-top-0`: end aligned, like the plain
+                                dropdowns next to it.
+                            -->
+                            <t t-foreach="cap_top_menus" t-as="submenu">
+                                <t t-call="cap_website_header.cap_submenu"
+                                    item_class.f="nav-item"
+                                    link_class.f="nav-link"
+                                    dropdown_menu_classes.f="dropdown-menu-end cap_top_dropdown"
+                                    _extra_megamenu_classes.f="dropdown-menu-end"/>
+                            </t>
+                            <!-- Language selector: `codes` needs `no_text`, see portal.language_selector -->
+                            <t t-call="website.placeholder_header_language_selector"
+                                no_text="True"
+                                codes="True"
+                                _item_class.f="nav-item cap_header_lang"
+                                _btn_class.f="nav-link d-flex align-items-center"
+                                _dropdown_menu_class.f="dropdown-menu-end"/>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ========= Row 2 : logo | search | Contact us ========= -->
+                <div class="cap_header_main">
+                    <div t-attf-class="#{header_content_width} d-flex align-items-center">
+                        <t t-call="website.placeholder_header_brand"
+                            _link_class.f="cap_header_brand flex-shrink-0 me-4"/>
+
+                        <div class="cap_header_search flex-grow-1 d-flex justify-content-center">
+                            <!--
+                                `placeholder.translate` and not `placeholder.f`:
+                                QWeb compiles both the same way, but only a key
+                                ending in `.translate` is picked up by
+                                `is_translatable_attrib()`. `placeholder` does
+                                belong to `TRANSLATED_ATTRS`, except that set is
+                                skipped on a node carrying a `t-call` - so
+                                `placeholder.f` would never reach a `.po` file.
+                            -->
+                            <t t-call="cap_website_header.cap_header_search_box_input"
+                                search_type.f="all"
+                                action.f="/website/search"
+                                limit.f="5"
+                                display_image.f="true"
+                                display_description.f="true"
+                                display_extra_link.f="true"
+                                display_detail.f="true"
+                                placeholder.translate="What do you want to transform?"
+                                _form_classes.f="cap_search_form"
+                                _classes.f="cap_search_group"
+                                _input_classes.f="cap_search_input"
+                                _submit_classes.f="cap_search_submit"/>
+                        </div>
+
+                        <ul class="nav navbar-nav cap_header_cta flex-row align-items-center flex-shrink-0 ms-4">
+                            <t t-call="website.placeholder_header_call_to_action"/>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ================ Row 3 : mega menus ================ -->
+                <div class="cap_header_mega" t-if="cap_mega_menus">
+                    <div t-attf-class="#{header_content_width}">
+                        <ul id="top_menu" class="nav navbar-nav top_menu cap_header_mega_nav flex-row" role="menu">
+                            <t t-foreach="cap_mega_menus" t-as="submenu">
+                                <t t-call="cap_website_header.cap_submenu"
+                                    item_class.f="nav-item"
+                                    link_class.f="nav-link cap_mega_link"/>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+            </t>
+
+            <!-- Burger + offcanvas below `lg`, straight from the standard header -->
+            <t t-call="website.template_header_mobile"/>
+        </xpath>
+    </template>
+
+</odoo>

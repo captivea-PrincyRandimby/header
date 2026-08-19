@@ -1,0 +1,17 @@
+// Lucide media-dialog picker tab (editor only)
+.o_lucide_selector {
+    max-height: 60vh;
+
+    .o_lucide_grid {
+        max-height: 52vh;
+    }
+    .o_lucide_cell {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+    }
+    .o_lucide_icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}

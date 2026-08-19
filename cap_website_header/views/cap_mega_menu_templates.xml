@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    Mega menu panels.
+-->
+
+<!-- Shared footer: the three calls to action at the bottom of the wide panels -->
+<template id="cap_mm_actions" name="Captivea Mega Menu - Actions" groups="base.group_user">
+    <div class="cap_mm_actions d-flex flex-wrap align-items-center gap-2">
+        <a href="/contactus" class="btn btn-primary rounded-pill" data-name="Button">Start your project</a>
+        <a href="/contactus" class="btn btn-outline-secondary rounded-pill" data-name="Button">Book a demo</a>
+        <a href="/contactus" class="btn btn-outline-secondary rounded-pill" data-name="Button">Audit your website</a>
+    </div>
+</template>
+
+<!-- ==================================================================== -->
+<!-- 1. Services: 5 cards "icon + title + link list"                      -->
+<!-- ==================================================================== -->
+<template id="s_mega_menu_cap_services" name="Captivea - Services" groups="base.group_user">
+    <section class="s_mega_menu_cap_services cap_mm o_colored_level o_cc o_cc1">
+        <div class="container">
+            <div class="cap_mm_head">
+                <h3 class="cap_mm_title">Transform your organization</h3>
+                <p class="cap_mm_lead">Consulting, ERP, Web, AI and BI - every skill you need to drive your growth.</p>
+            </div>
+            <!--
+                Gutter carried by `.cap_mm_row` (13px on the mock-ups).
+
+                `row-cols-lg-5` and not `col-lg`: the five cards have to fit on a
+                single row (Mega1 mock-up). With `col-lg` (`flex: 1 0 0%`) the
+                implicit `min-width: auto` of a flex item rises to the longest
+                word of the card, which could push the last two onto a second
+                row.
+            -->
+            <div class="row row-cols-1 row-cols-lg-5 cap_mm_row">
+
+                <!--
+                    `row-cols-1` on the parent and nothing else here: below `lg`
+                    the panel is the narrow offcanvas sheet of the mobile header,
+                    where a `col-md-*` would give two unreadable columns on a
+                    tablet.
+                -->
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-lightbulb-o"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Business Consulting</h4>
+                                <p class="cap_mm_card_text">Frame &amp; steer your transformation</p>
+                            </div>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Frame your digital transformation</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Optimize your processes</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Steer with data</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Structure your growth</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-database"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">ERP</h4>
+                                <p class="cap_mm_card_text">Unify your processes on Odoo</p>
+                            </div>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Deploy your ERP</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Integrate your tools</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Unify your management</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Frame your ERP project</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-globe"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Web &amp; Marketing</h4>
+                                <p class="cap_mm_card_text">Attract, convert &amp; retain</p>
+                            </div>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Attract your customers</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Be visible online</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Sell online</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Polish your brand image</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Engage your audience</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-microchip"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Artificial Intelligence</h4>
+                                <p class="cap_mm_card_text">Automate &amp; decide faster</p>
+                            </div>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Anticipate demand</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Automate repetitive tasks</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Decide faster</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Secure your data</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-bar-chart"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Business Intelligence</h4>
+                                <p class="cap_mm_card_text">Visualize &amp; steer with data</p>
+                            </div>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Visualize your performance</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Track your KPIs</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Centralize your data</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Forecast your results</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <t t-call="cap_website_header.cap_mm_actions"/>
+        </div>
+    </section>
+</template>
+
+<!-- ==================================================================== -->
+<!-- 2. User journeys: 10 tiles "icon + title + tagline"                  -->
+<!-- ==================================================================== -->
+<template id="s_mega_menu_cap_journeys" name="Captivea - User Journeys" groups="base.group_user">
+    <section class="s_mega_menu_cap_journeys cap_mm o_colored_level o_cc o_cc1">
+        <div class="container">
+            <div class="cap_mm_head">
+                <h3 class="cap_mm_title">Improve the user experience</h3>
+                <p class="cap_mm_lead">Journeys designed for every role in your organization.</p>
+            </div>
+            <!-- 5 tiles per row on `lg`, a single column in the offcanvas -->
+            <div class="row row-cols-1 row-cols-lg-5 cap_mm_row cap_mm_row_tiles">
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-line-chart"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Executive management</span>
+                            <span class="cap_mm_card_text">Steer overall performance</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-handshake-o"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Sales &amp; CRM</span>
+                            <span class="cap_mm_card_text">Speed up the sales cycle</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-bullhorn"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Marketing &amp; communication</span>
+                            <span class="cap_mm_card_text">Generate more qualified leads</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-calculator"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Accounting &amp; finance</span>
+                            <span class="cap_mm_card_text">Automate accounting</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-cubes"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Operations &amp; production</span>
+                            <span class="cap_mm_card_text">Streamline production</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-truck"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Supply chain &amp; distribution</span>
+                            <span class="cap_mm_card_text">Optimize stock &amp; flows</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-shopping-cart"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Purchasing</span>
+                            <span class="cap_mm_card_text">Master your procurement</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-users"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Human resources</span>
+                            <span class="cap_mm_card_text">Digitalize HR management</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-server"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">IT &amp; engineering</span>
+                            <span class="cap_mm_card_text">Secure &amp; integrate your IT</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="#" class="cap_mm_card cap_mm_tile h-100" data-name="Card">
+                        <span class="cap_mm_icon"><i class="fa fa-headphones"/></span>
+                        <span class="cap_mm_card_titles">
+                            <span class="cap_mm_card_title">Customer service &amp; support</span>
+                            <span class="cap_mm_card_text">Retain your customers</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <t t-call="cap_website_header.cap_mm_actions"/>
+        </div>
+    </section>
+</template>
+
+<!-- ==================================================================== -->
+<!-- 3. Industries: cards "icon + pills ERP/WEB/AI/BI + links"            -->
+<!-- ==================================================================== -->
+<template id="s_mega_menu_cap_industries" name="Captivea - Industries" groups="base.group_user">
+    <section class="s_mega_menu_cap_industries cap_mm o_colored_level o_cc o_cc1">
+        <div class="container">
+            <div class="cap_mm_head">
+                <h3 class="cap_mm_title">Transform your business</h3>
+                <p class="cap_mm_lead">ERP, Web, AI and BI - broken down by industry, with real business use cases.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-5 cap_mm_row">
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-briefcase"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Services &amp; professional</h4>
+                                <p class="cap_mm_card_text">Finance, IT, HR &amp; media</p>
+                            </div>
+                        </div>
+                        <div class="cap_mm_tags">
+                            <span class="cap_mm_tag">ERP</span>
+                            <span class="cap_mm_tag">WEB</span>
+                            <span class="cap_mm_tag">AI</span>
+                            <span class="cap_mm_tag">BI</span>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Finance</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Accounting</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Information technology</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Insurance &amp; legal</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">HR service providers</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Media &amp; communication</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Personal services</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-industry"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Industry &amp; manufacturing</h4>
+                                <p class="cap_mm_card_text">Production, quality &amp; MRP</p>
+                            </div>
+                        </div>
+                        <div class="cap_mm_tags">
+                            <span class="cap_mm_tag">ERP</span>
+                            <span class="cap_mm_tag">WEB</span>
+                            <span class="cap_mm_tag">AI</span>
+                            <span class="cap_mm_tag">BI</span>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Manufacturing</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Automotive</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Food &amp; beverage</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Chemicals</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Electronics</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Mechanical equipment</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Fashion &amp; textile</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Printing &amp; graphics</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Construction</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-truck"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Distribution &amp; logistics</h4>
+                                <p class="cap_mm_card_text">E-commerce, transport &amp; warehousing</p>
+                            </div>
+                        </div>
+                        <div class="cap_mm_tags">
+                            <span class="cap_mm_tag">ERP</span>
+                            <span class="cap_mm_tag">WEB</span>
+                            <span class="cap_mm_tag">AI</span>
+                            <span class="cap_mm_tag">BI</span>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">E-commerce &amp; online retail</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Logistics &amp; warehousing</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Road transport</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Sea &amp; air freight</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-shopping-basket"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Point of sale &amp; retail</h4>
+                                <p class="cap_mm_card_text">POS, bar, restaurant &amp; CBD</p>
+                            </div>
+                        </div>
+                        <div class="cap_mm_tags">
+                            <span class="cap_mm_tag">ERP</span>
+                            <span class="cap_mm_tag">WEB</span>
+                            <span class="cap_mm_tag">AI</span>
+                            <span class="cap_mm_tag">BI</span>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Point of sale</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Bar &amp; restaurant</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Cannabis / CBD</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_card h-100" data-name="Card">
+                        <div class="cap_mm_card_head">
+                            <span class="cap_mm_icon"><i class="fa fa-shield"/></span>
+                            <div class="cap_mm_card_titles">
+                                <h4 class="cap_mm_card_title">Regulated industries</h4>
+                                <p class="cap_mm_card_text">Defense, health, energy &amp; biotech</p>
+                            </div>
+                        </div>
+                        <div class="cap_mm_tags">
+                            <span class="cap_mm_tag">ERP</span>
+                            <span class="cap_mm_tag">WEB</span>
+                            <span class="cap_mm_tag">AI</span>
+                            <span class="cap_mm_tag">BI</span>
+                        </div>
+                        <nav class="nav flex-column cap_mm_links">
+                            <a href="#" class="nav-link" data-name="Menu Item">Aerospace &amp; defense</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">ITAR projects</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Health &amp; pharmaceutical</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Energy &amp; resources</a>
+                            <a href="#" class="nav-link" data-name="Menu Item">Biotechnology</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <t t-call="cap_website_header.cap_mm_actions"/>
+        </div>
+    </section>
+</template>
+
+<!-- ==================================================================== -->
+<!-- 4. Solutions: shortcut column + 3 badged link lists                  -->
+<!-- ==================================================================== -->
+<template id="s_mega_menu_cap_solutions" name="Captivea - Solutions" groups="base.group_user">
+    <section class="s_mega_menu_cap_solutions cap_mm o_colored_level o_cc o_cc1">
+        <div class="container">
+            <!--
+                Two levels of rows rather than four flat columns: on the Mega4
+                mock-up the three cards on the right share one height but stay
+                much shorter than the shortcut column. Laid out flat, `h-100`
+                would stretch them down to its bottom.
+            -->
+            <div class="row cap_mm_row">
+                <div class="col-12 col-lg-3">
+                    <nav class="nav flex-column cap_mm_shortcuts">
+                        <a href="#" class="nav-link cap_mm_shortcut active" data-name="Menu Item">
+                            <span class="cap_mm_shortcut_title">A modern ERP</span>
+                            <span class="cap_mm_shortcut_badge">Odoo ERP</span>
+                        </a>
+                        <a href="#" class="nav-link cap_mm_shortcut" data-name="Menu Item">
+                            <span class="cap_mm_shortcut_title">Your website &amp; shop</span>
+                            <span class="cap_mm_shortcut_badge">Odoo Website &amp; eShop</span>
+                        </a>
+                        <a href="#" class="nav-link cap_mm_shortcut" data-name="Menu Item">
+                            <span class="cap_mm_shortcut_title">Attract &amp; convert</span>
+                            <span class="cap_mm_shortcut_badge">Marketing solutions</span>
+                        </a>
+                        <a href="#" class="nav-link cap_mm_shortcut" data-name="Menu Item">
+                            <span class="cap_mm_shortcut_title">Steer with data</span>
+                            <span class="cap_mm_shortcut_badge">Business Intelligence</span>
+                        </a>
+                        <a href="#" class="nav-link cap_mm_shortcut" data-name="Menu Item">
+                            <span class="cap_mm_shortcut_title">Automate &amp; decide</span>
+                            <span class="cap_mm_shortcut_badge">Artificial Intelligence</span>
+                        </a>
+                        <a href="#" class="nav-link cap_mm_shortcut" data-name="Menu Item">
+                            <span class="cap_mm_shortcut_title">Extend your capabilities</span>
+                            <span class="cap_mm_shortcut_badge">ISV &amp; Partners</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="row row-cols-1 row-cols-lg-3 cap_mm_row">
+
+                        <div class="col">
+                            <div class="cap_mm_card h-100" data-name="Card">
+                                <span class="cap_mm_badge">
+                                    <i class="fa fa-database"/>
+                                    <span>Odoo ERP</span>
+                                </span>
+                                <nav class="nav flex-column cap_mm_links">
+                                    <a href="#" class="nav-link" data-name="Menu Item">Discover Odoo</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Odoo ERP</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Enterprise vs Community</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Odoo pricing</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Documentation</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Scalability</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Success Packs</a>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="cap_mm_card h-100" data-name="Card">
+                                <span class="cap_mm_badge">
+                                    <i class="fa fa-th-large"/>
+                                    <span>Odoo Apps</span>
+                                </span>
+                                <nav class="nav flex-column cap_mm_links">
+                                    <a href="#" class="nav-link" data-name="Menu Item">CRM</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Accounting</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Inventory</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Sales force</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Pipeline</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Project</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Quality</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Helpdesk</a>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="cap_mm_card h-100" data-name="Card">
+                                <span class="cap_mm_badge">
+                                    <i class="fa fa-balance-scale"/>
+                                    <span>ERP &amp; comparisons</span>
+                                </span>
+                                <nav class="nav flex-column cap_mm_links">
+                                    <a href="#" class="nav-link" data-name="Menu Item">Discover ERP</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">What is an ERP?</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">ERP implementation</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Cloud ERP</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Odoo vs SAP</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Odoo vs Dynamics</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">Odoo vs NetSuite</a>
+                                    <a href="#" class="nav-link" data-name="Menu Item">All comparisons</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <t t-call="cap_website_header.cap_mm_actions"/>
+        </div>
+    </section>
+</template>
+
+<!-- ==================================================================== -->
+<!-- 5. About: the top bar panel (Line1Template2)                         -->
+<!--                                                                      -->
+<!-- A mega menu as well, but with no `o_mega_menu_*` size class, so the   -->
+<!-- panel keeps the width and the anchoring of a regular dropdown. Hence  -->
+<!-- `.cap_mm_panel`, which carries its own margins, instead of the        -->
+<!-- `.container` of the four full width panels.                           -->
+<!-- ==================================================================== -->
+<template id="s_mega_menu_cap_about" name="Captivea - About" groups="base.group_user">
+    <section class="s_mega_menu_cap_about cap_mm cap_mm_panel o_colored_level o_cc o_cc1">
+        <nav class="nav flex-column cap_mm_entries">
+            <a href="/about-captivea" class="nav-link cap_mm_entry" data-name="Menu Item">
+                <span class="cap_mm_entry_title">Discover Captivea</span>
+                <span class="cap_mm_entry_text">Our story &amp; vision</span>
+            </a>
+            <a href="/leadership-team" class="nav-link cap_mm_entry" data-name="Menu Item">
+                <span class="cap_mm_entry_title">Leadership team</span>
+                <span class="cap_mm_entry_text">The management committee</span>
+            </a>
+        </nav>
+
+        <div class="cap_mm_section">
+            <h4 class="cap_mm_section_title">Our offices</h4>
+            <!-- Two columns, filled row by row as on the mock-up -->
+            <div class="row row-cols-1 row-cols-lg-2 cap_mm_row">
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">France</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Chambéry</a>
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Lille</a>
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Angers</a>
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Toulouse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">United States</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">US office</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">Canada</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Canada office</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">Luxembourg</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Luxembourg office</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">Singapore</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Singapore office</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">India</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">India office</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="cap_mm_office" data-name="Office">
+                        <span class="cap_mm_office_country">Madagascar</span>
+                        <div class="cap_mm_office_cities">
+                            <a href="/our-offices" class="cap_mm_city" data-name="Badge">Madagascar office</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

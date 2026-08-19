@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Client quote: a single testimonial shown as a blockquote. The editor
+         option (client_quote_option) exposes a select bound to data-testimonial-id.
+         Server-side, a default (latest published) testimonial is rendered so the
+         quote is in the initial HTML (SEO); the JS interaction swaps to the
+         selected testimonial when data-testimonial-id is set. -->
+    <template id="s_cap_client_quote" name="Captivea: Client quote">
+        <section class="s_text_image s_cap_client_quote o_cc o_cc2 o_colored_level pt40 pb40"
+                 data-snippet="s_cap_client_quote" data-name="Captivea Client quote">
+            <t t-set="_cq" t-value="env['quote.testimonial'].sudo().search([('is_published', '=', True)], order='sequence, id desc', limit=1)"/>
+            <div class="container"><div class="row align-items-stretch">
+                <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt16 pb16">
+                    <div class="s_cap_cq_target">
+                        <t t-if="_cq">
+                            <blockquote class="blockquote"><p class="h4" t-out="_cq.quote"/></blockquote>
+                            <footer class="blockquote-footer"><span t-out="_cq.author"/><t t-if="_cq.role_id">, <span t-out="_cq.role_id.name"/></t><t t-if="_cq.company_name"> at <span t-out="_cq.company_name"/></t></footer>
+                        </t>
+                        <t t-else="">
+                            <blockquote class="blockquote"><p class="h4">{Client quote}</p></blockquote>
+                            <footer class="blockquote-footer">{Author}, {Role} at {Client}</footer>
+                        </t>
+                    </div>
+                </div>
+            </div></div>
+        </section>
+    </template>
+
+    <!-- Register in the "Captivea — Dynamic" group -->
+    <template id="client_quote_snippet" inherit_id="website.snippets" name="Client quote snippet">
+        <xpath expr="//snippets[@id='snippet_structure']" position="inside">
+            <t t-snippet="cap_web_quote.s_cap_client_quote" group="captivea_dynamic"
+               t-thumbnail="/website/static/src/img/snippets_thumbs/s_blockquote.svg"/>
+        </xpath>
+    </template>
+
+</odoo>

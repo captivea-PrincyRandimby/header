@@ -1,0 +1,13 @@
+// Base rendering for inline Lucide icons (themes may override, e.g. brand circle).
+.o_lucide_icon {
+    display: inline-flex;
+    vertical-align: -0.125em;
+    line-height: 0;
+
+    svg {
+        width: 1em;
+        height: 1em;
+        stroke: currentColor;
+        fill: none;
+    }
+}

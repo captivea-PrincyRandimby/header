@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Demo data: loaded only when Odoo demo data is enabled at install. -->
+
+    <!-- Roles -->
+    <record id="demo_role_ceo" model="quote.role">
+        <field name="name">CEO</field>
+    </record>
+    <record id="demo_role_it_director" model="quote.role">
+        <field name="name">IT Director</field>
+    </record>
+    <record id="demo_role_operations" model="quote.role">
+        <field name="name">Operations Manager</field>
+    </record>
+
+    <!-- Tags -->
+    <record id="demo_tag_erp" model="quote.tag">
+        <field name="name">ERP</field>
+    </record>
+    <record id="demo_tag_manufacturing" model="quote.tag">
+        <field name="name">Manufacturing</field>
+    </record>
+    <record id="demo_tag_retail" model="quote.tag">
+        <field name="name">Retail</field>
+    </record>
+
+    <!-- Testimonials (published so they show in the dynamic snippet) -->
+    <record id="demo_testimonial_1" model="quote.testimonial">
+        <field name="name">Nordic Furniture — Sophie Martin</field>
+        <field name="author">Sophie Martin</field>
+        <field name="role_id" ref="demo_role_ceo"/>
+        <field name="company_name">Nordic Furniture</field>
+        <field name="quote">Captivea rebuilt our whole operation around Odoo. Inventory, sales and accounting finally speak the same language, and our team saves hours every day.</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_erp'), ref('demo_tag_retail')])]"/>
+        <field name="is_published" eval="True"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="demo_testimonial_2" model="quote.testimonial">
+        <field name="name">BrightPath Logistics — James Carter</field>
+        <field name="author">James Carter</field>
+        <field name="role_id" ref="demo_role_it_director"/>
+        <field name="company_name">BrightPath Logistics</field>
+        <field name="quote">The migration was smooth and the support outstanding. We went live on time and our warehouse KPIs improved within the first month.</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_erp')])]"/>
+        <field name="is_published" eval="True"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="demo_testimonial_3" model="quote.testimonial">
+        <field name="name">Verde Foods — Elena Rossi</field>
+        <field name="author">Elena Rossi</field>
+        <field name="role_id" ref="demo_role_operations"/>
+        <field name="company_name">Verde Foods</field>
+        <field name="quote">Captivea understood our manufacturing constraints from day one. Real-time traceability changed how we run the plant.</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_manufacturing')])]"/>
+        <field name="is_published" eval="True"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="demo_testimonial_4" model="quote.testimonial">
+        <field name="name">Atelier Lumière — Marc Dubois</field>
+        <field name="author">Marc Dubois</field>
+        <field name="role_id" ref="demo_role_ceo"/>
+        <field name="company_name">Atelier Lumière</field>
+        <field name="quote">A true Odoo Gold partner: pragmatic, fast and genuinely invested in our success. We now manage the entire business from a single platform.</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_manufacturing'), ref('demo_tag_retail')])]"/>
+        <field name="is_published" eval="True"/>
+        <field name="sequence">40</field>
+    </record>
+
+</odoo>

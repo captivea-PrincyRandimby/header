@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ==========================================================================
+     Captivea snippet customizations (progressive port of the mockups).
+     Same mechanism as theme_cobalt: inherit the website.* snippets and adjust
+     classes / colors (o_cc1..o_cc5) / default content.
+     ========================================================================== -->
+
+<!-- Banner: primary color combination (brand red) -->
+<template id="s_banner" inherit_id="website.s_banner" name="Captivea s_banner">
+    <xpath expr="//section" position="attributes">
+        <attribute name="class" add="o_cc o_cc1" separator=" "/>
+    </xpath>
+</template>
+
+<!-- Call to action: secondary color combination -->
+<template id="s_call_to_action" inherit_id="website.s_call_to_action" name="Captivea s_call_to_action">
+    <xpath expr="//section" position="attributes">
+        <attribute name="class" add="o_cc o_cc2" separator=" "/>
+    </xpath>
+</template>
+
+</odoo>

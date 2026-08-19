@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Swap the header logo for the current language on the public frontend.
+         Inherits the single shared logo template used by every header variant. -->
+    <template id="header_brand_logo_lang" inherit_id="website.option_header_brand_logo"
+              name="Header logo per language">
+        <xpath expr="//span[@t-field='website.logo']" position="replace">
+            <t t-set="cap_lang_logo" t-value="(not editable) and website.get_lang_logo_record() or False"/>
+            <span t-if="cap_lang_logo" t-field="cap_lang_logo.logo"
+                  t-options="base_options if editable else dict(base_options, width=95, height=40)"
+                  role="img" t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
+            <span t-else="" t-field="website.logo"
+                  t-options="base_options if editable else dict(base_options, width=95, height=40)"
+                  role="img" t-att-aria-label="'Logo of %s' % website.name" t-att-title="website.name"/>
+        </xpath>
+    </template>
+
+</odoo>

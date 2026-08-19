@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Server-rendered blog block: posts queried and rendered server-side (QWeb),
+         so titles, teasers, tags and internal links are in the initial HTML for
+         SEO / link-juice / cornerstone linking. NO JS dynamic loading. Distinct
+         Captivea block — does NOT override Odoo's native s_blog_posts.
+         Reproduces the native card design (website.record_cover for the cover),
+         with the tag badges auto-linked to their /blog/tag/<slug> listing. -->
+    <template id="s_cap_blog_seo" name="Blog (SEO)">
+        <section class="s_cap_blog_seo o_cc o_cc1 o_colored_level pt40 pb40"
+                 data-snippet="s_cap_blog_seo" data-name="Blog">
+            <div class="container">
+                <div class="text-center pb-4">
+                    <p class="lead">Resources</p>
+                    <h2>Latest articles &amp; guides</h2>
+                </div>
+                <div class="row g-3 align-items-stretch">
+                    <t t-foreach="env['blog.post'].sudo().search([('website_published', '=', True)], order='post_date desc, id desc', limit=4)" t-as="post">
+                        <div class="col-12 col-sm-6 col-lg-4 col-xxl-3 d-flex">
+                            <div class="s_blog_posts_post card h-100 w-100">
+                                <!-- Cover (links to the article) + category badge top-left -->
+                                <a class="text-decoration-none text-reset" t-att-href="post.website_url" t-attf-title="Read #{post.name}">
+                                    <div class="s_blog_posts_post_cover o_not_editable card-img-top ratio ratio-16x9">
+                                        <t t-call="website.record_cover">
+                                            <t t-set="_record" t-value="post"/>
+                                            <t t-set="additionnal_classes" t-value="'position-absolute w-100 h-100 bg-600 o_snippet_not_selectable'"/>
+                                        </t>
+                                        <span t-if="post.blog_id" class="badge position-absolute top-0 start-0 m-2 z-1" t-out="post.blog_id.name"/>
+                                    </div>
+                                </a>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="text-truncate">
+                                        <a class="text-reset text-decoration-none" t-att-href="post.website_url" t-field="post.name"/>
+                                    </h5>
+                                    <p class="s_blog_posts_post_teaser o_line_clamp flex-grow-1" t-field="post.teaser"/>
+                                    <!-- Tag badges, auto-linked to /blog/tag/<slug> (separate links, not nested) -->
+                                    <div t-if="post.tag_ids" class="d-flex flex-wrap gap-1 mt-2">
+                                        <a t-foreach="post.tag_ids" t-as="one_tag" t-key="one_tag.id"
+                                           class="badge text-decoration-none"
+                                           t-attf-href="/blog/tag/#{slug(one_tag)}"
+                                           t-out="one_tag.name"/>
+                                    </div>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center mt-auto border-0 p-3 pt-0 bg-transparent small">
+                                    <span class="s_blog_posts_post_author d-inline-flex align-items-center">
+                                        <img t-if="post.author_avatar" class="o_avatar me-2 rounded-pill"
+                                             t-attf-src="data:image/png;base64,#{post.author_avatar}" loading="lazy"/>
+                                        <span t-field="post.author_id.name"/>
+                                        <span class="text-muted"> - <span class="s_blog_posts_post_date" t-field="post.post_date" t-options='{"format": "MMM d, yyyy"}'/></span>
+                                    </span>
+                                    <span class="text-muted" t-if="post.blog_id">In
+                                        <a class="s_blog_posts_post_category" t-attf-href="/blog/#{slug(post.blog_id)}" t-field="post.blog_id.name"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="/blog" class="btn btn-secondary o_translate_inline">All articles</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

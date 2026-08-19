@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cap_web_quote.ClientQuoteOption">
+        <BuilderRow label.translate="Testimonial">
+            <BuilderSelect dataAttributeAction="'testimonialId'" preview="false">
+                <BuilderSelectItem dataAttributeActionValue="''">Latest (default)</BuilderSelectItem>
+                <t t-foreach="state.testimonials" t-as="rec" t-key="rec.id">
+                    <BuilderSelectItem dataAttributeActionValue="`${rec.id}`" t-out="rec.name or rec.author"/>
+                </t>
+            </BuilderSelect>
+        </BuilderRow>
+    </t>
+
+</templates>

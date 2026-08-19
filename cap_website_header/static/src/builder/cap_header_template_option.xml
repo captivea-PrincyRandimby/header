@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!--
+        Adds "Captivea" to the builder's Header > Template selector.
+        `websiteConfig` enables the listed view and disables the ones declared by
+        the sibling items; the website copy-on-write is handled server side by
+        /website/theme_customize_data.
+    -->
+    <t t-name="cap_website_header.HeaderTemplateOption"
+       t-inherit="website.HeaderTemplateOption"
+       t-inherit-mode="extension">
+        <xpath expr="//BuilderSelect[@action=&quot;'reloadComposite'&quot;]" position="inside">
+            <BuilderSelectItem
+                id="'header_captivea_opt'"
+                title.translate="Captivea"
+                actionParam="[
+                    {
+                        action: 'websiteConfig',
+                        actionParam: {
+                            views: ['cap_website_header.template_header_captivea'],
+                            vars: { 'header-template': 'default' },
+                            checkVars: false,
+                        },
+                    },
+                ]">
+                <Img attrs="{ style: 'width: calc(100% - 0.5rem);' }"
+                     src="'/cap_website_header/static/src/img/header_template_captivea.svg'"/>
+            </BuilderSelectItem>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!--
+        Adds the four Captivea panels to the builder's "Mega Menu > Template"
+        selector, next to the native ones. `selectTemplate` renders the view
+        server side (`ir.ui.view.render_public_asset`) and replaces the content
+        of the edited `.o_mega_menu`, so any mega menu can take any design.
+
+        `templateClass` is how the builder detects which design is currently in
+        use: it must be a class present in the rendered markup.
+    -->
+    <t t-name="cap_website_header.MegaMenuOption"
+       t-inherit="website.MegaMenuOption"
+       t-inherit-mode="extension">
+        <xpath expr="//BuilderSelect[@id=&quot;'mega_menu_template_opt'&quot;]" position="inside">
+            <BuilderSelectItem
+                title.translate="Captivea - Services"
+                actionParam="{
+                    view: 'cap_website_header.s_mega_menu_cap_services',
+                    templateClass: 's_mega_menu_cap_services',
+                }">
+                <Img class="'w-75 m-auto'" style="'margin-block: -0.25em !important;'"
+                     src="'/cap_website_header/static/src/img/s_mega_menu_cap_services.svg'"/>
+            </BuilderSelectItem>
+            <BuilderSelectItem
+                title.translate="Captivea - User Journeys"
+                actionParam="{
+                    view: 'cap_website_header.s_mega_menu_cap_journeys',
+                    templateClass: 's_mega_menu_cap_journeys',
+                }">
+                <Img class="'w-75 m-auto'" style="'margin-block: -0.25em !important;'"
+                     src="'/cap_website_header/static/src/img/s_mega_menu_cap_journeys.svg'"/>
+            </BuilderSelectItem>
+            <BuilderSelectItem
+                title.translate="Captivea - Industries"
+                actionParam="{
+                    view: 'cap_website_header.s_mega_menu_cap_industries',
+                    templateClass: 's_mega_menu_cap_industries',
+                }">
+                <Img class="'w-75 m-auto'" style="'margin-block: -0.25em !important;'"
+                     src="'/cap_website_header/static/src/img/s_mega_menu_cap_industries.svg'"/>
+            </BuilderSelectItem>
+            <BuilderSelectItem
+                title.translate="Captivea - Solutions"
+                actionParam="{
+                    view: 'cap_website_header.s_mega_menu_cap_solutions',
+                    templateClass: 's_mega_menu_cap_solutions',
+                }">
+                <Img class="'w-75 m-auto'" style="'margin-block: -0.25em !important;'"
+                     src="'/cap_website_header/static/src/img/s_mega_menu_cap_solutions.svg'"/>
+            </BuilderSelectItem>
+            <!--
+                Designed for a top bar menu (Line1Template2), i.e. a mega menu
+                left in "Mega Menu > Size: Default". Nothing forbids using it on
+                a full width one, it will simply be very wide.
+            -->
+            <BuilderSelectItem
+                title.translate="Captivea - About"
+                actionParam="{
+                    view: 'cap_website_header.s_mega_menu_cap_about',
+                    templateClass: 's_mega_menu_cap_about',
+                }">
+                <Img class="'w-75 m-auto'" style="'margin-block: -0.25em !important;'"
+                     src="'/cap_website_header/static/src/img/s_mega_menu_cap_about.svg'"/>
+            </BuilderSelectItem>
+        </xpath>
+    </t>
+
+</templates>

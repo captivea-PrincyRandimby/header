@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cap_web_logo_lang_designer,website.logo.lang.designer,model_website_logo_lang,website.group_website_designer,1,1,1,1
+access_cap_web_logo_lang_user,website.logo.lang.user,model_website_logo_lang,base.group_user,1,0,0,0
+access_cap_web_logo_lang_portal,website.logo.lang.portal,model_website_logo_lang,base.group_portal,1,0,0,0
+access_cap_web_logo_lang_public,website.logo.lang.public,model_website_logo_lang,base.group_public,1,0,0,0

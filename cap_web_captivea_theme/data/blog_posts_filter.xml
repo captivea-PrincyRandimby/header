@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Base filter for the Captivea Blog Posts dynamic snippet.
+         is_published=True is auto-added by website.snippet.filter._prepare_values. -->
+    <record id="cap_blog_posts_ir_filter" model="ir.filters">
+        <field name="name">Captivea Blog Posts</field>
+        <!-- ir.filters.model_id is a Selection storing the model NAME. -->
+        <field name="model_id">blog.post</field>
+        <field name="user_ids" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="sort">["post_date desc"]</field>
+        <field name="action_id" ref="website.action_website"/>
+    </record>
+
+    <record id="dynamic_filter_cap_blog_posts" model="website.snippet.filter">
+        <field name="name">Captivea Blog Posts</field>
+        <field name="filter_id" ref="cap_blog_posts_ir_filter"/>
+        <field name="field_names">name,website_url,cover_properties,author_id,author_avatar,post_date,teaser,blog_id,tag_ids</field>
+        <field name="limit" eval="12"/>
+    </record>
+
+</odoo>

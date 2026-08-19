@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Make res.partner (Customer References) selectable in the generic model dropdown -->
+    <t t-inherit="website.DynamicSnippetOption" t-inherit-mode="extension">
+        <xpath expr="//BuilderSelect[@id=&quot;'model_opt'&quot;]" position="inside">
+            <BuilderSelectItem actionParam="'res.partner'">Customer References</BuilderSelectItem>
+        </xpath>
+    </t>
+
+    <!-- Options panel for the Customer References snippet -->
+    <t t-name="cap_web_captivea_theme.CustomerReferencesOption" t-inherit="website.DynamicSnippetOption">
+        <xpath expr="//BuilderRow[*[@id=&quot;'filter_opt'&quot;]]" position="after">
+            <BuilderRow label.translate="Company" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByCompanyId'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="'0'">All companies</BuilderSelectItem>
+                    <t t-foreach="refState.companies" t-as="company" t-key="company.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${company.id}`" t-out="company.display_name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Industry" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByIndustryId'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="'0'">All industries</BuilderSelectItem>
+                    <t t-foreach="refState.industries" t-as="industry" t-key="industry.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${industry.id}`" t-out="industry.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Tag" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByTagIds'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="''">All tags</BuilderSelectItem>
+                    <t t-foreach="refState.tags" t-as="tag" t-key="tag.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${tag.id}`" t-out="tag.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Show tags" preview="false">
+                <BuilderCheckbox action="'customizeTemplate'" actionParam="'references_tags_active'"/>
+            </BuilderRow>
+        </xpath>
+    </t>
+
+</templates>

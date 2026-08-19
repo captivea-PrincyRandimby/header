@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ensure the "show tags" flag is always defined (default off) so the
+         card template's t-if never hits an undefined variable. -->
+    <template id="s_blog_posts_tags_default" inherit_id="website_blog.s_blog_posts">
+        <xpath expr="//t[@t-set='custom_template_data']" position="replace">
+            <t t-set="custom_template_data" t-valuef='{"blog_posts_post_author_active":true, "blog_posts_post_teaser_active":true, "blog_posts_post_date_active":true, "blog_posts_post_category_active":true, "blog_posts_post_new_active":true, "blog_posts_post_tags_active":false}'/>
+        </xpath>
+    </template>
+
+    <!-- Card layout customizations: blog-name category badge (top-left) + tags under title. -->
+    <template id="blog_post_card_tags" inherit_id="website_blog.dynamic_filter_template_blog_post_card"
+              name="Blog Posts Card: category badge + tags">
+        <!-- Blog name as a category badge, top-left over the cover image. -->
+        <xpath expr="//div[hasclass('s_blog_posts_post_cover')]" position="inside">
+            <span t-if="blog_posts_post_category_active and record.blog_id"
+                  class="s_blog_post_category_badge badge text-bg-primary position-absolute top-0 start-0 m-2 z-1"
+                  t-out="record.blog_id.name"/>
+        </xpath>
+        <!-- Remove the "In {category}" link from the card footer (the category is
+             already shown as the top-left badge over the cover). -->
+        <xpath expr="//div[hasclass('card-footer')]/span[hasclass('text-muted')]" position="replace"/>
+        <!-- Post tags under the title. -->
+        <xpath expr="//h5[@t-field='record.name']" position="after">
+            <div t-if="blog_posts_post_tags_active and record.tag_ids"
+                 class="s_blog_posts_post_tags d-flex flex-wrap gap-1 mb-2">
+                <span t-foreach="record.tag_ids" t-as="tag" t-key="tag.id"
+                      class="badge rounded-pill text-bg-light border" t-out="tag.name"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

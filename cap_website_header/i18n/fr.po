@@ -1,0 +1,1290 @@
+# Translation of Odoo Server.
+# French / Français translation of the cap_website_header module.
+# This file contains the translation of the following modules:
+# 	* cap_website_header
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260528\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-18 09:22+0000\n"
+"PO-Revision-Date: 2026-08-18 09:22+0000\n"
+"Last-Translator: Captivea\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                    <i class=\"fa fa-balance-scale\"/>\n"
+"                                    <span>ERP &amp; comparisons</span>\n"
+"                                </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                    <i class=\"fa fa-balance-scale\"/>\n"
+"                                    <span>ERP &amp; comparatif</span>\n"
+"                                </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                    <i class=\"fa fa-database\"/>\n"
+"                                    <span>Odoo ERP</span>\n"
+"                                </span>"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                    <i class=\"fa fa-th-large\"/>\n"
+"                                    <span>Odoo Apps</span>\n"
+"                                </span>"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid ""
+"<span class=\"cap_mm_entry_title\">Discover Captivea</span>\n"
+"                <span class=\"cap_mm_entry_text\">Our story &amp; vision</span>"
+msgstr ""
+"<span class=\"cap_mm_entry_title\">Découvrir Captivea</span>\n"
+"                <span class=\"cap_mm_entry_text\">Notre histoire &amp; vision</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid ""
+"<span class=\"cap_mm_entry_title\">Leadership team</span>\n"
+"                <span class=\"cap_mm_entry_text\">The management committee</span>"
+msgstr ""
+"<span class=\"cap_mm_entry_title\">L'équipe dirigeante</span>\n"
+"                <span class=\"cap_mm_entry_text\">Le comité de direction</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-bullhorn\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Marketing &amp; communication</span>\n"
+"                            <span class=\"cap_mm_card_text\">Generate more qualified leads</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-bullhorn\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Marketing &amp; communication</span>\n"
+"                            <span class=\"cap_mm_card_text\">Générer plus de leads qualifiés</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-calculator\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Accounting &amp; finance</span>\n"
+"                            <span class=\"cap_mm_card_text\">Automate accounting</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-calculator\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Comptabilité &amp; finance</span>\n"
+"                            <span class=\"cap_mm_card_text\">Automatiser la comptabilité</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-cubes\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Operations &amp; production</span>\n"
+"                            <span class=\"cap_mm_card_text\">Streamline production</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-cubes\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Opérations &amp; production</span>\n"
+"                            <span class=\"cap_mm_card_text\">Fluidifier la production</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-handshake-o\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Sales &amp; CRM</span>\n"
+"                            <span class=\"cap_mm_card_text\">Speed up the sales cycle</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-handshake-o\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Ventes &amp; CRM</span>\n"
+"                            <span class=\"cap_mm_card_text\">Accélérer le cycle commercial</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-headphones\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Customer service &amp; support</span>\n"
+"                            <span class=\"cap_mm_card_text\">Retain your customers</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-headphones\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Service client &amp; SAV</span>\n"
+"                            <span class=\"cap_mm_card_text\">Fidéliser vos clients</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-line-chart\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Executive management</span>\n"
+"                            <span class=\"cap_mm_card_text\">Steer overall performance</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-line-chart\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Direction générale</span>\n"
+"                            <span class=\"cap_mm_card_text\">Piloter la performance globale</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-server\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">IT &amp; engineering</span>\n"
+"                            <span class=\"cap_mm_card_text\">Secure &amp; integrate your IT</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-server\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">IT &amp; direction technique</span>\n"
+"                            <span class=\"cap_mm_card_text\">Sécuriser &amp; intégrer le SI</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-shopping-cart\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Purchasing</span>\n"
+"                            <span class=\"cap_mm_card_text\">Master your procurement</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-shopping-cart\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Achats</span>\n"
+"                            <span class=\"cap_mm_card_text\">Maîtriser vos approvisionnements</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-truck\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Supply chain &amp; distribution</span>\n"
+"                            <span class=\"cap_mm_card_text\">Optimize stock &amp; flows</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-truck\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Supply chain &amp; distribution</span>\n"
+"                            <span class=\"cap_mm_card_text\">Optimiser stocks &amp; flux</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-users\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Human resources</span>\n"
+"                            <span class=\"cap_mm_card_text\">Digitalize HR management</span>\n"
+"                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon\"><i class=\"fa fa-users\"/></span>\n"
+"                        <span class=\"cap_mm_card_titles\">\n"
+"                            <span class=\"cap_mm_card_title\">Ressources humaines</span>\n"
+"                            <span class=\"cap_mm_card_text\">Digitaliser la gestion RH</span>\n"
+"                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">Canada</span>"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">France</span>"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">India</span>"
+msgstr "<span class=\"cap_mm_office_country\">Inde</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">Luxembourg</span>"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">Madagascar</span>"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">Singapore</span>"
+msgstr "<span class=\"cap_mm_office_country\">Singapour</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "<span class=\"cap_mm_office_country\">United States</span>"
+msgstr "<span class=\"cap_mm_office_country\">États-Unis</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_shortcut_title\">A modern ERP</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Odoo ERP</span>"
+msgstr ""
+"<span class=\"cap_mm_shortcut_title\">Un ERP moderne</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Odoo ERP</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_shortcut_title\">Attract &amp; convert</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Marketing solutions</span>"
+msgstr ""
+"<span class=\"cap_mm_shortcut_title\">Attirez &amp; convertissez</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Solutions Marketing</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_shortcut_title\">Automate &amp; decide</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Artificial Intelligence</span>"
+msgstr ""
+"<span class=\"cap_mm_shortcut_title\">Automatisez &amp; décidez</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Intelligence artificielle</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_shortcut_title\">Extend your capabilities</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">ISV &amp; Partners</span>"
+msgstr ""
+"<span class=\"cap_mm_shortcut_title\">Étendez vos capacités</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">ISV &amp; Partners</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_shortcut_title\">Steer with data</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Business Intelligence</span>"
+msgstr ""
+"<span class=\"cap_mm_shortcut_title\">Pilotez par la donnée</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Business Intelligence</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_shortcut_title\">Your website &amp; shop</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Odoo Website &amp; eShop</span>"
+msgstr ""
+"<span class=\"cap_mm_shortcut_title\">Votre site &amp; boutique</span>\n"
+"                            <span class=\"cap_mm_shortcut_badge\">Odoo Website &amp; eShop</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid ""
+"<span class=\"cap_mm_tag\">ERP</span>\n"
+"                            <span class=\"cap_mm_tag\">WEB</span>\n"
+"                            <span class=\"cap_mm_tag\">AI</span>\n"
+"                            <span class=\"cap_mm_tag\">BI</span>"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "AI Analysis"
+msgstr "Analyse IA"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "About"
+msgstr "À propos"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "About Captivea"
+msgstr "À propos de Captivea"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Accounting"
+msgstr "Comptabilité"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid ""
+"Adds the missing top bar menus and mega menus to this website. Existing "
+"menus are left untouched."
+msgstr "Ajoute à ce site web les menus manquants de la barre du haut et les mega menus. Les menus existants ne sont pas modifiés."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Aerospace &amp; defense"
+msgstr "Aérospatial &amp; défense"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "All comparisons"
+msgstr "Tous les comparatifs"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "Analysing your request"
+msgstr "Analyse de votre demande"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Angers"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Anticipate demand"
+msgstr "Anticipez la demande"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Artificial Intelligence"
+msgstr "Intelligence artificielle"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Attract your customers"
+msgstr "Attirez vos clients"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Attract, convert &amp; retain"
+msgstr "Attirez, convertissez &amp; fidélisez"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.cap_mm_actions
+msgid "Audit your website"
+msgstr "Auditer votre site"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Automate &amp; decide faster"
+msgstr "Automatisez &amp; décidez plus vite"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Automate repetitive tasks"
+msgstr "Automatisez les tâches répétitives"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Automotive"
+msgstr "Automobile"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Bar &amp; restaurant"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Be visible online"
+msgstr "Soyez visible en ligne"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "Beta"
+msgstr "Bêta"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Biotechnology"
+msgstr "Biotechnologie"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Blog"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+#: model_terms:ir.ui.view,arch_db:cap_website_header.cap_mm_actions
+msgid "Book a demo"
+msgstr "Planifier une démo"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Business Consulting"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Business Intelligence"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "By Industry"
+msgstr "Par secteur"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "CRM"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Canada office"
+msgstr "Bureau Canada"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Cannabis / CBD"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/builder/cap_header_template_option.xml:0
+msgid "Captivea"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/builder/cap_mega_menu_option.xml:0
+msgid "Captivea - About"
+msgstr "Captivea - À propos"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/builder/cap_mega_menu_option.xml:0
+msgid "Captivea - Industries"
+msgstr "Captivea - Secteurs"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/builder/cap_mega_menu_option.xml:0
+msgid "Captivea - Services"
+msgstr "Captivea - Expertises"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/builder/cap_mega_menu_option.xml:0
+msgid "Captivea - Solutions"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/builder/cap_mega_menu_option.xml:0
+msgid "Captivea - User Journeys"
+msgstr "Captivea - Parcours métiers"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Captivea Apps"
+msgstr ""
+
+#. module: cap_website_header
+#: model:ir.model.fields,field_description:cap_website_header.field_res_config_settings__cap_header_enabled
+#: model:ir.model.fields,field_description:cap_website_header.field_website__cap_header_enabled
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid "Captivea Header"
+msgstr "Header Captivea"
+
+#. module: cap_website_header
+#: model:ir.model.fields,field_description:cap_website_header.field_website_menu__cap_header_row
+msgid "Captivea Header Row"
+msgstr "Ligne du header Captivea"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Careers"
+msgstr "Carrières"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Centralize your data"
+msgstr "Centralisez vos données"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Chambéry"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Chemicals"
+msgstr "Chimie"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "Close"
+msgstr "Fermer"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Cloud ERP"
+msgstr ""
+
+#. module: cap_website_header
+#: model:ir.model,name:cap_website_header.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Construction"
+msgstr "Construction / BTP"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid ""
+"Consulting, ERP, Web, AI and BI - every skill you need to drive your growth."
+msgstr "Conseil, ERP, Web, IA et BI — toutes les expertises pour piloter votre croissance."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid "Create the Captivea menus"
+msgstr "Créer les menus Captivea"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Customer references"
+msgstr "Références clients"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Decide faster"
+msgstr "Décidez plus vite"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Defense, health, energy &amp; biotech"
+msgstr "Défense · Santé · Énergie · Biotech"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Deploy your ERP"
+msgstr "Déployez votre ERP"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Discover ERP"
+msgstr "Découvrir l'ERP"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Discover Odoo"
+msgstr "Découvrir Odoo"
+
+#. module: cap_website_header
+#: model:ir.model.fields,field_description:cap_website_header.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:cap_website_header.field_theme_utils__display_name
+#: model:ir.model.fields,field_description:cap_website_header.field_website__display_name
+#: model:ir.model.fields,field_description:cap_website_header.field_website_menu__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Distribution &amp; logistics"
+msgstr "Distribution &amp; logistique"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Documentation"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "E-commerce &amp; online retail"
+msgstr "E-commerce &amp; vente en ligne"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "E-commerce, transport &amp; warehousing"
+msgstr "E-commerce · Transport · Entrepôt"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "ERP"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "ERP implementation"
+msgstr "Mise en œuvre ERP"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid ""
+"ERP, Web, AI and BI - broken down by industry, with real business use cases."
+msgstr "ERP · Web · IA · BI — déclinés par secteur avec des use cases métier."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Electronics"
+msgstr "Électronique"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Energy &amp; resources"
+msgstr "Énergie &amp; ressources"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Engage your audience"
+msgstr "Animez votre audience"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Enterprise vs Community"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Events"
+msgstr "Événements"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Fashion &amp; textile"
+msgstr "Mode &amp; textile"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Finance"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Finance, IT, HR &amp; media"
+msgstr "Finance · IT · RH · Médias"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Food &amp; beverage"
+msgstr "Agroalimentaire"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Forecast your results"
+msgstr "Anticipez vos résultats"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Frame &amp; steer your transformation"
+msgstr "Cadrez &amp; pilotez votre transformation"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Frame your ERP project"
+msgstr "Cadrez votre projet ERP"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Frame your digital transformation"
+msgstr "Cadrez votre transformation digitale"
+
+#. module: cap_website_header
+#: model:ir.model.fields,help:cap_website_header.field_website_menu__cap_menu_description
+msgid ""
+"Grey line displayed under the label inside the top bar dropdowns of the "
+"Captivea header (e.g. \"News, tips & use cases\")."
+msgstr "Ligne grise affichée sous le libellé dans les menus déroulants de la barre du haut du header Captivea (par exemple « News, tips & use cases »)."
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Guides to download"
+msgstr "Des guides à télécharger"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "HR service providers"
+msgstr "Sociétés de services RH"
+
+#. module: cap_website_header
+#: model:ir.model.fields,field_description:cap_website_header.field_website_menu__cap_menu_description
+msgid "Header Description"
+msgstr "Descriptif du header"
+
+#. module: cap_website_header
+#: model:ir.model.fields,field_description:cap_website_header.field_website_menu__cap_mega_subtitle
+msgid "Header Subtitle"
+msgstr "Sous-titre du header"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Health &amp; pharmaceutical"
+msgstr "Santé &amp; pharmaceutique"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Helpdesk"
+msgstr ""
+
+#. module: cap_website_header
+#: model:ir.model.fields,field_description:cap_website_header.field_res_config_settings__id
+#: model:ir.model.fields,field_description:cap_website_header.field_theme_utils__id
+#: model:ir.model.fields,field_description:cap_website_header.field_website__id
+#: model:ir.model.fields,field_description:cap_website_header.field_website_menu__id
+msgid "ID"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "ITAR projects"
+msgstr "Projet ITAR"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid "Improve the user experience"
+msgstr "Améliorer l'expérience utilisateur"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "India office"
+msgstr "Bureau Inde"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Industry &amp; manufacturing"
+msgstr "Industrie / Manufacturing"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Information technology"
+msgstr "Technologies de l'information"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Insurance &amp; legal"
+msgstr "Assurance &amp; juridique"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Integrate your tools"
+msgstr "Intégrez vos outils"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Inventory"
+msgstr "Inventaire"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Join our teams"
+msgstr "Rejoignez nos équipes"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
+msgid "Journeys designed for every role in your organization."
+msgstr "Des parcours pensés pour chaque métier de votre organisation."
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Leadership team"
+msgstr "L'équipe dirigeante"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Lille"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Logistics &amp; warehousing"
+msgstr "Logistique &amp; entreposage"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Luxembourg office"
+msgstr "Bureau Luxembourg"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Madagascar office"
+msgstr "Bureau Madagascar"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Manufacturing"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Mechanical equipment"
+msgstr "Équipements mécaniques"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Media &amp; communication"
+msgstr "Médias &amp; communication"
+
+#. module: cap_website_header
+#: model:ir.model.fields.selection,name:cap_website_header.selection__website_menu__cap_header_row__mega
+msgid "Mega menu bar"
+msgstr "Barre des mega menus"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "News, tips & use cases"
+msgstr "Actualités, conseils & cas d'usage"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Odoo & Other Solutions"
+msgstr "Odoo & autres solutions"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Odoo ERP"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Odoo pricing"
+msgstr "Tarifs Odoo"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Odoo vs Dynamics"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Odoo vs NetSuite"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Odoo vs SAP"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Offers & methodology"
+msgstr "Offre & méthodologie"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Open positions"
+msgstr "Postes ouverts"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Optimize your processes"
+msgstr "Optimisez vos processus"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Our HR vision"
+msgstr "Notre vision RH"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Our Odoo modules"
+msgstr "Nos modules Odoo"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Our Offices"
+msgstr "Nos bureaux"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Our culture & commitments"
+msgstr "Notre culture & nos engagements"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Our offices"
+msgstr "Nos bureaux"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Our successful projects"
+msgstr "Nos projets réussis"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "POS, bar, restaurant &amp; CBD"
+msgstr "POS · Bar · Restaurant · CBD"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Personal services"
+msgstr "Services à la personne"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Pipeline"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/res_config_settings.py:0
+msgid "Please select a website first."
+msgstr "Veuillez d'abord sélectionner un site web."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Point of sale"
+msgstr "Point de vente"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Point of sale &amp; retail"
+msgstr "Point de vente &amp; retail"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Polish your brand image"
+msgstr "Soignez votre image de marque"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Printing &amp; graphics"
+msgstr "Imprimerie &amp; graphisme"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Production, quality &amp; MRP"
+msgstr "Production · Qualité · MRP"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Project"
+msgstr "Projet"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid ""
+"Puts the reference designs back on the Captivea panels, including the About "
+"one in the top bar."
+msgstr "Repose les designs de référence sur les panneaux Captivea, y compris celui d'À propos dans la barre du haut."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Quality"
+msgstr "Qualité"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "Recommended results"
+msgstr "Résultats recommandés"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Regulated industries"
+msgstr "Secteurs régulés"
+
+#. module: cap_website_header
+#: model:ir.model.fields,help:cap_website_header.field_res_config_settings__cap_header_enabled
+#: model:ir.model.fields,help:cap_website_header.field_website__cap_header_enabled
+msgid ""
+"Replace the standard header of this website by the three-row Captivea "
+"header. Only this website is impacted."
+msgstr "Remplacer le header standard de ce site web par le header Captivea sur trois lignes. Seul ce site est impacté."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid "Reset the mega menu panels"
+msgstr "Réinitialiser les panneaux de mega menu"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Resources"
+msgstr "Ressources"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Road transport"
+msgstr "Transport routier"
+
+#. module: cap_website_header
+#: model:ir.model.fields,help:cap_website_header.field_website_menu__cap_header_row
+msgid ""
+"Row of the Captivea header this menu is displayed in. Kept apart from \"Mega"
+" Menu\" on purpose: a top bar menu may carry a mega menu panel - that is how"
+" the \"About\" dropdown gets its free content while staying in the top bar."
+msgstr "Ligne du header Captivea dans laquelle ce menu est affiché. Volontairement distinct de « Mega Menu » : un menu de la barre du haut peut porter un panneau de mega menu — c'est ainsi que le menu déroulant « À propos » obtient son contenu libre tout en restant en haut."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Sales force"
+msgstr "Forces de vente"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Scalability"
+msgstr "Scalabilité"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Sea &amp; air freight"
+msgstr "Transport maritime &amp; aérien"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Secure your data"
+msgstr "Sécurisez vos données"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Sell online"
+msgstr "Vendez en ligne"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Services & Consulting"
+msgstr "Expertises & conseil"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Services &amp; professional"
+msgstr "Services &amp; tertiaire"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Singapore office"
+msgstr "Bureau Singapour"
+
+#. module: cap_website_header
+#: model:ir.model.fields,help:cap_website_header.field_website_menu__cap_mega_subtitle
+msgid ""
+"Small uppercase line displayed under the menu label in the Captivea header "
+"mega menu bar (e.g. \"Services & Consulting\")."
+msgstr "Petite ligne en capitales affichée sous le libellé du menu dans la barre des mega menus du header Captivea (par exemple « Services & Consulting »)."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.cap_mm_actions
+msgid "Start your project"
+msgstr "Lancer votre projet"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Steer with data"
+msgstr "Pilotez par la donnée"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Structure your growth"
+msgstr "Structurez votre croissance"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Success Packs"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "Talk to an expert"
+msgstr "Parler à un expert"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid ""
+"The \"%(menu)s\" menu of website %(website)s carries a mega menu panel, and "
+"Odoo does not allow a mega menu to have submenus. Please move or delete "
+"these submenus first: %(children)s."
+msgstr "Le menu « %(menu)s » du site web %(website)s porte un panneau de mega menu, et Odoo n'autorise pas un mega menu à avoir des sous-menus. Veuillez d'abord déplacer ou supprimer ces sous-menus : %(children)s."
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "The Captivea header template is missing, please upgrade the module."
+msgstr "Le template du header Captivea est absent, veuillez mettre à jour le module."
+
+#. module: cap_website_header
+#: model:ir.model,name:cap_website_header.model_theme_utils
+msgid "Theme Utils"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid ""
+"This overwrites the content of the Captivea mega menu panels with the "
+"reference designs. Any change made on them in the website builder will be "
+"lost. The submenus of the About menu are deleted as well: Odoo does not "
+"allow a mega menu to have submenus, and the panel leads to the same pages. "
+"Continue?"
+msgstr "Cette action écrase le contenu des panneaux de mega menu Captivea par les designs de référence. Toute modification faite dessus dans l'éditeur de site sera perdue. Les sous-menus du menu À propos sont également supprimés : Odoo n'autorise pas un mega menu à avoir des sous-menus, et le panneau mène aux mêmes pages. Continuer ?"
+
+#. module: cap_website_header
+#: model:ir.model.fields.selection,name:cap_website_header.selection__website_menu__cap_header_row__top
+msgid "Top bar"
+msgstr "Barre du haut"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "Toulouse"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Track your KPIs"
+msgstr "Pilotez vos KPI"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
+msgid "Transform your business"
+msgstr "Transformez votre activité"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Transform your everyday"
+msgstr "Transformez votre quotidien"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Transform your organization"
+msgstr "Transformez votre organisation"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Transform your solutions"
+msgstr "Transformez vos outils"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
+msgid "US office"
+msgstr "Bureau US"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Unify your management"
+msgstr "Unifiez votre gestion"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Unify your processes on Odoo"
+msgstr "Unifiez vos processus sur Odoo"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
+msgid "Use the three-row Captivea header on this website"
+msgstr "Utiliser le header Captivea sur trois lignes pour ce site web"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "User Journey"
+msgstr "Parcours métiers"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Visualize &amp; steer with data"
+msgstr "Visualisez &amp; pilotez par la donnée"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Visualize your performance"
+msgstr "Visualisez vos performances"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
+msgid "Web &amp; Marketing"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Webinars & trade shows"
+msgstr "Webinaires & salons"
+
+#. module: cap_website_header
+#: model:ir.model,name:cap_website_header.model_website
+msgid "Website"
+msgstr ""
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "Website %s has no root menu."
+msgstr "Le site web %s n'a pas de menu racine."
+
+#. module: cap_website_header
+#: model:ir.model,name:cap_website_header.model_website_menu
+msgid "Website Menu"
+msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.template_header_captivea
+msgid "What do you want to transform?"
+msgstr "Que souhaitez-vous transformer ?"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "What is an ERP?"
+msgstr "Qu'est-ce qu'un ERP ?"
+
+#. module: cap_website_header
+#. odoo-python
+#: code:addons/cap_website_header/models/website.py:0
+msgid "White papers"
+msgstr "Livres blancs"
+
+#. module: cap_website_header
+#. odoo-javascript
+#: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
+msgid "Your search"
+msgstr "Votre demande"

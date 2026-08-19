@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add a "JSON-LD" tab to Settings > Websites form for the site-wide
+         schema.org markup injected on every page. -->
+    <record id="view_website_form_global_json_ld" model="ir.ui.view">
+        <field name="name">website.form.global.json.ld</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="JSON-LD" name="global_json_ld">
+                    <div class="text-muted mb-2">
+                        Site-wide JSON-LD (schema.org), injected on every page of this website
+                        (e.g. Organization / WebSite). It is rendered together with the per-page
+                        JSON-LD set in the "Optimize SEO" dialog. Must be valid JSON.
+                    </div>
+                    <field name="website_global_json_ld" nolabel="1"
+                           placeholder='{&#10;  "@context": "https://schema.org",&#10;  "@type": "Organization",&#10;  "name": "Captivea",&#10;  "url": "https://www.captivea.com"&#10;}'/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

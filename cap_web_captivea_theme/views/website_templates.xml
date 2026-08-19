@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ==========================================================================
+     Captivea footer (replaces the default footer with a branded one)
+     Replace the placeholder links / contact info with the real data.
+     ========================================================================== -->
+<template id="footer" inherit_id="website.layout" name="Captivea Footer">
+    <xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" class="o_footer cap-footer o_colored_level oe_structure mt-5 o_cc5" t-ignore="true" t-if="not no_footer">
+            <section class="s_text_block pt64 pb32" data-snippet="s_text_block" data-name="Footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- Col 1 : Brand, socials &amp; certifications -->
+                        <div class="col-12 col-lg-3 pb24 pe-lg-4">
+                            <h4>Captivea</h4>
+                            <p class="small">Odoo Gold Partner since 2014. Over 800 projects deployed across 4 continents.</p>
+                            <div class="cap-ft-social mb-3">
+                                <a href="/website/social/linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"/></a>
+                                <a href="/website/social/facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa fa-facebook"/></a>
+                                <a href="/website/social/twitter" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa fa-twitter"/></a>
+                                <a href="/website/social/youtube" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube"/></a>
+                            </div>
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><i class="fa fa-trophy me-2"/>Nominated Best Partner 2025 — Europe &amp; Americas</li>
+                                <li class="mb-2"><i class="fa fa-trophy me-2"/>Nominated Best Partner 2024 — Europe &amp; Americas</li>
+                                <li class="mb-2"><i class="fa fa-certificate me-2"/>Certified Odoo Gold Partner — v12 to v19</li>
+                            </ul>
+                        </div>
+                        <!-- Col 2 : Expertise -->
+                        <div class="col-6 col-lg-3 pb24">
+                            <h6 class="text-uppercase small fw-bold">Expertise</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><a href="/erp">ERP</a></li>
+                                <li class="mb-2"><a href="/erp/cloud-erp">Cloud ERP</a></li>
+                                <li class="mb-2"><a href="/erp/open-source-erp">Open Source ERP</a></li>
+                                <li class="mb-2"><a href="/erp/erp-comparison">ERP Comparison</a></li>
+                                <li class="mb-2"><a href="/business-consulting">Business Consulting</a></li>
+                                <li class="mb-2"><a href="/business-intelligence">Business Intelligence</a></li>
+                                <li class="mb-2"><a href="/artificial-intelligence">Artificial Intelligence</a></li>
+                                <li class="mb-2"><a href="/website-and-marketing">Website &amp; Marketing</a></li>
+                            </ul>
+                        </div>
+                        <!-- Col 3 : By industry &amp; By business function -->
+                        <div class="col-6 col-lg-3 pb24">
+                            <h6 class="text-uppercase small fw-bold">By industry</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><a href="/transform-your-industry">All industries</a></li>
+                                <li class="mb-2"><a href="/transform-your-industry/manufacturing">Manufacturing</a></li>
+                                <li class="mb-2"><a href="/transform-your-industry/distribution">Distribution &amp; Logistics</a></li>
+                                <li class="mb-2"><a href="/transform-your-industry/services">Services &amp; Tertiary</a></li>
+                                <li class="mb-2"><a href="/transform-your-industry/retail">Retail &amp; Point of Sale</a></li>
+                                <li class="mb-2"><a href="/transform-your-industry/regulated">Regulated Industries</a></li>
+                            </ul>
+                            <h6 class="text-uppercase small fw-bold mt-4">By business function</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><a href="/transform-your-everyday/sales-team">Sales &amp; CRM</a></li>
+                                <li class="mb-2"><a href="/transform-your-everyday/finance-team">Finance &amp; Accounting</a></li>
+                                <li class="mb-2"><a href="/transform-your-everyday/hr-team">Human Resources</a></li>
+                                <li class="mb-2"><a href="/transform-your-everyday/marketing-team">Marketing</a></li>
+                            </ul>
+                        </div>
+                        <!-- Col 4 : Captivea -->
+                        <div class="col-6 col-lg-3 pb24">
+                            <h6 class="text-uppercase small fw-bold">Captivea</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><a href="/aboutus">About us</a></li>
+                                <li class="mb-2"><a href="/customers">Customer references</a></li>
+                                <li class="mb-2"><a href="/business-consulting">Business consulting</a></li>
+                                <li class="mb-2"><a href="/schedule-odoo-demonstration">Schedule a demo</a></li>
+                                <li class="mb-2"><a href="/contactus">Contact us</a></li>
+                                <li class="mb-2"><a href="/jobs?all_countries=1">Join the team</a></li>
+                                <li class="mb-2"><a href="/sitemap">Sitemap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</template>
+
+<!-- Captivea copyright bar -->
+<template id="copyright" inherit_id="website.layout" name="Captivea Copyright">
+    <xpath expr="//div[hasclass('o_footer_copyright')]/div[hasclass('container')]" position="replace">
+        <div class="container py-3">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-md-6 text-start">
+                    <span class="o_footer_copyright_name small">© 2006–2025 <strong>Captivea</strong> — Transform your Everyday</span>
+                </div>
+                <div class="col-12 col-md-6 text-md-end small cap-ft-langs">
+                    <a href="/en_US" class="me-2">EN</a>
+                    <a href="/fr_FR" class="me-2">FR</a>
+                    <a href="/fr_CA" class="me-2">FR-CA</a>
+                    <a href="/en_CA" class="me-2">EN-CA</a>
+                    <a href="/fr_LU">LU</a>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</template>
+
+<!-- ==========================================================================
+     Breadcrumb (schema.org BreadcrumbList) inserted under the header on every
+     page except the homepage (path "/"). Built from the URL path segments.
+     ========================================================================== -->
+<template id="cap_breadcrumb" inherit_id="website.layout" name="Captivea Breadcrumb">
+    <xpath expr="//main" position="before">
+        <t t-set="cap_segs" t-value="[s for s in request.httprequest.path.split('/') if s] if request else []"/>
+        <nav t-if="cap_segs" class="cap-breadcrumb o_cc o_cc2 o_colored_level" aria-label="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb mb-0" itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                        <meta itemprop="position" content="1"/>
+                    </li>
+                    <t t-foreach="cap_segs" t-as="seg">
+                        <t t-set="cap_href" t-value="'/' + '/'.join(cap_segs[:seg_index + 1])"/>
+                        <t t-set="cap_label" t-value="seg.replace('-', ' ').replace('_', ' ').title()"/>
+                        <li t-attf-class="breadcrumb-item#{' active' if seg_last else ''}" t-att-aria-current="'page' if seg_last else None"
+                            itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+                            <a t-if="not seg_last" itemprop="item" t-att-href="cap_href"><span itemprop="name" t-esc="cap_label"/></a>
+                            <span t-if="seg_last" itemprop="name" t-esc="cap_label"/>
+                            <meta itemprop="position" t-att-content="seg_index + 2"/>
+                        </li>
+                    </t>
+                </ol>
+            </div>
+        </nav>
+    </xpath>
+</template>
+
+</odoo>

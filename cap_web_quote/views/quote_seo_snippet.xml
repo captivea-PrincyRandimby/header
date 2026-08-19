@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Server-rendered testimonials block: records queried and rendered
+         server-side (QWeb) so the content is in the initial HTML for SEO /
+         link-juice. NO JS content loading. Distinct Captivea block; does NOT
+         replace the dynamic s_captivea_testimonials snippet.
+
+         Design "gradient card" in a single-line carousel:
+         - quote centered on the brand gradient, quote glyph overlapping the
+           top-left corner, white footer with company name + author · role;
+         - 3 cards visible on desktop/tablet (center scaled 1.05, sides 0.95),
+           1 on phone; scroll-snap + Bootstrap-styled arrows;
+         - centered when there are only 1-2 testimonials. -->
+    <template id="s_cap_testimonials_seo" name="Testimonials (SEO)">
+        <t t-set="testimonials" t-value="env['quote.testimonial'].sudo().search([('is_published', '=', True)], order='sequence, id desc', limit=12)"/>
+        <section class="s_cap_testimonials_seo o_cc o_cc2 o_colored_level pt40 pb40"
+                 data-snippet="s_cap_testimonials_seo" data-name="Testimonials">
+            <div class="container">
+                <div class="text-center pb-4">
+                    <p class="lead">Testimonials</p>
+                    <h2>What our clients say</h2>
+                </div>
+                <div class="s_cap_tcar position-relative">
+                    <div t-attf-class="s_cap_tcarousel d-flex #{len(testimonials) &lt;= 3 and 'justify-content-center' or ''}">
+                        <t t-foreach="testimonials" t-as="rec">
+                            <div class="s_cap_tcard">
+                                <span class="s_cap_tcard_mark" aria-hidden="true">&#8220;</span>
+                                <div class="s_cap_tcard_grad">
+                                    <p class="s_cap_tcard_quote" t-out="rec.quote"/>
+                                </div>
+                                <div class="s_cap_tcard_foot">
+                                    <div class="s_cap_tcard_who">
+                                        <strong t-out="rec.author"/>
+                                        <div class="s_cap_tcard_sub">
+                                            <span t-if="rec.role_id" t-out="rec.role_id.name"/>
+                                            <t t-if="rec.role_id and rec.company_name"> · </t>
+                                            <span t-if="rec.company_name" t-out="rec.company_name"/>
+                                        </div>
+                                    </div>
+                                    <div t-if="rec.tag_ids" class="s_cap_tcard_tags">
+                                        <span t-foreach="rec.tag_ids" t-as="tag" t-key="tag.id"
+                                              class="badge rounded-pill" t-out="tag.name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <button t-if="len(testimonials) &gt; 3" type="button"
+                            class="s_cap_tcar_prev btn btn-light rounded-circle shadow-sm d-none d-md-flex"
+                            aria-label="Previous"><i class="fa fa-chevron-left" role="img"/></button>
+                    <button t-if="len(testimonials) &gt; 3" type="button"
+                            class="s_cap_tcar_next btn btn-light rounded-circle shadow-sm d-none d-md-flex"
+                            aria-label="Next"><i class="fa fa-chevron-right" role="img"/></button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

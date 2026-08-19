@@ -1,0 +1,438 @@
+// ==========================================================================
+//  Captivea Theme — frontend styles (brand tokens, gradients, tints, layout)
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+//  Mixin: +30% / +60% tints (mixed toward white) of an Odoo color,
+//  referencing the corresponding base variable --o-color-N.
+// --------------------------------------------------------------------------
+@mixin cap-color-tints($n) {
+    --o-color-#{$n}-30: color-mix(in srgb, var(--o-color-#{$n}) 70%, #fff);
+    --o-color-#{$n}-60: color-mix(in srgb, var(--o-color-#{$n}) 40%, #fff);
+}
+
+// ==========================================================================
+//  Variables & design tokens
+// ==========================================================================
+:root {
+    // 6th color — light gray (Odoo's native picker only handles 5 colors)
+    --o-color-6: #F5F4F4;
+
+    // +30% / +60% tints for ALL colors (via mixin, refs --o-color-N)
+    @include cap-color-tints(1);
+    @include cap-color-tints(2);
+    @include cap-color-tints(3);
+    @include cap-color-tints(4);
+    @include cap-color-tints(5);
+    @include cap-color-tints(6);
+
+    // Design tokens
+    --cap-grad:           linear-gradient(45deg, var(--o-color-1), var(--o-color-2));
+    --cap-grad-hover:     linear-gradient(45deg, var(--o-color-2), var(--o-color-1));  // reversed, for the hover cross-fade
+    --cap-grad-signature: var(--cap-grad);
+    --cap-grad-secondary: radial-gradient(circle at top right, #BA131A 0%, #223843 100%);
+    --cap-shadow: 0 3px 9px color-mix(in srgb, var(--o-color-5) 13%, transparent);
+    --cap-r-sections:  42px;
+    --cap-r-cards:     28px;
+    --card-color:      rgb(34, 56, 67);
+    --cap-section-gap: 1em;
+}
+
+// ==========================================================================
+//  Keyframes
+// ==========================================================================
+// Icon ring breathing animation
+@keyframes ringBreath {
+    0%, 100% { box-shadow: 0 0 0 3px #fbecec, 0 0 0 6px #fdf4f4; }
+    50%      { box-shadow: 0 0 0 6px #f5d0d1, 0 0 0 12px #fbecec; }
+}
+
+// ==========================================================================
+//  Base / global
+// ==========================================================================
+// Smooth scroll for in-page anchor links (e.g. #form), with a top offset so the
+// target isn't hidden under the sticky header.
+html {
+    scroll-behavior: smooth;
+}
+:target {
+    scroll-margin-top: 6rem;
+}
+
+// ==========================================================================
+//  Utility & brand helper classes
+// ==========================================================================
+// Utility classes — +30% / +60% tints for each color (builder: Customize > HTML class)
+@each $n in (1, 2, 3, 4, 5, 6) {
+    .bg-o-color-#{$n}-30   { background-color: var(--o-color-#{$n}-30) !important; }
+    .bg-o-color-#{$n}-60   { background-color: var(--o-color-#{$n}-60) !important; }
+    .text-o-color-#{$n}-30 { color: var(--o-color-#{$n}-30) !important; }
+    .text-o-color-#{$n}-60 { color: var(--o-color-#{$n}-60) !important; }
+}
+.bg-o-color-6   { background-color: var(--o-color-6) !important; }
+.text-o-color-6 { color: var(--o-color-6) !important; }
+
+// Reusable gradients in the builder (Customize > HTML class)
+.o_cap_grad,
+.bg-cap-gradient {
+    background: var(--cap-grad-signature) !important;
+    color: #fff !important;
+}
+.o_cap_grad--secondary,
+.bg-cap-gradient-2 {
+    background: var(--cap-grad-secondary) !important;
+    color: #fff !important;
+}
+
+// Brand pill / capsule
+.o_cap_pill {
+    display: inline-block;
+    padding: .35em .9em;
+    border-radius: 50rem;
+    background: var(--o-color-1);
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.badge, .o_filter_tag {
+  --badge-color: var(--o-color-1);
+  --badge-bg: var(--o-color-3-30);
+  --badge-border-color: transparent;
+    width: auto;
+    height: auto;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+// ==========================================================================
+//  Header & Footer
+// ==========================================================================
+header#top {
+    box-shadow: var(--cap-shadow);
+
+    .navbar { font-weight: 600; }
+    .nav-link:hover,
+    .nav-link.active { color: var(--o-color-1) !important; }
+}
+
+
+footer.o_footer{
+    --background-color: transparent;
+    background-color: var(--background-color);
+    .cap-footer {
+        border-radius: var(--cap-r-sections) var(--cap-r-sections) 0 0;  
+        h6 { letter-spacing: .12em; }
+        a { color: var(--o-color-4); opacity: .85; transition: opacity .2s ease; }
+        a:hover { opacity: 1; }
+    }
+}
+
+// Breadcrumb (under header, schema.org BreadcrumbList) — brand styling
+.cap-breadcrumb {
+    padding: .6rem 0;
+
+    .breadcrumb { margin: 0; font-size: .85rem; }
+    .breadcrumb-item + .breadcrumb-item::before { content: "›"; color: var(--o-color-3); }
+    a { color: var(--o-color-5-30); text-decoration: none; }
+    a:hover { color: var(--o-color-1); }
+    .breadcrumb-item.active { color: var(--o-color-1); font-weight: 600; }
+}
+
+// ==========================================================================
+//  Page content layout
+// ==========================================================================
+main {
+    %fa-hover {
+        background: linear-gradient(45deg, var(--o-color-1), #e3575d);
+        color: #fff;
+        box-shadow:
+            0 0 0 3px  rgba(186, 19, 26, 1),
+            0 0 0 7px  rgba(186, 19, 26, .25),
+            0 0 0 13px rgba(186, 19, 26, .07);
+
+        &::after { opacity: 0; }
+    }
+    %fa-hover-none {
+        background: transparent;
+        color: inherit;
+        box-shadow:none
+    }
+
+    @extend .container;
+
+    > * {
+        @extend .row;
+    }
+    
+    > #wrap > section{
+        margin-top: var(--cap-section-gap);
+        margin-bottom: var(--cap-section-gap);
+        &:first-child { margin-top: 0; }
+    }
+    
+
+    section .card {
+        border-radius: var(--cap-r-cards);
+        box-shadow: var(--cap-shadow);
+        color: var(--card-color);
+        border: 1px solid transparent;
+        transition: all .3s;
+
+        .card-text {
+            color:var(--o-color-5-30);
+        }
+
+        .card-footer{
+            a{
+                font-size:90%;
+            }
+            .btn-secondary {
+                width: 100%;
+                font-size: 85%;
+
+                small {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-size: 75%;
+                }
+            }
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            border-color: var(--o-color-3-30);
+
+            .fa {
+                @extend %fa-hover;
+                &::after { opacity: 0; }
+            }
+            a, .btn{
+                > .fa{
+                    @extend %fa-hover-none;
+                }
+            }
+        }
+    }
+
+    .fa {
+        position: relative;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        margin: 0 0.5em 0.5em;
+        font-size: 1.275rem;
+        flex-shrink: 0;
+        background: #fff;
+        color: var(--o-color-1);
+        box-shadow: 0 0 0 0 rgba(186, 19, 26, 0);
+        transition: box-shadow .32s ease, background .28s ease, color .24s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 0 3px #fbecec, 0 0 0 6px #fdf4f4;
+            animation: ringBreath 3.4s ease-in-out infinite;
+            transition: opacity .32s ease;
+        }
+
+        &:hover {
+            @extend %fa-hover;
+            &::after { opacity: 0; }
+        }
+    }
+
+    // Inline icons inside buttons must NOT inherit the 46px circle .fa styling
+    // above (used e.g. by the Odoo apps snippet's small buttons).
+    .btn .fa, .badge .fa {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        border-radius: 0;
+        display: inline;
+        font-size: inherit;
+        background: none;
+        color: inherit;
+        box-shadow: none;
+        animation: none;
+
+        &::after { content: none; }
+        &:hover {
+            background: none;
+            color: inherit;
+            box-shadow: none;
+        }
+    }
+
+    // Lucide inline-SVG icons reuse the exact .fa circle / hover / ring treatment.
+    .o_lucide_icon {
+        @extend .fa;
+        svg { width: 1.275rem; height: 1.275rem; stroke: currentColor; }
+    }
+    // Inline (button) Lucide icons follow the .btn .fa reset; keep the glyph small.
+    .btn .o_lucide_icon svg { width: 1em; height: 1em; vertical-align: -0.125em; }
+
+    // ----------------------------------------------------------------------
+    //  FAQ accordion (Odoo s_accordion) — brand card look, red active state
+    // ----------------------------------------------------------------------
+    .s_accordion .accordion {
+        --bs-accordion-border-color: transparent;
+        --bs-accordion-border-radius: var(--cap-r-cards);
+        --bs-accordion-inner-border-radius: var(--cap-r-cards);
+        --bs-accordion-active-color: var(--o-color-1);
+        --bs-accordion-active-bg: transparent;
+        --bs-accordion-btn-color: var(--card-color);
+        --bs-accordion-btn-focus-box-shadow: none;
+        --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23BA131A'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+
+        .accordion-item {
+            background: var(--o-color-4);
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: var(--cap-r-cards);
+            box-shadow: var(--cap-shadow);
+            overflow: hidden;
+            transition: border-color .3s, box-shadow .3s;
+
+            // Highlight the currently open question (like the cards)
+            &:has(.accordion-button:not(.collapsed)) {
+                border-color: var(--o-color-3-30);
+                box-shadow: var(--cap-shadow);
+            }
+        }
+
+        .accordion-button {
+            padding: 1.1rem 1.4rem;
+
+            &:focus { box-shadow: none; }
+            &:not(.collapsed) { box-shadow: none; }
+        }
+
+        .accordion-body {
+            padding: 0 1.4rem 1.3rem;
+            color: var(--card-color);
+        }
+    }
+
+    section {
+        border-radius: var(--cap-r-sections);
+    }
+
+    // Eyebrow / capsule (first lead paragraph of a section)
+    p.lead:first-child {
+        margin-bottom: 0.7rem;
+        background: var(--o-color-3-30);
+        color: var(--o-color-1);
+        border-radius: 999px;
+        padding: 0.4rem 1rem;
+        display: inline-block;
+        font-size: 0.865rem;
+        line-height: 100%;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+    }
+
+    // CTA + contact form section
+    .s_cap_cta {
+        label { text-align: left; }
+        .s_website_form_send { width: 100%; }
+    }
+
+
+    //section Odoo Apps
+    .s_cap_odoo_apps{
+        .card .btn-secondary{
+            border-color:transparent;
+        }
+    }
+
+    // Page header band (hero) with signature gradient
+    .cap-s-pageheader {
+        background: var(--cap-grad);
+        border-radius: 0 0 var(--cap-r-sections) var(--cap-r-sections) !important;
+        p.lead:first-child {
+            color: var(--o-color-4);
+        }
+    }
+}
+
+// ==========================================================================
+//  Buttons per color combination
+// ==========================================================================
+.o_cc1, .o_cc2, .o_cc3, .o_cc4, .o_cc5 {
+    .btn {
+        box-shadow: var(--cap-shadow) !important;
+        transition: all .3s;
+    }
+    .btn-primary {
+        position: relative;
+        z-index: 1;
+        color: var(--o-color-4);
+        font-weight: 600;
+
+        &::before, &::after {
+            z-index: -1;
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            transition: all .3s;
+        }
+        &::before {
+            background: var(--cap-grad-hover);
+            opacity: 0;
+        }
+        &::after {
+            background: var(--cap-grad);
+            opacity: 1;
+        }
+        &:hover {
+            background: transparent;
+            &::before { opacity: 1; }
+            &::after  { opacity: 0; }
+        }
+    }
+    .btn-secondary {
+        border: 1px solid var(--o-color-1);
+        background: transparent;
+        color: var(--o-color-1);
+
+        &:hover {
+            border: 1px solid var(--o-color-1);
+            background: var(--o-color-3-30);
+            color: var(--o-color-1);
+        }
+    }
+}
+
+// On dark / gradient combinations, adapt button borders & colors to white
+.o_cc3, .o_cc4, .o_cc5 {
+    .btn-primary {
+        border: 1px solid transparent;
+        &::before, &::after {
+            border: 1px solid var(--o-color-4);
+        }
+    }
+    .btn-secondary {
+        border: 1px solid var(--o-color-4);
+        color: var(--o-color-4);
+
+        &:hover {
+            border: 1px solid var(--o-color-4);
+            color: var(--o-color-4);
+        }
+    }
+}
+
+.o_cc3{
+    background:var(--cap-grad-signature);
+}

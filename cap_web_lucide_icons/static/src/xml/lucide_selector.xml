@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cap_web_lucide_icons.LucideSelector">
+        <div class="o_lucide_selector d-flex flex-column">
+            <div class="o_lucide_search p-2">
+                <input type="text" class="form-control" placeholder="Search Lucide icons..."
+                       t-model="state.needle"/>
+            </div>
+            <div class="o_lucide_grid d-flex flex-wrap gap-2 p-2 overflow-auto">
+                <button type="button"
+                        class="o_lucide_cell btn btn-light d-flex align-items-center justify-content-center"
+                        t-foreach="filtered" t-as="icon" t-key="icon.name"
+                        t-att-title="icon.name"
+                        t-on-click="() => this.onClickIcon(icon)">
+                    <span class="o_lucide_icon" t-out="icon.markup"/>
+                </button>
+                <div t-if="!filtered.length" class="text-muted p-3">
+                    No icon found. Add more via Website ▸ Configuration ▸ Import Lucide Icons.
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

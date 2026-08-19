@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Make quote.testimonial selectable in the generic model dropdown -->
+    <t t-inherit="website.DynamicSnippetOption" t-inherit-mode="extension">
+        <xpath expr="//BuilderSelect[@id=&quot;'model_opt'&quot;]" position="inside">
+            <BuilderSelectItem actionParam="'quote.testimonial'">Testimonials</BuilderSelectItem>
+        </xpath>
+    </t>
+
+    <!-- Options panel for the Testimonials snippet -->
+    <t t-name="cap_web_quote.TestimonialsOption" t-inherit="website.DynamicSnippetOption">
+        <xpath expr="//BuilderRow[*[@id=&quot;'filter_opt'&quot;]]" position="after">
+            <BuilderRow label.translate="Company" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByCompanyId'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="'0'">All companies</BuilderSelectItem>
+                    <t t-foreach="state.companies" t-as="company" t-key="company.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${company.id}`" t-out="company.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Industry" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByIndustryId'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="'0'">All industries</BuilderSelectItem>
+                    <t t-foreach="state.industries" t-as="industry" t-key="industry.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${industry.id}`" t-out="industry.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Role" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByRoleId'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="'0'">All roles</BuilderSelectItem>
+                    <t t-foreach="state.roles" t-as="role" t-key="role.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${role.id}`" t-out="role.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+            <BuilderRow label.translate="Tag" t-if="!isSingleMode">
+                <BuilderSelect dataAttributeAction="'filterByTagIds'" preview="false">
+                    <BuilderSelectItem dataAttributeActionValue="''">All tags</BuilderSelectItem>
+                    <t t-foreach="state.tags" t-as="tag" t-key="tag.id">
+                        <BuilderSelectItem dataAttributeActionValue="`${tag.id}`" t-out="tag.name"/>
+                    </t>
+                </BuilderSelect>
+            </BuilderRow>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="quote_ir_filter" model="ir.filters">
+        <field name="name">Testimonials</field>
+        <!-- ir.filters.model_id is a Selection storing the model NAME (not an ir.model ref). -->
+        <field name="model_id">quote.testimonial</field>
+        <field name="user_ids" eval="False"/>
+        <field name="domain">[]</field>
+        <field name="sort">["sequence asc", "id desc"]</field>
+        <field name="action_id" ref="website.action_website"/>
+    </record>
+
+    <record id="dynamic_filter_testimonials" model="website.snippet.filter">
+        <field name="name">Testimonials</field>
+        <field name="filter_id" ref="quote_ir_filter"/>
+        <field name="field_names">quote,author</field>
+        <field name="limit" eval="16"/>
+    </record>
+
+</odoo>

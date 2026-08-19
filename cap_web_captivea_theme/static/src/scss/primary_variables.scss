@@ -1,0 +1,129 @@
+// ==========================================================================
+//  Captivea Theme — Odoo website SCSS variables
+//  Brand color palette, fonts and presets, set as the default website values
+//  (applied automatically when the theme is activated).
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+//  Heading typography presets (unitless font-size multipliers)
+//  Heading sizes = base font-size x multiplier.
+//  H1 2.5=40px · H2 2.25=36px · H3 1.75=28px · H4 1.375=22px · H5 1.125=18px · H6 1=16px
+// --------------------------------------------------------------------------
+$o-theme-h1-font-size-multiplier: 2.5;
+$o-theme-h2-font-size-multiplier: 2.25;
+$o-theme-h3-font-size-multiplier: 1.75;
+$o-theme-h4-font-size-multiplier: 1.375;
+$o-theme-h5-font-size-multiplier: 1.125;
+$o-theme-h6-font-size-multiplier: 1;
+
+// --------------------------------------------------------------------------
+//  Default website values applied on activation.
+//  IMPORTANT: keep each value in the SAME unit Odoo uses by default,
+//  otherwise the frontend bundle fails with "Incompatible units: rem and px".
+// --------------------------------------------------------------------------
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'captivea',
+
+        // Fonts
+        'font':          'Nunito',
+        'headings-font': 'Nunito',
+        'navbar-font':   'Nunito',
+        'buttons-font':  'Nunito',
+
+        // Body / paragraph
+        'font-size-base':          1rem,
+        'body-line-height':        1.5,
+        'small-font-size':         0.875rem,
+        'paragraph-margin-top':    0,
+        'paragraph-margin-bottom': 1rem,      // rem — keep ALL spacing in rem to
+                                              // avoid "Incompatible units: rem and px"
+
+        // Headings
+        'headings-line-height':   1.2,
+        'headings-margin-top':    0,
+        'headings-margin-bottom': 0.5rem,
+
+        // Links
+        'link-underline': 'never',
+
+        // Buttons — style, radius, font sizes, spacing
+        'btn-primary-flat':      false,
+        'btn-secondary-flat':    false,
+        'btn-primary-outline':   false,
+        'btn-secondary-outline': false,
+        'btn-border-radius':     50rem,   // pill, regardless of size
+        'btn-border-radius-sm':  50rem,
+        'btn-border-radius-lg':  50rem,
+        'btn-font-size':         1rem,
+        'btn-font-size-sm':      0.875rem,
+        'btn-font-size-lg':      1.125rem,
+        'btn-padding-y':         0.5rem,
+        'btn-padding-x':         1.25rem,
+        'btn-padding-y-sm':      0.375rem,
+        'btn-padding-x-sm':      0.75rem,
+        'btn-padding-y-lg':      0.75rem,
+        'btn-padding-x-lg':      2rem,
+
+        // Inputs / form fields
+        'input-border-radius':     50rem,   // pill, regardless of size
+        'input-border-radius-sm':  50rem,
+        'input-border-radius-lg':  50rem,
+        'input-font-size':         1rem,
+        'input-font-size-sm':      0.875rem,
+        'input-font-size-lg':      1.125rem,
+        'input-padding-y':         0.5rem,
+        'input-padding-x':         1rem,
+        'input-padding-y-sm':      0.375rem,
+        'input-padding-x-sm':      0.75rem,
+        'input-padding-y-lg':      0.75rem,
+        'input-padding-x-lg':      1.5rem,
+
+        // Header
+        'header-template':    'default',
+        'header-font-size':   1rem,
+        'header-links-style': 'pills',
+
+        // Layout / footer
+        'layout':          'full',
+        'footer-template': 'default',
+    ),
+);
+
+// --------------------------------------------------------------------------
+//  Font configuration (loads Nunito from Google Fonts)
+// --------------------------------------------------------------------------
+$o-theme-font-configs: (
+    'Nunito': (
+        'family': ('Nunito', 'Segoe UI', 'Arial', 'Helvetica Neue', sans-serif),
+        'url': 'Nunito:400,600,700,800',
+        'properties': (
+            'base': (
+                'font-size-base': 1rem,
+            ),
+        ),
+    ),
+);
+
+// --------------------------------------------------------------------------
+//  Captivea brand color palette
+//  o-color-1 Primary red · o-color-2 Light red · o-color-3 Pale red
+//  o-color-4 White · o-color-5 Ink (fake black) · o-color-6 Light gray (extra)
+// --------------------------------------------------------------------------
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'captivea': (
+            'o-color-1': #BA131A,   // Primary red
+            'o-color-2': #E3575D,   // Light red (secondary)
+            'o-color-3': #E29C9F,   // Pale red
+            'o-color-4': #FFFFFF,   // White
+            'o-color-5': #212529,   // Ink (fake black)
+            'o-color-6': #F5F4F4,   // Light gray (extra color)
+
+            // Color combination 2 background = light gray (o-color-6)
+            // Text stays o-color-5 (dark) automatically on this light bg.
+            'o-cc2-bg': 'o-color-6',
+        ),
+    )
+);
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'captivea');

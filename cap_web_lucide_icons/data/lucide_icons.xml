@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <record id="icon_activity" model="lucide.icon">
+        <field name="name">activity</field>
+        <field name="sequence">10</field>
+        <field name="svg">&lt;path d=&quot;M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2&quot; /&gt;</field>
+    </record>
+    <record id="icon_arrow_right" model="lucide.icon">
+        <field name="name">arrow-right</field>
+        <field name="sequence">11</field>
+        <field name="svg">&lt;path d=&quot;M5 12h14&quot; /&gt;
+  &lt;path d=&quot;m12 5 7 7-7 7&quot; /&gt;</field>
+    </record>
+    <record id="icon_arrow_up_right" model="lucide.icon">
+        <field name="name">arrow-up-right</field>
+        <field name="sequence">12</field>
+        <field name="svg">&lt;path d=&quot;M7 7h10v10&quot; /&gt;
+  &lt;path d=&quot;M7 17 17 7&quot; /&gt;</field>
+    </record>
+    <record id="icon_award" model="lucide.icon">
+        <field name="name">award</field>
+        <field name="sequence">13</field>
+        <field name="svg">&lt;path d=&quot;m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;8&quot; r=&quot;6&quot; /&gt;</field>
+    </record>
+    <record id="icon_badge_check" model="lucide.icon">
+        <field name="name">badge-check</field>
+        <field name="sequence">14</field>
+        <field name="svg">&lt;path d=&quot;M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z&quot; /&gt;
+  &lt;path d=&quot;m9 12 2 2 4-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_banknote" model="lucide.icon">
+        <field name="name">banknote</field>
+        <field name="sequence">15</field>
+        <field name="svg">&lt;rect width=&quot;20&quot; height=&quot;12&quot; x=&quot;2&quot; y=&quot;6&quot; rx=&quot;2&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M6 12h.01M18 12h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_barcode" model="lucide.icon">
+        <field name="name">barcode</field>
+        <field name="sequence">16</field>
+        <field name="svg">&lt;path d=&quot;M3 5v14&quot; /&gt;
+  &lt;path d=&quot;M8 5v14&quot; /&gt;
+  &lt;path d=&quot;M12 5v14&quot; /&gt;
+  &lt;path d=&quot;M17 5v14&quot; /&gt;
+  &lt;path d=&quot;M21 5v14&quot; /&gt;</field>
+    </record>
+    <record id="icon_bell" model="lucide.icon">
+        <field name="name">bell</field>
+        <field name="sequence">17</field>
+        <field name="svg">&lt;path d=&quot;M10.268 21a2 2 0 0 0 3.464 0&quot; /&gt;
+  &lt;path d=&quot;M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326&quot; /&gt;</field>
+    </record>
+    <record id="icon_blocks" model="lucide.icon">
+        <field name="name">blocks</field>
+        <field name="sequence">18</field>
+        <field name="svg">&lt;path d=&quot;M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2&quot; /&gt;
+  &lt;rect x=&quot;14&quot; y=&quot;2&quot; width=&quot;8&quot; height=&quot;8&quot; rx=&quot;1&quot; /&gt;</field>
+    </record>
+    <record id="icon_book" model="lucide.icon">
+        <field name="name">book</field>
+        <field name="sequence">19</field>
+        <field name="svg">&lt;path d=&quot;M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20&quot; /&gt;</field>
+    </record>
+    <record id="icon_bookmark" model="lucide.icon">
+        <field name="name">bookmark</field>
+        <field name="sequence">20</field>
+        <field name="svg">&lt;path d=&quot;M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z&quot; /&gt;</field>
+    </record>
+    <record id="icon_bot" model="lucide.icon">
+        <field name="name">bot</field>
+        <field name="sequence">21</field>
+        <field name="svg">&lt;path d=&quot;M12 8V4H8&quot; /&gt;
+  &lt;rect width=&quot;16&quot; height=&quot;12&quot; x=&quot;4&quot; y=&quot;8&quot; rx=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M2 14h2&quot; /&gt;
+  &lt;path d=&quot;M20 14h2&quot; /&gt;
+  &lt;path d=&quot;M15 13v2&quot; /&gt;
+  &lt;path d=&quot;M9 13v2&quot; /&gt;</field>
+    </record>
+    <record id="icon_box" model="lucide.icon">
+        <field name="name">box</field>
+        <field name="sequence">22</field>
+        <field name="svg">&lt;path d=&quot;M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z&quot; /&gt;
+  &lt;path d=&quot;m3.3 7 8.7 5 8.7-5&quot; /&gt;
+  &lt;path d=&quot;M12 22V12&quot; /&gt;</field>
+    </record>
+    <record id="icon_boxes" model="lucide.icon">
+        <field name="name">boxes</field>
+        <field name="sequence">23</field>
+        <field name="svg">&lt;path d=&quot;M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z&quot; /&gt;
+  &lt;path d=&quot;m7 16.5-4.74-2.85&quot; /&gt;
+  &lt;path d=&quot;m7 16.5 5-3&quot; /&gt;
+  &lt;path d=&quot;M7 16.5v5.17&quot; /&gt;
+  &lt;path d=&quot;M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z&quot; /&gt;
+  &lt;path d=&quot;m17 16.5-5-3&quot; /&gt;
+  &lt;path d=&quot;m17 16.5 4.74-2.85&quot; /&gt;
+  &lt;path d=&quot;M17 16.5v5.17&quot; /&gt;
+  &lt;path d=&quot;M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z&quot; /&gt;
+  &lt;path d=&quot;M12 8 7.26 5.15&quot; /&gt;
+  &lt;path d=&quot;m12 8 4.74-2.85&quot; /&gt;
+  &lt;path d=&quot;M12 13.5V8&quot; /&gt;</field>
+    </record>
+    <record id="icon_briefcase" model="lucide.icon">
+        <field name="name">briefcase</field>
+        <field name="sequence">24</field>
+        <field name="svg">&lt;path d=&quot;M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16&quot; /&gt;
+  &lt;rect width=&quot;20&quot; height=&quot;14&quot; x=&quot;2&quot; y=&quot;6&quot; rx=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_building" model="lucide.icon">
+        <field name="name">building</field>
+        <field name="sequence">25</field>
+        <field name="svg">&lt;path d=&quot;M12 10h.01&quot; /&gt;
+  &lt;path d=&quot;M12 14h.01&quot; /&gt;
+  &lt;path d=&quot;M12 6h.01&quot; /&gt;
+  &lt;path d=&quot;M16 10h.01&quot; /&gt;
+  &lt;path d=&quot;M16 14h.01&quot; /&gt;
+  &lt;path d=&quot;M16 6h.01&quot; /&gt;
+  &lt;path d=&quot;M8 10h.01&quot; /&gt;
+  &lt;path d=&quot;M8 14h.01&quot; /&gt;
+  &lt;path d=&quot;M8 6h.01&quot; /&gt;
+  &lt;path d=&quot;M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3&quot; /&gt;
+  &lt;rect x=&quot;4&quot; y=&quot;2&quot; width=&quot;16&quot; height=&quot;20&quot; rx=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_building_2" model="lucide.icon">
+        <field name="name">building-2</field>
+        <field name="sequence">26</field>
+        <field name="svg">&lt;path d=&quot;M10 12h4&quot; /&gt;
+  &lt;path d=&quot;M10 8h4&quot; /&gt;
+  &lt;path d=&quot;M14 21v-3a2 2 0 0 0-4 0v3&quot; /&gt;
+  &lt;path d=&quot;M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2&quot; /&gt;
+  &lt;path d=&quot;M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16&quot; /&gt;</field>
+    </record>
+    <record id="icon_calendar" model="lucide.icon">
+        <field name="name">calendar</field>
+        <field name="sequence">27</field>
+        <field name="svg">&lt;path d=&quot;M8 2v3&quot; /&gt;
+  &lt;path d=&quot;M16 2v3&quot; /&gt;
+  &lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M3 9h18&quot; /&gt;</field>
+    </record>
+    <record id="icon_calendar_check" model="lucide.icon">
+        <field name="name">calendar-check</field>
+        <field name="sequence">28</field>
+        <field name="svg">&lt;path d=&quot;M8 2v3&quot; /&gt;
+  &lt;path d=&quot;M16 2v3&quot; /&gt;
+  &lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M3 9h18&quot; /&gt;
+  &lt;path d=&quot;m9 15 2 2 4-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_calendar_days" model="lucide.icon">
+        <field name="name">calendar-days</field>
+        <field name="sequence">29</field>
+        <field name="svg">&lt;path d=&quot;M8 2v3&quot; /&gt;
+  &lt;path d=&quot;M16 2v3&quot; /&gt;
+  &lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M3 9h18&quot; /&gt;
+  &lt;path d=&quot;M8 13h.01&quot; /&gt;
+  &lt;path d=&quot;M12 13h.01&quot; /&gt;
+  &lt;path d=&quot;M16 13h.01&quot; /&gt;
+  &lt;path d=&quot;M8 17h.01&quot; /&gt;
+  &lt;path d=&quot;M12 17h.01&quot; /&gt;
+  &lt;path d=&quot;M16 17h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_car" model="lucide.icon">
+        <field name="name">car</field>
+        <field name="sequence">30</field>
+        <field name="svg">&lt;path d=&quot;M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2&quot; /&gt;
+  &lt;circle cx=&quot;7&quot; cy=&quot;17&quot; r=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M9 17h6&quot; /&gt;
+  &lt;circle cx=&quot;17&quot; cy=&quot;17&quot; r=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_chart_gantt" model="lucide.icon">
+        <field name="name">chart-gantt</field>
+        <field name="sequence">31</field>
+        <field name="svg">&lt;path d=&quot;M10 6h8&quot; /&gt;
+  &lt;path d=&quot;M12 16h6&quot; /&gt;
+  &lt;path d=&quot;M3 3v16a2 2 0 0 0 2 2h16&quot; /&gt;
+  &lt;path d=&quot;M8 11h7&quot; /&gt;</field>
+    </record>
+    <record id="icon_chart_line" model="lucide.icon">
+        <field name="name">chart-line</field>
+        <field name="sequence">32</field>
+        <field name="svg">&lt;path d=&quot;M3 3v16a2 2 0 0 0 2 2h16&quot; /&gt;
+  &lt;path d=&quot;m19 9-5 5-4-4-3 3&quot; /&gt;</field>
+    </record>
+    <record id="icon_check" model="lucide.icon">
+        <field name="name">check</field>
+        <field name="sequence">33</field>
+        <field name="svg">&lt;path d=&quot;M20 6 9 17l-5-5&quot; /&gt;</field>
+    </record>
+    <record id="icon_chevron_right" model="lucide.icon">
+        <field name="name">chevron-right</field>
+        <field name="sequence">34</field>
+        <field name="svg">&lt;path d=&quot;m9 18 6-6-6-6&quot; /&gt;</field>
+    </record>
+    <record id="icon_circle_check" model="lucide.icon">
+        <field name="name">circle-check</field>
+        <field name="sequence">35</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;m9 12 2 2 4-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_circle_help" model="lucide.icon">
+        <field name="name">circle-help</field>
+        <field name="sequence">36</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3&quot; /&gt;
+  &lt;path d=&quot;M12 17h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_circle_x" model="lucide.icon">
+        <field name="name">circle-x</field>
+        <field name="sequence">37</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;m15 9-6 6&quot; /&gt;
+  &lt;path d=&quot;m9 9 6 6&quot; /&gt;</field>
+    </record>
+    <record id="icon_clipboard_check" model="lucide.icon">
+        <field name="name">clipboard-check</field>
+        <field name="sequence">38</field>
+        <field name="svg">&lt;rect width=&quot;8&quot; height=&quot;4&quot; x=&quot;8&quot; y=&quot;2&quot; rx=&quot;1&quot; ry=&quot;1&quot; /&gt;
+  &lt;path d=&quot;M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2&quot; /&gt;
+  &lt;path d=&quot;m9 14 2 2 4-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_clipboard_list" model="lucide.icon">
+        <field name="name">clipboard-list</field>
+        <field name="sequence">39</field>
+        <field name="svg">&lt;rect width=&quot;8&quot; height=&quot;4&quot; x=&quot;8&quot; y=&quot;2&quot; rx=&quot;1&quot; ry=&quot;1&quot; /&gt;
+  &lt;path d=&quot;M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2&quot; /&gt;
+  &lt;path d=&quot;M12 11h4&quot; /&gt;
+  &lt;path d=&quot;M12 16h4&quot; /&gt;
+  &lt;path d=&quot;M8 11h.01&quot; /&gt;
+  &lt;path d=&quot;M8 16h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_clock" model="lucide.icon">
+        <field name="name">clock</field>
+        <field name="sequence">40</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;M12 6v6l4 2&quot; /&gt;</field>
+    </record>
+    <record id="icon_cloud" model="lucide.icon">
+        <field name="name">cloud</field>
+        <field name="sequence">41</field>
+        <field name="svg">&lt;path d=&quot;M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z&quot; /&gt;</field>
+    </record>
+    <record id="icon_coins" model="lucide.icon">
+        <field name="name">coins</field>
+        <field name="sequence">42</field>
+        <field name="svg">&lt;path d=&quot;M13.744 17.736a6 6 0 1 1-7.48-7.48&quot; /&gt;
+  &lt;path d=&quot;M15 6h1v4&quot; /&gt;
+  &lt;path d=&quot;m6.134 14.768.866-.5 2 3.464&quot; /&gt;
+  &lt;circle cx=&quot;16&quot; cy=&quot;8&quot; r=&quot;6&quot; /&gt;</field>
+    </record>
+    <record id="icon_compass" model="lucide.icon">
+        <field name="name">compass</field>
+        <field name="sequence">43</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z&quot; /&gt;</field>
+    </record>
+    <record id="icon_credit_card" model="lucide.icon">
+        <field name="name">credit-card</field>
+        <field name="sequence">44</field>
+        <field name="svg">&lt;rect width=&quot;20&quot; height=&quot;14&quot; x=&quot;2&quot; y=&quot;5&quot; rx=&quot;2&quot; /&gt;
+  &lt;line x1=&quot;2&quot; x2=&quot;22&quot; y1=&quot;10&quot; y2=&quot;10&quot; /&gt;</field>
+    </record>
+    <record id="icon_database" model="lucide.icon">
+        <field name="name">database</field>
+        <field name="sequence">45</field>
+        <field name="svg">&lt;ellipse cx=&quot;12&quot; cy=&quot;5&quot; rx=&quot;9&quot; ry=&quot;3&quot; /&gt;
+  &lt;path d=&quot;M3 5V19A9 3 0 0 0 21 19V5&quot; /&gt;
+  &lt;path d=&quot;M3 12A9 3 0 0 0 21 12&quot; /&gt;</field>
+    </record>
+    <record id="icon_download" model="lucide.icon">
+        <field name="name">download</field>
+        <field name="sequence">46</field>
+        <field name="svg">&lt;path d=&quot;M12 15V3&quot; /&gt;
+  &lt;path d=&quot;M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4&quot; /&gt;
+  &lt;path d=&quot;m7 10 5 5 5-5&quot; /&gt;</field>
+    </record>
+    <record id="icon_earth" model="lucide.icon">
+        <field name="name">earth</field>
+        <field name="sequence">47</field>
+        <field name="svg">&lt;path d=&quot;M21.54 15H17a2 2 0 0 0-2 2v4.54&quot; /&gt;
+  &lt;path d=&quot;M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17&quot; /&gt;
+  &lt;path d=&quot;M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;</field>
+    </record>
+    <record id="icon_external_link" model="lucide.icon">
+        <field name="name">external-link</field>
+        <field name="sequence">48</field>
+        <field name="svg">&lt;path d=&quot;M15 3h6v6&quot; /&gt;
+  &lt;path d=&quot;M10 14 21 3&quot; /&gt;
+  &lt;path d=&quot;M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6&quot; /&gt;</field>
+    </record>
+    <record id="icon_eye" model="lucide.icon">
+        <field name="name">eye</field>
+        <field name="sequence">49</field>
+        <field name="svg">&lt;path d=&quot;M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot; /&gt;</field>
+    </record>
+    <record id="icon_factory" model="lucide.icon">
+        <field name="name">factory</field>
+        <field name="sequence">50</field>
+        <field name="svg">&lt;path d=&quot;M12 16h.01&quot; /&gt;
+  &lt;path d=&quot;M16 16h.01&quot; /&gt;
+  &lt;path d=&quot;M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z&quot; /&gt;
+  &lt;path d=&quot;M8 16h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_file_check" model="lucide.icon">
+        <field name="name">file-check</field>
+        <field name="sequence">51</field>
+        <field name="svg">&lt;path d=&quot;M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z&quot; /&gt;
+  &lt;path d=&quot;M14 2v5a1 1 0 0 0 1 1h5&quot; /&gt;
+  &lt;path d=&quot;m9 15 2 2 4-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_file_text" model="lucide.icon">
+        <field name="name">file-text</field>
+        <field name="sequence">52</field>
+        <field name="svg">&lt;path d=&quot;M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z&quot; /&gt;
+  &lt;path d=&quot;M14 2v5a1 1 0 0 0 1 1h5&quot; /&gt;
+  &lt;path d=&quot;M10 9H8&quot; /&gt;
+  &lt;path d=&quot;M16 13H8&quot; /&gt;
+  &lt;path d=&quot;M16 17H8&quot; /&gt;</field>
+    </record>
+    <record id="icon_filter" model="lucide.icon">
+        <field name="name">filter</field>
+        <field name="sequence">53</field>
+        <field name="svg">&lt;path d=&quot;M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z&quot; /&gt;</field>
+    </record>
+    <record id="icon_flag" model="lucide.icon">
+        <field name="name">flag</field>
+        <field name="sequence">54</field>
+        <field name="svg">&lt;path d=&quot;M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528&quot; /&gt;</field>
+    </record>
+    <record id="icon_folder" model="lucide.icon">
+        <field name="name">folder</field>
+        <field name="sequence">55</field>
+        <field name="svg">&lt;path d=&quot;M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z&quot; /&gt;</field>
+    </record>
+    <record id="icon_folder_open" model="lucide.icon">
+        <field name="name">folder-open</field>
+        <field name="sequence">56</field>
+        <field name="svg">&lt;path d=&quot;m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2&quot; /&gt;</field>
+    </record>
+    <record id="icon_gauge" model="lucide.icon">
+        <field name="name">gauge</field>
+        <field name="sequence">57</field>
+        <field name="svg">&lt;path d=&quot;m12 14 4-4&quot; /&gt;
+  &lt;path d=&quot;M3.34 19a10 10 0 1 1 17.32 0&quot; /&gt;</field>
+    </record>
+    <record id="icon_gift" model="lucide.icon">
+        <field name="name">gift</field>
+        <field name="sequence">58</field>
+        <field name="svg">&lt;path d=&quot;M12 7v14&quot; /&gt;
+  &lt;path d=&quot;M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8&quot; /&gt;
+  &lt;path d=&quot;M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5&quot; /&gt;
+  &lt;rect x=&quot;3&quot; y=&quot;7&quot; width=&quot;18&quot; height=&quot;4&quot; rx=&quot;1&quot; /&gt;</field>
+    </record>
+    <record id="icon_git_merge" model="lucide.icon">
+        <field name="name">git-merge</field>
+        <field name="sequence">59</field>
+        <field name="svg">&lt;circle cx=&quot;18&quot; cy=&quot;18&quot; r=&quot;3&quot; /&gt;
+  &lt;circle cx=&quot;6&quot; cy=&quot;6&quot; r=&quot;3&quot; /&gt;
+  &lt;path d=&quot;M6 21V9a9 9 0 0 0 9 9&quot; /&gt;</field>
+    </record>
+    <record id="icon_globe" model="lucide.icon">
+        <field name="name">globe</field>
+        <field name="sequence">60</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20&quot; /&gt;
+  &lt;path d=&quot;M2 12h20&quot; /&gt;</field>
+    </record>
+    <record id="icon_graduation_cap" model="lucide.icon">
+        <field name="name">graduation-cap</field>
+        <field name="sequence">61</field>
+        <field name="svg">&lt;path d=&quot;M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z&quot; /&gt;
+  &lt;path d=&quot;M22 10v6&quot; /&gt;
+  &lt;path d=&quot;M6 12.5V16a6 3 0 0 0 12 0v-3.5&quot; /&gt;</field>
+    </record>
+    <record id="icon_grid_2x2" model="lucide.icon">
+        <field name="name">grid-2x2</field>
+        <field name="sequence">62</field>
+        <field name="svg">&lt;path d=&quot;M12 3v18&quot; /&gt;
+  &lt;path d=&quot;M3 12h18&quot; /&gt;
+  &lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_hammer" model="lucide.icon">
+        <field name="name">hammer</field>
+        <field name="sequence">63</field>
+        <field name="svg">&lt;path d=&quot;m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9&quot; /&gt;
+  &lt;path d=&quot;m18 15 4-4&quot; /&gt;
+  &lt;path d=&quot;m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5&quot; /&gt;</field>
+    </record>
+    <record id="icon_handshake" model="lucide.icon">
+        <field name="name">handshake</field>
+        <field name="sequence">64</field>
+        <field name="svg">&lt;path d=&quot;m11 17 2 2a1 1 0 1 0 3-3&quot; /&gt;
+  &lt;path d=&quot;m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4&quot; /&gt;
+  &lt;path d=&quot;m21 3 1 11h-2&quot; /&gt;
+  &lt;path d=&quot;M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3&quot; /&gt;
+  &lt;path d=&quot;M3 4h8&quot; /&gt;</field>
+    </record>
+    <record id="icon_hard_drive" model="lucide.icon">
+        <field name="name">hard-drive</field>
+        <field name="sequence">65</field>
+        <field name="svg">&lt;path d=&quot;M10 16h.01&quot; /&gt;
+  &lt;path d=&quot;M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z&quot; /&gt;
+  &lt;path d=&quot;M21.946 12.013H2.054&quot; /&gt;
+  &lt;path d=&quot;M6 16h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_headset" model="lucide.icon">
+        <field name="name">headset</field>
+        <field name="sequence">66</field>
+        <field name="svg">&lt;path d=&quot;M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z&quot; /&gt;
+  &lt;path d=&quot;M21 16v2a4 4 0 0 1-4 4h-5&quot; /&gt;</field>
+    </record>
+    <record id="icon_heart" model="lucide.icon">
+        <field name="name">heart</field>
+        <field name="sequence">67</field>
+        <field name="svg">&lt;path d=&quot;M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5&quot; /&gt;</field>
+    </record>
+    <record id="icon_home" model="lucide.icon">
+        <field name="name">home</field>
+        <field name="sequence">68</field>
+        <field name="svg">&lt;path d=&quot;M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8&quot; /&gt;
+  &lt;path d=&quot;M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z&quot; /&gt;</field>
+    </record>
+    <record id="icon_image" model="lucide.icon">
+        <field name="name">image</field>
+        <field name="sequence">69</field>
+        <field name="svg">&lt;rect width=&quot;18&quot; height=&quot;18&quot; x=&quot;3&quot; y=&quot;3&quot; rx=&quot;2&quot; ry=&quot;2&quot; /&gt;
+  &lt;circle cx=&quot;9&quot; cy=&quot;9&quot; r=&quot;2&quot; /&gt;
+  &lt;path d=&quot;m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21&quot; /&gt;</field>
+    </record>
+    <record id="icon_inbox" model="lucide.icon">
+        <field name="name">inbox</field>
+        <field name="sequence">70</field>
+        <field name="svg">&lt;polyline points=&quot;22 12 16 12 14 15 10 15 8 12 2 12&quot; /&gt;
+  &lt;path d=&quot;M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z&quot; /&gt;</field>
+    </record>
+    <record id="icon_info" model="lucide.icon">
+        <field name="name">info</field>
+        <field name="sequence">71</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;M12 16v-4&quot; /&gt;
+  &lt;path d=&quot;M12 8h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_key" model="lucide.icon">
+        <field name="name">key</field>
+        <field name="sequence">72</field>
+        <field name="svg">&lt;path d=&quot;m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4&quot; /&gt;
+  &lt;path d=&quot;m21 2-9.6 9.6&quot; /&gt;
+  &lt;circle cx=&quot;7.5&quot; cy=&quot;15.5&quot; r=&quot;5.5&quot; /&gt;</field>
+    </record>
+    <record id="icon_layers" model="lucide.icon">
+        <field name="name">layers</field>
+        <field name="sequence">73</field>
+        <field name="svg">&lt;path d=&quot;M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z&quot; /&gt;
+  &lt;path d=&quot;M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12&quot; /&gt;
+  &lt;path d=&quot;M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17&quot; /&gt;</field>
+    </record>
+    <record id="icon_layout_dashboard" model="lucide.icon">
+        <field name="name">layout-dashboard</field>
+        <field name="sequence">74</field>
+        <field name="svg">&lt;rect width=&quot;7&quot; height=&quot;9&quot; x=&quot;3&quot; y=&quot;3&quot; rx=&quot;1&quot; /&gt;
+  &lt;rect width=&quot;7&quot; height=&quot;5&quot; x=&quot;14&quot; y=&quot;3&quot; rx=&quot;1&quot; /&gt;
+  &lt;rect width=&quot;7&quot; height=&quot;9&quot; x=&quot;14&quot; y=&quot;12&quot; rx=&quot;1&quot; /&gt;
+  &lt;rect width=&quot;7&quot; height=&quot;5&quot; x=&quot;3&quot; y=&quot;16&quot; rx=&quot;1&quot; /&gt;</field>
+    </record>
+    <record id="icon_life_buoy" model="lucide.icon">
+        <field name="name">life-buoy</field>
+        <field name="sequence">75</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;path d=&quot;m4.93 4.93 4.24 4.24&quot; /&gt;
+  &lt;path d=&quot;m14.83 9.17 4.24-4.24&quot; /&gt;
+  &lt;path d=&quot;m14.83 14.83 4.24 4.24&quot; /&gt;
+  &lt;path d=&quot;m9.17 14.83-4.24 4.24&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;4&quot; /&gt;</field>
+    </record>
+    <record id="icon_lightbulb" model="lucide.icon">
+        <field name="name">lightbulb</field>
+        <field name="sequence">76</field>
+        <field name="svg">&lt;path d=&quot;M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5&quot; /&gt;
+  &lt;path d=&quot;M9 18h6&quot; /&gt;
+  &lt;path d=&quot;M10 22h4&quot; /&gt;</field>
+    </record>
+    <record id="icon_link" model="lucide.icon">
+        <field name="name">link</field>
+        <field name="sequence">77</field>
+        <field name="svg">&lt;path d=&quot;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&quot; /&gt;
+  &lt;path d=&quot;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&quot; /&gt;</field>
+    </record>
+    <record id="icon_list" model="lucide.icon">
+        <field name="name">list</field>
+        <field name="sequence">78</field>
+        <field name="svg">&lt;path d=&quot;M3 5h.01&quot; /&gt;
+  &lt;path d=&quot;M3 12h.01&quot; /&gt;
+  &lt;path d=&quot;M3 19h.01&quot; /&gt;
+  &lt;path d=&quot;M8 5h13&quot; /&gt;
+  &lt;path d=&quot;M8 12h13&quot; /&gt;
+  &lt;path d=&quot;M8 19h13&quot; /&gt;</field>
+    </record>
+    <record id="icon_lock" model="lucide.icon">
+        <field name="name">lock</field>
+        <field name="sequence">79</field>
+        <field name="svg">&lt;rect width=&quot;18&quot; height=&quot;11&quot; x=&quot;3&quot; y=&quot;11&quot; rx=&quot;2&quot; ry=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M7 11V7a5 5 0 0 1 10 0v4&quot; /&gt;</field>
+    </record>
+    <record id="icon_mail" model="lucide.icon">
+        <field name="name">mail</field>
+        <field name="sequence">80</field>
+        <field name="svg">&lt;path d=&quot;m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7&quot; /&gt;
+  &lt;rect x=&quot;2&quot; y=&quot;4&quot; width=&quot;20&quot; height=&quot;16&quot; rx=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_map" model="lucide.icon">
+        <field name="name">map</field>
+        <field name="sequence">81</field>
+        <field name="svg">&lt;path d=&quot;M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z&quot; /&gt;
+  &lt;path d=&quot;M15 5.764v15&quot; /&gt;
+  &lt;path d=&quot;M9 3.236v15&quot; /&gt;</field>
+    </record>
+    <record id="icon_map_pin" model="lucide.icon">
+        <field name="name">map-pin</field>
+        <field name="sequence">82</field>
+        <field name="svg">&lt;path d=&quot;M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;10&quot; r=&quot;3&quot; /&gt;</field>
+    </record>
+    <record id="icon_megaphone" model="lucide.icon">
+        <field name="name">megaphone</field>
+        <field name="sequence">83</field>
+        <field name="svg">&lt;path d=&quot;M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z&quot; /&gt;
+  &lt;path d=&quot;M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14&quot; /&gt;
+  &lt;path d=&quot;M8 6v8&quot; /&gt;</field>
+    </record>
+    <record id="icon_menu" model="lucide.icon">
+        <field name="name">menu</field>
+        <field name="sequence">84</field>
+        <field name="svg">&lt;path d=&quot;M4 5h16&quot; /&gt;
+  &lt;path d=&quot;M4 12h16&quot; /&gt;
+  &lt;path d=&quot;M4 19h16&quot; /&gt;</field>
+    </record>
+    <record id="icon_message_circle_question" model="lucide.icon">
+        <field name="name">message-circle-question</field>
+        <field name="sequence">85</field>
+        <field name="svg">&lt;path d=&quot;M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719&quot; /&gt;
+  &lt;path d=&quot;M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3&quot; /&gt;
+  &lt;path d=&quot;M12 17h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_message_square" model="lucide.icon">
+        <field name="name">message-square</field>
+        <field name="sequence">86</field>
+        <field name="svg">&lt;path d=&quot;M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z&quot; /&gt;</field>
+    </record>
+    <record id="icon_messages_square" model="lucide.icon">
+        <field name="name">messages-square</field>
+        <field name="sequence">87</field>
+        <field name="svg">&lt;path d=&quot;M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z&quot; /&gt;
+  &lt;path d=&quot;M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1&quot; /&gt;</field>
+    </record>
+    <record id="icon_monitor" model="lucide.icon">
+        <field name="name">monitor</field>
+        <field name="sequence">88</field>
+        <field name="svg">&lt;rect width=&quot;20&quot; height=&quot;14&quot; x=&quot;2&quot; y=&quot;3&quot; rx=&quot;2&quot; /&gt;
+  &lt;line x1=&quot;8&quot; x2=&quot;16&quot; y1=&quot;21&quot; y2=&quot;21&quot; /&gt;
+  &lt;line x1=&quot;12&quot; x2=&quot;12&quot; y1=&quot;17&quot; y2=&quot;21&quot; /&gt;</field>
+    </record>
+    <record id="icon_moon" model="lucide.icon">
+        <field name="name">moon</field>
+        <field name="sequence">89</field>
+        <field name="svg">&lt;path d=&quot;M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401&quot; /&gt;</field>
+    </record>
+    <record id="icon_newspaper" model="lucide.icon">
+        <field name="name">newspaper</field>
+        <field name="sequence">90</field>
+        <field name="svg">&lt;path d=&quot;M15 18h-5&quot; /&gt;
+  &lt;path d=&quot;M18 14h-8&quot; /&gt;
+  &lt;path d=&quot;M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2&quot; /&gt;
+  &lt;rect width=&quot;8&quot; height=&quot;4&quot; x=&quot;10&quot; y=&quot;6&quot; rx=&quot;1&quot; /&gt;</field>
+    </record>
+    <record id="icon_package_check" model="lucide.icon">
+        <field name="name">package-check</field>
+        <field name="sequence">91</field>
+        <field name="svg">&lt;path d=&quot;M12 22V12&quot; /&gt;
+  &lt;path d=&quot;m16 17 2 2 4-4&quot; /&gt;
+  &lt;path d=&quot;M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753&quot; /&gt;
+  &lt;path d=&quot;M3.29 7 12 12l8.71-5&quot; /&gt;
+  &lt;path d=&quot;m7.5 4.27 8.997 5.148&quot; /&gt;</field>
+    </record>
+    <record id="icon_paintbrush" model="lucide.icon">
+        <field name="name">paintbrush</field>
+        <field name="sequence">92</field>
+        <field name="svg">&lt;path d=&quot;m14.622 17.897-10.68-2.913&quot; /&gt;
+  &lt;path d=&quot;M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z&quot; /&gt;
+  &lt;path d=&quot;M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15&quot; /&gt;</field>
+    </record>
+    <record id="icon_palmtree" model="lucide.icon">
+        <field name="name">palmtree</field>
+        <field name="sequence">93</field>
+        <field name="svg">&lt;path d=&quot;M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4&quot; /&gt;
+  &lt;path d=&quot;M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3&quot; /&gt;
+  &lt;path d=&quot;M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35&quot; /&gt;
+  &lt;path d=&quot;M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14&quot; /&gt;</field>
+    </record>
+    <record id="icon_pen" model="lucide.icon">
+        <field name="name">pen</field>
+        <field name="sequence">94</field>
+        <field name="svg">&lt;path d=&quot;M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z&quot; /&gt;</field>
+    </record>
+    <record id="icon_pencil_ruler" model="lucide.icon">
+        <field name="name">pencil-ruler</field>
+        <field name="sequence">95</field>
+        <field name="svg">&lt;path d=&quot;M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13&quot; /&gt;
+  &lt;path d=&quot;m8 6 2-2&quot; /&gt;
+  &lt;path d=&quot;m18 16 2-2&quot; /&gt;
+  &lt;path d=&quot;m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17&quot; /&gt;
+  &lt;path d=&quot;M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z&quot; /&gt;
+  &lt;path d=&quot;m15 5 4 4&quot; /&gt;</field>
+    </record>
+    <record id="icon_percent" model="lucide.icon">
+        <field name="name">percent</field>
+        <field name="sequence">96</field>
+        <field name="svg">&lt;line x1=&quot;19&quot; x2=&quot;5&quot; y1=&quot;5&quot; y2=&quot;19&quot; /&gt;
+  &lt;circle cx=&quot;6.5&quot; cy=&quot;6.5&quot; r=&quot;2.5&quot; /&gt;
+  &lt;circle cx=&quot;17.5&quot; cy=&quot;17.5&quot; r=&quot;2.5&quot; /&gt;</field>
+    </record>
+    <record id="icon_phone" model="lucide.icon">
+        <field name="name">phone</field>
+        <field name="sequence">97</field>
+        <field name="svg">&lt;path d=&quot;M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384&quot; /&gt;</field>
+    </record>
+    <record id="icon_pie_chart" model="lucide.icon">
+        <field name="name">pie-chart</field>
+        <field name="sequence">98</field>
+        <field name="svg">&lt;path d=&quot;M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z&quot; /&gt;
+  &lt;path d=&quot;M21.21 15.89A10 10 0 1 1 8 2.83&quot; /&gt;</field>
+    </record>
+    <record id="icon_play" model="lucide.icon">
+        <field name="name">play</field>
+        <field name="sequence">99</field>
+        <field name="svg">&lt;path d=&quot;M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z&quot; /&gt;</field>
+    </record>
+    <record id="icon_plug" model="lucide.icon">
+        <field name="name">plug</field>
+        <field name="sequence">100</field>
+        <field name="svg">&lt;path d=&quot;M12 22v-5&quot; /&gt;
+  &lt;path d=&quot;M15 8V2&quot; /&gt;
+  &lt;path d=&quot;M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z&quot; /&gt;
+  &lt;path d=&quot;M9 8V2&quot; /&gt;</field>
+    </record>
+    <record id="icon_printer" model="lucide.icon">
+        <field name="name">printer</field>
+        <field name="sequence">101</field>
+        <field name="svg">&lt;path d=&quot;M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2&quot; /&gt;
+  &lt;path d=&quot;M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6&quot; /&gt;
+  &lt;rect x=&quot;6&quot; y=&quot;14&quot; width=&quot;12&quot; height=&quot;8&quot; rx=&quot;1&quot; /&gt;</field>
+    </record>
+    <record id="icon_quote" model="lucide.icon">
+        <field name="name">quote</field>
+        <field name="sequence">102</field>
+        <field name="svg">&lt;path d=&quot;M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z&quot; /&gt;
+  &lt;path d=&quot;M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z&quot; /&gt;</field>
+    </record>
+    <record id="icon_receipt" model="lucide.icon">
+        <field name="name">receipt</field>
+        <field name="sequence">103</field>
+        <field name="svg">&lt;path d=&quot;M12 17V7&quot; /&gt;
+  &lt;path d=&quot;M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8&quot; /&gt;
+  &lt;path d=&quot;M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z&quot; /&gt;</field>
+    </record>
+    <record id="icon_refresh_cw" model="lucide.icon">
+        <field name="name">refresh-cw</field>
+        <field name="sequence">104</field>
+        <field name="svg">&lt;path d=&quot;M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8&quot; /&gt;
+  &lt;path d=&quot;M21 3v5h-5&quot; /&gt;
+  &lt;path d=&quot;M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16&quot; /&gt;
+  &lt;path d=&quot;M8 16H3v5&quot; /&gt;</field>
+    </record>
+    <record id="icon_rocket" model="lucide.icon">
+        <field name="name">rocket</field>
+        <field name="sequence">105</field>
+        <field name="svg">&lt;path d=&quot;M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5&quot; /&gt;
+  &lt;path d=&quot;M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09&quot; /&gt;
+  &lt;path d=&quot;M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z&quot; /&gt;
+  &lt;path d=&quot;M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05&quot; /&gt;</field>
+    </record>
+    <record id="icon_rotate_cw" model="lucide.icon">
+        <field name="name">rotate-cw</field>
+        <field name="sequence">106</field>
+        <field name="svg">&lt;path d=&quot;M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8&quot; /&gt;
+  &lt;path d=&quot;M21 3v5h-5&quot; /&gt;</field>
+    </record>
+    <record id="icon_save" model="lucide.icon">
+        <field name="name">save</field>
+        <field name="sequence">107</field>
+        <field name="svg">&lt;path d=&quot;M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z&quot; /&gt;
+  &lt;path d=&quot;M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7&quot; /&gt;
+  &lt;path d=&quot;M7 3v4a1 1 0 0 0 1 1h7&quot; /&gt;</field>
+    </record>
+    <record id="icon_scale" model="lucide.icon">
+        <field name="name">scale</field>
+        <field name="sequence">108</field>
+        <field name="svg">&lt;path d=&quot;M12 3v18&quot; /&gt;
+  &lt;path d=&quot;m19 8 3 8a5 5 0 0 1-6 0zV7&quot; /&gt;
+  &lt;path d=&quot;M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1&quot; /&gt;
+  &lt;path d=&quot;m5 8 3 8a5 5 0 0 1-6 0zV7&quot; /&gt;
+  &lt;path d=&quot;M7 21h10&quot; /&gt;</field>
+    </record>
+    <record id="icon_search" model="lucide.icon">
+        <field name="name">search</field>
+        <field name="sequence">109</field>
+        <field name="svg">&lt;path d=&quot;m21 21-4.34-4.34&quot; /&gt;
+  &lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot; /&gt;</field>
+    </record>
+    <record id="icon_send" model="lucide.icon">
+        <field name="name">send</field>
+        <field name="sequence">110</field>
+        <field name="svg">&lt;path d=&quot;M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z&quot; /&gt;
+  &lt;path d=&quot;m21.854 2.147-10.94 10.939&quot; /&gt;</field>
+    </record>
+    <record id="icon_server" model="lucide.icon">
+        <field name="name">server</field>
+        <field name="sequence">111</field>
+        <field name="svg">&lt;rect width=&quot;20&quot; height=&quot;8&quot; x=&quot;2&quot; y=&quot;2&quot; rx=&quot;2&quot; ry=&quot;2&quot; /&gt;
+  &lt;rect width=&quot;20&quot; height=&quot;8&quot; x=&quot;2&quot; y=&quot;14&quot; rx=&quot;2&quot; ry=&quot;2&quot; /&gt;
+  &lt;line x1=&quot;6&quot; x2=&quot;6.01&quot; y1=&quot;6&quot; y2=&quot;6&quot; /&gt;
+  &lt;line x1=&quot;6&quot; x2=&quot;6.01&quot; y1=&quot;18&quot; y2=&quot;18&quot; /&gt;</field>
+    </record>
+    <record id="icon_settings" model="lucide.icon">
+        <field name="name">settings</field>
+        <field name="sequence">112</field>
+        <field name="svg">&lt;path d=&quot;M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot; /&gt;</field>
+    </record>
+    <record id="icon_settings_2" model="lucide.icon">
+        <field name="name">settings-2</field>
+        <field name="sequence">113</field>
+        <field name="svg">&lt;path d=&quot;M14 17H5&quot; /&gt;
+  &lt;path d=&quot;M19 7h-9&quot; /&gt;
+  &lt;circle cx=&quot;17&quot; cy=&quot;17&quot; r=&quot;3&quot; /&gt;
+  &lt;circle cx=&quot;7&quot; cy=&quot;7&quot; r=&quot;3&quot; /&gt;</field>
+    </record>
+    <record id="icon_share" model="lucide.icon">
+        <field name="name">share</field>
+        <field name="sequence">114</field>
+        <field name="svg">&lt;path d=&quot;M12 2v13&quot; /&gt;
+  &lt;path d=&quot;m16 6-4-4-4 4&quot; /&gt;
+  &lt;path d=&quot;M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8&quot; /&gt;</field>
+    </record>
+    <record id="icon_share_2" model="lucide.icon">
+        <field name="name">share-2</field>
+        <field name="sequence">115</field>
+        <field name="svg">&lt;circle cx=&quot;18&quot; cy=&quot;5&quot; r=&quot;3&quot; /&gt;
+  &lt;circle cx=&quot;6&quot; cy=&quot;12&quot; r=&quot;3&quot; /&gt;
+  &lt;circle cx=&quot;18&quot; cy=&quot;19&quot; r=&quot;3&quot; /&gt;
+  &lt;line x1=&quot;8.59&quot; x2=&quot;15.42&quot; y1=&quot;13.51&quot; y2=&quot;17.49&quot; /&gt;
+  &lt;line x1=&quot;15.41&quot; x2=&quot;8.59&quot; y1=&quot;6.51&quot; y2=&quot;10.49&quot; /&gt;</field>
+    </record>
+    <record id="icon_shield" model="lucide.icon">
+        <field name="name">shield</field>
+        <field name="sequence">116</field>
+        <field name="svg">&lt;path d=&quot;M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z&quot; /&gt;</field>
+    </record>
+    <record id="icon_shield_check" model="lucide.icon">
+        <field name="name">shield-check</field>
+        <field name="sequence">117</field>
+        <field name="svg">&lt;path d=&quot;M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z&quot; /&gt;
+  &lt;path d=&quot;m9 12 2 2 4-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_shield_half" model="lucide.icon">
+        <field name="name">shield-half</field>
+        <field name="sequence">118</field>
+        <field name="svg">&lt;path d=&quot;M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z&quot; /&gt;
+  &lt;path d=&quot;M12 22V2&quot; /&gt;</field>
+    </record>
+    <record id="icon_shopping_bag" model="lucide.icon">
+        <field name="name">shopping-bag</field>
+        <field name="sequence">119</field>
+        <field name="svg">&lt;path d=&quot;M16 10a4 4 0 0 1-8 0&quot; /&gt;
+  &lt;path d=&quot;M3.103 6.034h17.794&quot; /&gt;
+  &lt;path d=&quot;M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z&quot; /&gt;</field>
+    </record>
+    <record id="icon_shopping_cart" model="lucide.icon">
+        <field name="name">shopping-cart</field>
+        <field name="sequence">120</field>
+        <field name="svg">&lt;circle cx=&quot;8&quot; cy=&quot;21&quot; r=&quot;1&quot; /&gt;
+  &lt;circle cx=&quot;19&quot; cy=&quot;21&quot; r=&quot;1&quot; /&gt;
+  &lt;path d=&quot;M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12&quot; /&gt;</field>
+    </record>
+    <record id="icon_signature" model="lucide.icon">
+        <field name="name">signature</field>
+        <field name="sequence">121</field>
+        <field name="svg">&lt;path d=&quot;m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284&quot; /&gt;
+  &lt;path d=&quot;M3 21h18&quot; /&gt;</field>
+    </record>
+    <record id="icon_sliders_horizontal" model="lucide.icon">
+        <field name="name">sliders-horizontal</field>
+        <field name="sequence">122</field>
+        <field name="svg">&lt;path d=&quot;M10 5H3&quot; /&gt;
+  &lt;path d=&quot;M12 19H3&quot; /&gt;
+  &lt;path d=&quot;M14 3v4&quot; /&gt;
+  &lt;path d=&quot;M16 17v4&quot; /&gt;
+  &lt;path d=&quot;M21 12h-9&quot; /&gt;
+  &lt;path d=&quot;M21 19h-5&quot; /&gt;
+  &lt;path d=&quot;M21 5h-7&quot; /&gt;
+  &lt;path d=&quot;M8 10v4&quot; /&gt;
+  &lt;path d=&quot;M8 12H3&quot; /&gt;</field>
+    </record>
+    <record id="icon_smartphone" model="lucide.icon">
+        <field name="name">smartphone</field>
+        <field name="sequence">123</field>
+        <field name="svg">&lt;rect width=&quot;14&quot; height=&quot;20&quot; x=&quot;5&quot; y=&quot;2&quot; rx=&quot;2&quot; ry=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M12 18h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_sparkles" model="lucide.icon">
+        <field name="name">sparkles</field>
+        <field name="sequence">124</field>
+        <field name="svg">&lt;path d=&quot;M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z&quot; /&gt;
+  &lt;path d=&quot;M20 2v4&quot; /&gt;
+  &lt;path d=&quot;M22 4h-4&quot; /&gt;
+  &lt;circle cx=&quot;4&quot; cy=&quot;20&quot; r=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_split" model="lucide.icon">
+        <field name="name">split</field>
+        <field name="sequence">125</field>
+        <field name="svg">&lt;path d=&quot;M16 3h5v5&quot; /&gt;
+  &lt;path d=&quot;M8 3H3v5&quot; /&gt;
+  &lt;path d=&quot;M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3&quot; /&gt;
+  &lt;path d=&quot;m15 9 6-6&quot; /&gt;</field>
+    </record>
+    <record id="icon_star" model="lucide.icon">
+        <field name="name">star</field>
+        <field name="sequence">126</field>
+        <field name="svg">&lt;path d=&quot;M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z&quot; /&gt;</field>
+    </record>
+    <record id="icon_sticky_note" model="lucide.icon">
+        <field name="name">sticky-note</field>
+        <field name="sequence">127</field>
+        <field name="svg">&lt;path d=&quot;M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z&quot; /&gt;
+  &lt;path d=&quot;M15 3v5a1 1 0 0 0 1 1h5&quot; /&gt;</field>
+    </record>
+    <record id="icon_store" model="lucide.icon">
+        <field name="name">store</field>
+        <field name="sequence">128</field>
+        <field name="svg">&lt;path d=&quot;M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5&quot; /&gt;
+  &lt;path d=&quot;M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244&quot; /&gt;
+  &lt;path d=&quot;M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05&quot; /&gt;</field>
+    </record>
+    <record id="icon_sun" model="lucide.icon">
+        <field name="name">sun</field>
+        <field name="sequence">129</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;4&quot; /&gt;
+  &lt;path d=&quot;M12 2v2&quot; /&gt;
+  &lt;path d=&quot;M12 20v2&quot; /&gt;
+  &lt;path d=&quot;m4.93 4.93 1.41 1.41&quot; /&gt;
+  &lt;path d=&quot;m17.66 17.66 1.41 1.41&quot; /&gt;
+  &lt;path d=&quot;M2 12h2&quot; /&gt;
+  &lt;path d=&quot;M20 12h2&quot; /&gt;
+  &lt;path d=&quot;m6.34 17.66-1.41 1.41&quot; /&gt;
+  &lt;path d=&quot;m19.07 4.93-1.41 1.41&quot; /&gt;</field>
+    </record>
+    <record id="icon_table" model="lucide.icon">
+        <field name="name">table</field>
+        <field name="sequence">130</field>
+        <field name="svg">&lt;path d=&quot;M12 3v18&quot; /&gt;
+  &lt;rect width=&quot;18&quot; height=&quot;18&quot; x=&quot;3&quot; y=&quot;3&quot; rx=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M3 9h18&quot; /&gt;
+  &lt;path d=&quot;M3 15h18&quot; /&gt;</field>
+    </record>
+    <record id="icon_tag" model="lucide.icon">
+        <field name="name">tag</field>
+        <field name="sequence">131</field>
+        <field name="svg">&lt;path d=&quot;M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z&quot; /&gt;
+  &lt;circle cx=&quot;7.5&quot; cy=&quot;7.5&quot; r=&quot;.5&quot; fill=&quot;currentColor&quot; /&gt;</field>
+    </record>
+    <record id="icon_target" model="lucide.icon">
+        <field name="name">target</field>
+        <field name="sequence">132</field>
+        <field name="svg">&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;6&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_thumbs_down" model="lucide.icon">
+        <field name="name">thumbs-down</field>
+        <field name="sequence">133</field>
+        <field name="svg">&lt;path d=&quot;M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z&quot; /&gt;
+  &lt;path d=&quot;M17 14V2&quot; /&gt;</field>
+    </record>
+    <record id="icon_thumbs_up" model="lucide.icon">
+        <field name="name">thumbs-up</field>
+        <field name="sequence">134</field>
+        <field name="svg">&lt;path d=&quot;M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z&quot; /&gt;
+  &lt;path d=&quot;M7 10v12&quot; /&gt;</field>
+    </record>
+    <record id="icon_trash_2" model="lucide.icon">
+        <field name="name">trash-2</field>
+        <field name="sequence">135</field>
+        <field name="svg">&lt;path d=&quot;M10 11v6&quot; /&gt;
+  &lt;path d=&quot;M14 11v6&quot; /&gt;
+  &lt;path d=&quot;M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6&quot; /&gt;
+  &lt;path d=&quot;M3 6h18&quot; /&gt;
+  &lt;path d=&quot;M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2&quot; /&gt;</field>
+    </record>
+    <record id="icon_trending_down" model="lucide.icon">
+        <field name="name">trending-down</field>
+        <field name="sequence">136</field>
+        <field name="svg">&lt;path d=&quot;M16 17h6v-6&quot; /&gt;
+  &lt;path d=&quot;m22 17-8.5-8.5-5 5L2 7&quot; /&gt;</field>
+    </record>
+    <record id="icon_triangle_alert" model="lucide.icon">
+        <field name="name">triangle-alert</field>
+        <field name="sequence">137</field>
+        <field name="svg">&lt;path d=&quot;m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3&quot; /&gt;
+  &lt;path d=&quot;M12 9v4&quot; /&gt;
+  &lt;path d=&quot;M12 17h.01&quot; /&gt;</field>
+    </record>
+    <record id="icon_trophy" model="lucide.icon">
+        <field name="name">trophy</field>
+        <field name="sequence">138</field>
+        <field name="svg">&lt;path d=&quot;M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2&quot; /&gt;
+  &lt;path d=&quot;M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2&quot; /&gt;
+  &lt;path d=&quot;M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3&quot; /&gt;
+  &lt;path d=&quot;M4 22h16&quot; /&gt;
+  &lt;path d=&quot;M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z&quot; /&gt;
+  &lt;path d=&quot;M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3&quot; /&gt;</field>
+    </record>
+    <record id="icon_truck" model="lucide.icon">
+        <field name="name">truck</field>
+        <field name="sequence">139</field>
+        <field name="svg">&lt;path d=&quot;M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2&quot; /&gt;
+  &lt;path d=&quot;M15 18H9&quot; /&gt;
+  &lt;path d=&quot;M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14&quot; /&gt;
+  &lt;circle cx=&quot;17&quot; cy=&quot;18&quot; r=&quot;2&quot; /&gt;
+  &lt;circle cx=&quot;7&quot; cy=&quot;18&quot; r=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_upload" model="lucide.icon">
+        <field name="name">upload</field>
+        <field name="sequence">140</field>
+        <field name="svg">&lt;path d=&quot;M12 3v12&quot; /&gt;
+  &lt;path d=&quot;m17 8-5-5-5 5&quot; /&gt;
+  &lt;path d=&quot;M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_user" model="lucide.icon">
+        <field name="name">user</field>
+        <field name="sequence">141</field>
+        <field name="svg">&lt;path d=&quot;M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2&quot; /&gt;
+  &lt;circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot; /&gt;</field>
+    </record>
+    <record id="icon_user_plus" model="lucide.icon">
+        <field name="name">user-plus</field>
+        <field name="sequence">142</field>
+        <field name="svg">&lt;path d=&quot;M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2&quot; /&gt;
+  &lt;circle cx=&quot;9&quot; cy=&quot;7&quot; r=&quot;4&quot; /&gt;
+  &lt;line x1=&quot;19&quot; x2=&quot;19&quot; y1=&quot;8&quot; y2=&quot;14&quot; /&gt;
+  &lt;line x1=&quot;22&quot; x2=&quot;16&quot; y1=&quot;11&quot; y2=&quot;11&quot; /&gt;</field>
+    </record>
+    <record id="icon_users" model="lucide.icon">
+        <field name="name">users</field>
+        <field name="sequence">143</field>
+        <field name="svg">&lt;path d=&quot;M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2&quot; /&gt;
+  &lt;path d=&quot;M16 3.128a4 4 0 0 1 0 7.744&quot; /&gt;
+  &lt;path d=&quot;M22 21v-2a4 4 0 0 0-3-3.87&quot; /&gt;
+  &lt;circle cx=&quot;9&quot; cy=&quot;7&quot; r=&quot;4&quot; /&gt;</field>
+    </record>
+    <record id="icon_users_round" model="lucide.icon">
+        <field name="name">users-round</field>
+        <field name="sequence">144</field>
+        <field name="svg">&lt;path d=&quot;M18 21a8 8 0 0 0-16 0&quot; /&gt;
+  &lt;circle cx=&quot;10&quot; cy=&quot;8&quot; r=&quot;5&quot; /&gt;
+  &lt;path d=&quot;M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3&quot; /&gt;</field>
+    </record>
+    <record id="icon_utensils" model="lucide.icon">
+        <field name="name">utensils</field>
+        <field name="sequence">145</field>
+        <field name="svg">&lt;path d=&quot;M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2&quot; /&gt;
+  &lt;path d=&quot;M7 2v20&quot; /&gt;
+  &lt;path d=&quot;M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7&quot; /&gt;</field>
+    </record>
+    <record id="icon_video" model="lucide.icon">
+        <field name="name">video</field>
+        <field name="sequence">146</field>
+        <field name="svg">&lt;path d=&quot;m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5&quot; /&gt;
+  &lt;rect x=&quot;2&quot; y=&quot;6&quot; width=&quot;14&quot; height=&quot;12&quot; rx=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_wallet" model="lucide.icon">
+        <field name="name">wallet</field>
+        <field name="sequence">147</field>
+        <field name="svg">&lt;path d=&quot;M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1&quot; /&gt;
+  &lt;path d=&quot;M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4&quot; /&gt;</field>
+    </record>
+    <record id="icon_warehouse" model="lucide.icon">
+        <field name="name">warehouse</field>
+        <field name="sequence">148</field>
+        <field name="svg">&lt;path d=&quot;M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11&quot; /&gt;
+  &lt;path d=&quot;M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 1.132-1.803l7.95-3.974a2 2 0 0 1 1.837 0l7.948 3.974A2 2 0 0 1 22 8z&quot; /&gt;
+  &lt;path d=&quot;M6 13h12&quot; /&gt;
+  &lt;path d=&quot;M6 17h12&quot; /&gt;</field>
+    </record>
+    <record id="icon_wifi" model="lucide.icon">
+        <field name="name">wifi</field>
+        <field name="sequence">149</field>
+        <field name="svg">&lt;path d=&quot;M12 20h.01&quot; /&gt;
+  &lt;path d=&quot;M2 8.82a15 15 0 0 1 20 0&quot; /&gt;
+  &lt;path d=&quot;M5 12.859a10 10 0 0 1 14 0&quot; /&gt;
+  &lt;path d=&quot;M8.5 16.429a5 5 0 0 1 7 0&quot; /&gt;</field>
+    </record>
+    <record id="icon_workflow" model="lucide.icon">
+        <field name="name">workflow</field>
+        <field name="sequence">150</field>
+        <field name="svg">&lt;rect width=&quot;8&quot; height=&quot;8&quot; x=&quot;3&quot; y=&quot;3&quot; rx=&quot;2&quot; /&gt;
+  &lt;path d=&quot;M7 11v4a2 2 0 0 0 2 2h4&quot; /&gt;
+  &lt;rect width=&quot;8&quot; height=&quot;8&quot; x=&quot;13&quot; y=&quot;13&quot; rx=&quot;2&quot; /&gt;</field>
+    </record>
+    <record id="icon_wrench" model="lucide.icon">
+        <field name="name">wrench</field>
+        <field name="sequence">151</field>
+        <field name="svg">&lt;path d=&quot;M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z&quot; /&gt;</field>
+    </record>
+    <record id="icon_zap" model="lucide.icon">
+        <field name="name">zap</field>
+        <field name="sequence">152</field>
+        <field name="svg">&lt;path d=&quot;M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z&quot; /&gt;</field>
+    </record>
+    <record id="icon_zap_off" model="lucide.icon">
+        <field name="name">zap-off</field>
+        <field name="sequence">153</field>
+        <field name="svg">&lt;path d=&quot;M10.768 5.111 13.44 2.44a1.5 1.5 0 012.474 1.561l-1.633 4.625&quot; /&gt;
+  &lt;path d=&quot;m18.889 13.232.672-.672A1.5 1.5 0 0018.5 10h-2.844&quot; /&gt;
+  &lt;path d=&quot;m2 2 20 20&quot; /&gt;
+  &lt;path d=&quot;m7.94 7.94-3.5 3.499A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l5.5-5.5&quot; /&gt;</field>
+    </record>
+
+</data>
+</odoo>

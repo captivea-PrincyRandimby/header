@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lucide_icon_designer,lucide.icon.designer,model_lucide_icon,website.group_website_designer,1,1,1,1
+access_lucide_icon_user,lucide.icon.user,model_lucide_icon,base.group_user,1,0,0,0
+access_lucide_icon_public,lucide.icon.public,model_lucide_icon,base.group_public,1,0,0,0
+access_lucide_icon_portal,lucide.icon.portal,model_lucide_icon,base.group_portal,1,0,0,0
+access_lucide_icon_import_designer,lucide.icon.import.designer,model_lucide_icon_import,website.group_website_designer,1,1,1,1

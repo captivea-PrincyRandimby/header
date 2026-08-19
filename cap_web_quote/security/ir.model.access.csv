@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_quote_testimonial_designer,quote.testimonial.designer,model_quote_testimonial,website.group_website_designer,1,1,1,1
+access_quote_testimonial_user,quote.testimonial.user,model_quote_testimonial,base.group_user,1,0,0,0
+access_quote_testimonial_public,quote.testimonial.public,model_quote_testimonial,base.group_public,1,0,0,0
+access_quote_testimonial_portal,quote.testimonial.portal,model_quote_testimonial,base.group_portal,1,0,0,0
+access_quote_role_designer,quote.role.designer,model_quote_role,website.group_website_designer,1,1,1,1
+access_quote_role_user,quote.role.user,model_quote_role,base.group_user,1,0,0,0
+access_quote_role_public,quote.role.public,model_quote_role,base.group_public,1,0,0,0
+access_quote_role_portal,quote.role.portal,model_quote_role,base.group_portal,1,0,0,0
+access_quote_tag_designer,quote.tag.designer,model_quote_tag,website.group_website_designer,1,1,1,1
+access_quote_tag_user,quote.tag.user,model_quote_tag,base.group_user,1,0,0,0
+access_quote_tag_public,quote.tag.public,model_quote_tag,base.group_public,1,0,0,0
+access_quote_tag_portal,quote.tag.portal,model_quote_tag,base.group_portal,1,0,0,0

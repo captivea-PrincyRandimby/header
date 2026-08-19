@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The Templates menu is built imperatively (models/website.py):
+         create the parent, get its real id, then create/re-parent the children
+         referencing that id. This is robust against the theme.website.menu
+         materialization that was dropping the children's parent link. -->
+    <function model="website" name="_captivea_generate_template_menu">
+        <value eval="[]"/>
+    </function>
+
+</odoo>

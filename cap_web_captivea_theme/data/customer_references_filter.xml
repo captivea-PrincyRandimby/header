@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Base filter: published partners that are customer references
+         (assigned_partner_id set = "Implemented by", same semantics as /customers).
+         is_published=True is auto-added by website.snippet.filter._prepare_values. -->
+    <record id="customer_references_ir_filter" model="ir.filters">
+        <field name="name">Customer References</field>
+        <!-- ir.filters.model_id is a Selection storing the model NAME (not an ir.model ref). -->
+        <field name="model_id">res.partner</field>
+        <field name="user_ids" eval="False"/>
+        <field name="domain">[('assigned_partner_id', '!=', False)]</field>
+        <field name="sort">["complete_name asc"]</field>
+        <field name="action_id" ref="website.action_website"/>
+    </record>
+
+    <record id="dynamic_filter_customer_references" model="website.snippet.filter">
+        <field name="name">Customer References</field>
+        <field name="filter_id" ref="customer_references_ir_filter"/>
+        <field name="field_names">display_name,website_url,industry_id</field>
+        <field name="limit" eval="16"/>
+    </record>
+
+</odoo>

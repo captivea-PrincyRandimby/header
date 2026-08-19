@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="website_menus_form_view" model="ir.ui.view">
+        <field name="name">website.menu.form.inherit.cap.header</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.website_menus_form_view"/>
+        <field name="arch" type="xml">
+            <field name="is_mega_menu" position="after">
+                <!--
+                    `cap_header_row` only drives the first level of the tree
+                    (the two menu bars of the Captivea header); on a child menu
+                    it is simply ignored, the entry is rendered inside its
+                    parent's dropdown.
+                -->
+                <field name="cap_header_row"/>
+                <field name="cap_mega_subtitle" invisible="cap_header_row != 'mega'"/>
+                <field name="cap_menu_description" invisible="is_mega_menu"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="menu_tree" model="ir.ui.view">
+        <field name="name">website.menu.list.inherit.cap.header</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.menu_tree"/>
+        <field name="arch" type="xml">
+            <field name="is_mega_menu" position="after">
+                <field name="cap_header_row" optional="hide"/>
+                <field name="cap_mega_subtitle" optional="hide"/>
+                <field name="cap_menu_description" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,25 @@
+<svg width="234" height="60" viewBox="0 0 234 60" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#fff" fill-opacity=".5" d="M0 3h234v54H0z"/>
+    <!-- Row 1: top bar -->
+    <path fill="#eef0f2" d="M0 3h234v11H0z"/>
+    <rect x="150" y="7" width="18" height="3" rx="1.5" fill="#8a97a1"/>
+    <rect x="172" y="7" width="14" height="3" rx="1.5" fill="#8a97a1"/>
+    <rect x="190" y="7" width="12" height="3" rx="1.5" fill="#8a97a1"/>
+    <rect x="206" y="6" width="16" height="5" rx="2.5" fill="#fff" stroke="#c9d1d6"/>
+    <!-- Row 2: logo | search | CTA -->
+    <rect x="12" y="19" width="34" height="12" rx="1" fill="#c3222a"/>
+    <rect x="76" y="20" width="82" height="11" rx="5.5" fill="#fbecec"/>
+    <circle cx="151.5" cy="25.5" r="4" fill="#c3222a"/>
+    <circle cx="82" cy="25.5" r="2" fill="#c3222a"/>
+    <rect x="188" y="20" width="34" height="11" rx="5.5" fill="#c3222a"/>
+    <!-- Row 3: mega menu bar -->
+    <path fill="none" stroke="#e2e6e9" d="M0 36.5h234"/>
+    <rect x="12" y="41" width="40" height="4" rx="1" fill="#223843"/>
+    <rect x="12" y="47" width="26" height="3" rx="1.5" fill="#8a97a1"/>
+    <rect x="66" y="41" width="40" height="4" rx="1" fill="#223843"/>
+    <rect x="66" y="47" width="26" height="3" rx="1.5" fill="#8a97a1"/>
+    <rect x="120" y="41" width="40" height="4" rx="1" fill="#223843"/>
+    <rect x="120" y="47" width="26" height="3" rx="1.5" fill="#8a97a1"/>
+    <rect x="174" y="41" width="40" height="4" rx="1" fill="#223843"/>
+    <rect x="174" y="47" width="26" height="3" rx="1.5" fill="#8a97a1"/>
+</svg>

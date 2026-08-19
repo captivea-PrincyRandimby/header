@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Captivea Theme</title>
+<style>
+  :root{--red:#BA131A;--red2:#E3575D;--ink:#212529;--muted:#6A7782;--soft:#F5F4F4;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Nunito",-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6}
+  .hero{background:linear-gradient(45deg,var(--red),var(--red2));color:#fff;padding:56px 40px;border-radius:0 0 32px 32px}
+  .hero h1{margin:0 0 8px;font-size:2.4rem;font-weight:800}
+  .hero p{margin:0;font-size:1.15rem;opacity:.95;max-width:820px}
+  .badge{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.5);color:#fff;
+         padding:.3rem .9rem;border-radius:50rem;font-weight:700;font-size:.85rem;letter-spacing:.05em;margin-bottom:18px}
+  .wrap{max-width:960px;margin:0 auto;padding:40px}
+  h2{font-size:1.5rem;font-weight:800;margin:40px 0 14px;color:var(--red)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{background:var(--soft);border-radius:20px;padding:20px 22px;border:1px solid #eee}
+  .card h3{margin:0 0 6px;font-size:1.05rem}
+  .card p{margin:0;color:var(--muted);font-size:.95rem}
+  ul.deps{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+  ul.deps li{background:#fff;border:1px solid #e3e3e3;border-radius:50rem;padding:.35rem .9rem;font-size:.9rem;font-weight:600}
+  table.ver{width:100%;border-collapse:collapse;margin-top:8px}
+  table.ver th,table.ver td{text-align:left;padding:10px 12px;border-bottom:1px solid #eee;font-size:.95rem}
+  table.ver th{color:var(--muted);font-weight:700}
+  .pill{display:inline-block;background:var(--red);color:#fff;border-radius:50rem;padding:.15rem .7rem;font-weight:700;font-size:.85rem}
+  footer{color:var(--muted);font-size:.85rem;padding:24px 40px;text-align:center}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <span class="badge">Version 19.0.1.0.0 · Odoo 19</span>
+    <h1>Captivea Theme</h1>
+    <p>Brand theme for Odoo 19 Website — colour palette, typography, design tokens, a full library of branded content snippets and SEO-ready page templates.</p>
+  </div>
+  <div class="wrap">
+    <h2>Overview</h2>
+    <p>Captivea Theme turns a standard Odoo 19 website into the Captivea brand universe. It ships the brand design system (colours, gradients, tints, shadows, radii, Nunito typography) together with a large set of ready-to-use content sections and complete page templates, so marketing pages can be assembled in minutes while staying consistent and SEO-friendly.</p>
+
+    <h2>Key features</h2>
+    <div class="grid">
+      <div class="card"><h3>Brand design system</h3><p>Colour palette &amp; design tokens (signature gradient, +30%/+60% tints, brand shadow, section/card radii) and Nunito typography, exposed as CSS variables.</p></div>
+      <div class="card"><h3>Branded snippets</h3><p>30+ Captivea content sections (<code>s_cap_*</code>): hero header, context, solution, key features, pain points, gains, methodology, expertise, teams, sectors, offices, coverage, stats, FAQ, CTA and more.</p></div>
+      <div class="card"><h3>SEO page templates</h3><p>17 pre-built templates: Home, Sub-sector, Sector hub, Team, About, Country, Office, Odoo Partner, Product pillar, Odoo app, Captivea add-on, ISV partner, Comparison (ERP &amp; CMS), Offer, Customer benefit, Case study — plus an auto-generated “Templates” menu.</p></div>
+      <div class="card"><h3>Customer references</h3><p>Server-rendered dynamic snippet listing published reference companies (logo wall), filterable in the editor by company, industry and tag.</p></div>
+      <div class="card"><h3>Captivea Blog Posts</h3><p>Dedicated dynamic blog snippet with editor Blog &amp; Tag filters and a branded card (cover, category badge, teaser, auto-linked tags, author).</p></div>
+      <div class="card"><h3>Comparison pages</h3><p>Two comparison templates (ERP and CMS) with contenders, decision criteria, verdict and full cross-linking to every sibling comparison.</p></div>
+      <div class="card"><h3>Branded components</h3><p>Card &amp; FAQ accordion styling, buttons per colour combination with gradient hover, eyebrow capsules, and smooth in-page anchor scrolling.</p></div>
+      <div class="card"><h3>Integrations</h3><p>Bundles the Captivea companion modules: Lucide icons, per-language logo, testimonials and JSON-LD SEO.</p></div>
+    </div>
+
+    <h2>Dependencies</h2>
+    <ul class="deps">
+      <li>website</li><li>website_blog</li><li>website_customer</li>
+      <li>cap_web_lucide_icons</li><li>cap_web_logo_lang</li><li>cap_web_quote</li><li>cap_web_seo_json_ld</li>
+    </ul>
+
+    <h2>Version history</h2>
+    <table class="ver">
+      <tr><th>Version</th><th>Date</th><th>Notes</th></tr>
+      <tr><td><span class="pill">19.0.1.0.0</span></td><td>2026</td><td>Initial release — brand design system, snippet library, 17 page templates, dynamic customer references &amp; blog snippets, ERP/CMS comparison templates.</td></tr>
+    </table>
+  </div>
+  <footer>© Captivea — Odoo Gold Partner · LGPL-3</footer>
+</body>
+</html>

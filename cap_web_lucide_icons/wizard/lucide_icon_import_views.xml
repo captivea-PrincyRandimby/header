@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lucide_icon_import_form" model="ir.ui.view">
+        <field name="name">lucide.icon.import.form</field>
+        <field name="model">lucide.icon.import</field>
+        <field name="arch" type="xml">
+            <form string="Import Lucide Icons">
+                <p class="text-muted">
+                    Paste one or more Lucide icon names (comma, space or newline
+                    separated). Browse the full catalog on
+                    <a href="https://lucide.dev/icons/" target="_blank" rel="noopener">lucide.dev/icons</a>.
+                    Only the icons you import become selectable in the editor picker.
+                </p>
+                <group>
+                    <field name="names" nolabel="1" placeholder="rocket, gauge, shield-check&#10;sparkles"/>
+                </group>
+                <footer>
+                    <button name="action_import" type="object" string="Import" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_lucide_icon_import" model="ir.actions.act_window">
+        <field name="name">Import Lucide Icons</field>
+        <field name="res_model">lucide.icon.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

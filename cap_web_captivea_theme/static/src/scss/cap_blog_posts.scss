@@ -1,0 +1,59 @@
+// Captivea Blog Posts snippet — card design (cover, category badge, title,
+// date, teaser, auto-linked tag badges, author).
+.s_cap_blog_posts {
+    .s_cap_blogcard {
+        border-radius: var(--cap-r-cards, 28px);
+        overflow: hidden;
+        box-shadow: var(--cap-shadow-card);
+        border: 1px solid transparent;
+        transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            border-color: var(--o-color-3-30);
+        }
+    }
+
+    // Cover keeps the 16:9 ratio; image fills it.
+    .s_cap_blogcard_cover {
+        .o_record_cover_container,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // Category badge over the cover, brand gradient.
+    .s_cap_blogcard_cat {
+        z-index: 2;
+        background: var(--cap-grad, linear-gradient(45deg, #BA131A, #E3575D));
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .s_cap_blogcard_title {
+        font-weight: 800;
+    }
+
+    .s_cap_blogcard_teaser {
+        font-size: 90%;
+        color: var(--cap-muted, #6A7782);
+    }
+
+    // Auto-linked tag badges.
+    .s_cap_blogcard_tags .badge {
+        transition: background-color .2s ease, color .2s ease;
+
+        &:hover {
+            background: var(--cap-grad, linear-gradient(45deg, #BA131A, #E3575D)) !important;
+            color: #fff !important;
+        }
+    }
+
+    .s_cap_blogcard_author .o_avatar {
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+    }
+}

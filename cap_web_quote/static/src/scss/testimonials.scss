@@ -1,0 +1,156 @@
+// Testimonials — dynamic snippet cards, "gradient card" design (Version A):
+// quote centered on the brand gradient, a quote glyph overlapping the top-left
+// corner, white footer with author · company on the left and tags on the right.
+.s_captivea_testimonials {
+    // Brand gradient (defined by the theme at :root); simple fallback if absent.
+    $cap-tgrad: var(--cap-grad, linear-gradient(135deg, #BA131A, #E3575D));
+
+    .s_cap_tcard {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: var(--cap-shadow-card);
+        padding-top: 22px;
+        margin-top: 20px;                 // room for the overlapping glyph
+        transition: transform .3s ease, box-shadow .3s ease;
+
+        &:hover { transform: translateY(-5px); }
+    }
+
+    // Quote glyph overlapping the top-left corner (pastille)
+    .s_cap_tcard_mark {
+        position: absolute;
+        top: -16px;
+        left: -6px;
+        z-index: 3;
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
+        background: #{$cap-tgrad};
+        color: #fff;
+        display: grid;
+        place-items: center;
+        padding-top: 14px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 800;
+        font-size: 46px;
+        line-height: 1;
+        box-shadow: 0 10px 20px rgba(186, 19, 26, .32);
+    }
+
+    .s_cap_tcard_grad {
+        flex-grow: 1;
+        margin: 0 14px;
+        padding: 40px 30px 34px;
+        border-radius: 18px;
+        background: #{$cap-tgrad};
+        color: #fff;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .s_cap_tcard_quote {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.7;
+    }
+
+    .s_cap_tcard_foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 16px 22px 20px;
+        text-align: left;
+    }
+
+    .s_cap_tcard_who strong { color: var(--o-color-5, #212529); font-weight: 800; }
+
+    .s_cap_tcard_sub {
+        margin-top: 1px;
+        font-size: .8rem;
+        color: var(--cap-muted, #6A7782);
+    }
+
+    .s_cap_tcard_tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    // ---- Infinite carousel (transform track + clones) ----
+    .s_cap_tcarousel_root {
+        position: relative;
+        padding: 0 8px;
+    }
+
+    // Clips the translated track horizontally; vertical padding leaves room for
+    // the scaled-up center card and its overlapping glyph.
+    .s_cap_tviewport {
+        overflow: hidden;
+        padding: 34px 4px 18px;
+    }
+
+    .s_cap_ttrack {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 24px;
+        width: 100%;               // % basis of slides resolves against the viewport
+        will-change: transform;
+
+        &.is-centered { justify-content: center; }
+    }
+
+    .s_cap_tslide {
+        flex: 0 0 calc((100% - 48px) / 3);  // 3 visible (two 24px gaps)
+        max-width: calc((100% - 48px) / 3);
+        display: flex;
+        transition: transform .35s ease, opacity .35s ease;
+
+        @include media-breakpoint-down(md) {   // phone: 1 visible
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .s_cap_tslide.is-center { transform: scale(1.05); z-index: 2; }
+    .s_cap_tslide.is-side   { transform: scale(.95); opacity: .92; }
+
+    // Navigation arrows
+    .s_cap_tcar_prev,
+    .s_cap_tcar_next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #fff;
+        color: var(--o-color-1, #BA131A);
+        box-shadow: var(--cap-shadow-card);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: transform .2s ease;
+
+        svg { width: 22px; height: 22px; }
+        &:hover { transform: translateY(-50%) scale(1.08); }
+    }
+    .s_cap_tcar_prev { left: -6px; }
+    .s_cap_tcar_next { right: -6px; }
+
+    .s_cap_tcarousel_root.no-nav {
+        .s_cap_tcar_prev,
+        .s_cap_tcar_next { display: none; }
+    }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lucide_icon_list" model="ir.ui.view">
+        <field name="name">lucide.icon.list</field>
+        <field name="model">lucide.icon</field>
+        <field name="arch" type="xml">
+            <list string="Lucide Icons">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_lucide_icon_form" model="ir.ui.view">
+        <field name="name">lucide.icon.form</field>
+        <field name="model">lucide.icon</field>
+        <field name="arch" type="xml">
+            <form string="Lucide Icon">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                    <group string="Inner SVG (paths)">
+                        <field name="svg" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_lucide_icon" model="ir.actions.act_window">
+        <field name="name">Lucide Icons</field>
+        <field name="res_model">lucide.icon</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Add Lucide icons to the picker</p>
+            <p>Use <b>Import Lucide Icons</b> to add more selectable icons from the Lucide catalog.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_lucide_icons"
+              parent="website.menu_website_global_configuration"
+              sequence="85"
+              name="Lucide Icons"
+              action="action_lucide_icon"
+              groups="website.group_website_designer"/>
+    <menuitem id="menu_lucide_icon_import"
+              parent="website.menu_website_global_configuration"
+              sequence="86"
+              name="Import Lucide Icons"
+              action="action_lucide_icon_import"
+              groups="website.group_website_designer"/>
+
+</odoo>

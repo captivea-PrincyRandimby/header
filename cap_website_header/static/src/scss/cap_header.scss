@@ -1,0 +1,774 @@
+///
+/// Captivea website header (3 rows).
+/// Everything is scoped under `.cap_header`, which only exists when the
+/// `cap_website_header.template_header_captivea` view is active.
+///
+
+// Colours picked from the reference mock-up (Header.png).
+$cap-red:         #c3222a;
+$cap-red-dark:    #a41a21;
+$cap-navy:        #223843;
+$cap-grey:        #6a7782;
+$cap-topbar-bg:   #f7f8f9;
+$cap-topbar-text: #2f4a57;
+$cap-search-bg:   #fbecec;
+$cap-border:      rgba($cap-navy, .1);
+// Same sampled values as in `cap_mega_menu.scss`, redeclared here: that
+// file is loaded *after* this one, so its variables are not in scope yet.
+$cap-line:        #e7e9ec;
+$cap-pill:        #eff1f2;
+
+header .cap_header {
+    // `website.navbar` ships a vertical padding meant for a single row header.
+    padding: 0;
+
+    // ---------------------------------------------------------------- Row 1
+    .cap_header_top {
+        background-color: $cap-topbar-bg;
+        border-bottom: 1px solid $cap-border;
+    }
+
+    .cap_header_top_nav {
+        gap: .25rem;
+
+        > .nav-item > .nav-link,
+        > .cap_header_lang .dropdown-toggle {
+            padding: .5rem .75rem;
+            font-size: .875rem;
+            font-weight: 500;
+            color: $cap-topbar-text;
+
+            // `:focus-visible` and not `:focus`: a click leaves the focus on the
+            // item, which would keep it red long after the pointer has gone.
+            // Keyboard navigation still gets the highlight.
+            &:hover,
+            &:focus-visible,
+            &.show {
+                color: $cap-red;
+            }
+
+            // The current page (`active`, set by `website.submenu`) is not a
+            // hover: red is reserved for the pointer.
+            &.active {
+                color: $cap-topbar-text;
+            }
+        }
+
+        .dropdown-item.active,
+        .dropdown-item:active {
+            background-color: transparent;
+            color: inherit;
+        }
+
+        // ------------------------- Row 1 dropdowns (Line1Template1 / 3)
+        // An entry is a label plus its grey `cap_menu_description`, so it has
+        // to become a two line block - a `.dropdown-item` is a single
+        // `white-space: nowrap` line by default.
+        .cap_top_dropdown {
+            min-width: 15.5rem;
+            padding: .625rem 0;
+            border: 1px solid $cap-border;
+            border-radius: .5rem;
+            box-shadow: 0 1.25rem 2rem rgba($cap-navy, .12);
+
+            .dropdown-item {
+                padding: .5rem 1.125rem;
+                color: $cap-navy;
+                font-size: .9375rem; // 15px
+                font-weight: 500;
+                line-height: 1.4;
+                white-space: normal;
+
+                // Only the label turns red: the description keeps its own
+                // colour, set below.
+                &:hover,
+                &:focus-visible {
+                    background-color: transparent;
+                    color: $cap-red;
+                }
+            }
+
+            .cap_menu_description {
+                display: block;
+                margin-top: .05rem;
+                color: $cap-grey;
+                font-size: .8125rem; // 13px
+                font-weight: 400;
+                line-height: 1.35;
+            }
+        }
+
+        // ------------------------- Row 1 mega menu (Line1Template2)
+        // `website.submenu` puts `position-static` on the `<li>` of *every*
+        // mega menu, which is what a full width row 3 panel needs but would
+        // resolve a top bar panel against the whole header. Anchored back on
+        // its own item, it lands under its toggle, end aligned like the plain
+        // dropdowns next to it. `!important` because `position-static` is a
+        // Bootstrap utility, which is `!important` too.
+        > .position-static {
+            position: relative !important;
+        }
+
+        .o_mega_menu {
+            // A *definite* width, and not a `min-width` on the panel inside.
+            // A `.dropdown-menu` is absolutely positioned, so its width is a
+            // shrink-to-fit bounded by the available width - and since the
+            // `<li>` above is now the containing block, that available width is
+            // the width of the "About" label. Left to itself the panel collapses
+            // to ~160px, wraps its two columns into one and clips the rest
+            // (`website.scss` puts `overflow-y: auto` on it, which turns
+            // `overflow-x` into `auto` too).
+            width: 33.5rem; // 536px, the width of Line1Template2
+            max-width: calc(100vw - 2rem);
+            margin-top: 0; // no gap: the pointer must be able to reach the panel
+            border: 1px solid $cap-border;
+            border-radius: .5rem;
+            box-shadow: 0 1.25rem 2rem rgba($cap-navy, .12);
+        }
+
+        // Globe + language code, boxed like in the mock-up.
+        .cap_header_lang {
+            margin-left: .5rem;
+
+            .dropdown-toggle {
+                border: 1px solid $cap-border !important; // `border-0` is a !important utility
+                border-radius: 50rem;
+                padding: .25rem .7rem;
+                background-color: #fff;
+
+                // Globe, unless the native "Flag" language selector option is
+                // enabled - in that case the flag already plays that role.
+                &:not(:has(.o_lang_flag))::before {
+                    content: "\f0ac"; // fa-globe
+                    font-family: "FontAwesome";
+                    margin-right: .4rem;
+                }
+
+                .o_lang_flag {
+                    margin-right: .4rem;
+                }
+            }
+
+            .dropdown-menu {
+                min-width: 6rem;
+                padding: .375rem 0;
+                border: 1px solid $cap-border;
+                border-radius: .5rem;
+                box-shadow: 0 1.25rem 2rem rgba($cap-navy, .12);
+            }
+
+            .dropdown-item {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                padding: .375rem .875rem;
+                font-size: .875rem;
+                font-weight: 500;
+
+                // `website.scss` forces the *header* text colour on
+                // `.js_language_selector span`, `!important` included. That
+                // colour is made for the bar, not for a white dropdown, and a
+                // light theme leaves the entries unreadable - Odoo says as much
+                // in the TODO above the rule ("the active item is not
+                // visible"). Restating the colour with the same weight is the
+                // only way to outweigh it.
+                span {
+                    color: $cap-navy !important;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+
+                    span {
+                        color: $cap-red !important;
+                    }
+                }
+
+                // The language being read. Odoo lists it like the others and
+                // only adds `.active`, whose Bootstrap styling is neutralised
+                // for the top bar just above, so it needs a mark of its own.
+                &.active {
+                    span {
+                        color: $cap-red !important;
+                    }
+
+                    &::after {
+                        content: "\f00c"; // fa-check
+                        margin-left: auto;
+                        color: $cap-red;
+                        font-family: "FontAwesome";
+                        font-size: .6875rem;
+                    }
+                }
+            }
+        }
+    }
+
+    // ---------------------------------------------------------------- Row 2
+    .cap_header_main > * {
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+    }
+
+    .cap_header_brand img,
+    .cap_header_brand > span {
+        max-height: 3.75rem;
+    }
+
+    .cap_search_form {
+        width: 100%;
+        max-width: 34rem;
+    }
+
+    .cap_search_group.input-group {
+        align-items: center;
+        flex-wrap: nowrap;
+        padding: .25rem .25rem .25rem 1rem;
+        border-radius: 50rem;
+        background-color: $cap-search-bg;
+
+        > * {
+            margin-left: 0 !important; // undo the input-group overlap
+            border-radius: 0 !important;
+        }
+    }
+
+    .cap_search_icon.input-group-text {
+        padding: 0;
+        border: 0 !important;
+        background-color: transparent !important;
+        color: $cap-red;
+        font-size: 1rem;
+    }
+
+    .cap_search_input.form-control {
+        padding: .4rem .75rem;
+        border: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        color: $cap-navy;
+
+        &::placeholder {
+            color: rgba($cap-navy, .6);
+            opacity: 1;
+        }
+    }
+
+    .cap_search_submit.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0;
+        border: 0;
+        border-radius: 50% !important;
+        background-color: $cap-red;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+            background-color: $cap-red-dark;
+            color: #fff;
+        }
+    }
+
+    // The call to action is rendered inside an `oe_structure` (so that it stays
+    // editable), which brings a `.container` we do not want here.
+    .cap_header_cta {
+        .container {
+            width: auto;
+            max-width: none;
+            padding: 0;
+        }
+
+        .s_text_block {
+            margin: 0;
+        }
+
+        .btn_cta {
+            padding: .6rem 1.6rem;
+            border-color: $cap-red;
+            border-radius: 50rem;
+            background-color: $cap-red;
+            color: #fff;
+            font-weight: 500;
+            white-space: nowrap;
+
+            &:hover,
+            &:focus,
+            &:active {
+                border-color: $cap-red-dark;
+                background-color: $cap-red-dark;
+                color: #fff;
+            }
+        }
+    }
+
+    // ------------------------------------------------- Dropdowns (rows 1 & 3)
+    // `website.scss` caps every desktop dropdown of a navbar with
+    // `header .navbar .dropdown-menu { max-height: 60vh; overflow-y: auto }`,
+    // which cuts the mega menu panels and puts a scrollbar inside them. They
+    // are designed to be shown whole (see the `Mega*.png` mock-ups), so the cap
+    // is lifted. `.cap_header` *is* the `.navbar`, hence the compound selector:
+    // it has to outweigh the native one. Only `max-height` is touched: with no
+    // cap the panel is never taller than its content, so the `overflow-y: auto`
+    // left in place never has anything to scroll.
+    &.navbar .dropdown-menu {
+        max-height: none;
+    }
+
+    // ---------------------------------------------------------------- Row 3
+    .cap_header_mega {
+        border-top: 1px solid $cap-border;
+
+        .o_mega_menu {
+            // The red rule belongs to the panel that opens, and to it only: it
+            // runs along its top edge, so it stops where the panel stops
+            // (container width) instead of spanning the whole header.
+            border: 0;
+            border-top: 2px solid $cap-red;
+            border-radius: 0 0 .75rem .75rem;
+            box-shadow: 0 1.25rem 2rem rgba($cap-navy, .12);
+            overflow: hidden;
+        }
+    }
+
+    .cap_header_mega_nav {
+        gap: 3.5rem;
+    }
+
+    .cap_mega_link.nav-link {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        padding: .75rem 0;
+        color: $cap-navy;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        line-height: 1.25;
+
+        // Keep the caret on the title line, push the subtitle to its own line.
+        &::after {
+            order: 1;
+            margin-left: .45rem;
+        }
+
+        .cap_mega_subtitle {
+            order: 2;
+            flex: 0 0 100%;
+            margin-top: .15rem;
+            color: $cap-grey;
+            font-size: .75rem;
+            font-weight: 400;
+            letter-spacing: .03em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        // `:focus-visible` and not `:focus`, same reason as in row 1: now that
+        // the mega menus also open on click, the focus stays on the link once
+        // the panel is closed, which would keep it red for good.
+        &:hover,
+        &:focus-visible,
+        &.show {
+            color: $cap-red;
+
+            .cap_mega_subtitle {
+                color: $cap-red;
+            }
+        }
+
+        &.show {
+            box-shadow: inset 0 -2px 0 0 $cap-red;
+        }
+    }
+}
+
+///
+/// Suggestion panel of the "All" search bars (Analyse maquette).
+///
+/// Not scoped on `.cap_header`: the template that carries this markup is picked
+/// by *search type*, so the panel can appear outside the header, and it must
+/// look right wherever it does. It is a card here; `.cap_search_modal`, added
+/// by `cap_search_modal.js` on the header one only, is what makes it the
+/// centered dialog of the mock-up.
+///
+.cap_search_panel {
+    padding: 0 0 .5rem;
+    border: 1px solid $cap-border;
+    border-radius: .875rem;
+    background-color: #fff;
+    box-shadow: 0 1.25rem 2.5rem rgba($cap-navy, .16);
+
+    // The two boxes the modal is built with. Out of it they are not boxes at
+    // all: the title bar, the body and the actions are laid out by the panel,
+    // which is the flat dropdown Odoo scrolls and sizes everywhere else.
+    .cap_search_overlay,
+    .cap_search_dialog {
+        display: contents;
+    }
+
+    // ------------------------------------------------------- Title bar
+    // Belongs to the modal: outside of it the panel hangs under the input,
+    // which says well enough what it is, and there is nothing to close.
+    .cap_search_dialog_head {
+        display: none;
+        align-items: center;
+        gap: .5rem;
+        flex: 0 0 auto;
+        padding: .875rem 1.125rem;
+        border-bottom: 1px solid $cap-line;
+    }
+
+    .cap_search_dialog_icon {
+        color: $cap-red;
+        font-size: .9375rem;
+    }
+
+    .cap_search_dialog_title {
+        color: $cap-navy;
+        font-size: .9375rem;
+        font-weight: 700;
+    }
+
+    .cap_search_dialog_badge {
+        padding: .125rem .4375rem;
+        border-radius: 50rem;
+        background-color: $cap-search-bg;
+        color: $cap-red;
+        font-size: .625rem;
+        font-weight: 700;
+        letter-spacing: .06em;
+        line-height: 1.4;
+        text-transform: uppercase;
+    }
+
+    .cap_search_dialog_close.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        margin-left: auto;
+        padding: 0;
+        width: 1.75rem;
+        height: 1.75rem;
+        border: 0;
+        border-radius: 50%;
+        background-color: $cap-pill;
+        color: $cap-grey;
+        font-size: .75rem;
+
+        &:hover,
+        &:focus {
+            background-color: $cap-search-bg;
+            color: $cap-red;
+        }
+    }
+
+    // -------------------------------------------------- Waiting state
+    .cap_search_loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: .75rem;
+        padding: 2.5rem 1rem;
+    }
+
+    .cap_search_spinner {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-width: .1875rem;
+        color: $cap-red;
+    }
+
+    .cap_search_loading_text {
+        margin: 0;
+        color: $cap-grey;
+        font-size: .875rem;
+    }
+
+    // ------------------------------------------------ Echo of the query
+    .cap_search_head {
+        position: relative;
+        flex: 0 0 auto;
+        margin: .875rem .875rem .75rem;
+        padding: .75rem .875rem .75rem 2.25rem;
+        border-radius: .625rem;
+        background-color: $cap-search-bg;
+
+        // Opening quote of the mock-up. A pseudo-element, so it never lands in
+        // the text the user is reading back.
+        &::before {
+            content: "\f10d"; // fa-quote-left
+            position: absolute;
+            top: .9rem;
+            left: .875rem;
+            color: $cap-red;
+            font-family: "FontAwesome";
+            font-size: .8125rem;
+        }
+    }
+
+    .cap_search_head_label {
+        display: block;
+        margin-bottom: .15rem;
+        color: $cap-red;
+        font-size: .75rem; // 12px
+        font-weight: 700;
+        letter-spacing: .06em;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    .cap_search_query {
+        margin: 0;
+        color: $cap-grey;
+        font-size: .9375rem; // 15px
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    // --------------------------------------------------- Section heading
+    .cap_search_section_title {
+        margin: 0 .875rem .5rem;
+        color: $cap-red;
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .06em;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    // ------------------------------------------------------- One result
+    // The native item is a `.dropdown-item`, i.e. a flat full width row. Here
+    // it becomes a bordered card, like the mega menu ones.
+    .cap_search_result.dropdown-item {
+        margin: 0 .875rem .5rem;
+        padding: .875rem !important; // `p-2` is set on the element itself
+        width: auto;
+        border: 1px solid $cap-line;
+        border-radius: .625rem;
+        background-color: #fff;
+        white-space: normal;
+
+        &:hover,
+        &:focus {
+            border-color: rgba($cap-red, .45);
+            background-color: transparent;
+        }
+
+        // Round red medallion. `o_image_64_contain` is the native 64px box, and
+        // the fallback `<i>` carries an inline `font-size: 34px` - hence the
+        // `!important`, there is nothing else to outweigh it.
+        .o_image_64_contain {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            width: 2.75rem !important; // 44px
+            height: 2.75rem !important;
+            min-width: 2.75rem;
+            padding: 0 !important;
+            border-radius: 50%;
+            background-color: $cap-red;
+            color: #fff;
+            font-size: 1.125rem !important;
+            object-fit: cover;
+        }
+
+        .o_search_result_item_detail {
+            min-width: 0;
+            padding-right: 0 !important;
+        }
+
+        .h6 {
+            margin-bottom: .15rem;
+            color: $cap-navy;
+            font-size: 1rem; // 16px
+            font-weight: 700;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+
+        p {
+            color: $cap-grey;
+            font-size: .8125rem; // 13px
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+        }
+
+        // `detail` / `detail_extra` carry whatever the searched model exposes
+        // (a price, a date, ...). Rendered as the tag bar of the mock-up when
+        // the model provides something; most website pages provide nothing.
+        //
+        // A line of its own - the card is a `flex-wrap` row - lined up with the
+        // title, past the medallion. `ms-auto` is a Bootstrap utility, hence
+        // the `!important`.
+        //
+        // The basis leaves room for that margin instead of being a plain 100%:
+        // the element also carries `.flex-shrink-0`, i.e. `flex-shrink: 0
+        // !important`, so it cannot give the extra width back and would push
+        // the whole panel into a horizontal scroll.
+        $-detail-indent: 3.75rem; // medallion (2.75rem) + the `px-3` next to it
+
+        .flex-shrink-0.ms-auto {
+            flex-basis: calc(100% - #{$-detail-indent});
+            min-width: 0;
+            margin-top: .625rem;
+            margin-left: $-detail-indent !important;
+            padding: .3125rem .625rem;
+            border-radius: .375rem;
+            background-color: $cap-search-bg;
+            color: $cap-navy;
+            font-size: .75rem;
+            line-height: 1.35;
+
+            b,
+            span {
+                color: inherit;
+                font-weight: 600;
+            }
+        }
+    }
+
+    // "No results" / fuzzy-search notice, kept native but aligned on the rest.
+    .dropdown-item-text {
+        padding: 0 .875rem .5rem;
+        font-size: .875rem;
+    }
+
+    // ------------------------------------------------- All results + CTAs
+    button.dropdown-item[type="submit"] {
+        margin: 0 .875rem;
+        padding: .5rem;
+        width: auto;
+        border-radius: .5rem;
+        color: $cap-red !important;
+        font-size: .875rem;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            background-color: $cap-search-bg;
+        }
+    }
+
+    // Pinned while the results scroll, as on the mock-up. `sticky` is what
+    // pins them in the flat panel, where the scroll happens on the panel
+    // itself; in the modal the footer is a flex item of a column that does not
+    // scroll, and `sticky` is simply inert.
+    .cap_search_actions {
+        position: sticky;
+        bottom: -.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        flex: 0 0 auto;
+        margin-top: .5rem;
+        padding: .75rem .875rem calc(.75rem + .5rem);
+        border-top: 1px solid $cap-line;
+        background-color: #fff;
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: .5rem 1.25rem;
+            font-size: .875rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            border-color: $cap-red;
+            background-color: $cap-red;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+                border-color: $cap-red-dark;
+                background-color: $cap-red-dark;
+            }
+        }
+
+        .btn-outline-secondary {
+            border-color: $cap-line;
+            color: $cap-navy;
+
+            &:hover,
+            &:focus {
+                border-color: $cap-red;
+                background-color: transparent;
+                color: $cap-red;
+            }
+        }
+    }
+}
+
+///
+/// The same panel, as the modal of the mock-up (Captivea header only).
+///
+/// `cap_search_modal.js` adds the class and moves the panel to the `<body>`.
+/// The panel itself keeps being sized and positioned by the native
+/// `website.search_bar_results` interaction, which forces
+/// `position: absolute !important` on it through an inline style: it is only
+/// an anchor now, invisible, and the overlay inside it is what covers the
+/// screen.
+///
+.cap_search_panel.cap_search_modal {
+    z-index: $zindex-modal; // above the header, which is `position: fixed`
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
+
+    .cap_search_overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        inset: 0;
+        padding: 1rem;
+        // The page is faded out, not darkened: the mock-up keeps the header and
+        // the hero readable behind the dialog.
+        background-color: rgba(#fff, .72);
+        backdrop-filter: blur(3px);
+    }
+
+    .cap_search_dialog {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width: 44rem;
+        max-width: 100%;
+        // Interpolated on purpose: libsass evaluates `min()` as the *Sass*
+        // function and refuses to mix `vh` with `rem`. The quotes push the
+        // expression through untouched, so the browser gets the CSS `min()`.
+        max-height: #{"min(86vh, 44rem)"};
+        border-radius: 1rem;
+        background-color: #fff;
+        box-shadow: 0 1.5rem 3rem rgba($cap-navy, .18);
+    }
+
+    .cap_search_dialog_head {
+        display: flex;
+    }
+
+    // The only part that scrolls, and vertically only: a result whose title or
+    // url cannot be broken must be clipped, never turned into a horizontal
+    // scrollbar under the whole dialog. `contain` keeps the wheel from carrying
+    // on to the page once the results are at their end.
+    .cap_search_body {
+        flex: 1 1 auto;
+        overflow: hidden auto;
+        overscroll-behavior: contain;
+    }
+
+    .cap_search_actions {
+        bottom: 0;
+        margin-top: 0;
+        padding-bottom: .75rem;
+    }
+}

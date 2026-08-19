@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<asset id="cap_web_captivea_theme.primary_variables_scss" name="Primary variables SCSS">
+    <field name="key">cap_web_captivea_theme.primary_variables_scss</field>
+    <bundle>web._assets_primary_variables</bundle>
+    <path>cap_web_captivea_theme/static/src/scss/primary_variables.scss</path>
+</asset>
+
+<asset id="cap_web_captivea_theme.bootstrap_overridden_scss" name="Bootstrap overridden SCSS">
+    <field name="key">cap_web_captivea_theme.bootstrap_overridden_scss</field>
+    <bundle directive="prepend">web._assets_frontend_helpers</bundle>
+    <path>cap_web_captivea_theme/static/src/scss/bootstrap_overridden.scss</path>
+</asset>
+
+<asset id="cap_web_captivea_theme.theme_scss" name="Theme frontend SCSS">
+    <field name="key">cap_web_captivea_theme.theme_scss</field>
+    <bundle>web.assets_frontend</bundle>
+    <path>cap_web_captivea_theme/static/src/scss/theme.scss</path>
+</asset>
+
+<!-- The Lucide media-dialog picker now lives in the standalone module
+     cap_web_lucide_icons (this theme depends on it). -->
+
+<!-- ==========================================================================
+     Frontend + website-builder assets.
+     These are declared here (ir.asset) rather than via the manifest 'assets'
+     key: on this theme module, the manifest 'assets' block was NOT being
+     bundled (theme.scss loads fine because it is declared here, but
+     customer_references.js / blog_posts_tag.js / the builder-option files were
+     silently absent from the compiled bundles). Declaring them as ir.asset
+     records — the same proven mechanism as theme.scss above — fixes:
+       - customer references not rendering on the frontend (interaction JS),
+       - the blog Tag filter + references filter panels missing in the editor.
+     ========================================================================== -->
+
+<!-- Frontend interactions (dynamic snippets) -->
+<asset id="cap_web_captivea_theme.customer_references_js" name="Customer references interaction">
+    <field name="key">cap_web_captivea_theme.customer_references_js</field>
+    <bundle>web.assets_frontend</bundle>
+    <path>cap_web_captivea_theme/static/src/snippets/customer_references/customer_references.js</path>
+</asset>
+
+<asset id="cap_web_captivea_theme.cap_blog_posts_js" name="Captivea Blog Posts interaction">
+    <field name="key">cap_web_captivea_theme.cap_blog_posts_js</field>
+    <bundle>web.assets_frontend</bundle>
+    <path>cap_web_captivea_theme/static/src/snippets/cap_blog_posts/cap_blog_posts.js</path>
+</asset>
+
+<asset id="cap_web_captivea_theme.cap_blog_posts_scss" name="Captivea Blog Posts SCSS">
+    <field name="key">cap_web_captivea_theme.cap_blog_posts_scss</field>
+    <bundle>web.assets_frontend</bundle>
+    <path>cap_web_captivea_theme/static/src/scss/cap_blog_posts.scss</path>
+</asset>
+
+<asset id="cap_web_captivea_theme.customer_references_scss" name="Customer references SCSS">
+    <field name="key">cap_web_captivea_theme.customer_references_scss</field>
+    <bundle>web.assets_frontend</bundle>
+    <path>cap_web_captivea_theme/static/src/scss/customer_references.scss</path>
+</asset>
+
+<!-- Website builder (editor) option panels for the custom dynamic snippets -->
+<asset id="cap_web_captivea_theme.website_builder_assets" name="Captivea builder options">
+    <field name="key">cap_web_captivea_theme.website_builder_assets</field>
+    <bundle>website.website_builder_assets</bundle>
+    <path>cap_web_captivea_theme/static/src/website_builder/**/*</path>
+</asset>
+
+</odoo>

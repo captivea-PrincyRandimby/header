@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Server-rendered customer-references block: published reference partners
+         (same criterion as Odoo's /customers page: website_published + assigned
+         partner) are queried and rendered server-side, so logos, names and
+         internal links are in the initial HTML for SEO / link-juice. NO JS.
+         Logo-wall layout (col-lg-2 = 6 per row), centered, + a section footer
+         button to the full /customers listing. -->
+    <template id="s_cap_references_seo" name="Customer References (SEO)">
+        <t t-set="refs" t-value="env['res.partner'].sudo().search([('website_published', '=', True), ('assigned_partner_id', '!=', False)], order='complete_name asc', limit=12)"/>
+        <section class="s_cap_references_seo o_cc o_cc1 o_colored_level pt32 pb32"
+                 data-snippet="s_cap_references_seo" data-name="Customer References">
+            <div class="container">
+                <div class="text-center pb-4">
+                    <p class="lead">References</p>
+                    <h2>Companies that trust Captivea</h2>
+                </div>
+                <div class="s_dynamic_snippet_row row justify-content-center">
+                    <t t-foreach="refs" t-as="ref">
+                        <div class="col-12 col-sm-4 col-lg-2 d-flex mb-4">
+                            <a t-att-href="ref.website_url" t-attf-title="#{ref.display_name}"
+                               class="s_customer_reference_card card h-100 w-100 text-decoration-none">
+                                <div class="card-body text-center">
+                                    <img t-if="ref.avatar_128" loading="lazy"
+                                         t-att-alt="ref.display_name"
+                                         t-attf-src="/web/image/res.partner/#{ref.id}/avatar_128"
+                                         style="max-height:72px;width:auto"
+                                         class="s_customer_reference_logo img-fluid mb-3"/>
+                                    <p class="card-title h6" t-out="ref.display_name"/>
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+                <div class="text-center mt-2">
+                    <a href="/customers" class="btn btn-secondary o_translate_inline">See all our references</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
