@@ -1,6 +1,9 @@
 {
     'name': "Captivea Website Header",
-    'version': '19.0.3.2.0',
+    # 3.3: the "Transform your solutions" panel got one pane per shortcut,
+    # switched on hover and on click. Existing panels keep their single pane
+    # until "Reset the mega menu panels" is clicked.
+    'version': '19.0.3.3.0',
     'category': 'Website/Website',
     'summary': "Three-row Captivea website header (top bar, logo/search/CTA, mega menu bar)",
     'description': """
@@ -36,6 +39,7 @@ option), through Odoo's copy-on-write mechanism on ``ir.ui.view``.
             'cap_website_header/static/src/scss/cap_header.scss',
             'cap_website_header/static/src/scss/cap_mega_menu.scss',
             'cap_website_header/static/src/js/cap_header_dropdown.js',
+            'cap_website_header/static/src/js/cap_mega_solutions.js',
             'cap_website_header/static/src/js/cap_search_bar.js',
             'cap_website_header/static/src/js/cap_search_modal.js',
             # Suggestion panel of the "All" search bars; picked up by

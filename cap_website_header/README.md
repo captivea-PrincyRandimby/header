@@ -71,6 +71,26 @@ The small uppercase line under a row 3 label comes from the added field
 present as a plain dropdown is left intact — converting it means deleting its
 submenus, which belongs to *Reset the mega menu panels*.
 
+## Solutions panel
+
+In *Transform your solutions*, the shortcut column on the left switches the
+content on the right, on hover and on click (New1 to New6 mock-ups). The last
+shortcut, *ISV & Partners*, shows a grid of partner tiles instead of link cards;
+each logo is a plain `<img>` on the Odoo placeholder, replaceable from the
+builder.
+
+The six panes are all in the page, `display: none` on all but the active one, and
+`cap_mega_solutions.js` only moves the `active` class around. Nothing is fetched:
+the panel is one stored `mega_menu_content` value. Every link therefore stays in
+the HTML, so crawlers see the six panes.
+
+| Point | Behaviour |
+|---|---|
+| pairing | by `data-cap-pane`, not by position, so reordering a shortcut in the builder cannot show the wrong pane |
+| click | a shortcut that is not active selects itself and stops there; the active one follows its link |
+| edit mode | interactions do not run, so the stylesheet shows the six panes stacked under `body.editor_enable` |
+| older panels | a stored panel with shortcuts but no pane is left alone and keeps working; *Reset the mega menu panels* is the way to bring it up to date |
+
 ## Language selector
 
 Odoo lists every published language, current one included, and only puts

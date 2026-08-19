@@ -21,32 +21,144 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid ""
 "<span class=\"cap_mm_badge\">\n"
-"                                    <i class=\"fa fa-balance-scale\"/>\n"
-"                                    <span>ERP &amp; comparisons</span>\n"
-"                                </span>"
+"                                            <i class=\"fa fa-balance-scale\"/>\n"
+"                                            <span>ERP &amp; comparisons</span>\n"
+"                                        </span>"
 msgstr ""
 "<span class=\"cap_mm_badge\">\n"
-"                                    <i class=\"fa fa-balance-scale\"/>\n"
-"                                    <span>ERP &amp; comparatif</span>\n"
-"                                </span>"
+"                                            <i class=\"fa fa-balance-scale\"/>\n"
+"                                            <span>ERP &amp; comparatif</span>\n"
+"                                        </span>"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid ""
 "<span class=\"cap_mm_badge\">\n"
-"                                    <i class=\"fa fa-database\"/>\n"
-"                                    <span>Odoo ERP</span>\n"
-"                                </span>"
+"                                            <i class=\"fa fa-bar-chart\"/>\n"
+"                                            <span>Business solutions</span>\n"
+"                                        </span>"
 msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-bar-chart\"/>\n"
+"                                            <span>Solutions métier</span>\n"
+"                                        </span>"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid ""
 "<span class=\"cap_mm_badge\">\n"
-"                                    <i class=\"fa fa-th-large\"/>\n"
-"                                    <span>Odoo Apps</span>\n"
-"                                </span>"
+"                                            <i class=\"fa fa-bullhorn\"/>\n"
+"                                            <span>Attract &amp; create</span>\n"
+"                                        </span>"
 msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-bullhorn\"/>\n"
+"                                            <span>Attirer &amp; créer</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-database\"/>\n"
+"                                            <span>Odoo ERP</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-database\"/>\n"
+"                                            <span>Odoo ERP</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-globe\"/>\n"
+"                                            <span>Website &amp; content</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-globe\"/>\n"
+"                                            <span>Site web &amp; contenu</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-heart\"/>\n"
+"                                            <span>Convert &amp; retain</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-heart\"/>\n"
+"                                            <span>Convertir &amp; fidéliser</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-magic\"/>\n"
+"                                            <span>Business solutions</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-magic\"/>\n"
+"                                            <span>Solutions métier</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-microchip\"/>\n"
+"                                            <span>Understand AI</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-microchip\"/>\n"
+"                                            <span>Comprendre l'IA</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-pie-chart\"/>\n"
+"                                            <span>By domain</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-pie-chart\"/>\n"
+"                                            <span>Par domaine</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-shopping-bag\"/>\n"
+"                                            <span>eCommerce &amp; SEO</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-shopping-bag\"/>\n"
+"                                            <span>eCommerce &amp; SEO</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-th-large\"/>\n"
+"                                            <span>Odoo Apps</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_badge\">\n"
+"                                            <i class=\"fa fa-th-large\"/>\n"
+"                                            <span>Odoo Apps</span>\n"
+"                                        </span>"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
@@ -65,6 +177,216 @@ msgid ""
 msgstr ""
 "<span class=\"cap_mm_entry_title\">L'équipe dirigeante</span>\n"
 "                <span class=\"cap_mm_entry_text\">Le comité de direction</span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-barcode\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">IoT &amp; field tracking</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Satelix</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-barcode\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">IoT &amp; traçabilité terrain</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Satelix</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-bullseye\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Performance marketing</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Market Invaders</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-bullseye\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Marketing à la performance</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Market Invaders</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-calculator\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Certified Odoo accounting</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">We Doo Accounting</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-calculator\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Comptabilité Odoo certifiée</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">We Doo Accounting</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-cloud\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Unified cloud communications</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Mixvoip</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-cloud\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Communications cloud unifiées</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Mixvoip</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-credit-card\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Integrated payments</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">EBizCharge</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-credit-card\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Paiements intégrés</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">EBizCharge</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-exchange\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">EDI &amp; supply chain</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">SPS Commerce</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-exchange\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">EDI &amp; supply chain</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">SPS Commerce</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-file-text-o\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Invoice digitization</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">YOOZ</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-file-text-o\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Dématérialisation des factures</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">YOOZ</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-headphones\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Cloud telephony &amp; CRM</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Ringover</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-headphones\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Téléphonie cloud &amp; CRM</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Ringover</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-map-marker\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Fleet geolocation</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Cyclop</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-map-marker\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Géolocalisation de flotte</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Cyclop</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-money\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Real-time cash flow</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Agicap</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-money\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Trésorerie en temps réel</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Agicap</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-percent\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Tax &amp; VAT compliance</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Avalara</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-percent\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Conformité fiscale &amp; TVA</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Avalara</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-phone\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">IP telephony &amp; VoIP</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Axivox</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-phone\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Téléphonie IP &amp; VoIP</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Axivox</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-truck\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Multi-channel shipping</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">ShippingBo</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-truck\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Expédition multi-transporteurs</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">ShippingBo</span>\n"
+"                                        </span>"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-wrench\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Field service management</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Praxedo</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"cap_mm_icon cap_mm_partner_icon\"><i class=\"fa fa-wrench\"/></span>\n"
+"                                        <span class=\"cap_mm_card_titles\">\n"
+"                                            <span class=\"cap_mm_card_title\">Gestion des interventions</span>\n"
+"                                            <span class=\"cap_mm_partner_badge\">Praxedo</span>\n"
+"                                        </span>"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_journeys
@@ -321,6 +643,36 @@ msgid "AI Analysis"
 msgstr "Analyse IA"
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "AI CRM &amp; sales"
+msgstr "IA CRM &amp; ventes"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "AI business solutions"
+msgstr "Solutions métier IA"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "AI cybersecurity"
+msgstr "IA cybersécurité"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "AI data analysis"
+msgstr "IA analyse de données"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "AI human resources"
+msgstr "IA ressources humaines"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "AI supply chain"
+msgstr "IA supply chain"
+
+#. module: cap_website_header
 #. odoo-python
 #: code:addons/cap_website_header/models/website.py:0
 msgid "About"
@@ -340,9 +692,7 @@ msgstr "Comptabilité"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
-msgid ""
-"Adds the missing top bar menus and mega menus to this website. Existing "
-"menus are left untouched."
+msgid "Adds the missing top bar menus and mega menus to this website. Existing menus are left untouched."
 msgstr "Ajoute à ce site web les menus manquants de la barre du haut et les mega menus. Les menus existants ne sont pas modifiés."
 
 #. module: cap_website_header
@@ -407,6 +757,41 @@ msgid "Automotive"
 msgstr "Automobile"
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI CRM"
+msgstr "BI CRM"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI HR"
+msgstr "BI RH"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI accounting"
+msgstr "BI comptabilité"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI data analysis"
+msgstr "BI analyse de données"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI finance"
+msgstr "BI finance"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI logistics &amp; supply chain"
+msgstr "BI logistique &amp; supply chain"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "BI solutions"
+msgstr "Solutions BI"
+
+#. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
 msgid "Bar &amp; restaurant"
 msgstr ""
@@ -432,6 +817,11 @@ msgstr "Biotechnologie"
 #: code:addons/cap_website_header/models/website.py:0
 msgid "Blog"
 msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Blog &amp; content"
+msgstr "Blog &amp; contenu"
 
 #. module: cap_website_header
 #. odoo-javascript
@@ -569,8 +959,7 @@ msgstr "Construction / BTP"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
-msgid ""
-"Consulting, ERP, Web, AI and BI - every skill you need to drive your growth."
+msgid "Consulting, ERP, Web, AI and BI - every skill you need to drive your growth."
 msgstr "Conseil, ERP, Web, IA et BI — toutes les expertises pour piloter votre croissance."
 
 #. module: cap_website_header
@@ -601,6 +990,11 @@ msgstr "Déployez votre ERP"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Discover AI"
+msgstr "Découvrir l'IA"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid "Discover ERP"
 msgstr "Découvrir l'ERP"
 
@@ -610,6 +1004,11 @@ msgstr "Découvrir l'ERP"
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid "Discover Odoo"
 msgstr "Découvrir Odoo"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Discover Odoo Website"
+msgstr "Découvrir Odoo Website"
 
 #. module: cap_website_header
 #: model:ir.model.fields,field_description:cap_website_header.field_res_config_settings__display_name
@@ -640,6 +1039,11 @@ msgid "E-commerce, transport &amp; warehousing"
 msgstr "E-commerce · Transport · Entrepôt"
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "E-learning"
+msgstr "E-learning"
+
+#. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
 msgid "ERP"
 msgstr ""
@@ -651,14 +1055,23 @@ msgstr "Mise en œuvre ERP"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
-msgid ""
-"ERP, Web, AI and BI - broken down by industry, with real business use cases."
+msgid "ERP, Web, AI and BI - broken down by industry, with real business use cases."
 msgstr "ERP · Web · IA · BI — déclinés par secteur avec des use cases métier."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "ERP, Web, AI and BI - the specialized solutions of our partners."
+msgstr "ERP, Web, IA et BI - les solutions spécialisées de nos partenaires."
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
 msgid "Electronics"
 msgstr "Électronique"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Email marketing"
+msgstr "Email marketing"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
@@ -676,10 +1089,20 @@ msgid "Enterprise vs Community"
 msgstr ""
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Event management"
+msgstr "Gestion d'événements"
+
+#. module: cap_website_header
 #. odoo-python
 #: code:addons/cap_website_header/models/website.py:0
 msgid "Events"
 msgstr "Événements"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Extend your ecosystem"
+msgstr "Étendez votre écosystème"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
@@ -707,6 +1130,11 @@ msgid "Forecast your results"
 msgstr "Anticipez vos résultats"
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Forum"
+msgstr "Forum"
+
+#. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_services
 msgid "Frame &amp; steer your transformation"
 msgstr "Cadrez &amp; pilotez votre transformation"
@@ -723,9 +1151,7 @@ msgstr "Cadrez votre transformation digitale"
 
 #. module: cap_website_header
 #: model:ir.model.fields,help:cap_website_header.field_website_menu__cap_menu_description
-msgid ""
-"Grey line displayed under the label inside the top bar dropdowns of the "
-"Captivea header (e.g. \"News, tips & use cases\")."
+msgid "Grey line displayed under the label inside the top bar dropdowns of the Captivea header (e.g. \"News, tips & use cases\")."
 msgstr "Ligne grise affichée sous le libellé dans les menus déroulants de la barre du haut du header Captivea (par exemple « News, tips & use cases »)."
 
 #. module: cap_website_header
@@ -758,6 +1184,11 @@ msgstr "Santé &amp; pharmaceutique"
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid "Helpdesk"
 msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Helpdesk &amp; support"
+msgstr "Assistance &amp; support"
 
 #. module: cap_website_header
 #: model:ir.model.fields,field_description:cap_website_header.field_res_config_settings__id
@@ -830,9 +1261,19 @@ msgid "Lille"
 msgstr ""
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Live chat"
+msgstr "Chat en direct"
+
+#. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
 msgid "Logistics &amp; warehousing"
 msgstr "Logistique &amp; entreposage"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Loyalty program"
+msgstr "Programme de fidélité"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_about
@@ -880,6 +1321,11 @@ msgstr "Odoo & autres solutions"
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
 msgid "Odoo ERP"
 msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Odoo consultant"
+msgstr "Consultant Odoo"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
@@ -1006,9 +1452,7 @@ msgstr "Projet"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
-msgid ""
-"Puts the reference designs back on the Captivea panels, including the About "
-"one in the top bar."
+msgid "Puts the reference designs back on the Captivea panels, including the About one in the top bar."
 msgstr "Repose les designs de référence sur les panneaux Captivea, y compris celui d'À propos dans la barre du haut."
 
 #. module: cap_website_header
@@ -1023,6 +1467,11 @@ msgid "Recommended results"
 msgstr "Résultats recommandés"
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Referral"
+msgstr "Parrainage"
+
+#. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_industries
 msgid "Regulated industries"
 msgstr "Secteurs régulés"
@@ -1030,9 +1479,7 @@ msgstr "Secteurs régulés"
 #. module: cap_website_header
 #: model:ir.model.fields,help:cap_website_header.field_res_config_settings__cap_header_enabled
 #: model:ir.model.fields,help:cap_website_header.field_website__cap_header_enabled
-msgid ""
-"Replace the standard header of this website by the three-row Captivea "
-"header. Only this website is impacted."
+msgid "Replace the standard header of this website by the three-row Captivea header. Only this website is impacted."
 msgstr "Remplacer le header standard de ce site web par le header Captivea sur trois lignes. Seul ce site est impacté."
 
 #. module: cap_website_header
@@ -1053,11 +1500,23 @@ msgstr "Transport routier"
 
 #. module: cap_website_header
 #: model:ir.model.fields,help:cap_website_header.field_website_menu__cap_header_row
-msgid ""
-"Row of the Captivea header this menu is displayed in. Kept apart from \"Mega"
-" Menu\" on purpose: a top bar menu may carry a mega menu panel - that is how"
-" the \"About\" dropdown gets its free content while staying in the top bar."
+msgid "Row of the Captivea header this menu is displayed in. Kept apart from \"Mega Menu\" on purpose: a top bar menu may carry a mega menu panel - that is how the \"About\" dropdown gets its free content while staying in the top bar."
 msgstr "Ligne du header Captivea dans laquelle ce menu est affiché. Volontairement distinct de « Mega Menu » : un menu de la barre du haut peut porter un panneau de mega menu — c'est ainsi que le menu déroulant « À propos » obtient son contenu libre tout en restant en haut."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "SEO &amp; visibility"
+msgstr "SEO &amp; visibilité"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "SEO Odoo"
+msgstr "SEO Odoo"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "SMS marketing"
+msgstr "SMS marketing"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
@@ -1102,10 +1561,13 @@ msgstr "Bureau Singapour"
 
 #. module: cap_website_header
 #: model:ir.model.fields,help:cap_website_header.field_website_menu__cap_mega_subtitle
-msgid ""
-"Small uppercase line displayed under the menu label in the Captivea header "
-"mega menu bar (e.g. \"Services & Consulting\")."
+msgid "Small uppercase line displayed under the menu label in the Captivea header mega menu bar (e.g. \"Services & Consulting\")."
 msgstr "Petite ligne en capitales affichée sous le libellé du menu dans la barre des mega menus du header Captivea (par exemple « Services & Consulting »)."
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Social media"
+msgstr "Réseaux sociaux"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.cap_mm_actions
@@ -1128,6 +1590,11 @@ msgid "Success Packs"
 msgstr ""
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Surveys &amp; feedback"
+msgstr "Sondages &amp; retours"
+
+#. module: cap_website_header
 #. odoo-javascript
 #: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
 msgid "Talk to an expert"
@@ -1136,10 +1603,7 @@ msgstr "Parler à un expert"
 #. module: cap_website_header
 #. odoo-python
 #: code:addons/cap_website_header/models/website.py:0
-msgid ""
-"The \"%(menu)s\" menu of website %(website)s carries a mega menu panel, and "
-"Odoo does not allow a mega menu to have submenus. Please move or delete "
-"these submenus first: %(children)s."
+msgid "The \"%(menu)s\" menu of website %(website)s carries a mega menu panel, and Odoo does not allow a mega menu to have submenus. Please move or delete these submenus first: %(children)s."
 msgstr "Le menu « %(menu)s » du site web %(website)s porte un panneau de mega menu, et Odoo n'autorise pas un mega menu à avoir des sous-menus. Veuillez d'abord déplacer ou supprimer ces sous-menus : %(children)s."
 
 #. module: cap_website_header
@@ -1155,12 +1619,7 @@ msgstr ""
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.res_config_settings_view_form
-msgid ""
-"This overwrites the content of the Captivea mega menu panels with the "
-"reference designs. Any change made on them in the website builder will be "
-"lost. The submenus of the About menu are deleted as well: Odoo does not "
-"allow a mega menu to have submenus, and the panel leads to the same pages. "
-"Continue?"
+msgid "This overwrites the content of the Captivea mega menu panels with the reference designs. Any change made on them in the website builder will be lost. The submenus of the About menu are deleted as well: Odoo does not allow a mega menu to have submenus, and the panel leads to the same pages. Continue?"
 msgstr "Cette action écrase le contenu des panneaux de mega menu Captivea par les designs de référence. Toute modification faite dessus dans l'éditeur de site sera perdue. Les sous-menus du menu À propos sont également supprimés : Odoo n'autorise pas un mega menu à avoir des sous-menus, et le panneau mène aux mêmes pages. Continuer ?"
 
 #. module: cap_website_header
@@ -1252,6 +1711,11 @@ msgid "Webinars & trade shows"
 msgstr "Webinaires & salons"
 
 #. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Webmastering"
+msgstr "Webmastering"
+
+#. module: cap_website_header
 #: model:ir.model,name:cap_website_header.model_website
 msgid "Website"
 msgstr ""
@@ -1266,6 +1730,21 @@ msgstr "Le site web %s n'a pas de menu racine."
 #: model:ir.model,name:cap_website_header.model_website_menu
 msgid "Website Menu"
 msgstr ""
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Website audit"
+msgstr "Audit de site web"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Website creation"
+msgstr "Création de site web"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "Website design"
+msgstr "Design de site web"
 
 #. module: cap_website_header
 #: model_terms:ir.ui.view,arch_db:cap_website_header.template_header_captivea
@@ -1288,3 +1767,13 @@ msgstr "Livres blancs"
 #: code:addons/cap_website_header/static/src/xml/cap_search_autocomplete.xml:0
 msgid "Your search"
 msgstr "Votre demande"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "eShop &amp; promotions"
+msgstr "eShop &amp; promotions"
+
+#. module: cap_website_header
+#: model_terms:ir.ui.view,arch_db:cap_website_header.s_mega_menu_cap_solutions
+msgid "eShop creation"
+msgstr "Création d'eShop"

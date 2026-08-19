@@ -361,15 +361,6 @@ $cap-mm-desktop-down: 991.98px;
         line-height: 1.25;
     }
 
-    .cap_mm_shortcut_badge {
-        padding: .1875rem .5rem;
-        border-radius: 50rem;
-        background-color: $cap-pill;
-        color: $cap-grey;
-        font-size: .75rem; // 12px
-        line-height: 1.35;
-    }
-
     // The badge is the head of the card, hence the margin standing in for the
     // padding `.cap_mm_card_head` would have brought.
     .cap_mm_badge {
@@ -395,6 +386,82 @@ $cap-mm-desktop-down: 991.98px;
     .cap_mm_links {
         padding-top: .625rem;
         border-top: 0;
+    }
+
+    // --------------------------------------------------------- Panes
+    // One pane per shortcut (New1 to New6), all six in the page and switched by
+    // `cap_mega_solutions.js`. Not to be read as `.cap_mm_panel`, which is the
+    // whole About dropdown further down this file.
+    //
+    // `display` rather than `visibility` or a `height`: a hidden pane must take
+    // no room at all, otherwise the dropdown would always be as tall as the
+    // tallest one - the partner grid, i.e. four rows of tiles.
+    .cap_mm_pane {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    // The partner tiles of New6. Same shape as the journeys tiles, with a logo
+    // in place of the round icon.
+    .cap_mm_row_tiles {
+        --bs-gutter-y: 1.25rem;
+    }
+
+    .cap_mm_partner {
+        display: flex;
+        align-items: flex-start;
+        gap: .625rem;
+        padding: .75rem;
+        text-decoration: none;
+
+        &:hover {
+            border-color: rgba($cap-red, .45);
+        }
+    }
+
+    // Fixed box, `contain`: partner logos come in every ratio, and a tile must
+    // keep the height of its neighbours whatever is dropped in from the builder.
+    .cap_mm_partner_logo {
+        flex: 0 0 auto;
+        width: 2.25rem; // 36px
+        height: 2.25rem;
+        border-radius: .375rem;
+        background-color: $cap-pill;
+        object-fit: contain;
+    }
+
+    // Second line of a tile, and the badge under a shortcut title: the same grey
+    // pill on the mock-ups.
+    .cap_mm_partner_badge {
+        display: inline-block;
+        margin-top: .25rem;
+    }
+
+    .cap_mm_shortcut_badge,
+    .cap_mm_partner_badge {
+        padding: .1875rem .5rem;
+        border-radius: 50rem;
+        background-color: $cap-pill;
+        color: $cap-grey;
+        font-size: .75rem; // 12px
+        line-height: 1.35;
+    }
+}
+
+// In the builder the interactions are stopped, so nothing would ever switch the
+// panes and only the first one could be edited. Show them stacked instead, told
+// apart by the same rule the cards use. Odoo does exactly this for the snippets
+// whose content is revealed at runtime, see `s_animated_boxes`.
+body.editor_enable .s_mega_menu_cap_solutions .cap_mm_pane {
+    display: block;
+
+    &:not(:first-child) {
+        margin-top: 1.25rem;
+        padding-top: 1.25rem;
+        border-top: 1px dashed $cap-line;
     }
 }
 
