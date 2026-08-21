@@ -10,7 +10,7 @@ import { TestimonialsOption } from "./testimonials_option";
 class TestimonialsOptionPlugin extends Plugin {
     static id = "testimonialsOption";
     static dependencies = ["dynamicSnippetOption"];
-    static shared = ["fetchCompanies", "fetchIndustries", "fetchRoles", "fetchTags", "getModelNameFilter"];
+    static shared = ["fetchTags", "getModelNameFilter"];
     modelNameFilter = "quote.testimonial";
 
     resources = {
@@ -19,9 +19,6 @@ class TestimonialsOptionPlugin extends Plugin {
     };
 
     setup() {
-        this._companies = undefined;
-        this._industries = undefined;
-        this._roles = undefined;
         this._tags = undefined;
     }
 
@@ -31,9 +28,6 @@ class TestimonialsOptionPlugin extends Plugin {
 
     async onSnippetDropped({ snippetEl }) {
         if (snippetEl.matches(TestimonialsOption.selector)) {
-            setDatasetIfUndefined(snippetEl, "filterByCompanyId", "0");
-            setDatasetIfUndefined(snippetEl, "filterByIndustryId", "0");
-            setDatasetIfUndefined(snippetEl, "filterByRoleId", "0");
             setDatasetIfUndefined(snippetEl, "filterByTagIds", "");
             await this.dependencies.dynamicSnippetOption.setOptionsDefaultValues(
                 snippetEl,
@@ -42,24 +36,10 @@ class TestimonialsOptionPlugin extends Plugin {
         }
     }
 
-    async fetchCompanies() {
-        if (!this._companies) {
-            this._companies = this.services.orm.searchRead("res.company", [], ["id", "name"]);
-        }
-        return this._companies;
-    }
-    async fetchIndustries() {
-        if (!this._industries) {
-            this._industries = this.services.orm.searchRead("res.partner.industry", [], ["id", "name"]);
-        }
-        return this._industries;
-    }
-    async fetchRoles() {
-        if (!this._roles) {
-            this._roles = this.services.orm.searchRead("quote.role", [], ["id", "name"]);
-        }
-        return this._roles;
-    }
+    /**
+     * Testimonials have their own tag list (quote.tag). Customer references use
+     * the partner website tags, the blog uses blog.tag: three separate lists.
+     */
     async fetchTags() {
         if (!this._tags) {
             this._tags = this.services.orm.searchRead("quote.tag", [], ["id", "name"]);

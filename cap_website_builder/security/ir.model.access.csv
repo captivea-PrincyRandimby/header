@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cap_website_builder,cap.website.builder,model_cap_website_builder,base.group_user,1,1,1,1
+access_cap_ai_model_user,cap.ai.model.user,model_cap_ai_model,base.group_user,1,0,0,0
+access_cap_ai_model_system,cap.ai.model.system,model_cap_ai_model,base.group_system,1,1,1,1
+access_cap_seo_query,cap.seo.query,model_cap_seo_query,base.group_user,1,1,1,1
+access_cap_seo_message,cap.seo.message,model_cap_seo_message,base.group_user,1,1,1,1
+access_cap_translation_skip_user,cap.translation.skip.user,model_cap_translation_skip,base.group_user,1,0,0,0
+access_cap_translation_skip_designer,cap.translation.skip.designer,model_cap_translation_skip,website.group_website_designer,1,1,1,1

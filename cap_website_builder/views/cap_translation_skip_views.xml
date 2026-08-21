@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cap_translation_skip_view_list" model="ir.ui.view">
+        <field name="name">cap.translation.skip.list</field>
+        <field name="model">cap.translation.skip</field>
+        <field name="arch" type="xml">
+            <!-- Create is off: rows are written by the translator when the
+                 service answers "unchanged". Delete is on, and is the point of
+                 this screen - deleting a row sends that term again. -->
+            <list string="Untranslatable Terms" create="false" multi_edit="0">
+                <field name="lang"/>
+                <field name="sample"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="cap_translation_skip_action" model="ir.actions.act_window">
+        <field name="name">Untranslatable Terms</field>
+        <field name="res_model">cap.translation.skip</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_group_lang': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing recorded yet</p>
+            <p>When Odoo's translation service hands a term back unchanged — a
+               brand name, a slug, a number wrapped in markup — it is recorded
+               here and never sent again. Delete a row to have it sent on the
+               next run.</p>
+        </field>
+    </record>
+
+</odoo>

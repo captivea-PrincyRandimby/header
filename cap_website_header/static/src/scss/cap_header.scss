@@ -54,10 +54,32 @@ header .cap_header {
             }
         }
 
+        // `website.submenu` marks the entry of the page being read with
+        // `.active`, and `website.scss` then forces its colour on any header -
+        // `website.navbar` carries `o_cc`:
+        //
+        //   .o_cc .dropdown-menu .dropdown-item.active {
+        //       color: var(--dropdown-link-active-color, #212529) !important; }
+        //
+        // `--dropdown-link-active-color` is `#FFFFFF`, so that entry turns white
+        // on a white dropdown: on `/blog`, "Blog" simply disappears from the
+        // Resources dropdown. The blue background that goes with it is
+        // neutralised here as well.
+        //
+        // Restating the colour therefore needs the same weight - the very reason
+        // the language selector entries further down are `!important` too. A
+        // plain `color`, or `inherit`, is silently overridden.
         .dropdown-item.active,
         .dropdown-item:active {
             background-color: transparent;
-            color: inherit;
+            color: $cap-navy !important;
+
+            // `!important` again: without it the rule above would freeze the
+            // active entry, and it alone would stop answering the pointer.
+            &:hover,
+            &:focus-visible {
+                color: $cap-red !important;
+            }
         }
 
         // ------------------------- Row 1 dropdowns (Line1Template1 / 3)
@@ -79,12 +101,32 @@ header .cap_header {
                 line-height: 1.4;
                 white-space: normal;
 
-                // Only the label turns red: the description keeps its own
-                // colour, set below.
+                // The whole entry turns red, label and description alike, as in
+                // the About panel (`.cap_mm_entry` in `cap_mega_menu.scss`).
+                //
+                // The description has to be named: it carries a colour of its
+                // own below, so inheriting the red of the `<a>` is not enough.
+                // Nested here rather than written next to that colour, so the
+                // hovered state wins by specificity and needs no `!important`.
                 &:hover,
                 &:focus-visible {
                     background-color: transparent;
-                    color: $cap-red;
+
+                    // `!important`, because `website.scss` claims the colour of
+                    // a hovered entry on any `o_cc` block - and the navbar is
+                    // one:
+                    //
+                    //   .o_cc .dropdown-menu .dropdown-item:hover {
+                    //       color: var(--body-color) !important; }
+                    //
+                    // Without the same weight the label stayed dark while the
+                    // description below, which no `!important` competes for,
+                    // turned red on its own.
+                    color: $cap-red !important;
+
+                    .cap_menu_description {
+                        color: $cap-red;
+                    }
                 }
             }
 

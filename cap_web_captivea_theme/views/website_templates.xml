@@ -82,21 +82,20 @@
 
 <!-- Captivea copyright bar -->
 <template id="copyright" inherit_id="website.layout" name="Captivea Copyright">
-    <xpath expr="//div[hasclass('o_footer_copyright')]/div[hasclass('container')]" position="replace">
-        <div class="container py-3">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-12 col-md-6 text-start">
-                    <span class="o_footer_copyright_name small">© 2006–2025 <strong>Captivea</strong> — Transform your Everyday</span>
-                </div>
-                <div class="col-12 col-md-6 text-md-end small cap-ft-langs">
-                    <a href="/en_US" class="me-2">EN</a>
-                    <a href="/fr_FR" class="me-2">FR</a>
-                    <a href="/fr_CA" class="me-2">FR-CA</a>
-                    <a href="/en_CA" class="me-2">EN-CA</a>
-                    <a href="/fr_LU">LU</a>
-                </div>
-            </div>
-        </div>
+    <!-- Patch the copyright text in place. Do NOT replace the whole container:
+         other views (website.layout, planning frontend layout) xpath the
+         <t t-call="web.brand_promotion"/> node that lives in the 2nd column. -->
+    <xpath expr="//div[hasclass('o_footer_copyright')]//span[hasclass('o_footer_copyright_name')]" position="replace">
+        <span class="o_footer_copyright_name me-2 small">© 2006–2025 <strong>Captivea</strong> — Transform your Everyday</span>
+    </xpath>
+    <xpath expr="//div[hasclass('o_footer_copyright')]//span[hasclass('o_footer_copyright_name')]" position="after">
+        <span class="small cap-ft-langs">
+            <a href="/en_US" class="me-2">EN</a>
+            <a href="/fr_FR" class="me-2">FR</a>
+            <a href="/fr_CA" class="me-2">FR-CA</a>
+            <a href="/en_CA" class="me-2">EN-CA</a>
+            <a href="/fr_LU">LU</a>
+        </span>
     </xpath>
 </template>
 

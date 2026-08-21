@@ -2,9 +2,9 @@
 {
     'name': 'Website Quotes / Testimonials',
     'summary': 'Manage testimonial quotes (Website > Content) and a dynamic '
-               'testimonials snippet filterable by company, industry, role and tags.',
+               'testimonials snippet filterable by tag.',
     'category': 'Website',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.2.0',
     'author': 'Captivea',
     'license': 'LGPL-3',
     'depends': ['website'],

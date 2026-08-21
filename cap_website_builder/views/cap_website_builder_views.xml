@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cap_website_builder_view_form" model="ir.ui.view">
+        <field name="name">cap.website.builder.form</field>
+        <field name="model">cap.website.builder</field>
+        <field name="arch" type="xml">
+            <form string="AI Page Request">
+                <header>
+                    <button name="action_generate" type="object" string="Generate"
+                            class="btn-primary"
+                            invisible="state == 'applied'"/>
+                    <button name="action_preview_draft" type="object"
+                            string="Preview"
+                            invisible="not draft_arch or state == 'applied'"/>
+                    <button name="action_apply" type="object" string="Apply"
+                            class="btn-primary"
+                            invisible="state != 'generated'"
+                            confirm="This will write the generated content on the website. Continue?"/>
+                    <button name="action_reset_to_draft" type="object" string="Back to Draft"
+                            invisible="state != 'applied'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated,applied"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_page" type="object"
+                                class="oe_stat_button" icon="fa-globe"
+                                invisible="not page_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Open Page</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Services landing page"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="mode" widget="radio"/>
+                            <field name="ai_model_id" options="{'no_create_edit': True}"/>
+                            <field name="reference_page_id"
+                                   options="{'no_create': True}"
+                                   required="mode == 'edit'"/>
+                            <!-- Shown in both modes: in edit mode picking a
+                                 template rebuilds the page to it, and leaving
+                                 it empty rewrites the words in place. -->
+                            <field name="template_page_id"
+                                   options="{'no_create': True}"/>
+                            <!-- Only means anything with a template: without
+                                 one the AI is choosing every block already. -->
+                            <field name="allow_extra_snippets"
+                                   invisible="not template_page_id"/>
+                            <field name="website_id"
+                                   options="{'no_create': True}"
+                                   groups="website.group_multi_website"/>
+                        </group>
+                        <group>
+                            <field name="page_title" invisible="mode == 'edit'"/>
+                            <field name="page_url" invisible="mode == 'edit'"
+                                   placeholder="/our-services"/>
+                            <field name="main_keyword" required="1"
+                                   placeholder="e.g. odoo implementation partner"/>
+                            <field name="use_surfer"/>
+                            <field name="surfer_score_target"
+                                   invisible="not use_surfer"/>
+                            <field name="surfer_score" readonly="1"
+                                   invisible="not surfer_score"/>
+                            <field name="surfer_score_rounds" readonly="1"
+                                   invisible="not surfer_score"/>
+                            <field name="content_source" readonly="1"
+                                   invisible="not content_source"/>
+                            <field name="page_id" readonly="1" invisible="not page_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <label for="description"/>
+                        <div class="d-flex align-items-start gap-2">
+                            <field name="description" nolabel="1" class="w-100 mb-0"
+                                   placeholder="A brief description of this page: what it covers and who it is for. Used as the brief for the AI, and saved as the page's meta description. Leave it empty and the AI writes one from the generated page."/>
+                            <button name="action_suggest_description" type="object"
+                                    string="Write it for me"
+                                    class="btn btn-secondary flex-shrink-0"
+                                    invisible="not draft_arch"
+                                    confirm="This replaces the description with one written from the current draft. Continue?"/>
+                        </div>
+                    </group>
+                    <notebook>
+                        <page string="Instructions" name="prompt">
+                            <field name="prompt" nolabel="1"
+                                   placeholder="Optional. Anything the AI should know before it writes. Once a draft exists, write the change you want here and press Generate again."/>
+                        </page>
+                        <page string="Keywords" name="keywords"
+                              invisible="not sub_keywords and not surfer_terms
+                                         and not content_ideas">
+                            <group>
+                                <field name="sub_keywords" readonly="1"/>
+                                <!-- What the search found people asking. These
+                                     become the page's H2 headings, so they are
+                                     worth seeing next to the keywords. -->
+                                <field name="content_ideas" readonly="1"
+                                       invisible="not content_ideas"/>
+                                <field name="surfer_terms" readonly="1"
+                                       invisible="not surfer_terms"/>
+                            </group>
+                        </page>
+                        <page string="Page Copy" name="article"
+                              invisible="not article_body">
+                            <field name="article_body" nolabel="1" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="conversation_json" invisible="1"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="cap_website_builder_view_list" model="ir.ui.view">
+        <field name="name">cap.website.builder.list</field>
+        <field name="model">cap.website.builder</field>
+        <field name="arch" type="xml">
+            <list string="AI Page Requests">
+                <field name="name"/>
+                <field name="mode"/>
+                <field name="main_keyword" optional="show"/>
+                <field name="ai_model_id" optional="show"/>
+                <field name="reference_page_id" optional="show"/>
+                <field name="template_page_id" optional="hide"/>
+                <field name="page_id" optional="show"/>
+                <field name="website_id" optional="hide" groups="website.group_multi_website"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'generated'"
+                       decoration-success="state == 'applied'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="cap_website_builder_action" model="ir.actions.act_window">
+        <field name="name">AI Page Builder</field>
+        <field name="res_model">cap.website.builder</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a page with the AI</p>
+            <p>Describe the page you need, let the AI write it, review the draft,
+               then apply it to your website.</p>
+        </field>
+    </record>
+
+</odoo>

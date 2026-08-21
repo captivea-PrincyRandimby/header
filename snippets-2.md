@@ -1,0 +1,1182 @@
+# Captivea snippets — reference markup for content generation
+
+This file holds the **full markup of every snippet** of the theme, grouped by builder block.
+It is the single source to work from when an AI has to produce the content of a page: copy the
+section, replace **the text only**, leave the structure alone.
+
+Functional doc (blocks, use cases, pages): [snippets.md](snippets.md).
+Markup source: [views/snippets.xml](cap_web_captivea_theme/views/snippets.xml).
+
+## Rules to follow
+
+1. **Never change the classes or the `data-*` attributes.** `data-snippet`, `data-name`,
+   `s_card`, `o_cc*`, `o_colored_level`, `o_lucide_icon`, `pt*`/`pb*` are what make the section
+   editable and consistent in the builder. Removing them breaks visual editing.
+2. **Replace every placeholder in braces**: `{Industry}`, `{Page Title}`,
+   `{Intro paragraph: ...}`, `{Context paragraph 1: ...}`. A leftover brace ships straight to
+   production (that is error 1 in [error.md](error.md)).
+3. **Keep the number of items** in a grid (a section with 8 cards stays at 8 cards): the
+   Bootstrap column widths are computed for that count.
+4. **Color combinations**: the hero keeps its own, the closing CTA stays `o_cc3`, and the
+   sections in between alternate `o_cc1` / `o_cc2` in order of appearance
+   ([gen_pages.py:159-167](cap_web_captivea_theme/tools/gen_pages.py#L159-L167)).
+5. **Mandatory order**: `s_cap_page_header` first, `s_cap_cta` last (it carries the form and the
+   `#form` anchor), each exactly once.
+6. **Icons**: `<span class="o_lucide_icon o_editable_media">` wrapping an inline Lucide `<svg>`.
+   To change an icon, replace the contents of the `<svg>`, not the `<span>`.
+7. **Translations**: never translate attributes, only text. `o_translate_inline` links are
+   translatable.
+
+## Contents
+
+- **Captivea — General** (`cap_general`) — 10 snippets
+- **Captivea — Sectors & Business functions** (`cap_sectors`) — 11 snippets
+- **Captivea — Product & Odoo** (`cap_product`) — 18 snippets
+- **Captivea — Company & Local** (`cap_company`) — 10 snippets
+- **Captivea — Offers & Case studies** (`cap_offers`) — 4 snippets
+- **Captivea Dynamic** (`captivea_dynamic`) — 4 snippets
+
+---
+
+# 1. Captivea — General (`cap_general`)
+
+## `s_cap_page_header` — Captivea: Page header
+
+**Use case**: Opening hero: eyebrow capsule (editorial breadcrumb), H1, intro and a button to the form. Always the first section of a page.
+
+**Pages**: All 17
+
+```xml
+<section class="s_cover s_cap_page_header o_cc o_cc3 o_colored_level pt64 pb72 cap-s-pageheader" data-snippet="s_cap_page_header" data-name="Captivea Page header">
+    <div class="s_allow_columns container"><div class="row"><div class="o_colored_level offset-lg-1 col-lg-7"><p class="lead">By industry · {Industry name}</p><h1>{Page Title}</h1><p class="lead">{Intro paragraph: frame the industry and the value Captivea brings.}</p><p><a href="#form" class="btn btn-primary o_translate_inline">Let's speak about your project</a></p></div></div></div>
+</section>
+```
+
+## `s_cap_context` — Captivea: Context
+
+**Use case**: Two framing paragraphs: the stakes of the subject, then Captivea's approach. Place it right after the hero.
+
+**Pages**: Industries, Sub-sector, Sector, Team, Country, Office, Partner, Comparison, Offer
+
+```xml
+<section class="s_text_image s_cap_context o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_context" data-name="Captivea Context"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Context</p><h2>{Context title — e.g. An American Odoo partner, rooted in local markets}</h2><p>{Context paragraph 1 — e.g. Captivea supports SMBs, mid-market and enterprise groups in digitalizing their operations with Odoo. Our difference: an organization by industry vertical and a regional presence, combining the proximity of a local partner with the power of an international network.}</p><p>{Context paragraph 2 — e.g. From strategic scoping to post-go-live support, our consultants, business analysts and developers cover the full project lifecycle: ERP, website and e-commerce, Business Intelligence and artificial intelligence.}</p></div></div></div></section>
+```
+
+## `s_cap_solution` — Captivea: Solution
+
+**Use case**: “Our solution” in 3 parts (h3): the answer being delivered, without cards.
+
+**Pages**: About, ISV, Benefit, Case study
+
+```xml
+<section class="s_text_image s_cap_solution o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_solution" data-name="Captivea Solution">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Our solution</p><h2>{Solution title — e.g. A unified Odoo foundation, enhanced by BI and AI}</h2><p>{How Captivea solves it, benefit-first — e.g. Captivea deploys Odoo as the single system connecting manufacturing, purchasing, inventory and accounting, with BI dashboards and an AI demand-forecasting module for accurate planning.}</p><h3>{Capability 1 — e.g. Enhancement of cash management}</h3><p>{Description — e.g. A comprehensive solution to anticipate and refine short-term balances through bank connectivity and automation.}</p><h3>{Capability 2 — e.g. Bank connectivity with your ERP}</h3><p>{Description — e.g. Consolidate and secure your financial data with a smooth, automated link between your banks and Odoo.}</p><h3>{Capability 3 — e.g. Reliable cash forecasting}</h3><p>{Description — e.g. Build and track forecasts that combine your data for dependable short-term visibility.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_references` — Captivea: References
+
+**Use case**: Strip of client logos for the sector (visual social proof, static).
+
+**Pages**: Industries, Sub-sector, Sector, Team, Country, Partner, App Odoo, Benefit
+
+```xml
+<section class="s_references s_cap_references o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_references" data-name="Captivea References">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">References</p><h2>Companies in {Industry — e.g. manufacturing} that trust Captivea</h2></div><div class="o_colored_level col-6 col-md-3 text-center pt8 pb8"><img src="/web/image/website.s_references_default_image_1" class="img img-fluid mx-auto" alt="{Client name}"/></div><div class="o_colored_level col-6 col-md-3 text-center pt8 pb8"><img src="/web/image/website.s_references_default_image_2" class="img img-fluid mx-auto" alt="{Client name}"/></div><div class="o_colored_level col-6 col-md-3 text-center pt8 pb8"><img src="/web/image/website.s_references_default_image_3" class="img img-fluid mx-auto" alt="{Client name}"/></div><div class="o_colored_level col-6 col-md-3 text-center pt8 pb8"><img src="/web/image/website.s_references_default_image_4" class="img img-fluid mx-auto" alt="{Client name}"/></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_testimonials` — Captivea: Testimonials
+
+**Use case**: 3 testimonial cards hardcoded in the page.
+
+**Pages**: Home, Industries, Sub-sector, Sector, Team, Country, Partner, Benefit
+
+```xml
+<section class="s_text_image s_cap_testimonials o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_testimonials" data-name="Captivea Testimonials">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Testimonials</p><h2>What our clients say</h2></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+<path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg></span><p class="card-text">{Client quote 1} — {Author}, {Role} at {Company}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+<path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg></span><p class="card-text">{Client quote 2} — {Author}, {Role} at {Company}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+<path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg></span><p class="card-text">{Client quote 3} — {Author}, {Role} at {Company}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_faq` — Captivea: FAQ
+
+**Use case**: Question/answer accordion. The most reused SEO section of the theme.
+
+**Pages**: 15 pages
+
+```xml
+<section class="s_faq_list s_cap_faq o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_faq" data-name="Captivea FAQ">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">FAQ</p><h2>Frequently asked questions</h2></div><div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><div data-name="Accordion" data-snippet="s_accordion" class="s_accordion"><div id="capFaq" class="accordion" itemscope="itemscope" itemtype="https://schema.org/FAQPage"><div class="accordion-item position-relative z-1" data-name="Accordion Item" itemscope="itemscope" itemprop="mainEntity" itemtype="https://schema.org/Question"><button type="button" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="true" id="capFaqBtn1" data-bs-target="#capFaqTab1" aria-controls="capFaqTab1"><span class="flex-grow-1" itemprop="name">{Question 1 — e.g. What is Odoo?}</span></button><div class="accordion-collapse collapse show" data-bs-parent="#capFaq" role="region" id="capFaqTab1" aria-labelledby="capFaqBtn1" itemscope="itemscope" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div class="accordion-body" itemprop="text"><p>{Answer 1 — e.g. Odoo is an open-source, modular ERP bringing together CRM, sales, accounting, inventory, manufacturing, HR, marketing and a website in a single platform.}</p></div></div></div><div class="accordion-item position-relative z-1" data-name="Accordion Item" itemscope="itemscope" itemprop="mainEntity" itemtype="https://schema.org/Question"><button type="button" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="false" id="capFaqBtn2" data-bs-target="#capFaqTab2" aria-controls="capFaqTab2"><span class="flex-grow-1" itemprop="name">{Question 2 — e.g. Is Odoo free?}</span></button><div class="accordion-collapse collapse" data-bs-parent="#capFaq" role="region" id="capFaqTab2" aria-labelledby="capFaqBtn2" itemscope="itemscope" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div class="accordion-body" itemprop="text"><p>{Answer 2 — e.g. Odoo offers a free open-source Community edition, plus paid Enterprise and Odoo.sh editions; Captivea helps you choose the right one.}</p></div></div></div><div class="accordion-item position-relative z-1" data-name="Accordion Item" itemscope="itemscope" itemprop="mainEntity" itemtype="https://schema.org/Question"><button type="button" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="false" id="capFaqBtn3" data-bs-target="#capFaqTab3" aria-controls="capFaqTab3"><span class="flex-grow-1" itemprop="name">{Question 3 — e.g. What are the hosting options?}</span></button><div class="accordion-collapse collapse" data-bs-parent="#capFaq" role="region" id="capFaqTab3" aria-labelledby="capFaqBtn3" itemscope="itemscope" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div class="accordion-body" itemprop="text"><p>{Answer 3 — e.g. Three options: Odoo Online (SaaS), Odoo.sh (cloud platform for custom code) and On-Premise on your own servers.}</p></div></div></div><div class="accordion-item position-relative z-1" data-name="Accordion Item" itemscope="itemscope" itemprop="mainEntity" itemtype="https://schema.org/Question"><button type="button" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-toggle="collapse" aria-expanded="false" id="capFaqBtn4" data-bs-target="#capFaqTab4" aria-controls="capFaqTab4"><span class="flex-grow-1" itemprop="name">{Question 4 — e.g. Why work with a Gold Partner?}</span></button><div class="accordion-collapse collapse" data-bs-parent="#capFaq" role="region" id="capFaqTab4" aria-labelledby="capFaqBtn4" itemscope="itemscope" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div class="accordion-body" itemprop="text"><p>{Answer 4 — e.g. With a Gold Partner like Captivea you get certified teams, a proven methodology and full support, protecting your timeline, budget and adoption.}</p></div></div></div></div></div></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_cta` — Captivea: CTA contact
+
+**Use case**: Closing CTA carrying the contact form (crm.lead, #form anchor). Always the last section.
+
+**Pages**: All 17
+
+```xml
+<section id="form" class="s_call_to_action o_cc o_cc3 o_colored_level pt64 pb64 s_cap_cta" data-snippet="s_cap_cta" data-name="Captivea CTA" contenteditable="false">
+    <div class="container" contenteditable="true"><div class="row"><div class="o_colored_level col-lg-8 offset-lg-2 text-center"><p class="lead">Let's talk</p><h2>Ready to transform your {Industry} operations?</h2><p>{One sentence inviting the visitor to start the conversation.}</p><section class="s_website_form pt8 pb8" data-vcss="001" data-snippet="s_website_form" data-name="Form" contenteditable="false">
+    <div class="container-fluid" contenteditable="true">
+        <form action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-pre-fill="true" data-model_name="crm.lead" data-success-mode="redirect" data-success-page="/contactus-thank-you" contenteditable="false">
+            <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="char" data-translated-name="Contact Name"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_contact_name"><span class="s_website_form_label_content">Contact Name</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="contact_name" required="" value="" placeholder="" id="cap_contact_name"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12" data-type="char" data-translated-name="Company Name"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_partner_name"><span class="s_website_form_label_content">Company Name</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="partner_name" value="" placeholder="" id="cap_partner_name"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_required" data-type="many2one" data-translated-name="Country"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_country_id"><span class="s_website_form_label_content">Country</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><select class="form-select s_website_form_input" name="country_id" id="cap_country_id" required=""><option value="3">Afghanistan</option><option value="6">Albania</option><option value="62">Algeria</option><option value="11">American Samoa</option><option value="1">Andorra</option><option value="8">Angola</option><option value="5">Anguilla</option><option value="9">Antarctica</option><option value="4">Antigua and Barbuda</option><option value="10">Argentina</option><option value="7">Armenia</option><option value="14">Aruba</option><option value="13">Australia</option><option value="12">Austria</option><option value="16">Azerbaijan</option><option value="32">Bahamas</option><option value="23">Bahrain</option><option value="19">Bangladesh</option><option value="18">Barbados</option><option value="36">Belarus</option><option value="20">Belgium</option><option value="37">Belize</option><option value="25">Benin</option><option value="27">Bermuda</option><option value="33">Bhutan</option><option value="29">Bolivia</option><option value="30">Bonaire, Sint Eustatius and Saba</option><option value="17">Bosnia and Herzegovina</option><option value="35">Botswana</option><option value="34">Bouvet Island</option><option value="31">Brazil</option><option value="105">British Indian Ocean Territory</option><option value="28">Brunei Darussalam</option><option value="22">Bulgaria</option><option value="21">Burkina Faso</option><option value="24">Burundi</option><option value="116">Cambodia</option><option value="47">Cameroon</option><option value="38">Canada</option><option value="52">Cape Verde</option><option value="123">Cayman Islands</option><option value="40">Central African Republic</option><option value="214">Chad</option><option value="46">Chile</option><option value="48">China</option><option value="54">Christmas Island</option><option value="39">Cocos (Keeling) Islands</option><option value="49">Colombia</option><option value="118">Comoros</option><option value="41">Congo (DRC)</option><option value="42">Congo (Republic)</option><option value="45">Cook Islands</option><option value="50">Costa Rica</option><option value="97">Croatia</option><option value="51">Cuba</option><option value="53">Curaçao</option><option value="55">Cyprus</option><option value="56">Czech Republic</option><option value="44">Côte d'Ivoire</option><option value="59">Denmark</option><option value="58">Djibouti</option><option value="60">Dominica</option><option value="61">Dominican Republic</option><option value="63">Ecuador</option><option value="65">Egypt</option><option value="209">El Salvador</option><option value="87">Equatorial Guinea</option><option value="67">Eritrea</option><option value="64">Estonia</option><option value="212">Eswatini</option><option value="69">Ethiopia</option><option value="72">Falkland Islands</option><option value="74">Faroe Islands</option><option value="71">Fiji</option><option value="70">Finland</option><option value="75">France</option><option value="79">French Guiana</option><option value="174">French Polynesia</option><option value="215">French Southern Territories</option><option value="76">Gabon</option><option value="84">Gambia</option><option value="78">Georgia</option><option value="57">Germany</option><option value="80">Ghana</option><option value="81">Gibraltar</option><option value="88">Greece</option><option value="83">Greenland</option><option value="77">Grenada</option><option value="86">Guadeloupe</option><option value="91">Guam</option><option value="90">Guatemala</option><option value="82">Guernsey</option><option value="85">Guinea</option><option value="92">Guinea-Bissau</option><option value="93">Guyana</option><option value="98">Haiti</option><option value="95">Heard Island and McDonald Islands</option><option value="236">Holy See (Vatican City State)</option><option value="96">Honduras</option><option value="94">Hong Kong</option><option value="99">Hungary</option><option value="108">Iceland</option><option value="104">India</option><option value="100">Indonesia</option><option value="107">Iran</option><option value="106">Iraq</option><option value="101">Ireland</option><option value="103">Isle of Man</option><option value="102">Israel</option><option value="109">Italy</option><option value="111">Jamaica</option><option value="113">Japan</option><option value="110">Jersey</option><option value="112">Jordan</option><option value="124">Kazakhstan</option><option value="114">Kenya</option><option value="117">Kiribati</option><option value="251">Kosovo</option><option value="122">Kuwait</option><option value="115">Kyrgyzstan</option><option value="125">Laos</option><option value="134">Latvia</option><option value="126">Lebanon</option><option value="131">Lesotho</option><option value="130">Liberia</option><option value="135">Libya</option><option value="128">Liechtenstein</option><option value="132">Lithuania</option><option value="133">Luxembourg</option><option value="147">Macau</option><option value="141">Madagascar</option><option value="155">Malawi</option><option value="157">Malaysia</option><option value="154">Maldives</option><option value="144">Mali</option><option value="152">Malta</option><option value="142">Marshall Islands</option><option value="149">Martinique</option><option value="150">Mauritania</option><option value="153">Mauritius</option><option value="246">Mayotte</option><option value="156">Mexico</option><option value="73">Micronesia</option><option value="138">Moldova</option><option value="137">Monaco</option><option value="146">Mongolia</option><option value="139">Montenegro</option><option value="151">Montserrat</option><option value="136">Morocco</option><option value="158">Mozambique</option><option value="145">Myanmar</option><option value="159">Namibia</option><option value="168">Nauru</option><option value="167">Nepal</option><option value="165">Netherlands</option><option value="160">New Caledonia</option><option value="170">New Zealand</option><option value="164">Nicaragua</option><option value="161">Niger</option><option value="163">Nigeria</option><option value="169">Niue</option><option value="162">Norfolk Island</option><option value="120">North Korea</option><option value="143">North Macedonia</option><option value="250">Northern Ireland</option><option value="148">Northern Mariana Islands</option><option value="166">Norway</option><option value="171">Oman</option><option value="177">Pakistan</option><option value="184">Palau</option><option value="172">Panama</option><option value="175">Papua New Guinea</option><option value="185">Paraguay</option><option value="173">Peru</option><option value="176">Philippines</option><option value="180">Pitcairn Islands</option><option value="178">Poland</option><option value="183">Portugal</option><option value="181">Puerto Rico</option><option value="186">Qatar</option><option value="188">Romania</option><option value="190">Russian Federation</option><option value="191">Rwanda</option><option value="187">Réunion</option><option value="26">Saint Barthélémy</option><option value="198">Saint Helena, Ascension and Tristan da Cunha</option><option value="119">Saint Kitts and Nevis</option><option value="127">Saint Lucia</option><option value="140">Saint Martin (French part)</option><option value="179">Saint Pierre and Miquelon</option><option value="237">Saint Vincent and the Grenadines</option><option value="244">Samoa</option><option value="203">San Marino</option><option value="192">Saudi Arabia</option><option value="204">Senegal</option><option value="189">Serbia</option><option value="194">Seychelles</option><option value="202">Sierra Leone</option><option value="197">Singapore</option><option value="210">Sint Maarten (Dutch part)</option><option value="201">Slovakia</option><option value="199">Slovenia</option><option value="193">Solomon Islands</option><option value="205">Somalia</option><option value="247">South Africa</option><option value="89">South Georgia and the South Sandwich Islands</option><option value="121">South Korea</option><option value="207">South Sudan</option><option value="68">Spain</option><option value="129">Sri Lanka</option><option value="182">State of Palestine</option><option value="195">Sudan</option><option value="206">Suriname</option><option value="200">Svalbard and Jan Mayen</option><option value="196">Sweden</option><option value="43">Switzerland</option><option value="211">Syria</option><option value="208">São Tomé and Príncipe</option><option value="227">Taiwan</option><option value="218">Tajikistan</option><option value="228">Tanzania</option><option value="217">Thailand</option><option value="223">Timor-Leste</option><option value="216">Togo</option><option value="219">Tokelau</option><option value="222">Tonga</option><option value="225">Trinidad and Tobago</option><option value="221">Tunisia</option><option value="220">Turkmenistan</option><option value="213">Turks and Caicos Islands</option><option value="226">Tuvalu</option><option value="224">Türkiye</option><option value="232">USA Minor Outlying Islands</option><option value="230">Uganda</option><option value="229">Ukraine</option><option value="2">United Arab Emirates</option><option value="231">United Kingdom</option><option value="233">United States</option><option value="234">Uruguay</option><option value="235">Uzbekistan</option><option value="242">Vanuatu</option><option value="238">Venezuela</option><option value="241">Vietnam</option><option value="239">Virgin Islands (British)</option><option value="240">Virgin Islands (USA)</option><option value="243">Wallis and Futuna</option><option value="66">Western Sahara</option><option value="245">Yemen</option><option value="248">Zambia</option><option value="249">Zimbabwe</option><option value="15">Åland Islands</option></select></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_model_required" data-type="email" data-translated-name="Your Email"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_email_from"><span class="s_website_form_label_content">Email</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="email" name="email_from" required="" value="" placeholder="" id="cap_email_from" data-fill-with="email"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_custom" data-type="tel" data-translated-name="Phone Number"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_phone"><span class="s_website_form_label_content">Phone Number</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="tel" name="phone" value="" placeholder="" id="cap_phone" data-fill-with="phone"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required" data-type="text" data-translated-name="Your Question"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_project"><span class="s_website_form_label_content">Your Project</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><textarea class="form-control s_website_form_input" name="Your Project" required="" placeholder="" id="cap_project" rows="3"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_model_required s_website_form_field_hidden" data-type="char" data-translated-name="Subject"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_subject"><span class="s_website_form_label_content">Subject</span><span class="s_website_form_mark"> *</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="name" required="" value="Form - {Short title of the page}" placeholder="" id="cap_subject"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_field_hidden" data-type="many2one" data-translated-name="Source"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_source_id"><span class="s_website_form_label_content">Source</span></label><div class="col-sm"><select class="form-select s_website_form_input" name="source_id" id="cap_source_id"><option value="1">Search engine</option><option value="2">Lead Recall</option><option value="3">Newsletter</option><option value="4">Facebook</option><option value="5">X</option><option value="6">LinkedIn</option><option value="7">Monster</option><option value="8">Glassdoor</option><option value="9">Craigslist</option><option value="10">Referral</option></select></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden" data-type="char" data-translated-name="Custom Text"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_medium"><span class="s_website_form_label_content">Medium</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="Medium" id="cap_medium"/></div></div></div>
+                <div data-name="Field" class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden" data-type="char" data-translated-name="Custom Text"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="cap_campaign"><span class="s_website_form_label_content">Campaign</span></label><div class="col-sm"><input class="form-control s_website_form_input" type="text" name="Campaign" id="cap_campaign"/></div></div></div>
+                <div class="mb-0 py-2 col-12 s_website_form_submit text-end s_website_form_no_submit_label" data-name="Submit Button">
+                    <div style="width: 200px;" class="s_website_form_label"></div>
+                    <span id="s_website_form_result"></span>
+                    <a href="#" role="button" class="btn btn-primary s_website_form_send o_translate_inline" contenteditable="true">Start to transform my everyday now!</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section><p><br/></p></div></div></div>
+    </section>
+```
+
+## `s_cap_mid_cta` — Captivea: Mid CTA
+
+**Use case**: Mid-page CTA (title + button, no form), for the middle of a long page.
+
+**Pages**: none
+
+```xml
+<section class="s_text_block s_cap_mid_cta pt40 pb40 o_colored_level text-center o_cc o_cc3" data-snippet="s_cap_mid_cta" data-name="Mid CTA" style="background-image: linear-gradient(45deg, rgb(186, 19, 26), rgb(227, 87, 93));">
+    <div class="s_allow_columns container">
+        <div class="row"><div class="o_colored_level offset-lg-1 col-lg-10"><p class="lead">Start your transformation</p><h2>{Title eg. Any project to transform your organisation?}</h2><p class="lead">{Sub descrition eg. Our local teams support you from scoping to go-live and beyond.}</p><p><a href="#form" class="o_translate_inline btn-lg btn btn-primary">Start my digital transformation</a></p></div></div>
+    </div>
+</section>
+```
+
+## `s_cap_stats` — Captivea: Key figures
+
+**Use case**: Key figures: credibility through numbers.
+
+**Pages**: About, Country, Product, Case study
+
+```xml
+<section class="s_text_image s_cap_stats o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_stats" data-name="Captivea Key figures">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Key figures</p><h2>Captivea in numbers</h2></div><div class="o_colored_level col-6 col-lg-3 text-center pt8 pb8"><h2 class="display-3">{N1 — e.g. 18+}</h2><p class="lead">{Label 1 — e.g. years of expertise}</p></div><div class="o_colored_level col-6 col-lg-3 text-center pt8 pb8"><h2 class="display-3">{N2 — e.g. 12}</h2><p class="lead">{Label 2 — e.g. countries and offices}</p></div><div class="o_colored_level col-6 col-lg-3 text-center pt8 pb8"><h2 class="display-3">{N3 — e.g. 250}</h2><p class="lead">{Label 3 — e.g. talented professionals}</p></div><div class="o_colored_level col-6 col-lg-3 text-center pt8 pb8"><h2 class="display-3">{N4 — e.g. 800+}</h2><p class="lead">{Label 4 — e.g. clients served}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_methodology` — Captivea: Methodology
+
+**Use case**: 4 project-phase cards + buttons: how a rollout unfolds.
+
+**Pages**: Home, Team, Product, Offer
+
+```xml
+<section class="s_text_image s_cap_methodology o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_methodology" data-name="Captivea Methodology"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">How it works</p><h2>{A phased deployment, designed for adoption}</h2><p>{The success of a project depends less on technology than on team adoption. Our method limits risk through short iterations.}</p></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg></span><h3 class="card-title h5-fs">1. {Step — e.g. Mapping your process}</h3><p class="card-text">{What happens in this step. e.g. We map your current process and pain points before touching the tool.}</p></div></div></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m18 16 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg></span><h3 class="card-title h5-fs">2. {Step — e.g. Configuration and automation}</h3><p class="card-text">{What happens in this step. e.g. Pipeline, fields, follow-ups, quotes and e-signatures are configured to match your practices — not the other way around.}</p></div></div></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg></span><h3 class="card-title h5-fs">3. {Step — e.g. Training and change management}</h3><p class="card-text">{What happens in this step. e.g. Your teams are trained on their own real-world cases. The tool becomes second nature, not a burden.}</p></div></div></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg></span><h3 class="card-title h5-fs">4. {Step — e.g. Data-driven steering}</h3><p class="card-text">{What happens in this step. e.g. BI dashboards measure the gains and guide continuous optimizations.}</p></div></div></div><div class="o_colored_level col-lg-12 text-center pt8 pb8"><a href="#" class="btn btn-lg btn-primary o_translate_inline">Discover our project methodology to transform your everyday</a></div></div></div></section>
+```
+
+---
+
+# 2. Captivea — Sectors & Business functions (`cap_sectors`)
+
+## `s_cap_subsectors_index` — Captivea: Sub-sectors index
+
+**Use case**: 6 sub-sector cards: internal linking from a sector hub down to its verticals.
+
+**Pages**: Sub-sector, Sector
+
+```xml
+<section class="s_text_image s_cap_subsectors_index o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_subsectors_index" data-name="Captivea Sub-sectors index">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Sub-sectors</p><h2>Expertise in every vertical</h2></div><div class="o_colored_level col-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><h3 class="card-title h5-fs">{Sub-sector 1 — e.g. Automotive}</h3><p class="card-text">{Short line about this sub-sector — e.g. Dedicated Odoo expertise, with the vocabulary and use cases of your vertical.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover more about {Sub-sector 1 — e.g. Automotive}</a></div></div></div><div class="o_colored_level col-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><h3 class="card-title h5-fs">{Sub-sector 2 — e.g. Chemical}</h3><p class="card-text">{Short line about this sub-sector — e.g. Dedicated Odoo expertise, with the vocabulary and use cases of your vertical.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover more about {Sub-sector 2 — e.g. Chemical}</a></div></div></div><div class="o_colored_level col-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><h3 class="card-title h5-fs">{Sub-sector 3 — e.g. Electronics}</h3><p class="card-text">{Short line about this sub-sector — e.g. Dedicated Odoo expertise, with the vocabulary and use cases of your vertical.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover more about {Sub-sector 3 — e.g. Electronics}</a></div></div></div><div class="o_colored_level col-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><h3 class="card-title h5-fs">{Sub-sector 4 — e.g. Fashion and textile}</h3><p class="card-text">{Short line about this sub-sector — e.g. Dedicated Odoo expertise, with the vocabulary and use cases of your vertical.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover more about {Sub-sector 4 — e.g. Fashion and textile}</a></div></div></div><div class="o_colored_level col-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><h3 class="card-title h5-fs">{Sub-sector 5 — e.g. Construction}</h3><p class="card-text">{Short line about this sub-sector — e.g. Dedicated Odoo expertise, with the vocabulary and use cases of your vertical.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover more about {Sub-sector 5 — e.g. Construction}</a></div></div></div><div class="o_colored_level col-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg></span><h3 class="card-title h5-fs">{Sub-sector 6 — e.g. Aerospace and defense}</h3><p class="card-text">{Short line about this sub-sector — e.g. Dedicated Odoo expertise, with the vocabulary and use cases of your vertical.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover more about {Sub-sector 6 — e.g. Aerospace and defense}</a></div></div></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_gains` — Captivea: What you gain
+
+**Use case**: 9 cards split into 3 groups (h3): the concrete gains. The densest benefits section.
+
+**Pages**: Sub-sector, Sector, Team, Partner
+
+```xml
+<section class="s_text_image s_cap_gains o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_gains" data-name="Captivea What you gain"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">The concrete gains</p><h2>What you gain</h2></div><div class="o_colored_level col-lg-4 pt8 pb8"><h3>Your company</h3><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" />
+<path d="m19 9-5 5-4-4-3 3" /></svg></span><h4 class="card-title">{Benefit — e.g. Reliable forecasts}</h4><p class="card-text">{Concrete gain for your company. e.g. Forecasting and sales dashboards in real time — no more manual reporting.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" />
+<path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+<path d="m21 3 1 11h-2" />
+<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+<path d="M3 4h8" /></svg></span><h4 class="card-title">{Benefit — e.g. Controlled pipeline}</h4><p class="card-text">{Concrete gain for your company. e.g. Full visibility on opportunities, margins, and conversion timelines.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" />
+<path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" />
+<path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></svg></span><h4 class="card-title">{Benefit — e.g. Accelerated growth}</h4><p class="card-text">{Concrete gain for your company. e.g. More deals closed thanks to a team focused on selling, not administration.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8"><h3>Your teams</h3><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg></span><h4 class="card-title">{Benefit — e.g. Unified tools}</h4><p class="card-text">{Concrete gain for your teams. e.g. CRM, quotes, orders and invoicing in a single environment — zero double entry.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8" />
+<rect width="16" height="12" x="4" y="8" rx="2" />
+<path d="M2 14h2" />
+<path d="M20 14h2" />
+<path d="M15 13v2" />
+<path d="M9 13v2" /></svg></span><h4 class="card-title">{Benefit — e.g. AI every day}</h4><p class="card-text">{Concrete gain for your teams. e.g. Lead scoring, next best action and call summaries generated automatically.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<circle cx="12" cy="12" r="6" />
+<circle cx="12" cy="12" r="2" /></svg></span><h4 class="card-title">{Benefit — e.g. Focus on selling}</h4><p class="card-text">{Concrete gain for your teams. e.g. Less admin, more quality time with the leads that truly matter.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8"><h3>Your customers</h3><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+<circle cx="12" cy="12" r="3" /></svg></span><h4 class="card-title">{Benefit — e.g. Transparent follow-up}</h4><p class="card-text">{Concrete gain for your customers. e.g. Every customer can see the progress of their file, from request to delivery.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg></span><h4 class="card-title">{Benefit — e.g. Maximum responsiveness}</h4><p class="card-text">{Concrete gain for your customers. e.g. Faster personalized offers, deadlines met, less waiting between exchanges.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div><div class="s_card card o_cc o_cc1 o_colored_level" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></svg></span><h4 class="card-title">{Benefit — e.g. Lasting relationship}</h4><p class="card-text">{Concrete gain for your customers. e.g. A contact who is always informed, delivering a consistent experience at every interaction.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more about {Benefit}</a></div></div></div></div></div></section>
+```
+
+## `s_cap_before_after` — Captivea: Before / After
+
+**Use case**: 2 facing cards (before / after): make the pain and the outcome tangible.
+
+**Pages**: Team
+
+```xml
+<section class="s_text_image s_cap_before_after o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_before_after" data-name="Captivea Before / After"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Before / After</p><h2>From friction to flow</h2></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></span><h3 class="h5-fs">Before</h3><ul><li>{The painful situation today.}</li><li>{The painful situation today.}</li><li>{The painful situation today.}</li></ul></div></div></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span><h3 class="h5-fs">After</h3><ul><li>{The situation once transformed with Captivea.}</li><li>{The situation once transformed with Captivea.}</li><li>{The situation once transformed with Captivea.}</li></ul></div></div></div></div></div></section>
+```
+
+## `s_cap_pain_points` — Captivea: Pain points
+
+**Use case**: 5 cards of daily irritants: an empathetic hook near the top of a business-function page.
+
+**Pages**: Team
+
+```xml
+<section class="s_text_image s_cap_pain_points o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_pain_points" data-name="Captivea Pain points"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Your daily irritants</p><h2>What slows your {Team name} team down</h2></div><div class="o_colored_level col-lg-12 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><div class="row align-items-center"><div class="o_colored_level col-5"><p class="card-title m-0">{Painpoint}</p></div><div class="o_colored_level col-2 text-center"><span class="o_lucide_icon o_editable_media lucide-arrow-right m-auto" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div><div class="o_colored_level col-5"><p class="m-0"><strong>{Business Consulting Solution Title}</strong><br/>{Business Consulting Solution text}</p></div></div></div></div></div><div class="o_colored_level col-lg-12 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><div class="row align-items-center"><div class="o_colored_level col-5"><p class="card-title m-0">{Painpoint}</p></div><div class="o_colored_level col-2 text-center"><span class="o_lucide_icon o_editable_media lucide-arrow-right m-auto" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div><div class="o_colored_level col-5"><p class="m-0"><strong>{ERP Solution Title}</strong><br/>{ERP Solution text}</p></div></div></div></div></div><div class="o_colored_level col-lg-12 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><div class="row align-items-center"><div class="o_colored_level col-5"><p class="card-title m-0">{Painpoint}</p></div><div class="o_colored_level col-2 text-center"><span class="o_lucide_icon o_editable_media lucide-arrow-right m-auto" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div><div class="o_colored_level col-5"><p class="m-0"><strong>{Web &amp; Marketing Solution Title}</strong><br/>{Web &amp; marketing Solution text}</p></div></div></div></div></div><div class="o_colored_level col-lg-12 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><div class="row align-items-center"><div class="o_colored_level col-5"><p class="card-title m-0">{Painpoint}</p></div><div class="o_colored_level col-2 text-center"><span class="o_lucide_icon o_editable_media lucide-arrow-right m-auto" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div><div class="o_colored_level col-5"><p class="m-0"><strong>{AI Solution Title}</strong><br/>{AI Solution text}</p></div></div></div></div></div><div class="o_colored_level col-lg-12 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><div class="row align-items-center"><div class="o_colored_level col-5"><p class="card-title m-0">{Painpoint}</p></div><div class="o_colored_level col-2 text-center"><span class="o_lucide_icon o_editable_media lucide-arrow-right m-auto" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div><div class="o_colored_level col-5"><p class="m-0"><strong>{BI Solution Title}</strong><br/>{BI Solution text}</p></div></div></div></div></div></div></div></section>
+```
+
+## `s_cap_key_features` — Captivea: Key features
+
+**Use case**: 4 feature cards (no icons): the “what” of an app or an add-on.
+
+**Pages**: App Odoo, Add-on, ISV
+
+```xml
+<section class="s_text_image s_cap_key_features o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_key_features" data-name="Captivea Key features">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Key features</p><h2>Key features</h2></div><div class="o_colored_level col-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">{Feature — e.g. Real-time inventory}</h3><p class="card-text">{What it does — e.g. Stock levels update automatically across every site.}</p></div></div></div><div class="o_colored_level col-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">{Feature — e.g. Automated invoicing}</h3><p class="card-text">{What it does — e.g. Invoices are generated and reconciled without manual re-entry.}</p></div></div></div><div class="o_colored_level col-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">{Feature — e.g. AI lead scoring}</h3><p class="card-text">{What it does — e.g. Opportunities are ranked so your team focuses on what converts.}</p></div></div></div><div class="o_colored_level col-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">{Feature — e.g. BI dashboards}</h3><p class="card-text">{What it does — e.g. Margins and service levels are visible on a single screen.}</p></div></div></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_expertise` — Captivea: Expertise
+
+**Use case**: 5 cards ERP / Web / AI / BI: show the integrated offer on a given subject.
+
+**Pages**: Sub-sector, Sector, Team, Partner
+
+```xml
+<section class="s_text_image s_cap_expertise o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_expertise" data-name="Captivea Expertise"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">An integrated offer</p><h2>ERP · Web · IA · BI for {Sector}</h2><p class="lead">Four areas of expertise, one team that knows your business.</p></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect x="14" y="2" width="8" height="8" rx="1"/></svg></span><h3 class="card-title h5-fs">Business Consulting</h3><p class="card-text">{Description of the Business Consulting offer for this sector.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/business-consulting" class="o_translate_inline btn btn-secondary">Business Consulting<br/><small>Transform your everyday</small></a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect x="14" y="2" width="8" height="8" rx="1"/></svg></span><h3 class="card-title h5-fs">ERP</h3><p class="card-text">{Description of the ERP (Odoo) offer for this sector.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/erp" class="o_translate_inline btn btn-secondary">ERP<br/><small>Transform your everyday</small></a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><h3 class="card-title h5-fs">Web &amp; Marketing</h3><p class="card-text">{Description of the Web &amp; Marketing offer for this sector.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/website-and-marketing" class="o_translate_inline btn btn-secondary">Web &amp; Marketing<br/><small>Transform your everyday</small></a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><h3 class="card-title h5-fs">Artificial Intelligence</h3><p class="card-text">{Description of the AI offer for this sector.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/artificial-intelligence" class="o_translate_inline btn btn-secondary">Artificial Intelligence<br/><small>Transform your everyday</small></a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><h3 class="card-title h5-fs">Business Intelligence</h3><p class="card-text">{Description of the BI offer for this sector.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/business-intelligence" class="o_translate_inline btn btn-secondary">Business Intelligence<br/><small>Transform your everyday</small></a></div></div></div></div></div></section>
+```
+
+## `s_cap_sectors` — Captivea: Sectors
+
+**Use case**: 5 sector cards + links: cross-navigation “by industry”.
+
+**Pages**: Home, Industries, App Odoo
+
+```xml
+<section class="s_text_image s_cap_sectors o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_sectors" data-name="Captivea Sectors">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">By sector</p><h2>Organized around your industry</h2><p class="lead">Teams organized by client industry. Each sector covers ERP, Web, AI and BI.</p></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10h.01" />
+<path d="M12 14h.01" />
+<path d="M12 6h.01" />
+<path d="M16 10h.01" />
+<path d="M16 14h.01" />
+<path d="M16 6h.01" />
+<path d="M8 10h.01" />
+<path d="M8 14h.01" />
+<path d="M8 6h.01" />
+<path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+<rect x="4" y="2" width="16" height="20" rx="2" /></svg></span><h3 class="card-title h5-fs">Services &amp; Tertiary</h3><p class="card-text">{Short line about this industry — e.g. ERP, CRM and project management for service firms and agencies.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-industry/services" class="o_translate_inline btn btn-secondary"><small>Transform your organisation</small><br/>Services &amp; Tertiary</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16h.01" />
+<path d="M16 16h.01" />
+<path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+<path d="M8 16h.01" /></svg></span><h3 class="card-title h5-fs">Industry / Manufacturing</h3><p class="card-text">{Short line about this industry — e.g. MRP, quality and maintenance for manufacturers.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-industry/manufacturing" class="o_translate_inline btn btn-secondary"><small>Transform your organisation</small><br/>Industry / Manufacturing</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+<path d="M15 18H9" />
+<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+<circle cx="17" cy="18" r="2" />
+<circle cx="7" cy="18" r="2" /></svg></span><h3 class="card-title h5-fs">Distribution &amp; Logistics</h3><p class="card-text">{Short line about this industry — e.g. Stock, traceability and order fulfillment for wholesalers.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-industry/distribution" class="o_translate_inline btn btn-secondary"><small>Transform your organisation</small><br/>Distribution &amp; Logistics</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
+<path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
+<path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" /></svg></span><h3 class="card-title h5-fs">Retail &amp; Point of Sale</h3><p class="card-text">{Short line about this industry — e.g. Omnichannel checkout, online and in-store, in one system.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-industry/retail" class="o_translate_inline btn btn-secondary"><small>Transform your organisation</small><br/>Retail &amp; Point of Sale</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+<path d="M12 22V2" /></svg></span><h3 class="card-title h5-fs">Regulated Industries</h3><p class="card-text">{Short line about this industry — e.g. Compliance, traceability and documentation built in.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-industry/regulated" class="o_translate_inline btn btn-secondary"><small>Transform your organisation</small><br/>Regulated Industries</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_teams` — Captivea: Teams / functions
+
+**Use case**: 8 business-function cards + links: cross-navigation “by team”.
+
+**Pages**: Home, Industries, Sector, App Odoo, Case study
+
+```xml
+<section class="s_text_image s_cap_teams o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_teams" data-name="Captivea Teams / functions">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">By business function</p><h2>Solutions for every team</h2><p class="lead">Explore how Captivea concretely improves your teams' day-to-day work, department by department.</p></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" />
+<path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+<path d="m21 3 1 11h-2" />
+<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+<path d="M3 4h8" /></svg></span><h3 class="card-title h5-fs">Sales &amp; CRM</h3><p class="card-text">{e.g. Pipeline, AI scoring and quotes in a few clicks.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/sales-team" class="o_translate_inline btn btn-secondary">Sales &amp; CRM team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1" />
+<circle cx="19" cy="21" r="1" />
+<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span><h3 class="card-title h5-fs">Purchasing</h3><p class="card-text">{e.g. Tenders, suppliers and purchase orders centralized.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/purchasing-team" class="o_translate_inline btn btn-secondary">Purchasing team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16h.01" />
+<path d="M16 16h.01" />
+<path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+<path d="M8 16h.01" /></svg></span><h3 class="card-title h5-fs">Operations &amp; Manufacturing</h3><p class="card-text">{e.g. MRP, work orders and real-time capacity.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/production-team" class="o_translate_inline btn btn-secondary">Operations &amp; Manufacturing team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+<path d="M15 18H9" />
+<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+<circle cx="17" cy="18" r="2" />
+<circle cx="7" cy="18" r="2" /></svg></span><h3 class="card-title h5-fs">Supply Chain</h3><p class="card-text">{e.g. Stock, traceability and AI demand forecasting.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/supply-chain-team" class="o_translate_inline btn btn-secondary">Supply Chain team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" />
+<path d="m19 8 3 8a5 5 0 0 1-6 0zV7" />
+<path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" />
+<path d="m5 8 3 8a5 5 0 0 1-6 0zV7" />
+<path d="M7 21h10" /></svg></span><h3 class="card-title h5-fs">Finance &amp; Accounting</h3><p class="card-text">{e.g. Fast close, consolidated reporting and compliance.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/finance-team" class="o_translate_inline btn btn-secondary">Finance &amp; Accounting team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+<path d="M16 3.128a4 4 0 0 1 0 7.744" />
+<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+<circle cx="9" cy="7" r="4" /></svg></span><h3 class="card-title h5-fs">Human Resources</h3><p class="card-text">{e.g. Recruitment, time off, payroll and appraisals in one tool.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/hr-team" class="o_translate_inline btn btn-secondary">Human Resources team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+<path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" />
+<path d="M8 6v8" /></svg></span><h3 class="card-title h5-fs">Marketing</h3><p class="card-text">{e.g. Multichannel campaigns, leads and measurable ROI.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/marketing-team" class="o_translate_inline btn btn-secondary">Marketing team<br/><small>Transform their everyday</small></a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
+<path d="M21 16v2a4 4 0 0 1-4 4h-5" /></svg></span><h3 class="card-title h5-fs">Helpdesk &amp; After-Sales</h3><p class="card-text">{e.g. Tickets, SLAs and customer satisfaction in real time.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/transform-your-everyday/customer-service-team" class="o_translate_inline btn btn-secondary">Helpdesk &amp; After-Sales team<br/><small>Transform their everyday</small></a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_ai` — Captivea: AI use cases
+
+**Use case**: Text block on the sector's AI use cases: a differentiator, without cards.
+
+**Pages**: Sub-sector, Sector
+
+```xml
+<section class="s_text_image s_cap_ai o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_ai" data-name="Captivea AI use cases">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Sector AI use cases</p><h2>Artificial intelligence at the service of {your operations — e.g. the shop floor}</h2><ul><li><strong>{AI use case 1 — e.g. Demand forecasting}</strong> — {Concrete benefit — e.g. Anticipate peaks and smooth the production load.}</li><li><strong>{AI use case 2 — e.g. Optimized scheduling}</strong> — {Concrete benefit — e.g. Sequence manufacturing orders to reduce changeover times.}</li><li><strong>{AI use case 3 — e.g. Predictive maintenance}</strong> — {Concrete benefit — e.g. Detect machine drift before breakdowns occur.}</li><li><strong>{AI use case 4 — e.g. Assisted quality control}</strong> — {Concrete benefit — e.g. Identify non-conformances earlier in the process.}</li><li><strong>{AI use case 5 — e.g. Purchasing optimization}</strong> — {Concrete benefit — e.g. Recommend quantities and suppliers based on lead times and costs.}</li></ul></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_blog` — Captivea: Blog teaser
+
+**Use case**: 3 article cards written by hand.
+
+**Pages**: Sub-sector, Sector, Team, Country, Partner
+
+```xml
+<section class="s_text_image s_cap_blog o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_blog" data-name="Captivea Blog teaser">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Resources</p><h2>Articles &amp; guides on {topic}</h2></div><div class="o_colored_level col-12 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" />
+<path d="M18 14h-8" />
+<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+<rect width="8" height="4" x="10" y="6" rx="1" /></svg></span><h3 class="card-title h5-fs">{Article title 1 — e.g. How to succeed in your Odoo ERP project}</h3><p class="card-text">{Category — e.g. ERP} — {Author — e.g. Captivea}, {Date — e.g. March 2025}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/blog" class="o_translate_inline">Read the article →</a></div></div></div><div class="o_colored_level col-12 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" />
+<path d="M18 14h-8" />
+<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+<rect width="8" height="4" x="10" y="6" rx="1" /></svg></span><h3 class="card-title h5-fs">{Article title 2 — e.g. 5 signs your tools are slowing your teams down}</h3><p class="card-text">{Category — e.g. Productivity} — {Author — e.g. Captivea}, {Date — e.g. April 2025}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/blog" class="o_translate_inline">Read the article →</a></div></div></div><div class="o_colored_level col-12 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" />
+<path d="M18 14h-8" />
+<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+<rect width="8" height="4" x="10" y="6" rx="1" /></svg></span><h3 class="card-title h5-fs">{Article title 3 — e.g. AI in manufacturing: where to start}</h3><p class="card-text">{Category — e.g. Artificial Intelligence} — {Author — e.g. Captivea}, {Date — e.g. May 2025}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/blog" class="o_translate_inline">Read the article →</a></div></div></div><div class="o_colored_level col-12 text-center pt16"><a href="/blog" class="btn btn-secondary o_translate_inline">All articles</a></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_related` — Captivea: Related links
+
+**Use case**: “Go further” link list: internal linking at the bottom of a page.
+
+**Pages**: Industries, Sub-sector, Sector, Team, Case study
+
+```xml
+<section class="s_text_image s_cap_related o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_related" data-name="Captivea Related links"><div class="container"><div class="row"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Explore</p><h2>Go further</h2><div class="d-flex flex-wrap justify-content-center gap-2 mt-2"><a href="#" class="o_translate_inline btn btn-primary">{Button link to another page}</a><a href="#" class="o_translate_inline btn btn-primary">{Button link to another page}</a><a href="#" class="o_translate_inline btn btn-primary">{Button link to another page}</a><a href="#" class="o_translate_inline btn btn-primary">{Button link to another page}</a></div></div></div></div></section>
+```
+
+---
+
+# 3. Captivea — Product & Odoo (`cap_product`)
+
+## `s_cap_definition` — Captivea: Definition
+
+**Use case**: “What is X?”: SEO definition at the top of a pillar page.
+
+**Pages**: Product
+
+```xml
+<section class="s_text_image s_cap_definition o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_definition" data-name="Captivea Definition">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Definition</p><h2>What is {Product / topic — e.g. Odoo}?</h2><p>{Clear definition in plain language — e.g. Odoo is an open-source, modular ERP that brings together every application a business needs in a single platform, from the first sales contact through to invoicing and reporting.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_why_odoo` — Captivea: Why Odoo
+
+**Use case**: 3 “one unified ERP” cards: the generic Odoo argument.
+
+**Pages**: Product, Comparison
+
+```xml
+<section class="s_text_image s_cap_why_odoo o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_why_odoo" data-name="Captivea Why Odoo">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Why Odoo</p><h2>One unified ERP</h2></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2" />
+<rect x="14" y="2" width="8" height="8" rx="1" /></svg></span><h3 class="card-title h5-fs">{Argument — e.g. Comprehensive features}</h3><p class="card-text">{Why it matters for the client — e.g. Exceptional business coverage, from CRM to manufacturing.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5" />
+<path d="M15 8V2" />
+<path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" />
+<path d="M9 8V2" /></svg></span><h3 class="card-title h5-fs">{Argument — e.g. Competitive pricing}</h3><p class="card-text">{Why it matters for the client — e.g. A total cost of ownership far lower than legacy ERPs.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" />
+<path d="m19 9-5 5-4-4-3 3" /></svg></span><h3 class="card-title h5-fs">{Argument — e.g. Simple and modern}</h3><p class="card-text">{Why it matters for the client — e.g. An intuitive interface your teams adopt quickly.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_hosting` — Captivea: Hosting
+
+**Use case**: 3 hosting-option cards (Online / SH / On-premise).
+
+**Pages**: Product
+
+```xml
+<section class="s_text_image s_cap_hosting o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_hosting" data-name="Captivea Hosting">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Hosting</p><h2>Choose your setup</h2><p class="lead">Captivea advises you on the option best suited to your customization, cost and security requirements.</p></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg></span><h3 class="card-title h5-fs">Odoo Online (SaaS)</h3><p class="card-text">{When to choose it — e.g. The simplest option: everything is managed by Odoo, with no infrastructure to maintain.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+<rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+<line x1="6" x2="6.01" y1="6" y2="6" />
+<line x1="6" x2="6.01" y1="18" y2="18" /></svg></span><h3 class="card-title h5-fs">Odoo.sh</h3><p class="card-text">{When to choose it — e.g. The ideal cloud platform for custom developments.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 16h.01" />
+<path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+<path d="M21.946 12.013H2.054" />
+<path d="M6 16h.01" /></svg></span><h3 class="card-title h5-fs">On-Premise</h3><p class="card-text">{When to choose it — e.g. On your own servers, for total data control.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_gold_partner` — Captivea: Gold Partner credibility
+
+**Use case**: “Odoo Gold Partner” credibility banner.
+
+**Pages**: Partner, Product
+
+```xml
+<section class="s_text_image s_cap_gold_partner o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_gold_partner" data-name="Captivea Gold Partner credibility">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt8 pb8"><p class="lead">Certified</p><h2>Odoo Gold Partner</h2><p class="lead">{Certifications, years, projects that build trust — e.g. Odoo Gold Partner, twice nominated at the Odoo Awards 2024, with 18+ years of experience and 800+ completed projects.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_comparison_teaser` — Captivea: Comparison teaser
+
+**Use case**: “Odoo vs other ERPs” teaser + button: drive traffic to the comparison pages.
+
+**Pages**: none
+
+```xml
+<section class="s_text_image s_cap_comparison_teaser o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_comparison_teaser" data-name="Captivea Comparison teaser">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center"><p class="lead">Compare</p><h2>Odoo vs other ERPs</h2><p class="lead">{Teaser linking to the Odoo vs [competitor] pages — e.g. More flexible, more affordable and more modern than legacy ERPs — see how Odoo compares.}</p><p><a href="/erp/erp-comparison" class="btn btn-secondary o_translate_inline">See all comparisons</a></p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_comparison_table` — Captivea: Comparison table
+
+**Use case**: Comparison table, Odoo vs a named competitor.
+
+**Pages**: Product, Comparison
+
+```xml
+<section class="s_text_image s_cap_comparison_table o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_comparison_table" data-name="Captivea Comparison table">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Comparison</p><h2>Odoo vs {Competitor — e.g. SAP Business One}</h2><p class="lead">More flexible, more affordable and more modern than legacy ERPs.</p></div><div class="o_colored_level col-lg-12 pt8 pb8"><table class="table"><thead><tr><th>Criteria</th><th>Odoo</th><th>{Competitor}</th></tr></thead><tbody><tr><td>{Criteria 1 — e.g. Total cost of ownership}</td><td>{Odoo value — e.g. Transparent per-user pricing}</td><td>{Competitor value — e.g. High license and maintenance fees}</td></tr><tr><td>{Criteria 2 — e.g. Deployment time}</td><td>{Odoo value — e.g. Weeks to a few months}</td><td>{Competitor value — e.g. Long, costly rollouts}</td></tr><tr><td>{Criteria 3 — e.g. Flexibility and customization}</td><td>{Odoo value — e.g. Open source, fully adaptable}</td><td>{Competitor value — e.g. Rigid, expensive to customize}</td></tr></tbody></table></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_erp_contenders` — Captivea: ERP contenders
+
+**Use case**: 2 “who is who?” cards: introduce both compared ERPs on equal footing.
+
+**Pages**: none
+
+```xml
+<section class="s_text_image s_cap_erp_contenders o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_erp_contenders" data-name="Captivea ERP contenders"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">The contenders</p><h2>Who is who?</h2></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h4">Odoo</h3><p class="card-text">{What Odoo is — e.g. An open-source, modular ERP covering sales, accounting, inventory, manufacturing and more, activated app by app.}</p><p><a href="https://www.odoo.com" target="_blank" rel="noopener" class="btn btn-secondary o_translate_inline">Know more about Odoo on odoo.com</a></p><p class="mb-0"><a href="/odoo-erp" class="o_translate_inline">Discover Odoo →</a></p></div></div></div><div class="o_colored_level col-lg-6 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h4">{Competitor — e.g. SAP Business One}</h3><p class="card-text">{What the competitor is — e.g. An ERP for SMBs with strong brand recognition, robust but heavier and costlier to implement.}</p><p class="mb-0"><a href="https://www.competitor-website.com" target="_blank" rel="noopener" class="btn btn-secondary o_translate_inline">Know more about {Competitor}</a></p></div></div></div></div></div></section>
+```
+
+## `s_cap_decision_criteria` — Captivea: Decision criteria
+
+**Use case**: 3 parts, “the questions to ask yourself”: guide the decision without selling.
+
+**Pages**: none
+
+```xml
+<section class="s_text_image s_cap_decision_criteria o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_decision_criteria" data-name="Captivea Decision criteria"><div class="container"><div class="row align-items-stretch"><div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">How to decide</p><h2>The questions to ask yourself</h2><h3>For whom?</h3><p>{Odoo vs {Competitor} on company size — e.g. Odoo fits SMBs and mid-market with its modular apps; {Competitor} targets larger, more complex organisations.}</p><h3>The price?</h3><p>{Concrete cost comparison — e.g. According to Odoo.com, 50 users cost about $75,000/year on Odoo vs $282,625 with {Competitor}.}</p><h3>Implementation?</h3><p>{Deployment speed — e.g. Odoo is modular and quick to configure and grow; {Competitor} is more powerful but longer and costlier to deploy.}</p></div></div></div></section>
+```
+
+## `s_cap_comparison_verdict` — Captivea: Comparison verdict
+
+**Use case**: Clear verdict + CTA: the conclusion of a comparison page.
+
+**Pages**: none
+
+```xml
+<section class="s_text_block s_cap_comparison_verdict o_cc o_cc1 o_colored_level pt32 pb32 text-center" data-snippet="s_cap_comparison_verdict" data-name="Captivea Comparison verdict"><div class="s_allow_columns container"><div class="row"><div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Which ERP is better for your business?</p><h2>{Verdict — e.g. For most SMBs, Odoo wins on flexibility and total cost of ownership}</h2><p>{Balanced closing — e.g. Both are solid ERPs; if you need an affordable, customizable and fast-to-deploy solution, Odoo is the better fit — and Captivea deploys it end to end.}</p><p><a href="#form" class="btn btn-primary o_translate_inline me-2">Contact us now</a><a href="/schedule-odoo-demonstration" class="btn btn-secondary o_translate_inline">Ask for an Odoo demo</a></p></div></div></div></section>
+```
+
+## `s_cap_more_comparisons` — Captivea: More comparisons
+
+**Use case**: Links to the other comparisons: internal linking between “Odoo vs X” pages.
+
+**Pages**: none
+
+```xml
+<section class="s_text_block s_cap_more_comparisons o_cc o_cc1 o_colored_level pt32 pb32 text-center" data-snippet="s_cap_more_comparisons" data-name="Captivea More comparisons"><div class="s_allow_columns container"><div class="row"><div class="o_colored_level col-lg-12 pt8 pb8"><p class="lead">Keep comparing</p><h2>More Odoo ERP comparisons</h2><div class="d-flex flex-wrap justify-content-center gap-2 mt-3"><a href="/erp/erp-comparison/odoo-vs-sap" class="btn btn-secondary btn-sm">Odoo vs SAP</a><a href="/erp/erp-comparison/odoo-vs-microsoft-dynamics" class="btn btn-secondary btn-sm">Odoo vs Microsoft Dynamics</a><a href="/erp/erp-comparison/odoo-vs-netsuite" class="btn btn-secondary btn-sm">Odoo vs NetSuite</a><a href="/erp/erp-comparison/odoo-vs-sage-x3" class="btn btn-secondary btn-sm">Odoo vs Sage X3</a><a href="/erp/erp-comparison/odoo-vs-acumatica" class="btn btn-secondary btn-sm">Odoo vs Acumatica</a><a href="/erp/erp-comparison/odoo-vs-cegid" class="btn btn-secondary btn-sm">Odoo vs Cegid</a><a href="/erp/erp-comparison/odoo-vs-divalto" class="btn btn-secondary btn-sm">Odoo vs Divalto</a><a href="/erp/erp-comparison/odoo-vs-dolibarr" class="btn btn-secondary btn-sm">Odoo vs Dolibarr</a><a href="/erp/erp-comparison/odoo-vs-ebp" class="btn btn-secondary btn-sm">Odoo vs EBP</a><a href="/erp/erp-comparison" class="btn btn-primary btn-sm">See all ERP comparisons</a></div></div></div></div></section>
+```
+
+## `s_cap_odoo_apps` — Captivea: Odoo apps
+
+**Use case**: 8 cards of relevant Odoo apps + links: show functional coverage.
+
+**Pages**: Sub-sector, Sector, Team, Product, App Odoo, ISV, Case study
+
+```xml
+<section class="s_text_image s_cap_odoo_apps o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_odoo_apps" data-name="Captivea Odoo apps">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">The Odoo apps relevant to you</p><h2>The complete Odoo suite</h2><p class="lead">All Odoo applications, activated at your own pace.</p></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Sales &amp; CRM</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/crm" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" />
+<path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+<path d="m21 3 1 11h-2" />
+<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+<path d="M3 4h8" /></svg></span>CRM</a>
+                      <a href="https://www.odoo.com/app/sales" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1" />
+<circle cx="19" cy="21" r="1" />
+<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>Sales</a>
+                      <a href="https://www.odoo.com/app/point-of-sale-shop" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
+<path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
+<path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" /></svg></span>Point of Sale</a>
+                      <a href="https://www.odoo.com/app/rental" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" />
+<path d="m21 2-9.6 9.6" />
+<circle cx="7.5" cy="15.5" r="5.5" /></svg></span>Rental</a>
+                      <a href="https://www.odoo.com/app/field-service" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg></span>Field Service</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Website</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/website" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+<path d="M2 12h20" /></svg></span>Website</a>
+                      <a href="https://www.odoo.com/app/ecommerce" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
+<path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
+<path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" /></svg></span>eCommerce</a>
+                      <a href="https://www.odoo.com/app/live-chat" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+<path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></span>Live Chat</a>
+                      <a href="https://www.odoo.com/app/events" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3" />
+<path d="M16 2v3" />
+<rect x="3" y="3" width="18" height="18" rx="2" />
+<path d="M3 9h18" />
+<path d="M8 13h.01" />
+<path d="M12 13h.01" />
+<path d="M16 13h.01" />
+<path d="M8 17h.01" />
+<path d="M12 17h.01" />
+<path d="M16 17h.01" /></svg></span>Events</a>
+                      <a href="https://www.odoo.com/app/elearning" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+<path d="M22 10v6" />
+<path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg></span>eLearning</a>
+                      <a href="https://www.odoo.com/app/blog" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" />
+<path d="M18 14h-8" />
+<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+<rect width="8" height="4" x="10" y="6" rx="1" /></svg></span>Blog</a>
+                      <a href="https://www.odoo.com/app/forum" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+<path d="M12 17h.01" /></svg></span>Forum</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Inventory &amp; Manufacturing</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/inventory" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" />
+<path d="m7 16.5-4.74-2.85" />
+<path d="m7 16.5 5-3" />
+<path d="M7 16.5v5.17" />
+<path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" />
+<path d="m17 16.5-5-3" />
+<path d="m17 16.5 4.74-2.85" />
+<path d="M17 16.5v5.17" />
+<path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" />
+<path d="M12 8 7.26 5.15" />
+<path d="m12 8 4.74-2.85" />
+<path d="M12 13.5V8" /></svg></span>Inventory</a>
+                      <a href="https://www.odoo.com/app/purchase" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1" />
+<circle cx="19" cy="21" r="1" />
+<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>Purchase</a>
+                      <a href="https://www.odoo.com/app/manufacturing" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16h.01" />
+<path d="M16 16h.01" />
+<path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+<path d="M8 16h.01" /></svg></span>Manufacturing</a>
+                      <a href="https://www.odoo.com/app/quality" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+<path d="m9 12 2 2 4-4" /></svg></span>Quality</a>
+                      <a href="https://www.odoo.com/app/maintenance" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg></span>Maintenance</a>
+                      <a href="https://www.odoo.com/app/plm" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="8" x="3" y="3" rx="2" />
+<path d="M7 11v4a2 2 0 0 0 2 2h4" />
+<rect width="8" height="8" x="13" y="13" rx="2" /></svg></span>PLM</a>
+                      <a href="https://www.odoo.com/app/barcode" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5v14" />
+<path d="M8 5v14" />
+<path d="M12 5v14" />
+<path d="M17 5v14" />
+<path d="M21 5v14" /></svg></span>Barcode</a>
+                      <a href="https://www.odoo.com/app/repairs" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" />
+<path d="m18 15 4-4" />
+<path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" /></svg></span>Repairs</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Finance</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/accounting" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" />
+<path d="m19 8 3 8a5 5 0 0 1-6 0zV7" />
+<path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1" />
+<path d="m5 8 3 8a5 5 0 0 1-6 0zV7" />
+<path d="M7 21h10" /></svg></span>Accounting</a>
+                      <a href="https://www.odoo.com/app/invoicing" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+<path d="M14 2v5a1 1 0 0 0 1 1h5" />
+<path d="M10 9H8" />
+<path d="M16 13H8" />
+<path d="M16 17H8" /></svg></span>Invoicing</a>
+                      <a href="https://www.odoo.com/app/expenses" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17V7" />
+<path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" />
+<path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" /></svg></span>Expenses</a>
+                      <a href="https://www.odoo.com/app/sign" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284" />
+<path d="M3 21h18" /></svg></span>Sign</a>
+                      <a href="https://www.odoo.com/app/documents" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></svg></span>Documents</a>
+                      <a href="https://www.odoo.com/app/spreadsheet" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18" />
+<rect width="18" height="18" x="3" y="3" rx="2" />
+<path d="M3 9h18" />
+<path d="M3 15h18" /></svg></span>Spreadsheet</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Human Resources</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/employees" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+<path d="M16 3.128a4 4 0 0 1 0 7.744" />
+<path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+<circle cx="9" cy="7" r="4" /></svg></span>Employees</a>
+                      <a href="https://www.odoo.com/app/recruitment" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+<circle cx="9" cy="7" r="4" />
+<line x1="19" x2="19" y1="8" y2="14" />
+<line x1="22" x2="16" y1="11" y2="11" /></svg></span>Recruitment</a>
+                      <a href="https://www.odoo.com/app/time-off" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4" />
+<path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3" />
+<path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35" />
+<path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14" /></svg></span>Time Off</a>
+                      <a href="https://www.odoo.com/app/payroll" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" />
+<circle cx="12" cy="12" r="2" />
+<path d="M6 12h.01M18 12h.01" /></svg></span>Payroll</a>
+                      <a href="https://www.odoo.com/app/appraisals" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></span>Appraisals</a>
+                      <a href="https://www.odoo.com/app/fleet" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+<circle cx="7" cy="17" r="2" />
+<path d="M9 17h6" />
+<circle cx="17" cy="17" r="2" /></svg></span>Fleet</a>
+                      <a href="https://www.odoo.com/app/lunch" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+<path d="M7 2v20" />
+<path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg></span>Lunch</a>
+                      <a href="https://www.odoo.com/app/referrals" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3" />
+<circle cx="6" cy="12" r="3" />
+<circle cx="18" cy="19" r="3" />
+<line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+<line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg></span>Referrals</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Marketing</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/email-marketing" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+<rect x="2" y="4" width="20" height="16" rx="2" /></svg></span>Email Marketing</a>
+                      <a href="https://www.odoo.com/app/sms-marketing" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+<path d="M12 18h.01" /></svg></span>SMS Marketing</a>
+                      <a href="https://www.odoo.com/app/social-marketing" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
+<path d="M7 10v12" /></svg></span>Social Marketing</a>
+                      <a href="https://www.odoo.com/app/marketing-automation" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8" />
+<rect width="16" height="12" x="4" y="8" rx="2" />
+<path d="M2 14h2" />
+<path d="M20 14h2" />
+<path d="M15 13v2" />
+<path d="M9 13v2" /></svg></span>Marketing Automation</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Productivity</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/discuss" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" /></svg></span>Discuss</a>
+                      <a href="https://www.odoo.com/app/project" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h8" />
+<path d="M12 16h6" />
+<path d="M3 3v16a2 2 0 0 0 2 2h16" />
+<path d="M8 11h7" /></svg></span>Project</a>
+                      <a href="https://www.odoo.com/app/timesheet" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="M12 6v6l4 2" /></svg></span>Timesheets</a>
+                      <a href="https://www.odoo.com/app/note" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" />
+<path d="M15 3v5a1 1 0 0 0 1 1h5" /></svg></span>Notes</a>
+                      <a href="https://www.odoo.com/app/approvals" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span>Approvals</a>
+                      <a href="https://www.odoo.com/app/voip" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg></span>VoIP</a>
+                      <a href="https://www.odoo.com/app/knowledge" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" /></svg></span>Knowledge</a>
+                      </div></div></div></div><div class="o_colored_level col-md-6 col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><h3 class="card-title h5-fs">Technical</h3><div class="d-flex flex-wrap gap-2">
+                      <a href="https://www.odoo.com/app/studio" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.622 17.897-10.68-2.913" />
+<path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z" />
+<path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15" /></svg></span>Studio</a>
+                      <a href="https://www.odoo.com/app/iot" target="_blank" rel="noopener" class="btn btn-secondary btn-sm mb-2"><span class="o_lucide_icon o_editable_media me-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h.01" />
+<path d="M2 8.82a15 15 0 0 1 20 0" />
+<path d="M5 12.859a10 10 0 0 1 14 0" />
+<path d="M8.5 16.429a5 5 0 0 1 7 0" /></svg></span>IoT</a>
+                      </div></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_app_definition` — Captivea: App definition
+
+**Use case**: Presentation of one specific Odoo app (name, role, scope).
+
+**Pages**: App Odoo
+
+```xml
+<section class="s_text_image s_cap_app_definition o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_app_definition" data-name="Captivea App definition">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">The app</p><h2>{Odoo app name — e.g. Odoo CRM}</h2><p>{What this Odoo app is and what it is for — e.g. Odoo CRM centralizes your pipeline, quotes and follow-ups so nothing slips through the cracks.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_use_cases` — Captivea: Use cases
+
+**Use case**: 3 cards of concrete use cases for an app or an add-on.
+
+**Pages**: App Odoo, Add-on
+
+```xml
+<section class="s_text_image s_cap_use_cases o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_use_cases" data-name="Captivea Use cases">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Use cases</p><h2>Concrete uses</h2></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Use case — e.g. Pipeline management}</h3><p class="card-text">{Description — e.g. Track every opportunity from first contact to close on a single board.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Use case — e.g. Quotes and e-signature}</h3><p class="card-text">{Description — e.g. Send quotes clients can sign online, with no back-and-forth.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Use case — e.g. Automated follow-ups}</h3><p class="card-text">{Description — e.g. Trigger reminders automatically so no lead goes cold.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_addon` — Captivea: Captivea add-on
+
+**Use case**: Presentation of a Captivea module (what it brings, who it is for).
+
+**Pages**: Add-on
+
+```xml
+<section class="s_text_image s_cap_addon o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_addon" data-name="Captivea Captivea add-on">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Captivea add-on</p><h2>{Add-on name — e.g. Captivea Advanced Reporting}</h2><p>{Short definition of the add-on — e.g. A Captivea module that extends Odoo with ready-to-use dashboards and KPIs for your teams.}</p><div><br/></div><p>Extends the native Odoo app: <a href="#" class="o_translate_inline">{Parent Odoo app — e.g. Odoo Accounting}</a></p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_isv_intro` — Captivea: ISV presentation
+
+**Use case**: “Who is {Partner}?” with a visual: the opening of a third-party vendor page.
+
+**Pages**: ISV
+
+```xml
+<section class="s_text_image s_cap_isv_intro o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_isv_intro" data-name="Captivea ISV presentation"><div class="container"><div class="row align-items-center"><div class="o_colored_level col-lg-9 pt8 pb8"><p class="lead">Partner</p><h2>Who is {Partner name — e.g. Agicap}?</h2><p>{Presentation of the ISV partner and its solution — e.g. A European leader in treasury management for SMEs, whose platform integrates natively with Odoo to cover an advanced business need.}</p></div><div class="o_colored_level col-lg-3 pt8 pb8 text-center d-flex flex-column justify-content-center"><img src="/web/image/website.s_text_image_default_image" class="img img-fluid mb-3 mx-auto" style="max-height:120px;width:auto" alt="{Partner} logo" data-name="Image"/><p class="mb-0"><a href="https://www.partner-website.com" target="_blank" rel="noopener" class="btn btn-secondary o_translate_inline">Learn more about {Partner}</a></p></div></div></div></section>
+```
+
+## `s_cap_isv_benefits` — Captivea: ISV user benefits
+
+**Use case**: 3 cards of end-user benefits of the integration.
+
+**Pages**: ISV
+
+```xml
+<section class="s_text_image s_cap_isv_benefits o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_isv_benefits" data-name="Captivea ISV user benefits">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">User benefits</p><h2>What you gain</h2></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Benefit — e.g. Native integration}</h3><p class="card-text">{Description — e.g. Works seamlessly inside your Odoo, with no double entry.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Benefit — e.g. Faster deployment}</h3><p class="card-text">{Description — e.g. Ready-to-use connectors shorten the project timeline.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Benefit — e.g. Lower total cost}</h3><p class="card-text">{Description — e.g. One ecosystem to maintain instead of several disconnected tools.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_isv_integration` — Captivea: ISV integration by Captivea
+
+**Use case**: The integration Captivea builds between the third-party product and Odoo.
+
+**Pages**: none
+
+```xml
+<section class="s_text_image s_cap_isv_integration o_cc o_cc3 o_colored_level pt40 pb40" data-snippet="s_cap_isv_integration" data-name="Captivea ISV integration">
+    <div class="container"><div class="row align-items-center">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8 text-center"><p class="lead">Integration by Captivea</p><h2>Master your {topic — e.g. treasury}: {Partner} integrates seamlessly with Odoo through Captivea</h2><p>{As an Odoo Gold Partner, Captivea connects {Partner} to your existing Odoo — one source of truth, no double entry. From scoping to go-live and beyond, we handle the integration end to end.}</p><p><a href="#form" class="btn btn-primary o_translate_inline">Integrate {Partner} with my Odoo</a></p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_erp_compatibility` — Captivea: ERP compatibility
+
+**Use case**: Compatibility table for Odoo versions / editions.
+
+**Pages**: ISV
+
+```xml
+<section class="s_text_image s_cap_erp_compatibility o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_erp_compatibility" data-name="Captivea ERP compatibility">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Compatibility</p><h2>Works with your Odoo</h2></div><div class="o_colored_level col-lg-12 pt8 pb8"><table class="table"><thead><tr><th>Odoo edition / version</th><th>Compatibility</th></tr></thead><tbody><tr><td>{Edition / version — e.g. Odoo 17 Enterprise}</td><td>{Yes / details — e.g. Fully compatible}</td></tr><tr><td>{Edition / version — e.g. Odoo 16 Community}</td><td>{Yes / details — e.g. Compatible, some features require Enterprise}</td></tr></tbody></table></div>
+    </div></div>
+</section>
+```
+
+---
+
+# 4. Captivea — Company & Local (`cap_company`)
+
+## `s_cap_story` — Captivea: Story
+
+**Use case**: The company's story (long-form text).
+
+**Pages**: Home, About
+
+```xml
+<section class="s_text_image s_cap_story o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_story" data-name="Captivea Story">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">Our story</p><h2>{Story title — e.g. From a conviction to a global group}</h2><div>{Chapter 1: where we come from — e.g. Captivea was born from a simple conviction: bring technology closer to business, with an obsession for client autonomy.}</div><div><br/></div><div>{Chapter 2: what drives us today — e.g. Today we are a group organized by industry vertical, closely aligned with the real challenges of each client.}</div></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_values` — Captivea: Values
+
+**Use case**: 3 value cards: what guides every project.
+
+**Pages**: About
+
+```xml
+<section class="s_text_image s_cap_values o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_values" data-name="Captivea Values">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Our values</p><h2>What guides every project</h2></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></span><h3 class="card-title h5-fs">{Value 1 — e.g. Client satisfaction}</h3><p class="card-text">{Short description with a concrete example — e.g. Respect, attentiveness and transparency: our clients' success is our only compass.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" />
+<path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+<path d="m21 3 1 11h-2" />
+<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+<path d="M3 4h8" /></svg></span><h3 class="card-title h5-fs">{Value 2 — e.g. Performance}</h3><p class="card-text">{Short description with a concrete example — e.g. Individual, collective and client performance — we aim for measurable impact, not empty promises.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg></span><h3 class="card-title h5-fs">{Value 3 — e.g. Cultural diversity}</h3><p class="card-text">{Short description with a concrete example — e.g. Our differences are a strength: they drive our progress and enrich every project.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_conviction` — Captivea: Conviction
+
+**Use case**: Positioning statement, short and wide declarative format.
+
+**Pages**: About
+
+```xml
+<section class="s_text_image s_cap_conviction o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_conviction" data-name="Captivea Conviction">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt8 pb8"><p class="lead">Our conviction</p><h2>{Conviction statement — e.g. A future made better by technology}</h2><p class="lead">{Supporting paragraph — e.g. Technologies can improve our future — provided they are concretely placed in the hands of businesses. That is our role: identifying what matters and bringing it to our clients.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_leadership` — Captivea: Leadership
+
+**Use case**: 4 leadership cards: put faces to the company.
+
+**Pages**: About
+
+```xml
+<section class="s_text_image s_cap_leadership o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_leadership" data-name="Captivea Leadership">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Leadership</p><h2>The people who lead Captivea</h2><p class="lead">Consultants, business analysts, developers and subject-matter experts: it is the energy of our teams that turns technology into concrete results.</p></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+<circle cx="12" cy="7" r="4" /></svg></span><h3 class="card-title h5-fs">{Full name — e.g. Jane Doe}</h3><p class="card-text">{Role.} {One line bio — e.g. CEO. Sets the vision and keeps the company client-obsessed.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+<circle cx="12" cy="7" r="4" /></svg></span><h3 class="card-title h5-fs">{Full name — e.g. John Smith}</h3><p class="card-text">{Role.} {One line bio — e.g. CTO. Leads the technical teams and the Odoo practice.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+<circle cx="12" cy="7" r="4" /></svg></span><h3 class="card-title h5-fs">{Full name — e.g. Maria Garcia}</h3><p class="card-text">{Role.} {One line bio — e.g. COO. Ensures delivery excellence across every project.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+<circle cx="12" cy="7" r="4" /></svg></span><h3 class="card-title h5-fs">{Full name — e.g. David Chen}</h3><p class="card-text">{Role.} {One line bio — e.g. CFO. Keeps growth sustainable and finances transparent.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_country_presence` — Captivea: Country presence
+
+**Use case**: 4 cards of international presence.
+
+**Pages**: About
+
+```xml
+<section class="s_text_image s_cap_country_presence o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_country_presence" data-name="Captivea Country presence">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Our presence</p><h2>One team, present where you are</h2><p class="lead">A structure replicated country by country, local teams and offshore competency centers — the best of both worlds.</p></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+<path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
+<path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+<circle cx="12" cy="12" r="10" /></svg></span><h3 class="card-title h5-fs">{Country — e.g. United States}</h3><p class="card-text">{City / office — e.g. Florida headquarters.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+<path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
+<path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+<circle cx="12" cy="12" r="10" /></svg></span><h3 class="card-title h5-fs">{Country — e.g. France}</h3><p class="card-text">{City / office — e.g. Chambery office.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+<path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
+<path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+<circle cx="12" cy="12" r="10" /></svg></span><h3 class="card-title h5-fs">{Country — e.g. Singapore}</h3><p class="card-text">{City / office — e.g. Asia-Pacific hub.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+<path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17" />
+<path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+<circle cx="12" cy="12" r="10" /></svg></span><h3 class="card-title h5-fs">{Country — e.g. India}</h3><p class="card-text">{City / office — e.g. Offshore competency center.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_offices` — Captivea: Offices
+
+**Use case**: 4 office cards: geographic proximity, local SEO.
+
+**Pages**: Home, Country
+
+```xml
+<section class="s_text_image s_cap_offices o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_offices" data-name="Captivea Offices">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Our offices</p><h2>Close to you in {country}</h2><p class="lead">A regional presence to support your teams wherever you are.</p></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+<circle cx="12" cy="10" r="3" /></svg></span><h3 class="card-title h5-fs">{City — e.g. Florida}</h3><p class="card-text">{Address line — e.g. US Headquarters, Florida.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover our office in {city}</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+<circle cx="12" cy="10" r="3" /></svg></span><h3 class="card-title h5-fs">{City — e.g. New York}</h3><p class="card-text">{Address line — e.g. Northeast region.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover our office in {city}</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+<circle cx="12" cy="10" r="3" /></svg></span><h3 class="card-title h5-fs">{City — e.g. Chicago}</h3><p class="card-text">{Address line — e.g. Midwest region.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover our office in {city}</a></div></div></div><div class="o_colored_level col-6 col-lg-3 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+<circle cx="12" cy="10" r="3" /></svg></span><h3 class="card-title h5-fs">{City — e.g. Texas}</h3><p class="card-text">{Address line — e.g. South-Central region.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Discover our office in {city}</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+## `s_cap_coverage` — Captivea: Coverage areas
+
+**Use case**: Areas served (icon list): local SEO on cities/regions.
+
+**Pages**: Country, Office, Partner
+
+```xml
+<section class="s_text_image s_cap_coverage o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_coverage" data-name="Captivea Coverage areas">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Coverage</p><h2>Areas we serve</h2><p class="lead">Beyond our offices, we serve clients across every region.</p></div><div class="o_colored_level offset-lg-1 col-lg-10 text-center"><div class="d-flex flex-wrap justify-content-center gap-2"><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Southeast</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Northeast</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Mid-Atlantic</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>South-Central</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Midwest</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Great Lakes</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Southwest</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>West Coast</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Pacific Northwest</span><span class="s_badge badge text-bg-secondary o_animable" data-name="Badge" data-vxml="001" data-snippet="s_badge"><span class="o_lucide_icon o_editable_media lucide-compass o_not-animable" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg></span>Mountain West</span></div></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_market_spotlight` — Captivea: Market spotlight
+
+**Use case**: Spotlight on a market / country: the local context of a geographic page.
+
+**Pages**: Home, Country, Office
+
+```xml
+<section class="s_text_image s_cap_market_spotlight o_cc o_cc2 o_colored_level pt32 pb32" data-snippet="s_cap_market_spotlight" data-name="Captivea Market spotlight">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt8 pb8"><p class="lead">Spotlight</p><h2>{Market / country name — e.g. France}</h2><p class="lead">{Local proof and specifics for this market — e.g. Local teams, French-speaking support and full compliance with local accounting and regulatory requirements.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_leader_odoo` — Captivea: Odoo leader argument
+
+**Use case**: “The worldwide leader in Odoo integration”: authority argument.
+
+**Pages**: Home
+
+```xml
+<section class="s_text_image s_cap_leader_odoo o_cc o_cc3 o_colored_level pt64 pb64" data-snippet="s_cap_leader_odoo" data-name="Captivea Odoo leader argument">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt8 pb8"><p class="lead">Odoo Gold Partner</p><h2>The worldwide leader in Odoo integration</h2><p class="lead">{Proof: years, projects, awards, offices — e.g. Odoo Gold Partner, twice nominated at the 2024 Odoo Awards in Europe and North America, with 18+ years of experience and 800+ projects.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_services` — Captivea: Services
+
+**Use case**: 5 cards of delivered services: the offer in one screen.
+
+**Pages**: Home, Country, Office, Partner
+
+```xml
+<section class="s_text_image s_cap_services o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_services" data-name="Captivea Services">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">What we deliver</p><h2>Our services</h2><p class="lead">From consulting to implementation: what you gain, concretely.</p></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+<rect width="20" height="14" x="2" y="6" rx="2" /></svg></span><h3 class="card-title h5-fs">Business Consulting</h3><p class="card-text">{Benefit-oriented description — e.g. Frame your digital transformation and optimize your processes with expert guidance.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/business-consulting" class="o_translate_inline">How Business Consulting can transform my everyday</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2" />
+<rect x="14" y="2" width="8" height="8" rx="1" /></svg></span><h3 class="card-title h5-fs">ERP</h3><p class="card-text">{Benefit-oriented description — e.g. A single platform to run sales, projects and invoicing.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/erp" class="o_translate_inline">How ERP can transform my everyday</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+<path d="M2 12h20" /></svg></span><h3 class="card-title h5-fs">Web &amp; Marketing</h3><p class="card-text">{Benefit-oriented description — e.g. Attract customers, get found online and sell through a connected website.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/website-and-marketing" class="o_translate_inline">How Web &amp; Marketing can transform my everyday</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8" />
+<rect width="16" height="12" x="4" y="8" rx="2" />
+<path d="M2 14h2" />
+<path d="M20 14h2" />
+<path d="M15 13v2" />
+<path d="M9 13v2" /></svg></span><h3 class="card-title h5-fs">Artificial Intelligence</h3><p class="card-text">{Benefit-oriented description — e.g. Automate repetitive tasks and anticipate demand with practical AI.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/artificial-intelligence" class="o_translate_inline">How Artificial Intelligence can transform my everyday</a></div></div></div><div class="o_colored_level col pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16" />
+<path d="m19 9-5 5-4-4-3 3" /></svg></span><h3 class="card-title h5-fs">Business Intelligence</h3><p class="card-text">{Benefit-oriented description — e.g. Visualize your performance and track your KPIs on clear dashboards.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="/business-intelligence" class="o_translate_inline">How Business Intelligence can transform my everyday</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+---
+
+# 5. Captivea — Offers & Case studies (`cap_offers`)
+
+## `s_cap_offer_detail` — Captivea: Offer detail
+
+**Use case**: Detail of a packaged offer (contents, scope, deliverables).
+
+**Pages**: Offer
+
+```xml
+<section class="s_text_image s_cap_offer_detail o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_offer_detail" data-name="Captivea Offer detail">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">The offer</p><h2>{Offer name — e.g. Odoo Quick Start}</h2><p>{What the offer covers — e.g. A fixed-scope package to get your core Odoo apps live fast, with configuration, data import and user training.}</p><div><br/></div><p>{Engagement models (fixed price / time credit / pay-as-you-go) and sourcing (local / hybrid / offshore) — e.g. Available as fixed price, time credit or pay-as-you-go, delivered locally, hybrid or offshore to fit your budget.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_benefit_positioning` — Captivea: Benefit positioning
+
+**Use case**: The customer benefit stated in one strong sentence: the opening of a benefit page.
+
+**Pages**: Benefit
+
+```xml
+<section class="s_text_image s_cap_benefit_positioning o_cc o_cc3 o_colored_level pt64 pb64" data-snippet="s_cap_benefit_positioning" data-name="Captivea Benefit positioning">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt8 pb8"><p class="lead">Benefit</p><h2>{Benefit statement — e.g. Give your teams back their selling time}</h2><p class="lead">{Who it is for and the outcome delivered — e.g. For sales-driven SMBs and mid-market companies that want less admin and more closed deals.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_case_context` — Captivea: Client context
+
+**Use case**: The client of a case study: who they are, their challenge.
+
+**Pages**: Case study
+
+```xml
+<section class="s_text_image s_cap_case_context o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_case_context" data-name="Captivea Client context">
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level offset-lg-1 col-lg-10 pt8 pb8"><p class="lead">The client</p><h2>{Client name — e.g. Groupe Atlas Industries}</h2><p>{Who they are, their sector and their situation before the project — e.g. A mechanical-equipment manufacturer running three sites with siloed tools, multiple data re-entries and no consolidated visibility.}</p></div>
+    </div></div>
+</section>
+```
+
+## `s_cap_timeline` — Captivea: Project timeline
+
+**Use case**: 3 milestone cards: how the project unfolded, chronologically.
+
+**Pages**: Case study
+
+```xml
+<section class="s_text_image s_cap_timeline o_cc o_cc1 o_colored_level pt32 pb32" data-snippet="s_cap_timeline" data-name="Captivea Project timeline">
+      <div class="container"><div class="row align-items-stretch">
+          <div class="o_colored_level col-lg-12 text-center pt8 pb8"><p class="lead">Timeline</p><h2>How the project unfolded</h2></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" /></svg></span><h3 class="card-title h5-fs">{Phase 1 — e.g. Scoping}</h3><p class="card-text">{What was done — e.g. Department workshops, process modeling and definition of target KPIs.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 17H5" />
+<path d="M19 7h-9" />
+<circle cx="17" cy="17" r="3" />
+<circle cx="7" cy="7" r="3" /></svg></span><h3 class="card-title h5-fs">{Phase 2 — e.g. Design and build}</h3><p class="card-text">{What was done — e.g. Odoo configuration, data migration and custom developments.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div><div class="o_colored_level col-lg-4 pt8 pb8 d-flex"><div class="s_card card o_cc o_cc1 o_colored_level w-100" data-snippet="s_card" data-name="Card"><div class="card-body"><span class="o_lucide_icon o_editable_media"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+<path d="m9 12 2 2 4-4" /></svg></span><h3 class="card-title h5-fs">{Phase 3 — e.g. Go Live}</h3><p class="card-text">{What was done — e.g. Phased go-live site by site, then BI dashboards and AI forecasting.}</p></div><div class="card-footer border-0 bg-transparent pt-0"><a href="#" class="o_translate_inline">Learn more →</a></div></div></div>
+      </div></div>
+  </section>
+```
+
+---
+
+# 6. Captivea Dynamic (`captivea_dynamic`)
+
+These snippets **carry no content**: they read the database and render each record through a card
+template. An AI generating content has nothing to write inside them; it has to create the
+**records** (`quote.testimonial`, `blog.post`, `res.partner`) and drop the section as-is.
+
+## `s_customer_references` — Customer References
+
+**Data source**: Published res.partner records with assigned_partner_id set (limit 16)
+
+**Use case**: Grid of real customer references, tag-filterable, linking to /customers.
+
+**File**: `cap_web_captivea_theme/views/customer_references_templates.xml`
+
+```xml
+<t t-call="website.s_dynamic_snippet_template">
+    <t t-set="snippet_name" t-value="'s_customer_references'"/>
+    <t t-set="main_page_url" t-value="'/customers'"/>
+    <t t-set="snippet_classes" t-value="'s_customer_references %s' % snippet_extra_classes"/>
+    <t t-set="custom_template_data" t-valuef='{"references_tags_active": true}'/>
+    <t t-out="0"/>
+</t>
+```
+
+## `s_cap_blog_posts` — Captivea Blog Posts
+
+**Data source**: blog.post (snippet filter)
+
+**Use case**: Latest articles, tag-filterable from the builder.
+
+**File**: `cap_web_captivea_theme/views/blog_posts_templates.xml`
+
+```xml
+<t t-call="website.s_dynamic_snippet_template">
+    <t t-set="snippet_name" t-value="'s_cap_blog_posts'"/>
+    <t t-set="main_page_url" t-value="'/blog'"/>
+    <t t-set="snippet_classes" t-value="'s_cap_blog_posts %s' % snippet_extra_classes"/>
+    <t t-out="0"/>
+</t>
+```
+
+## `s_captivea_testimonials` — Testimonials
+
+**Data source**: quote.testimonial (cap_web_quote module)
+
+**Use case**: Carousel of testimonials managed in the back office, filterable by company / industry / role / tags.
+
+**File**: `cap_web_quote/views/quote_snippet_templates.xml`
+
+```xml
+<section data-snippet="s_captivea_testimonials"
+    t-attf-class="s_captivea_testimonials #{snippet_extra_classes} s_dynamic o_dynamic_snippet_empty pt64 pb64"
+    data-custom-template-data="{}"
+    data-number-of-records="">
+    <div class="s_dynamic_snippet_container container">
+        <div class="row s_nb_column_fixed">
+            <!-- Dynamic snippet loading effect -->
+            <section class="s_dynamic_snippet_holder d-none px-4 placeholder-glow">
+                <div class="row">
+                    <span class="placeholder col-3 rounded"/>
+                    <span class="placeholder col-2 offset-7 rounded"/>
+                    <span class="placeholder mt-3 col-6 rounded"/>
+                </div>
+                <div class="row mt-4">
+                    <span class="placeholder col-12 rounded" style="height: 250px;"/>
+                </div>
+            </section>
+            <section class="justify-content-between d-flex s_dynamic_snippet_title oe_unremovable oe_unmovable flex-column flex-md-row mb-lg-0 pb-3 pb-md-0 s_col_no_resize">
+                <div>
+                    <h2 class="h3">What our clients say</h2>
+                    <p class="lead">Real stories from the teams we help transform every day.</p>
+                </div>
+            </section>
+            <section class="s_dynamic_snippet_content oe_unremovable oe_unmovable o_not_editable col s_col_no_resize">
+                <div class="css_non_editable_mode_hidden">
+                    <div class="missing_option_warning alert alert-info fade show d-none d-print-none rounded-0">
+                        Your Dynamic Snippet will be displayed here... This message is displayed because you did not provide enough options to retrieve its content.<br/>
+                    </div>
+                </div>
+                <div class="dynamic_snippet_template">
+                    <t t-out="0"/>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+```
+
+## `s_cap_client_quote` — Captivea: Client quote
+
+**Data source**: Published quote.testimonial (the first one by sequence)
+
+**Use case**: One highlighted customer quote in the middle of a page.
+
+**File**: `cap_web_quote/views/quote_client_quote.xml`
+
+```xml
+<section class="s_text_image s_cap_client_quote o_cc o_cc2 o_colored_level pt40 pb40"
+         data-snippet="s_cap_client_quote" data-name="Captivea Client quote">
+    <t t-set="_cq" t-value="env['quote.testimonial'].sudo().search([('is_published', '=', True)], order='sequence, id desc', limit=1)"/>
+    <div class="container"><div class="row align-items-stretch">
+        <div class="o_colored_level col-lg-8 offset-lg-2 text-center pt16 pb16">
+            <div class="s_cap_cq_target">
+                <t t-if="_cq">
+                    <blockquote class="blockquote"><p class="h4" t-out="_cq.quote"/></blockquote>
+                    <footer class="blockquote-footer"><span t-out="_cq.author"/><t t-if="_cq.role_id">, <span t-out="_cq.role_id.name"/></t><t t-if="_cq.company_name"> at <span t-out="_cq.company_name"/></t></footer>
+                </t>
+                <t t-else="">
+                    <blockquote class="blockquote"><p class="h4">{Client quote}</p></blockquote>
+                    <footer class="blockquote-footer">{Author}, {Role} at {Client}</footer>
+                </t>
+            </div>
+        </div>
+    </div></div>
+</section>
+```
+

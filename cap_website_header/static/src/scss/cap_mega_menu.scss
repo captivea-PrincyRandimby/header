@@ -484,7 +484,9 @@ body.editor_enable .s_mega_menu_cap_solutions .cap_mm_pane {
         &:focus-visible {
             background-color: rgba($cap-red, .06);
 
-            .cap_mm_entry_title {
+            // Both lines, like the row 1 dropdown entries this design mirrors.
+            .cap_mm_entry_title,
+            .cap_mm_entry_text {
                 color: $cap-red;
             }
         }

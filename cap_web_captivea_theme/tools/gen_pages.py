@@ -23,7 +23,7 @@ CLIENT_QUOTE = (
  '<div class="container"><div class="row align-items-stretch"><div class="o_colored_level col-lg-8 offset-lg-2 text-center pt16 pb16">'
  '<div class="s_cap_cq_target">'
  '<t t-if="_cq"><blockquote class="blockquote"><p class="h4" t-out="_cq.quote"/></blockquote>'
- '<footer class="blockquote-footer"><span t-out="_cq.author"/><t t-if="_cq.role_id">, <span t-out="_cq.role_id.name"/></t><t t-if="_cq.company_name"> at <span t-out="_cq.company_name"/></t></footer></t>'
+ '<footer class="blockquote-footer"><span t-out="_cq.author"/><t t-if="_cq.role">, <span t-out="_cq.role"/></t><t t-if="_cq.company_name"> at <span t-out="_cq.company_name"/></t></footer></t>'
  '<t t-else=""><blockquote class="blockquote"><p class="h4">{Client quote}</p></blockquote><footer class="blockquote-footer">{Author}, {Role} at {Client}</footer></t>'
  '</div></div></div></div></section>'
 )

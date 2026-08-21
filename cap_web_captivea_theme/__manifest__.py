@@ -7,7 +7,7 @@
     'category': 'Theme/Corporate',
     'summary': 'Odoo integration, ERP, Web, Business Intelligence, AI — Captivea brand',
     'sequence': 110,
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
     'author': 'Captivea',
     'license': 'LGPL-3',
     'application': True,

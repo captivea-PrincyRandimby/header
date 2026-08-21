@@ -68,6 +68,37 @@
         <xpath expr="//span[hasclass('oe_search_found')]" position="replace"/>
     </template>
 
+    <!--
+        Language selector whose button and entries do not say the same thing.
+
+        The mock-up (`Header.png`) wants a compact pill in the top bar - a globe
+        and `EN` - but the full language name in the dropdown, so that the seven
+        published languages can be told apart: `portal.language_selector` prints
+        `url_code.split('_').pop(0).upper()`, i.e. `EN` for `en_US`, `en_CA` and
+        `en_SG` alike.
+
+        Odoo drives both with the same two variables (`no_text`, `codes`), for
+        the button and for the entries at once, and exposes no third one. Hence
+        this primary inheritance: `no_text`/`codes` keep their meaning on the
+        button, and the entries always print the name.
+
+        `res.lang.name` is the source of those labels ("French / Français"),
+        `.split('/').pop()` being Odoo's way of keeping only the endonym. To
+        rename an entry, rename the language in Settings > Translations >
+        Languages - nothing here has to change.
+    -->
+    <template id="cap_language_selector" inherit_id="website.language_selector"
+              primary="True" name="Captivea Language Selector">
+        <!-- The entry is the language name, whatever the button was asked for. -->
+        <xpath expr="//*[contains(@t-attf-class, 'js_change_lang')]/span[@t-if='not no_text']"
+               position="attributes">
+            <attribute name="t-if"/>
+        </xpath>
+        <!-- Its `t-elif` would now hang from nothing, and it is the `EN` branch. -->
+        <xpath expr="//*[contains(@t-attf-class, 'js_change_lang')]/span[@t-elif='codes']"
+               position="replace"/>
+    </template>
+
     <!-- ==================================================================
          The header itself
          ================================================================== -->
@@ -141,13 +172,32 @@
                                     dropdown_menu_classes.f="dropdown-menu-end cap_top_dropdown"
                                     _extra_megamenu_classes.f="dropdown-menu-end"/>
                             </t>
-                            <!-- Language selector: `codes` needs `no_text`, see portal.language_selector -->
-                            <t t-call="website.placeholder_header_language_selector"
-                                no_text="True"
-                                codes="True"
-                                _item_class.f="nav-item cap_header_lang"
-                                _btn_class.f="nav-link d-flex align-items-center"
-                                _dropdown_menu_class.f="dropdown-menu-end"/>
+                            <!--
+                                `cap_language_selector` and not
+                                `website.placeholder_header_language_selector`:
+                                the entries have to carry the language name, see
+                                the template above.
+
+                                Calling it directly also means the `<li>` and the
+                                "more than one language" guard are written here,
+                                the two things the placeholder brought - and that
+                                the native Header > Language Selector options
+                                (Flag, Code, Inline) no longer reach this header.
+                                Deliberate: the pill is designed, exactly like
+                                the `o_hoverable_dropdown` class below. `codes`
+                                is what makes the button print `EN`, and it needs
+                                `no_text`, see portal.language_selector.
+                            -->
+                            <li t-if="len(frontend_languages) &gt; 1"
+                                class="nav-item cap_header_lang o_header_language_selector"
+                                data-name="Language Selector">
+                                <t t-call="cap_website_header.cap_language_selector"
+                                    no_text="True"
+                                    codes="True"
+                                    _div_classes.f="dropdown"
+                                    _btn_class.f="nav-link d-flex align-items-center"
+                                    _dropdown_menu_class.f="dropdown-menu-end"/>
+                            </li>
                         </ul>
                     </div>
                 </div>

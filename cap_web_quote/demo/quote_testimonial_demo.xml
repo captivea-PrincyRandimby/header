@@ -2,34 +2,46 @@
 <odoo>
     <!-- Demo data: loaded only when Odoo demo data is enabled at install. -->
 
-    <!-- Roles -->
-    <record id="demo_role_ceo" model="quote.role">
-        <field name="name">CEO</field>
-    </record>
-    <record id="demo_role_it_director" model="quote.role">
-        <field name="name">IT Director</field>
-    </record>
-    <record id="demo_role_operations" model="quote.role">
-        <field name="name">Operations Manager</field>
-    </record>
-
-    <!-- Tags -->
+    <!-- Tags: the testimonials' own list (quote.tag). -->
     <record id="demo_tag_erp" model="quote.tag">
+        <field name="color">7</field>
         <field name="name">ERP</field>
     </record>
     <record id="demo_tag_manufacturing" model="quote.tag">
+        <field name="color">3</field>
         <field name="name">Manufacturing</field>
     </record>
     <record id="demo_tag_retail" model="quote.tag">
+        <field name="color">3</field>
         <field name="name">Retail</field>
+    </record>
+
+    <!-- Customer contacts, so a testimonial can point at the published customer
+         reference page through partner_id. -->
+    <record id="demo_partner_nordic" model="res.partner">
+        <field name="name">Nordic Furniture</field>
+        <field name="is_company" eval="True"/>
+    </record>
+    <record id="demo_partner_brightpath" model="res.partner">
+        <field name="name">BrightPath Logistics</field>
+        <field name="is_company" eval="True"/>
+    </record>
+    <record id="demo_partner_steelworks" model="res.partner">
+        <field name="name">Steelworks Group</field>
+        <field name="is_company" eval="True"/>
+    </record>
+    <record id="demo_partner_maison" model="res.partner">
+        <field name="name">Maison Léa</field>
+        <field name="is_company" eval="True"/>
     </record>
 
     <!-- Testimonials (published so they show in the dynamic snippet) -->
     <record id="demo_testimonial_1" model="quote.testimonial">
         <field name="name">Nordic Furniture — Sophie Martin</field>
         <field name="author">Sophie Martin</field>
-        <field name="role_id" ref="demo_role_ceo"/>
+        <field name="role">CEO</field>
         <field name="company_name">Nordic Furniture</field>
+        <field name="partner_id" ref="demo_partner_nordic"/>
         <field name="quote">Captivea rebuilt our whole operation around Odoo. Inventory, sales and accounting finally speak the same language, and our team saves hours every day.</field>
         <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_erp'), ref('demo_tag_retail')])]"/>
         <field name="is_published" eval="True"/>
@@ -39,8 +51,9 @@
     <record id="demo_testimonial_2" model="quote.testimonial">
         <field name="name">BrightPath Logistics — James Carter</field>
         <field name="author">James Carter</field>
-        <field name="role_id" ref="demo_role_it_director"/>
+        <field name="role">IT Director</field>
         <field name="company_name">BrightPath Logistics</field>
+        <field name="partner_id" ref="demo_partner_brightpath"/>
         <field name="quote">The migration was smooth and the support outstanding. We went live on time and our warehouse KPIs improved within the first month.</field>
         <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_erp')])]"/>
         <field name="is_published" eval="True"/>
@@ -48,22 +61,24 @@
     </record>
 
     <record id="demo_testimonial_3" model="quote.testimonial">
-        <field name="name">Verde Foods — Elena Rossi</field>
-        <field name="author">Elena Rossi</field>
-        <field name="role_id" ref="demo_role_operations"/>
-        <field name="company_name">Verde Foods</field>
-        <field name="quote">Captivea understood our manufacturing constraints from day one. Real-time traceability changed how we run the plant.</field>
+        <field name="name">Steelworks Group — Laura Meier</field>
+        <field name="author">Laura Meier</field>
+        <field name="role">Operations Manager</field>
+        <field name="company_name">Steelworks Group</field>
+        <field name="partner_id" ref="demo_partner_steelworks"/>
+        <field name="quote">Production planning used to live in spreadsheets. It now runs in Odoo, and we finally see our real margins per order.</field>
         <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_manufacturing')])]"/>
         <field name="is_published" eval="True"/>
         <field name="sequence">30</field>
     </record>
 
     <record id="demo_testimonial_4" model="quote.testimonial">
-        <field name="name">Atelier Lumière — Marc Dubois</field>
-        <field name="author">Marc Dubois</field>
-        <field name="role_id" ref="demo_role_ceo"/>
-        <field name="company_name">Atelier Lumière</field>
-        <field name="quote">A true Odoo Gold partner: pragmatic, fast and genuinely invested in our success. We now manage the entire business from a single platform.</field>
+        <field name="name">Maison Léa — Thomas Bernard</field>
+        <field name="author">Thomas Bernard</field>
+        <field name="role">CEO</field>
+        <field name="company_name">Maison Léa</field>
+        <field name="partner_id" ref="demo_partner_maison"/>
+        <field name="quote">One platform for our shops and our online store. Stock is accurate, and our staff needed a single afternoon to learn it.</field>
         <field name="tag_ids" eval="[(6, 0, [ref('demo_tag_manufacturing'), ref('demo_tag_retail')])]"/>
         <field name="is_published" eval="True"/>
         <field name="sequence">40</field>

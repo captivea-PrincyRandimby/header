@@ -3,7 +3,12 @@
     # 3.3: the "Transform your solutions" panel got one pane per shortcut,
     # switched on hover and on click. Existing panels keep their single pane
     # until "Reset the mega menu panels" is clicked.
-    'version': '19.0.3.3.0',
+    # 3.4: the language selector prints the language name on its entries, so the
+    # seven published languages stop all reading `EN` or `FR`. The button keeps
+    # the compact code of the mock-up.
+    # 3.4.1: the row 1 dropdown entry of the page being read was turned white by
+    # `website.scss`, on a white dropdown.
+    'version': '19.0.3.4.3',
     'category': 'Website/Website',
     'summary': "Three-row Captivea website header (top bar, logo/search/CTA, mega menu bar)",
     'description': """

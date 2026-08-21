@@ -10,10 +10,9 @@
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="author"/>
-                <field name="role_id"/>
+                <field name="role"/>
                 <field name="company_name"/>
                 <field name="tag_ids" widget="many2many_tags" optional="show"/>
-                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
                 <field name="website_id" groups="website.group_multi_website" optional="hide"/>
                 <field name="is_published" widget="boolean_toggle"/>
             </list>
@@ -32,20 +31,23 @@
                         <group>
                             <field name="name"/>
                             <field name="author"/>
-                            <field name="role_id" options="{'no_quick_create': True}"/>
+                            <field name="role" placeholder="e.g. Operations Director"/>
                             <field name="company_name"/>
                             <field name="partner_id"/>
                         </group>
                         <group>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
                             <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
                             <field name="is_published"/>
                         </group>
                     </group>
-                    <group string="Quote">
-                        <field name="quote" nolabel="1"/>
-                    </group>
+                    <!-- The quote sits at sheet level, not inside a <group>: a group
+                         lays its children out in two label/field columns, which squeezed
+                         the textarea into a narrow strip. Directly under the sheet it
+                         takes the full width. -->
+                    <separator string="Quote"/>
+                    <field name="quote" nolabel="1" class="w-100"
+                           placeholder="The client's own words, as they will read on the website…"/>
                 </sheet>
             </form>
         </field>
@@ -63,23 +65,8 @@
               name="Testimonials"
               action="action_quote_testimonial"/>
 
-    <!-- ===== Roles (dedicated table) ===== -->
-    <record id="view_quote_role_list" model="ir.ui.view">
-        <field name="name">quote.role.list</field>
-        <field name="model">quote.role</field>
-        <field name="arch" type="xml">
-            <list string="Testimonial Roles" editable="bottom">
-                <field name="name"/>
-            </list>
-        </field>
-    </record>
-    <record id="action_quote_role" model="ir.actions.act_window">
-        <field name="name">Testimonial Roles</field>
-        <field name="res_model">quote.role</field>
-        <field name="view_mode">list</field>
-    </record>
 
-    <!-- ===== Tags ===== -->
+    <!-- ===== Tags (own list: expertise, industry, country, role) ===== -->
     <record id="view_quote_tag_list" model="ir.ui.view">
         <field name="name">quote.tag.list</field>
         <field name="model">quote.tag</field>
@@ -96,12 +83,6 @@
         <field name="view_mode">list</field>
     </record>
 
-    <menuitem id="menu_quote_role"
-              parent="website.menu_website_global_configuration"
-              sequence="80"
-              name="Testimonial Roles"
-              action="action_quote_role"
-              groups="website.group_website_designer"/>
     <menuitem id="menu_quote_tag"
               parent="website.menu_website_global_configuration"
               sequence="81"

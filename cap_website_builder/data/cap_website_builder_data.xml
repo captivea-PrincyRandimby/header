@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Tags stripped from generated content before it is written on the
+             site. Editable so iframes (maps, videos) can be allowed back. -->
+        <record id="param_forbidden_tags" model="ir.config_parameter">
+            <field name="key">cap_website_builder.forbidden_tags</field>
+            <field name="value">script,iframe,object,embed,base,meta,link</field>
+        </record>
+
+        <!-- Starting points: fill in the API key to make one usable. -->
+        <record id="ai_model_mistral_large" model="cap.ai.model">
+            <field name="name">Mistral Large</field>
+            <field name="provider">mistral</field>
+            <field name="model_name">mistral-large-latest</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="ai_model_claude_opus" model="cap.ai.model">
+            <field name="name">Claude Opus 5</field>
+            <field name="provider">anthropic</field>
+            <field name="model_name">claude-opus-5</field>
+            <field name="sequence">10</field>
+            <field name="is_default" eval="True"/>
+        </record>
+
+        <record id="ai_model_claude_sonnet" model="cap.ai.model">
+            <field name="name">Claude Sonnet 5</field>
+            <field name="provider">anthropic</field>
+            <field name="model_name">claude-sonnet-5</field>
+            <field name="sequence">15</field>
+        </record>
+
+        <!-- OpenAI, through the OpenAI-compatible route. GPT-4.1 is their
+             largest context window at ~1M tokens, which is what makes it worth
+             having here: editing a long page in place is bounded by how much
+             markup fits in one call. The reference page limit is set in
+             characters, at roughly 100k tokens - generous, without sending a
+             megabyte of markup and paying for it on every step. -->
+        <!-- GPT-5.1 is a reasoning model: the provider sends
+             max_completion_tokens rather than max_tokens, and a low reasoning
+             effort, because reasoning and the answer share one budget. -->
+        <record id="ai_model_openai_gpt51" model="cap.ai.model">
+            <field name="name">ChatGPT (GPT-5.1)</field>
+            <field name="provider">openai_compatible</field>
+            <field name="model_name">gpt-5.1</field>
+            <field name="base_url">https://api.openai.com/v1</field>
+            <field name="max_context_chars">400000</field>
+            <field name="max_tokens">32000</field>
+            <field name="sequence">25</field>
+        </record>
+
+        <record id="ai_model_openai_gpt41" model="cap.ai.model">
+            <field name="name">ChatGPT (GPT-4.1)</field>
+            <field name="provider">openai_compatible</field>
+            <field name="model_name">gpt-4.1</field>
+            <field name="base_url">https://api.openai.com/v1</field>
+            <field name="max_context_chars">400000</field>
+            <field name="max_tokens">32000</field>
+            <field name="sequence">30</field>
+        </record>
+
+    </data>
+
+    <!-- Translating every published page into every language is a real bill,
+         so this is off until someone turns it on, and each run is bounded. -->
+    <record id="cron_translate_published_pages" model="ir.cron">
+        <field name="name">Website: translate published pages</field>
+        <field name="model_id" ref="model_cap_page_translation"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_translate_published_pages()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active" eval="False"/>
+    </record>
+
+    <!-- Appears in the Actions menu of a website page, in list and form. It
+         translates into every language the database has, unlike the cron,
+         which sticks to the ones configured. -->
+    <record id="action_translate_page_ai" model="ir.actions.server">
+        <field name="name">Translate (all languages)</field>
+        <field name="model_id" ref="website.model_website_page"/>
+        <field name="binding_model_id" ref="website.model_website_page"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = env['cap.page.translation'].action_translate_pages()</field>
+    </record>
+
+</odoo>

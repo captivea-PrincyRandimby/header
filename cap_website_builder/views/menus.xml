@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_cap_website_builder_root"
+              name="AI Page Builder"
+              web_icon="cap_website_builder,static/description/icon.png"
+              sequence="55"/>
+
+    <menuitem id="menu_cap_website_builder_requests"
+              name="Page Requests"
+              parent="menu_cap_website_builder_root"
+              action="cap_website_builder_action"
+              sequence="10"/>
+
+    <menuitem id="menu_cap_seo_chat"
+              name="SEO Insights"
+              parent="menu_cap_website_builder_root"
+              action="cap_seo_chat_action"
+              sequence="20"/>
+
+    <!-- Declared before its children: a menuitem whose parent is defined
+         later in the file fails to load. -->
+    <menuitem id="menu_cap_website_builder_configuration"
+              name="Configuration"
+              parent="menu_cap_website_builder_root"
+              sequence="90"/>
+
+    <menuitem id="menu_cap_settings"
+              name="Settings"
+              parent="menu_cap_website_builder_configuration"
+              action="cap_website_builder_config_action"
+              sequence="5"/>
+
+    <menuitem id="menu_cap_ai_model"
+              name="AI Models"
+              parent="menu_cap_website_builder_configuration"
+              action="cap_ai_model_action"
+              sequence="10"/>
+
+    <!-- The theme's page templates, listed here so each one can carry the
+         instructions for building a page of its kind. -->
+    <menuitem id="menu_cap_design_template"
+              name="Design Templates"
+              parent="menu_cap_website_builder_configuration"
+              action="cap_design_template_action"
+              groups="website.group_website_designer"
+              sequence="20"/>
+
+    <!-- Google and Surfer credentials live in Settings > AI Page Builder,
+         not in a model of their own. -->
+
+    <menuitem id="menu_cap_translation_skip"
+              name="Untranslatable Terms"
+              parent="menu_cap_website_builder_configuration"
+              action="cap_translation_skip_action"
+              groups="website.group_website_designer"
+              sequence="25"/>
+
+    <menuitem id="menu_cap_seo_query"
+              name="SEO Conversations"
+              parent="menu_cap_website_builder_configuration"
+              action="cap_seo_query_action"
+              sequence="30"/>
+
+</odoo>

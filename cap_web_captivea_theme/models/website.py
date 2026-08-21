@@ -6,6 +6,7 @@ TEMPLATE_MENU_ITEMS = [
     ('Home', '/template-home', 910),
     ('Sub-sector (Industry)', '/template-subsector', 930),
     ('Sector hub', '/template-sector', 940),
+    ('Expertise', '/template-expertise', 945),
     ('Team (Business function)', '/template-team', 950),
     ('About', '/template-about', 960),
     ('Country', '/template-country', 970),

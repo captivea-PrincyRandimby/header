@@ -11,11 +11,8 @@ export class TestimonialsOption extends BaseOptionComponent {
         super.setup();
         const p = this.dependencies.testimonialsOption;
         this.dynamicOptionParams = useDynamicSnippetOption(p.getModelNameFilter());
-        this.state = useState({ companies: [], industries: [], roles: [], tags: [] });
+        this.state = useState({ tags: [] });
         onWillStart(async () => {
-            this.state.companies.push(...(await p.fetchCompanies()));
-            this.state.industries.push(...(await p.fetchIndustries()));
-            this.state.roles.push(...(await p.fetchRoles()));
             this.state.tags.push(...(await p.fetchTags()));
         });
     }

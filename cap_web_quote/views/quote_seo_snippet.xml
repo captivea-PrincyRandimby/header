@@ -33,8 +33,8 @@
                                     <div class="s_cap_tcard_who">
                                         <strong t-out="rec.author"/>
                                         <div class="s_cap_tcard_sub">
-                                            <span t-if="rec.role_id" t-out="rec.role_id.name"/>
-                                            <t t-if="rec.role_id and rec.company_name"> · </t>
+                                            <span t-if="rec.role" t-out="rec.role"/>
+                                            <t t-if="rec.role and rec.company_name"> · </t>
                                             <span t-if="rec.company_name" t-out="rec.company_name"/>
                                         </div>
                                     </div>

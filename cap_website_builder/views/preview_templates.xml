@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The draft, rendered on the frontend so the site's theme applies.
+         Same shell as a real page: website.layout plus div#wrap. -->
+    <template id="preview_page" name="AI Draft Preview">
+        <t t-call="website.layout">
+            <!-- One #wrap and nothing beside it, exactly as a real page is
+                 stored: the notice lives inside it, as a block among the
+                 snippets, so the preview DOM and a saved page's DOM are the
+                 same shape and the theme can style neither differently. -->
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="s_text_block pt8 pb8" contenteditable="false">
+                    <div class="alert alert-info rounded-0 mb-0 text-center">
+                        <strong>Draft preview</strong> - this page is not saved
+                        on the website yet. Press Apply in
+                        <t t-esc="record.name"/> to create it.
+                    </div>
+                </section>
+                <t t-out="body"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

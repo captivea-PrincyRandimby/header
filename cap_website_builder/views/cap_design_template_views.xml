@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The theme's page templates, shown here only so their build
+         instructions can be written. This is a filtered view of website.page,
+         not a model of its own: the templates are the theme's records and are
+         edited on the website like any other page. -->
+
+    <record id="cap_design_template_view_list" model="ir.ui.view">
+        <field name="name">cap.design.template.list</field>
+        <field name="model">website.page</field>
+        <!-- Primary views on a model someone else owns. The action names them
+             explicitly, and the high priority keeps Odoo from ever picking one
+             as the default view for website.page somewhere else. -->
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <list string="Design Templates" create="false" delete="false">
+                <field name="name"/>
+                <!-- A link to the page itself, not the text of its address:
+                     the point of this list is to look at a template before
+                     writing instructions for it. `website_path` keeps the
+                     stored path as it is - without it the widget would guess a
+                     protocol and prefix anything not starting with a slash. -->
+                <field name="url" widget="url" options="{'website_path': True}"/>
+                <!-- A template with no instructions leaves that half of the
+                     prompt to the AI model alone, so which ones are set is the
+                     first thing to see. -->
+                <field name="cap_content_prompt" string="Content"
+                       optional="show"/>
+                <field name="cap_builder_prompt" string="Design"
+                       optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="cap_design_template_view_form" model="ir.ui.view">
+        <field name="name">cap.design.template.form</field>
+        <field name="model">website.page</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="Design Template" create="false" delete="false">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <field name="url" widget="url" readonly="1"
+                               options="{'website_path': True}"/>
+                        <field name="website_id" readonly="1"
+                               groups="website.group_multi_website"/>
+                    </group>
+                    <!-- Split the same way as the AI model's two prompts: the
+                         copy is written before any layout exists, the page is
+                         built after. A template author has something to say
+                         about both, but not in one breath. -->
+                    <notebook>
+                        <page string="AI Content Instructions" name="content">
+                            <div class="text-muted mb-2">
+                                What a page of this kind has to <b>say</b>: what
+                                it must cover, in what order, the questions it
+                                answers, what may never be claimed on it. Used
+                                when the copy is written, before any layout
+                                exists — nothing here is about markup.
+                            </div>
+                            <field name="cap_content_prompt" nolabel="1"
+                                   placeholder="What should a page of this kind say?&#10;&#10;e.g. A case study. Lead with the client and the single headline result. Cover the situation before, what was implemented, and the measurable outcome. Never state a figure that is not in the material you are given, and never name a client contact."/>
+                        </page>
+                        <page string="AI Build Instructions" name="design">
+                            <div class="text-muted mb-2">
+                                How a page of this kind should <b>look</b>:
+                                which sections, in what order, what each is for,
+                                what must always or never appear.
+                            </div>
+                            <field name="cap_builder_prompt" nolabel="1"
+                                   placeholder="How should the AI build a page to this template?&#10;&#10;e.g. Hero, then a result strip directly under it, then alternating text/image sections for the story, then a quote block, then a closing call to action. Never put two text-only blocks in a row."/>
+                        </page>
+                    </notebook>
+                    <div class="text-muted">
+                        Both are <b>added to</b> the AI model's prompts whenever
+                        this page is chosen as the design template on a page
+                        request — neither replaces them. Write only what is
+                        particular to a page of this kind: the general rules,
+                        including that the answer must be valid markup and
+                        nothing else, come from the model's prompts and are
+                        always sent. Leave either empty to use the model's alone.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cap_design_template_action" model="ir.actions.act_window">
+        <field name="name">Design Templates</field>
+        <field name="res_model">website.page</field>
+        <field name="view_mode">list,form</field>
+        <!-- Same key prefix as TEMPLATE_DOMAIN on cap.website.builder: the
+             theme's templates and nothing else. -->
+        <field name="domain">['|', ('key', '=like', 'cap_web_captivea_theme.page_%'), ('key', '=like', 'theme_captivea.page_%')]</field>
+        <field name="context">{'create': False}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'list', 'view_id': ref('cap_design_template_view_list')}),
+                      (0, 0, {'view_mode': 'form', 'view_id': ref('cap_design_template_view_form')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No design template found</p>
+            <p>Design templates come from the Captivea theme. Install or upgrade
+               it and they appear here, ready for their build instructions.</p>
+        </field>
+    </record>
+
+</odoo>

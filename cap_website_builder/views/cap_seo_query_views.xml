@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The chat is the way in; these views stay for auditing a conversation. -->
+    <record id="cap_seo_chat_action" model="ir.actions.client">
+        <field name="name">SEO Insights</field>
+        <field name="tag">cap_seo_chat</field>
+    </record>
+
+    <record id="cap_seo_query_view_form" model="ir.ui.view">
+        <field name="name">cap.seo.query.form</field>
+        <field name="model">cap.seo.query</field>
+        <field name="arch" type="xml">
+            <form string="SEO Conversation">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="ai_model_id"
+                                   options="{'no_create_edit': True}"/>
+                        </group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="last_activity"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Messages" name="messages">
+                            <field name="message_ids" nolabel="1" readonly="1">
+                                <list string="Messages">
+                                    <field name="create_date" string="Time"/>
+                                    <field name="role"/>
+                                    <field name="body" widget="html"/>
+                                    <field name="source" optional="show"/>
+                                    <field name="row_count" optional="show"/>
+                                </list>
+                                <form string="Message">
+                                    <group>
+                                        <field name="role" readonly="1"/>
+                                        <field name="source" readonly="1"/>
+                                        <field name="row_count" readonly="1"/>
+                                    </group>
+                                    <field name="body" widget="html" readonly="1"/>
+                                    <group string="Technical">
+                                        <field name="plan_json" widget="text" readonly="1"/>
+                                        <field name="result_json" widget="text" readonly="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cap_seo_query_view_list" model="ir.ui.view">
+        <field name="name">cap.seo.query.list</field>
+        <field name="model">cap.seo.query</field>
+        <field name="arch" type="xml">
+            <list string="SEO Conversations">
+                <field name="name"/>
+                <field name="message_count"/>
+                <field name="last_activity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="cap_seo_query_action" model="ir.actions.act_window">
+        <field name="name">Conversations</field>
+        <field name="res_model">cap.seo.query</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

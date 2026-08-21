@@ -1,0 +1,128 @@
+<t t-name="website.executive-team">
+  <t t-call="website.layout">
+    <t t-set="pageName" t-value="'executive-team'"/>
+    <div id="wrap" class="oe_structure oe_empty">
+
+
+      <section id="executive-team" data-anchor="true" class="s_text_block cap-hero cap-roster-hero o_colored_level o_cc o_cc1 pt96 pb32" data-snippet="s_text_block" data-name="Captivea Page header">
+        <div class="cap-hero-deco"></div>
+        <div class="s_allow_columns container">
+          <div class="row">
+            <div class="o_colored_level offset-lg-1 col-lg-7">
+              <p class="lead">About Captivea</p>
+              <h1>Our Executive Team</h1>
+              <p class="lead">The people who lead Captivea across Europe, North America and Asia: founders, country CEOs and department directors who carry our Odoo practice every day.</p>
+              <p><a href="#form" class="btn btn-primary o_translate_inline">Let's speak about your project</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="s_company_team o_colored_level o_cc o_cc1 pt16 pb96" data-snippet="s_company_team" data-name="Captivea Leadership">
+        <div class="container">
+          <div class="cap-roster">
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/673213-e220a9e2/Sebastien-Riss.webp" alt="Sebastien Riss, Founder and President of Captivea" class="o_editable_media img o_we_custom_image" data-mimetype="image/webp" data-original-id="673212" data-original-src="/web/image/673212-e0713142/Sebastien-Riss.png" data-mimetype-before-conversion="image/png" data-resize-width="NaN" data-quality="100" loading="lazy"/>
+              </figure>
+              <h2 class="cap-person-name">Sebastien RISS</h2>
+              <h3 class="cap-person-role">Founder and President</h3>
+              <p class="cap-tags">#Confident #Dynamic #ServiceOriented #Visionary #Fair</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/673218-3a4872ab/C%C3%B4me-Moyne.webp" alt="Côme Moyne, VP of Operations Europe at Captivea" class="o_editable_media img o_we_custom_image" data-mimetype="image/webp" data-original-id="673217" data-original-src="/web/image/673217-43b3834e/C%C3%B4me-Moyne.png" data-mimetype-before-conversion="image/png" data-resize-width="NaN" data-quality="100" loading="lazy"/>
+              </figure>
+              <h2 class="cap-person-name">Côme Moyne</h2>
+              <h3 class="cap-person-role">VP Of Operations Europe</h3>
+              <h3 class="cap-person-role cap-person-role-2">VP of Method and Knowledge</h3>
+              <p class="cap-tags">#TechnicalChampion #ERPExpert #ArchitectureGuru #ProcessBuilder</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/412242-fc6d6e0a/Desi%20Scorba.jpg" alt="Desi Csorba, CEO USA at Captivea" class="o_editable_media" loading="lazy" data-original-id="253171" data-original-src="/web/image/253171-fef376d4/Desi%20Scorba.jpg" data-mimetype="image/jpeg" data-resize-width="256"/>
+              </figure>
+              <h2 class="cap-person-name">Desi Csorba</h2>
+              <h3 class="cap-person-role">CEO USA</h3>
+              <p class="cap-tags">#CustomerExperienceChampion #Business_strategy #Process_improvement #AlwaysAvailable</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/412244-d7febf0c/francois-coudreau-squared.jpg" alt="François Coudreau, Director of Marketing and Web Agency at Captivea" class="img o_we_custom_image o_editable_media" data-original-id="354815" data-original-src="/web/image/354815-4551cfac/francois-coudreau-squared.jpg" data-mimetype="image/jpeg" data-resize-width="690" loading="lazy"/>
+              </figure>
+              <h2 class="cap-person-name">François Coudreau</h2>
+              <h3 class="cap-person-role">Director of Marketing and Web Agency department</h3>
+              <p class="cap-tags">#StrongTagBeliever #MakeItBeautiful #LearningNerverEnds #ButWhoIsYourTarget?</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/673391-e34f1470/Nimesh-Contractor.webp" alt="Nimesh Contractor, CEO India at Captivea" class="o_editable_media img o_we_custom_image o_we_image_cropped" data-mimetype="image/webp" data-original-id="673389" data-original-src="/web/image/673389-00071cf7/Nimesh-Contractor.png" data-mimetype-before-conversion="image/png" data-resize-width="NaN" loading="lazy" data-quality="100"/>
+              </figure>
+              <h2 class="cap-person-name">Nimesh Contractor</h2>
+              <h3 class="cap-person-role">CEO India</h3>
+              <p class="cap-tags">#CustomerService #ProcessLover #Architect #Reactive</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/266723-0f8229c2/Photo%20de%20profil%20Maxime.jpg" alt="Maxime Grieshaber, CEO Luxembourg at Captivea" class="o_editable_media" loading="lazy" data-original-id="266721" data-original-src="/web/image/266721-aa4c705a/Photo%20de%20profil%20Maxime.jpg" data-mimetype="image/jpeg" data-quality="76" data-x="191.60330578512406" data-y="225.86280991735563" data-width="1269.4214876033056" data-height="1269.4214876033056" data-scale-x="1" data-scale-y="1" data-aspect-ratio="1/1" data-resize-width="256"/>
+              </figure>
+              <h2 class="cap-person-name">Maxime Grieshaber</h2>
+              <h3 class="cap-person-role">CEO Luxembourg</h3>
+              <p class="cap-tags">#CustomerFirst #CustomerSatisfaction #Business #Reactive</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/340439-13bac6d6/1517535950323.jpg" alt="Khalid Hazam, CEO Canada at Captivea" class="o_editable_media" loading="lazy" data-original-id="340438" data-original-src="/web/image/340438-d3f711db/1517535950323.jpg" data-mimetype="image/jpeg" data-resize-width="243"/>
+              </figure>
+              <h2 class="cap-person-name">Khalid Hazam</h2>
+              <h3 class="cap-person-role">CEO Canada</h3>
+              <p class="cap-tags">#OdooLover #QualityChampion #CustomerFirst&#160;#MappleSirupDrinker</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/673230-560c108f/Rapha%C3%ABl-Moles.webp" alt="Raphaël Moles, Lead Generation Director at Captivea" class="img o_we_custom_image o_editable_media" data-mimetype="image/webp" data-original-id="673229" data-original-src="/web/image/673229-55c52b1e/Rapha%C3%ABl-Moles.png" data-mimetype-before-conversion="image/png" data-resize-width="NaN" loading="lazy"/>
+              </figure>
+              <h2 class="cap-person-name">Raphaël MOLEs</h2>
+              <h3 class="cap-person-role">Lead Generation Director</h3>
+              <p class="cap-tags">#ColdCalling #Automation #AI #PutEmojiEverywhere</p>
+            </div>
+
+            <div class="cap-roster-item cap-reveal o_colored_level" data-name="Card">
+              <figure class="cap-portrait o_not_editable">
+                <img src="/web/image/328568-3405f2cb/1528106205051.jpg" alt="Lise Chaboche, Director of HR at Captivea" class="o_editable_media" loading="lazy" data-original-id="328566" data-original-src="/web/image/328566-0fd4d530/1528106205051.jpg" data-mimetype="image/jpeg" data-resize-width="200"/>
+              </figure>
+              <h2 class="cap-person-name">Lise Chaboche</h2>
+              <h3 class="cap-person-role">Director of HR</h3>
+              <p class="cap-tags">#HRChampion #HiringAllTheTime #AlwaysPositive #CarreerJourneyBuilder</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section id="form" class="s_call_to_action s_cap_cta o_cc o_cc3 o_colored_level pt64 pb64" data-snippet="s_cap_cta" data-name="Captivea CTA">
+        <div class="container">
+          <div class="row">
+            <div class="o_colored_level col-lg-8 offset-lg-2 text-center">
+              <p class="lead">Let's talk</p>
+              <h2>Ready to start your Odoo project?</h2>
+              <p>Tell us where you are and one of the people above will point you to the right team.</p>
+              <p><a href="/contactus" class="btn btn-primary o_translate_inline">Contact us</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </t>
+</t>

@@ -21,7 +21,8 @@ const DURATION = 450;
  * 3 cards visible on desktop/tablet, 1 on phone. If there are as few cards as
  * fit on screen, they are simply centered (no arrows, no autoplay).
  *
- * Editor filters still drive the search domain (company/industry/role/tags).
+ * One editor filter drives the search domain: the testimonial's own tags
+ * (quote.tag) — expertise, industry, country, role.
  */
 export class Testimonials extends DynamicSnippet {
     static selector = ".s_captivea_testimonials";
@@ -34,18 +35,6 @@ export class Testimonials extends DynamicSnippet {
     getSearchDomain() {
         const domain = super.getSearchDomain(...arguments);
         const ds = this.el.dataset;
-        const companyId = parseInt(ds.filterByCompanyId);
-        if (companyId > 0) {
-            domain.push(["company_id", "=", companyId]);
-        }
-        const industryId = parseInt(ds.filterByIndustryId);
-        if (industryId > 0) {
-            domain.push(["partner_id.industry_id", "=", industryId]);
-        }
-        const roleId = parseInt(ds.filterByRoleId);
-        if (roleId > 0) {
-            domain.push(["role_id", "=", roleId]);
-        }
         const tagIds = (ds.filterByTagIds || "")
             .split(",")
             .map((v) => parseInt(v))

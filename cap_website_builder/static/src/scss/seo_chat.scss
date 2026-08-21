@@ -1,0 +1,252 @@
+// Colours are set explicitly rather than inherited: this backend runs a custom
+// theme whose muted/body tokens render close to white, which made most of the
+// chat unreadable.
+.cap_seo_chat {
+    --cap-text: #1f2329;
+    --cap-muted: #5f6b7a;
+    --cap-border: #dcdfe4;
+    --cap-surface: #ffffff;
+    --cap-surface-alt: #f6f7f9;
+    --cap-user-bubble: #e8eef7;
+    --cap-code-bg: #f2f3f5;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--cap-surface);
+    color: var(--cap-text);
+    font-size: 14px;
+
+    // Reassert on descendants: theme rules target bare tags and would
+    // otherwise win over the container.
+    h1, h2, h3, h4, h5, h6, p, li, td, th, label, span, strong, div {
+        color: inherit;
+    }
+
+    .cap-muted {
+        color: var(--cap-muted);
+    }
+
+    // ---------------------------------------------------------------- sidebar
+    .cap_seo_chat_sidebar {
+        width: 260px;
+        flex: 0 0 260px;
+        min-width: 0;
+        border-right: 1px solid var(--cap-border);
+        background: var(--cap-surface-alt);
+    }
+
+    .cap_seo_chat_item {
+        cursor: pointer;
+        line-height: 1.3;
+        color: var(--cap-text);
+
+        &:hover {
+            background: rgba(0, 0, 0, .06);
+        }
+
+        &.is-active {
+            background: rgba(0, 0, 0, .09);
+            font-weight: 600;
+        }
+
+        small {
+            color: var(--cap-muted);
+        }
+    }
+
+    // ----------------------------------------------------------------- header
+    .cap_seo_chat_main {
+        min-width: 0; // let the header shrink instead of overflowing the panel
+    }
+
+    .cap_seo_chat_header {
+        border-bottom: 1px solid var(--cap-border);
+        background: var(--cap-surface);
+        gap: .5rem;
+        min-height: 3rem;
+
+        strong {
+            font-size: 1rem;
+            color: var(--cap-text);
+            min-width: 0;
+        }
+    }
+
+    .cap_seo_chat_settings {
+        border-bottom: 1px solid var(--cap-border);
+        background: var(--cap-surface-alt);
+
+        label > span {
+            color: var(--cap-muted);
+            white-space: nowrap;
+        }
+
+        .form-select,
+        .form-control {
+            color: var(--cap-text);
+            background-color: var(--cap-surface);
+            border-color: var(--cap-border);
+            min-width: 9rem;
+        }
+
+        // The open dropdown list is painted by the theme, not by the select's
+        // own colours - each option has to be set explicitly.
+        option {
+            color: var(--cap-text);
+            background-color: var(--cap-surface);
+        }
+
+        .cap_seo_date {
+            min-width: 10rem;
+            cursor: pointer;
+
+            // The theme hides the calendar affordance; put it back so the
+            // field looks clickable.
+            &::-webkit-calendar-picker-indicator {
+                opacity: 1;
+                cursor: pointer;
+                filter: none;
+            }
+        }
+    }
+
+    // ----------------------------------------------------------------- thread
+    .cap_seo_chat_inner {
+        max-width: 48rem;
+    }
+
+    .cap_seo_chat_empty {
+        h4 {
+            color: var(--cap-text);
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--cap-muted);
+        }
+    }
+
+    .cap_seo_msg_user {
+        background: var(--cap-user-bubble);
+        color: var(--cap-text);
+        max-width: 80%;
+        white-space: pre-wrap;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .cap_seo_msg_assistant {
+        line-height: 1.65;
+        color: var(--cap-text);
+
+        table {
+            width: 100%;
+            margin: .75rem 0;
+            font-size: .9em;
+            border-collapse: collapse;
+
+            th, td {
+                border: 1px solid var(--cap-border);
+                padding: .3rem .5rem;
+            }
+
+            th {
+                background: var(--cap-surface-alt);
+            }
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Not Bootstrap's .alert: this theme paints alert-warning almost black,
+    // which hid the error text completely.
+    .cap_seo_msg_error {
+        background: #fdf3e3;
+        border: 1px solid #e6c98a;
+        border-left: 3px solid #c88a2e;
+        color: #6b4a12;
+        white-space: pre-wrap;
+        word-break: break-word;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .cap_seo_msg_error_label {
+        font-weight: 600;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        margin-bottom: .15rem;
+        color: #a06a1c;
+    }
+
+    .cap_seo_chat_meta {
+        color: var(--cap-muted);
+        font-size: .8rem;
+
+        .btn-link {
+            color: var(--cap-muted);
+            text-decoration: underline;
+        }
+    }
+
+    .cap_seo_chat_plan {
+        background: var(--cap-code-bg);
+        color: var(--cap-text);
+        white-space: pre-wrap;
+        max-height: 20rem;
+        overflow: auto;
+    }
+
+    // --------------------------------------------------------------- composer
+    .cap_seo_chat_composer {
+        border-top: 1px solid var(--cap-border);
+        background: var(--cap-surface);
+
+        textarea {
+            resize: none;
+            max-height: 200px;
+            color: var(--cap-text);
+            background-color: var(--cap-surface);
+            border-color: var(--cap-border);
+
+            &::placeholder {
+                color: var(--cap-muted);
+                opacity: 1;
+            }
+        }
+
+        .cap_seo_chat_hint {
+            color: var(--cap-muted);
+            font-size: .75rem;
+        }
+    }
+
+    // ------------------------------------------------------------- "thinking"
+    .cap_seo_dot {
+        display: inline-block;
+        width: .4rem;
+        height: .4rem;
+        margin-right: .2rem;
+        border-radius: 50%;
+        background: var(--cap-muted);
+        animation: cap_seo_blink 1.2s infinite ease-in-out;
+
+        &:nth-child(2) { animation-delay: .2s; }
+        &:nth-child(3) { animation-delay: .4s; }
+    }
+}
+
+@keyframes cap_seo_blink {
+    0%, 80%, 100% { opacity: .25; }
+    40% { opacity: 1; }
+}

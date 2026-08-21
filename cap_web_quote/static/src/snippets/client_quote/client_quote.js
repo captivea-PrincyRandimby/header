@@ -28,7 +28,7 @@ export class ClientQuote extends Interaction {
             this.services.orm.read(
                 "quote.testimonial",
                 [this.recId],
-                ["quote", "author", "role_id", "company_name"]
+                ["quote", "author", "role", "company_name"]
             )
         );
         this.rec = recs && recs[0];
@@ -39,7 +39,7 @@ export class ClientQuote extends Interaction {
             return;
         }
         const r = this.rec;
-        const role = r.role_id ? r.role_id[1] : "";
+        const role = r.role || "";
         let footer = esc(r.author);
         if (role) {
             footer += ", " + esc(role);

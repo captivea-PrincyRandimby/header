@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cap_ai_model_view_form" model="ir.ui.view">
+        <field name="name">cap.ai.model.form</field>
+        <field name="model">cap.ai.model</field>
+        <field name="arch" type="xml">
+            <form string="AI Model">
+                <!-- In the header rather than on a tab of its own: it acts on
+                     both prompts, so it does not belong beside either one, and
+                     an upgrade never touches a record that already exists -
+                     this is how a model added before a prompt was improved
+                     picks the new one up. -->
+                <header>
+                    <button name="action_reset_system_prompt" type="object"
+                            string="Reset Prompts to Default"
+                            confirm="This replaces the Content &amp; SEO prompt and the Page Generation prompt with the module's current defaults. Continue?"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_requests" type="object"
+                                class="oe_stat_button" icon="fa-magic">
+                            <field name="request_count" widget="statinfo" string="Requests"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Mistral Large"/></h1>
+                    </div>
+                    <group>
+                        <group string="Connection">
+                            <field name="provider"/>
+                            <field name="model_name" placeholder="mistral-large-latest"/>
+                            <field name="api_key" password="True" groups="base.group_system"/>
+                            <field name="base_url"
+                                   placeholder="http://localhost:11434/v1"
+                                   invisible="provider != 'openai_compatible'"
+                                   required="provider == 'openai_compatible'"/>
+                        </group>
+                        <group string="Limits">
+                            <field name="max_tokens"/>
+                            <field name="timeout"/>
+                            <field name="max_context_chars"/>
+                            <field name="is_default"/>
+                            <field name="sequence" groups="base.group_no_one"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <!-- Two prompts because the pipeline asks for two
+                             different things: the words first, the markup
+                             after. Both apply to every page built with this
+                             model; a design template adds to each of them. -->
+                        <page string="Content &amp; SEO" name="content_prompt">
+                            <div class="text-muted mb-2">
+                                Sent when the <b>copy</b> is written, before the
+                                page has any layout — so this is about voice,
+                                substance and search, not markup. A design
+                                template's own content instructions are added
+                                after it rather than replacing it.
+                            </div>
+                            <field name="content_prompt" nolabel="1"
+                                   placeholder="How this company writes, and what makes a page worth ranking."/>
+                        </page>
+                        <page string="Page Generation" name="system_prompt">
+                            <div class="text-muted mb-2">
+                                Sent when the copy is turned into a <b>page</b>.
+                                Style, layout and the markup rules an Odoo view
+                                has to satisfy. A design template's own build
+                                instructions are added after it rather than
+                                replacing it.
+                            </div>
+                            <field name="system_prompt" nolabel="1"
+                                   placeholder="How a page should look: sections, classes, markup rules."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cap_ai_model_view_list" model="ir.ui.view">
+        <field name="name">cap.ai.model.list</field>
+        <field name="model">cap.ai.model</field>
+        <field name="arch" type="xml">
+            <list string="AI Models">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="provider"/>
+                <field name="model_name"/>
+                <field name="is_default" widget="boolean_toggle"/>
+                <field name="request_count" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="cap_ai_model_action" model="ir.actions.act_window">
+        <field name="name">AI Models</field>
+        <field name="res_model">cap.ai.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Add an AI model</p>
+            <p>Store the provider, model identifier and API key used to generate
+               website pages. Mark one as default.</p>
+        </field>
+    </record>
+
+</odoo>

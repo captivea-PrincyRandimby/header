@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="cap_website_builder.SeoChat">
+        <div class="cap_seo_chat d-flex">
+
+            <!-- Conversations -->
+            <aside class="cap_seo_chat_sidebar d-flex flex-column">
+                <button class="btn btn-primary m-3" t-on-click="() => this.startNewChat()">
+                    <i class="fa fa-plus me-1"/> New chat
+                </button>
+                <div class="cap_seo_chat_list flex-grow-1 overflow-auto px-2 pb-3">
+                    <t t-foreach="state.conversations" t-as="conversation" t-key="conversation.id">
+                        <div class="cap_seo_chat_item p-2 mb-1 rounded"
+                             t-att-class="{ 'is-active': state.current and state.current.id === conversation.id }"
+                             t-on-click="() => this.openConversation(conversation.id)">
+                            <div class="text-truncate" t-esc="conversation.name"/>
+                            <small t-esc="conversation.message_count + ' messages'"/>
+                        </div>
+                    </t>
+                    <div t-if="!state.conversations.length" class="cap-muted small p-2">
+                        No conversations yet.
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Thread -->
+            <main class="cap_seo_chat_main d-flex flex-column flex-grow-1">
+
+                <header class="cap_seo_chat_header d-flex align-items-center px-3 py-2">
+                    <strong class="text-truncate"
+                            t-esc="state.current ? state.current.name : 'New chat'"/>
+                </header>
+
+                <div class="cap_seo_chat_settings px-3 py-2 d-flex flex-wrap gap-3">
+                    <label class="d-flex align-items-center gap-2 mb-0">
+                        <span>AI model</span>
+                        <select class="form-select form-select-sm"
+                                t-on-change="(ev) => this.updateSetting('ai_model_id', ev.target.value)">
+                            <t t-foreach="state.models" t-as="model" t-key="model.id">
+                                <option t-att-value="model.id"
+                                        t-att-selected="settings.ai_model_id === model.id"
+                                        t-esc="model.name"/>
+                            </t>
+                        </select>
+                    </label>
+                    <label t-if="config.showDates" class="d-flex align-items-center gap-2 mb-0">
+                        <span>From</span>
+                        <input type="date" class="form-control form-control-sm cap_seo_date"
+                               t-att-value="settings.date_from"
+                               t-on-click="openPicker"
+                               t-on-change="(ev) => this.updateSetting('date_from', ev.target.value)"/>
+                    </label>
+                    <label t-if="config.showDates" class="d-flex align-items-center gap-2 mb-0">
+                        <span>To</span>
+                        <input type="date" class="form-control form-control-sm cap_seo_date"
+                               t-att-value="settings.date_to"
+                               t-on-click="openPicker"
+                               t-on-change="(ev) => this.updateSetting('date_to', ev.target.value)"/>
+                    </label>
+                </div>
+
+                <div class="cap_seo_chat_thread flex-grow-1 overflow-auto" t-ref="thread">
+                    <div class="cap_seo_chat_inner mx-auto px-3 py-4">
+
+                        <div t-if="!state.messages.length"
+                             class="cap_seo_chat_empty text-center py-5">
+                            <h4 t-esc="config.emptyTitle"/>
+                            <p class="mb-0" t-esc="config.emptyHint"/>
+                        </div>
+
+                        <t t-foreach="state.messages" t-as="message" t-key="message.id">
+                            <div t-if="message.role === 'user'" class="d-flex justify-content-end mb-3">
+                                <div class="cap_seo_msg_user px-3 py-2 rounded-3"
+                                     t-out="body(message)"/>
+                            </div>
+
+                            <div t-elif="message.role === 'assistant'" class="cap_seo_msg_assistant mb-4">
+                                <div t-out="body(message)"/>
+                                <div t-if="message.pending" class="cap_seo_chat_meta mt-1">
+                                    <span class="cap_seo_dot"/><span class="cap_seo_dot"/><span class="cap_seo_dot"/>
+                                    <span class="ms-2">still running on Surfer's side</span>
+                                </div>
+                                <div class="cap_seo_chat_meta d-flex align-items-center gap-2 mt-2">
+                                    <span t-if="message.source">
+                                        <t t-esc="message.source"/> · <t t-esc="message.row_count"/> rows
+                                    </span>
+                                    <button t-if="message.plan_json"
+                                            class="btn btn-sm btn-link p-0"
+                                            t-on-click="() => this.toggleQuery(message)">
+                                        <t t-esc="message.showQuery ? 'hide query' : 'show query'"/>
+                                    </button>
+                                </div>
+                                <pre t-if="message.showQuery"
+                                     class="cap_seo_chat_plan mt-2 p-2 rounded small"
+                                     t-esc="message.plan_json"/>
+                            </div>
+
+                            <div t-else="" class="cap_seo_msg_error px-3 py-2 mb-3 rounded">
+                                <div class="cap_seo_msg_error_label">Could not answer</div>
+                                <div t-out="body(message)"/>
+                            </div>
+                        </t>
+
+                        <div t-if="state.pending" class="cap_seo_msg_assistant mb-4">
+                            <span class="cap_seo_dot"/><span class="cap_seo_dot"/><span class="cap_seo_dot"/>
+                            <span class="cap-muted ms-2 small" t-esc="config.pendingLabel"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cap_seo_chat_composer">
+                    <div class="cap_seo_chat_inner mx-auto px-3 py-3">
+                        <div class="d-flex align-items-end gap-2">
+                            <textarea class="form-control" rows="1" t-ref="composer"
+                                      t-att-placeholder="placeholder"
+                                      t-att-disabled="state.pending"
+                                      t-att-value="state.draft"
+                                      t-on-input="onInput"
+                                      t-on-keydown="onKeydown"/>
+                            <button class="btn btn-primary flex-shrink-0"
+                                    t-att-disabled="state.pending or !state.draft.trim()"
+                                    t-on-click="() => this.sendMessage()">
+                                <i class="fa fa-arrow-up"/>
+                            </button>
+                        </div>
+                        <div class="cap_seo_chat_hint mt-1">
+                            Enter sends · Shift+Enter for a new line
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </t>
+
+</templates>

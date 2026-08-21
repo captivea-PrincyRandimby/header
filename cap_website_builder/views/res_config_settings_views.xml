@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit.cap.website.builder</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="AI Page Builder" string="AI Page Builder"
+                     name="cap_website_builder">
+
+                    <block title="Google" name="cap_google_block">
+                        <setting id="cap_google_setting"
+                                 string="Connect Google Search Console and Analytics"
+                                 help="Answer SEO questions from your own Search Console and GA4 data."
+                                 groups="base.group_system">
+                            <field name="cap_google_enabled"/>
+                            <div invisible="not cap_google_enabled">
+                                <div class="content-group mt16">
+                                    <label for="cap_google_service_account_json"
+                                           class="o_light_label"/>
+                                    <field name="cap_google_service_account_json"
+                                           nolabel="1" class="w-100"
+                                           placeholder="Paste the full service account JSON key here"/>
+                                </div>
+                                <div class="content-group mt16"
+                                     invisible="not cap_google_service_account_email">
+                                    <label for="cap_google_service_account_email"
+                                           class="o_light_label mr8"/>
+                                    <field name="cap_google_service_account_email"
+                                           readonly="1"/>
+                                </div>
+                                <div class="content-group mt16">
+                                    <label for="cap_gsc_site_url"
+                                           class="o_light_label mr8"/>
+                                    <field name="cap_gsc_site_url"
+                                           placeholder="sc-domain:example.com"/>
+                                </div>
+                                <div class="content-group mt16">
+                                    <label for="cap_ga4_property_id"
+                                           class="o_light_label mr8"/>
+                                    <field name="cap_ga4_property_id"
+                                           placeholder="properties/123456789"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+
+                    <block title="Content Analysis" name="cap_analysis_block">
+                        <setting id="cap_surfer_setting"
+                                 string="Connect Surfer SEO"
+                                 help="What a page on a keyword has to cover. Read by the page builder when Use Surfer SEO is ticked on a request."
+                                 groups="base.group_system">
+                            <field name="cap_surfer_enabled"/>
+                            <div invisible="not cap_surfer_enabled">
+                                <div class="content-group mt16">
+                                    <label for="cap_surfer_api_key"
+                                           class="o_light_label mr8"/>
+                                    <field name="cap_surfer_api_key" password="True"/>
+                                </div>
+                                <div class="content-group mt16">
+                                    <label for="cap_surfer_workspace_id"
+                                           class="o_light_label mr8"/>
+                                    <field name="cap_surfer_workspace_id"
+                                           placeholder="First workspace"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+
+                    <!-- No language list here on purpose: the targets are the
+                         languages active in the database that the website
+                         publishes, read when the run happens. -->
+                    <block title="Translation" id="cap_translation_block">
+                        <setting id="cap_translate_setting"
+                                 string="Translate published pages automatically"
+                                 help="Hourly, into every active language the website publishes, except its own. Uses Odoo's own translation service, the same one as the editor's Translate button. Manage the languages in Settings > Translations > Languages."
+                                 groups="base.group_system">
+                            <field name="cap_translate_published_pages"/>
+                            <div class="content-group mt16"
+                                 invisible="not cap_translate_published_pages">
+                                <label for="cap_translate_pages_per_run"
+                                       class="o_light_label mr8"/>
+                                <field name="cap_translate_pages_per_run"
+                                       class="oe_inline"/>
+                            </div>
+                        </setting>
+                    </block>
+
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Opens the Settings page already scrolled to this module's block, so
+         the keys are reachable from the app rather than only from Settings. -->
+    <record id="cap_website_builder_config_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'module': 'cap_website_builder', 'bin_size': False}</field>
+    </record>
+
+</odoo>
